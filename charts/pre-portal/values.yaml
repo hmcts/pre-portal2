@@ -1,0 +1,11 @@
+nodejs:
+  applicationPort: 4550
+  aadIdentityName: pre
+  ingressHost: pre-portal.{{ .Values.global.environment }}.platform.hmcts.net
+  image: 'sdshmctspublic.azurecr.io/pre/portal:latest'
+  #  Uncomment once the vault containing the app insights key has been set up
+  #  keyVaults:
+  #    pre:
+  #      secrets:
+  #        - AppInsightsInstrumentationKey
+  environment:
