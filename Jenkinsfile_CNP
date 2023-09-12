@@ -10,9 +10,8 @@ def yarnBuilder = new uk.gov.hmcts.contino.YarnBuilder(this)
 
 withPipeline(type, product, component) {
   def expressDir = 'express'
-
-  afterSuccess('build') {
-    dir(expressDir) {
+  dir(expressDir) {
+    afterSuccess('build') {
       yarnBuilder.yarn('rebuild puppeteer')
       yarnBuilder.yarn('build')
     }
