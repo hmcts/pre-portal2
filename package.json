@@ -5,7 +5,7 @@
   "description": "Root directory for Express and Angular projects",
   "scripts": {
     "start": "yarn express:start",
-    "build": "yarn angular:build && cd .. && yarn express:build",
+    "build": "yarn express:build",
     "test": "yarn angular:test-ci && cd .. && yarn express:test",
     "test:coverage": "yarn express:coverage",
     "test:unit": "yarn express:unit",
