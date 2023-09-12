@@ -5,15 +5,15 @@
   "description": "Root directory for Express and Angular projects",
   "scripts": {
     "start": "yarn express:start",
-    "build": "yarn express:build",
-    "test": "yarn express:test",
+    "build": "yarn angular:build && cd .. && yarn express:build",
+    "test": "yarn angular:test-ci && cd .. && yarn express:test",
     "test:coverage": "yarn express:coverage",
     "test:unit": "yarn express:unit",
     "test:routes": "yarn express:routes",
     "test:a11y": "yarn express:a11y",
     "test:smoke": "yarn express:smoke",
     "test:functional": "yarn express:functional",
-    "lint": "yarn express:lint",
+    "lint": "yarn angular:lint && cd .. && yarn express:lint",
     "express:start": "cd express && yarn start",
     "express:dev": "cd express && yarn dev",
     "express:lint": "cd express && yarn lint",
@@ -26,7 +26,12 @@
     "express:smoke": "cd express && yarn test:smoke",
     "express:functional": "cd express && yarn test:functional",
     "express:cichecks": "cd express && yarn cichecks",
-    "express:prepare": "cd express && yarn prepare"
+    "express:prepare": "cd express && yarn prepare",
+    "angular:start": "cd angular && yarn start",
+    "angular:build": "cd angular && yarn build",
+    "angular:test-ci": "cd angular && yarn test-ci",
+    "angular:lint": "cd angular && yarn lint"
+
   },
   "packageManager": "yarn@3.6.3"
 }
