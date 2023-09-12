@@ -16,7 +16,7 @@
     "express:test": "cd express && yarn test",
     "express:coverage": "cd express && yarn test:coverage",
     "express:cichecks": "cd express && yarn cichecks",
-    "express:prepare": "cd express && yarn prepare",
+    "express:prepare": "cd express && yarn prepare"
   },
   "packageManager": "yarn@3.6.3"
 }
