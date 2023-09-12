@@ -13,7 +13,7 @@
     "test:a11y": "yarn express:a11y",
     "test:smoke": "yarn express:smoke",
     "test:functional": "yarn express:functional",
-    "lint": "yarn angular:lint && cd .. && yarn express:lint",
+    "lint": "yarn express:lint",
     "express:start": "cd express && yarn start",
     "express:dev": "cd express && yarn dev",
     "express:lint": "cd express && yarn lint",
@@ -29,9 +29,7 @@
     "express:prepare": "cd express && yarn prepare",
     "angular:start": "cd angular && yarn start",
     "angular:build": "cd angular && yarn build",
-    "angular:test-ci": "cd angular && yarn test-ci",
-    "angular:lint": "cd angular && yarn lint"
-
+    "angular:test-ci": "cd angular && yarn test-ci"
   },
   "packageManager": "yarn@3.6.3"
 }
