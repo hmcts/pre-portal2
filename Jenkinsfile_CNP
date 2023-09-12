@@ -13,6 +13,10 @@ withPipeline(type, product, component) {
     sh 'cd angular && yarn install && yarn lint && yarn build && cd ../express && yarn install'
   }
 
+  before('test') {
+    sh 'cd angular && yarn test-ci'
+  }
+
   afterSuccess('build') {
     yarnBuilder.yarn('rebuild puppeteer')
     yarnBuilder.yarn('build')
