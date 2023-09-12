@@ -1,0 +1,19 @@
+{
+  "name": "pre-portal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Root directory for Express and Angular projects",
+  "scripts": {
+    "start": "yarn express:start",
+    "build": "yarn express:build",
+    "test": "yarn express:test",
+    "express:start": "cd express && yarn start",
+    "express:dev": "cd express && yarn dev",
+    "express:lint": "cd express && yarn lint",
+    "express:build": "cd express && yarn build",
+    "express:test": "cd express && yarn test",
+    "express:cichecks": "cd express && yarn cichecks",
+    "express:prepare": "cd express && yarn prepare"
+  },
+  "packageManager": "yarn@3.6.3"
+}
