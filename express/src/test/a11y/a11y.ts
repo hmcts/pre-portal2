@@ -50,6 +50,8 @@ async function ensurePageCallWillSucceed(url: string): Promise<void> {
 function runPally(url: string): Promise<Pa11yResult> {
   return pa11y(url, {
     hideElements: '.govuk-footer__licence-logo, .govuk-header__logotype-crown',
+    // Ignoring NoSuchID due to how Angular app links between pages: Links say they are linking to '/browse' when they actually link to '/#/browse' which is not listed as a route.
+    ignore: ['WCAG2AA.Principle2.Guideline2_4.2_4_1.G1,G123,G124.NoSuchID'],
   });
 }
 
@@ -75,7 +77,16 @@ function testAccessibility(url: string): void {
 
 describe('Accessibility', () => {
   // testing accessibility of the home page
-  testAccessibility('/');
+  testAccessibility('/#');
+  testAccessibility('/#/forgot-password');
+  testAccessibility('/#/terms-and-conditions');
+  testAccessibility('/#/accessibility-statement');
+  testAccessibility('/#/two-factor-auth');
+  testAccessibility('/#/enter-invitation');
+  testAccessibility('/#/register');
+  testAccessibility('/#/register/terms-and-conditions');
+  testAccessibility('/#/browse');
+  testAccessibility('/#/not-found');
 
   // TODO: include each path of your application in accessibility checks
 });
