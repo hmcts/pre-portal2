@@ -5,7 +5,7 @@ USER root
 RUN corepack enable
 USER hmcts
 
-COPY --chown=hmcts:hmcts .. .
+COPY --chown=hmcts:hmcts . .
 
 # ---- Build image ----
 FROM base as build
