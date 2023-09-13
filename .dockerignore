@@ -1,0 +1,30 @@
+# exclude all by default
+
+bin
+
+# exceptions from `exclude all` rule
+
+!package.json
+!express/package.json
+!angular/package.json
+!yarn.lock
+!express/yarn.lock
+!angular/yarn.lock
+!version
+!.yarn/**
+!express/.yarn/**
+!angular/.yarn/**
+!.yarnrc.yml
+!express/.yarnrc.yml
+!angular/.yarnrc.yml
+!.pnp.cjs
+!express/.pnp.cjs
+
+!tsconfig.json
+!express/tsconfig.json
+!angular/tsconfig.json
+!express/webpack/**
+!express/src/main/**
+!angular/src/**
+!config/**
+!express/webpack.config.js

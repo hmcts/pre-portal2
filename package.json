@@ -6,6 +6,7 @@
   "scripts": {
     "start": "yarn express:start",
     "build": "yarn express:build",
+    "build:prod": "cd express && yarn build:prod",
     "test": "yarn express:test",
     "test:coverage": "yarn express:coverage",
     "test:unit": "yarn express:unit",
