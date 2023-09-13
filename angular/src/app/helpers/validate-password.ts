@@ -1,9 +1,9 @@
 const PASSWORD_MIN_LENGTH = 8;
 const PASSWORD_MIN_REQUIREMENTS_MET = 3;
-const PASSWORD_CONTAINS_DIGIT = /(?=.*\d)/;
-const PASSWORD_CONTAINS_LOWERCASE = /(?=.*[a-z])/;
-const PASSWORD_CONTAINS_UPPERCASE = /(?=.*[A-Z])/;
-const PASSWORD_CONTAINS_SYMBOL = /(?=(.*[!@#$%^&*()_+{}|:"<>?~;',./=-]))/;
+const PASSWORD_CONTAINS_DIGIT = /\d/;
+const PASSWORD_CONTAINS_LOWERCASE = /[a-z]/;
+const PASSWORD_CONTAINS_UPPERCASE = /[A-Z]/;
+const PASSWORD_CONTAINS_SYMBOL = /[!@#$%^&*()_+{}|:"<>?~;',./=-]/;
 
 export const validatePassword = (password: string) => {
   if (password.length < PASSWORD_MIN_LENGTH) return false;
