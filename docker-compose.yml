@@ -4,7 +4,7 @@ services:
   # TODO: change this name to match the name of your app
   portal:
     build:
-      context: ..
+      context: .
       args:
         - http_proxy
         - https_proxy
