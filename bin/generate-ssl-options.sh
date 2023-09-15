@@ -5,7 +5,7 @@
 # in other environments, as their purpose is to provide consistency, not security.
 # Note the openssl command extension for macOS. For further details refer to: https://stackoverflow.com/a/64309893
 
-localhost_ssl_folder="src/main/resources/localhost-ssl"
+localhost_ssl_folder="express/src/main/resources/localhost-ssl"
 
 if [ ! -f "$localhost_ssl_folder"/localhost.key -o ! -f "$localhost_ssl_folder"/localhost.crt ]
 then
