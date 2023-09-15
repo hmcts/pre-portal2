@@ -10,7 +10,7 @@ COPY --chown=hmcts:hmcts . .
 # ---- Build image ----
 FROM base as build
 
-RUN cd angular && yarn build
+RUN cd angular && yarn install && yarn build
 
 RUN yarn build:prod && \
     rm -rf express/webpack/ express/webpack.config.js
