@@ -9,7 +9,7 @@
     "test": "ng test",
     "test-ci": "ng test --watch=false --karma-config karma.conf.ci.js --code-coverage",
     "lint": "ng lint",
-    "prettier": "prettier './**/*.ts'",
+    "prettier": "prettier --check './**/*.ts'",
     "prettier:fix-code": "prettier --write './**/*.ts' "
   },
   "private": true,
