@@ -8,7 +8,7 @@ export class PropertiesVolume {
     if (server.locals.ENV !== 'development') {
       propertiesVolume.addTo(config);
 
-      this.setSecret('secrets.pre.AppInsightsInstrumentationKey', 'appInsights.instrumentationKey');
+      this.setSecret('secrets.rpe.AppInsightsInstrumentationKey', 'appInsights.instrumentationKey');
     }
   }
 
