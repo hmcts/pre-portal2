@@ -200,10 +200,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-eslint/bundled-angular-compiler@npm:16.1.2":
-  version: 16.1.2
-  resolution: "@angular-eslint/bundled-angular-compiler@npm:16.1.2"
-  checksum: ad2ef344b42ac78876a04c47f600e7421bb7fed13e747251a915306c20bfc3086f97392256b6e0d38b0e0cbb0c6b44c01a7379b4c7e11b0199a7da537abff86e
+"@angular-eslint/bundled-angular-compiler@npm:16.2.0":
+  version: 16.2.0
+  resolution: "@angular-eslint/bundled-angular-compiler@npm:16.2.0"
+  checksum: fc243407ab55f1545e9d5e4871ddc571e21b6e90a5407311f6cfb234fdb1fab77e3ce254443b78d4eb7095b63cc2caec474e13373ad24b7774179c0778e085a1
   languageName: node
   linkType: hard
 
@@ -238,15 +238,15 @@ __metadata:
   linkType: hard
 
 "@angular-eslint/eslint-plugin@npm:^16.1.1":
-  version: 16.1.2
-  resolution: "@angular-eslint/eslint-plugin@npm:16.1.2"
+  version: 16.2.0
+  resolution: "@angular-eslint/eslint-plugin@npm:16.2.0"
   dependencies:
-    "@angular-eslint/utils": 16.1.2
+    "@angular-eslint/utils": 16.2.0
     "@typescript-eslint/utils": 5.62.0
   peerDependencies:
     eslint: ^7.20.0 || ^8.0.0
     typescript: "*"
-  checksum: 51be0d0daf6cc7914a012336b3f39710ab0e25a7ced7d8aae6adb9373555a3ede4b0fa7f49cd0c1621120a51463d0046cab28f49226e95ffb7910b8b1ca076c8
+  checksum: 34f0871efa64cac2031a7ef1532309e48f721ca251fa7812af2c5af4ecf67cf61b4c91fd366359ab274620a0cb182b1bf1228b68fd51c8a986e488622f00d7f6
   languageName: node
   linkType: hard
 
@@ -291,16 +291,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-eslint/utils@npm:16.1.2":
-  version: 16.1.2
-  resolution: "@angular-eslint/utils@npm:16.1.2"
+"@angular-eslint/utils@npm:16.2.0":
+  version: 16.2.0
+  resolution: "@angular-eslint/utils@npm:16.2.0"
   dependencies:
-    "@angular-eslint/bundled-angular-compiler": 16.1.2
+    "@angular-eslint/bundled-angular-compiler": 16.2.0
     "@typescript-eslint/utils": 5.62.0
   peerDependencies:
     eslint: ^7.20.0 || ^8.0.0
     typescript: "*"
-  checksum: 03555a09c18b37fd342200c94bcff8ec9570550a18c290ce8c63f0959549e1b9f986876fc7e2accc17733a9177ad0ab0c2165bc62e4906ce2d4137c226b21e78
+  checksum: 25290c1bf45a89f0fdef3908920f67b9498470f3f3e7682c53e6fabbcf52d14adad4a343bc8cde71c92450672e3c91b82a2661db267910fdc7fcbaa26ccee390
   languageName: node
   linkType: hard
 
