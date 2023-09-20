@@ -102,7 +102,9 @@ import { validatePassword } from '../../helpers/validate-password';
 
       <hr />
       <app-details title="Redeem invitation">
-        <a routerLink="enter-invitation">Sign up with an invitation code</a>
+        <a class="govuk-link" routerLink="enter-invitation"
+          >Sign up with an invitation code</a
+        >
       </app-details>
     </div>
   `,
