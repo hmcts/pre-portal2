@@ -18,8 +18,7 @@ import { RecordingData } from './recording-data.model';
         </strong>
       </div>
 
-      <app-watch-recording [selectedRecordingSource]="selectedRecordingLink">
-      </app-watch-recording>
+      <app-watch-recording [selectedRecordingSource]="selectedRecordingLink" />
 
       <table class="govuk-table">
         <caption class="govuk-table__caption govuk-table__caption--m">

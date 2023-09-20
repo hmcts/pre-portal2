@@ -8,11 +8,11 @@ import { Component, Input } from '@angular/core';
         <span class="govuk-details__summary-text"> {{ title }} </span>
       </summary>
       <div class="govuk-details__text">
-        <ng-content></ng-content>
+        <ng-content />
       </div>
     </details>
   `,
 })
 export class DetailsComponent {
-  @Input() title!: string;
+  @Input({ required: true }) title!: string;
 }

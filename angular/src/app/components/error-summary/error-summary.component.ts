@@ -32,7 +32,7 @@ export type ErrorMessage = {
   `,
 })
 export class ErrorSummaryComponent {
-  @Input() errors!: ErrorMessage[];
+  @Input({ required: true }) errors!: ErrorMessage[];
 
   constructor(private viewportScroller: ViewportScroller) {}
 
