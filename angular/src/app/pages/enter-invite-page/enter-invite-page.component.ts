@@ -8,8 +8,7 @@ import { ErrorMessage } from '../../components/error-summary/error-summary.compo
   selector: 'app-enter-invite-page',
   template: `
     <div class="govuk-grid-column-two-thirds">
-      <app-error-summary
-        [errors]="getErrorSummaryMessages()"></app-error-summary>
+      <app-error-summary [errors]="getErrorSummaryMessages()" />
       <h1 class="govuk-heading-xl" data-testid="invite-code-title">
         Sign up with an invitation code
       </h1>
