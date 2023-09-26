@@ -17,7 +17,6 @@ export const routes: Routes = [
   { path: 'forgot-password', component: ForgottenPasswordPageComponent },
   { path: 'enter-invitation', component: EnterInvitePageComponent },
   { path: 'two-factor-auth', component: TwoFactorAuthPageComponent },
-  // { path: 'browse/:id', component: BrowsePageComponent },
   { path: 'browse', component: BrowsePageComponent },
   { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
   {
