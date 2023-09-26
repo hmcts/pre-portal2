@@ -96,7 +96,17 @@ import { RecordingData } from '../browse-page/recording-data.model';
 })
 export class WatchPageComponent implements OnInit {
   id!: string;
-  recordingData?: RecordingData;
+  // TODO Remove data here and get recording data from api
+  recordingData?: RecordingData = new RecordingData(
+    '123',
+    1,
+    'Example Ref',
+    'Example Court',
+    new Date(),
+    'Example Link',
+    'Person 1',
+    ['Person 2', 'Person 3', 'Person 4']
+  );
 
   constructor(private route: ActivatedRoute) {}
 
