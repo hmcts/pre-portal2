@@ -72,7 +72,7 @@ import { RecordingData } from './recording-data.model';
             <td class="govuk-table__cell">
               <a
                 class="govuk-link"
-                href="/browse/{{ rowData.recordingId }}"
+                href="#/watch/{{ rowData.recordingId }}"
                 (click)="selectRecording(rowData)"
                 >Play<span class="govuk-visually-hidden">{{
                   rowData.recordingId

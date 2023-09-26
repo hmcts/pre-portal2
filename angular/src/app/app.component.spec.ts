@@ -16,10 +16,10 @@ import { BrowsePageComponent } from './pages/browse-page/browse-page.component';
 import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-and-conditions.component';
 import { TermsAndConditionsFormComponent } from './pages/terms-and-conditions/terms-and-conditions-form/terms-and-conditions-form.component';
 import { BackLinkComponent } from './components/back-link/back-link.component';
-import { RecordingData } from './pages/browse-page/recording-data.model';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { AccessibilityPageComponent } from './pages/accessibility-page/accessibility-page.component';
+import { WatchPageComponent } from './pages/watch-page/watch-page.component';
 
 describe('AppComponent', () => {
   let router: Router;
@@ -131,35 +131,15 @@ describe('AppComponent', () => {
     expect(pageComponent).toBeTruthy();
   });
 
-  it('should show the video player variant of the browse page', async () => {
-    await router.navigate(['browse/1']);
-
+  it('should show the watch page', async () => {
+    await router.navigate(['watch/1']);
     fixture.detectChanges();
 
     const pageComponent = fixture.debugElement.query(
-      By.directive(BrowsePageComponent)
+      By.directive(WatchPageComponent)
     );
 
-    pageComponent.componentInstance.recordingData = [
-      new RecordingData(
-        '1',
-        2,
-        'CASEABC',
-        'Example Court',
-        new Date(),
-        'link',
-        'Person 1',
-        ['Person 2', 'Person 3']
-      ),
-    ];
-    pageComponent.componentInstance.selectedRecordingLink = '1';
-    fixture.detectChanges();
-
-    const videoElement = fixture.nativeElement.querySelector(
-      'video[data-testid="recording-video"]'
-    );
-
-    expect(videoElement).toBeTruthy();
+    expect(pageComponent).toBeTruthy();
   });
 
   it('should show the terms and conditions page', async () => {

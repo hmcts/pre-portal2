@@ -10,13 +10,14 @@ import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { AccessibilityPageComponent } from './pages/accessibility-page/accessibility-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { WatchPageComponent } from './pages/watch-page/watch-page.component';
 
 export const routes: Routes = [
   { path: '', component: LoginPageComponent },
   { path: 'forgot-password', component: ForgottenPasswordPageComponent },
   { path: 'enter-invitation', component: EnterInvitePageComponent },
   { path: 'two-factor-auth', component: TwoFactorAuthPageComponent },
-  { path: 'browse/:id', component: BrowsePageComponent },
+  // { path: 'browse/:id', component: BrowsePageComponent },
   { path: 'browse', component: BrowsePageComponent },
   { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
   {
@@ -25,6 +26,7 @@ export const routes: Routes = [
   },
   { path: 'register', component: RegisterPageComponent },
   { path: 'accessibility-statement', component: AccessibilityPageComponent },
+  { path: 'watch/:id', component: WatchPageComponent },
   { path: '**', component: NotFoundPageComponent },
 ];
 

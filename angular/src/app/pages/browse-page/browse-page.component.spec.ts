@@ -118,7 +118,7 @@ describe('BrowsePageComponent', () => {
 
     const linkElement = fixture.nativeElement.querySelector('.govuk-link');
 
-    expect(linkElement.getAttribute('href')).toBe('/browse/1');
+    expect(linkElement.getAttribute('href')).toBe('#/watch/1');
     expect(linkElement.textContent).toContain('Play');
   });
 });
