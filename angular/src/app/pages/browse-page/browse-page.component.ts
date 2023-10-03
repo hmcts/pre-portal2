@@ -18,8 +18,6 @@ import { RecordingData } from './recording-data.model';
         </strong>
       </div>
 
-      <app-watch-recording [selectedRecordingSource]="selectedRecordingLink" />
-
       <table class="govuk-table">
         <caption class="govuk-table__caption govuk-table__caption--m">
           Recordings shared with you
@@ -31,7 +29,6 @@ import { RecordingData } from './recording-data.model';
             <th scope="col" class="govuk-table__header">Date</th>
             <th scope="col" class="govuk-table__header">Witness</th>
             <th scope="col" class="govuk-table__header">Defendants</th>
-            <th scope="col" class="govuk-table__header">Recording UID</th>
             <th scope="col" class="govuk-table__header">Version</th>
             <th scope="col" class="govuk-table__header"></th>
           </tr>
@@ -65,14 +62,13 @@ import { RecordingData } from './recording-data.model';
                 {{ d }}<br *ngIf="!last" />
               </ng-container>
             </td>
-            <td class="govuk-table__cell">{{ rowData.recordingId }}</td>
             <td class="govuk-table__cell">
               {{ rowData.recordingVersion }}
             </td>
             <td class="govuk-table__cell">
               <a
                 class="govuk-link"
-                href="/browse/{{ rowData.recordingId }}"
+                href="#/watch/{{ rowData.recordingId }}"
                 (click)="selectRecording(rowData)"
                 >Play<span class="govuk-visually-hidden">{{
                   rowData.recordingId

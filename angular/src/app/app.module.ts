@@ -22,6 +22,7 @@ import { TermsAndConditionsFormComponent } from './pages/terms-and-conditions/te
 import { AccessibilityPageComponent } from './pages/accessibility-page/accessibility-page.component';
 import { BackLinkComponent } from './components/back-link/back-link.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { WatchPageComponent } from './pages/watch-page/watch-page.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
     AccessibilityPageComponent,
     BackLinkComponent,
     NotFoundPageComponent,
+    WatchPageComponent,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
