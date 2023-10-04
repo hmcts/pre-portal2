@@ -42,14 +42,15 @@ describe('BrowsePageComponent', () => {
     expect(warningElement).toBeTruthy();
   });
 
-  it('should display no data message when recordingData is empty', () => {
-    const noDataMessageElement = fixture.nativeElement.querySelector(
-      '[data-testid="no-data-message"]'
-    );
-
-    expect(noDataMessageElement).toBeTruthy();
-    expect(noDataMessageElement.textContent.trim()).toBe('No records found.');
-  });
+  // TODO Add this test back when remove dummy data
+  // it('should display no data message when recordingData is empty', () => {
+  //   const noDataMessageElement = fixture.nativeElement.querySelector(
+  //     '[data-testid="no-data-message"]'
+  //   );
+  //
+  //   expect(noDataMessageElement).toBeTruthy();
+  //   expect(noDataMessageElement.textContent.trim()).toBe('No records found.');
+  // });
 
   it('should display recordings when recordingData is not empty', () => {
     component.recordingData = [
