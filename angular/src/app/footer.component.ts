@@ -11,7 +11,10 @@ import { Component } from '@angular/core';
 
             <ul class="govuk-footer__inline-list">
               <li class="govuk-footer__inline-list-item">
-                <a class="govuk-footer__link" routerLink="/terms-and-conditions"
+                <a
+                  class="govuk-footer__link"
+                  routerLink="/terms-and-conditions"
+                  target="_blank"
                   >Terms and conditions</a
                 >
               </li>
@@ -20,6 +23,7 @@ import { Component } from '@angular/core';
                 <a
                   class="govuk-footer__link"
                   routerLink="/accessibility-statement"
+                  target="_blank"
                   >Accessibility statement</a
                 >
               </li>

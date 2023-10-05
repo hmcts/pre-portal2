@@ -30,7 +30,7 @@ describe('FooterComponent', () => {
     ).toEqual('Terms and conditions');
   });
 
-  it('should render accessibility statement link"]', () => {
+  it('should render accessibility statement link', () => {
     const fixture = TestBed.createComponent(FooterComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
@@ -39,7 +39,7 @@ describe('FooterComponent', () => {
     ).toEqual('Accessibility statement');
   });
 
-  it('should render open government licence link"]', () => {
+  it('should render open government licence link', () => {
     const fixture = TestBed.createComponent(FooterComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
@@ -48,7 +48,7 @@ describe('FooterComponent', () => {
     ).toEqual('Open Government Licence v3.0');
   });
 
-  it('should render crown copyright link"]', () => {
+  it('should render crown copyright link', () => {
     const fixture = TestBed.createComponent(FooterComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
