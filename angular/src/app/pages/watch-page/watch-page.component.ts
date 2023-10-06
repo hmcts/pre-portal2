@@ -103,7 +103,7 @@ export class WatchPageComponent implements OnInit {
     'Example Ref',
     'Example Court',
     new Date(),
-    'Example Link',
+    'https://amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest',
     'Person 1',
     ['Person 2', 'Person 3', 'Person 4']
   );

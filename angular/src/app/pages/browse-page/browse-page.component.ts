@@ -85,7 +85,18 @@ export class BrowsePageComponent implements OnInit {
   // TODO Get user data from logged in user
   user: { name: string } = { name: 'Test User' };
   // TODO Call api query recordings shared with user ngOnInit
-  recordingData: RecordingData[] = [];
+  recordingData: RecordingData[] = [
+    new RecordingData(
+      '123',
+      1,
+      'Example Ref',
+      'Example Court',
+      new Date(),
+      'https://amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest',
+      'Person 1',
+      ['Person 2', 'Person 3', 'Person 4']
+    ),
+  ];
   selectedRecordingLink?: string;
 
   constructor(private route: ActivatedRoute) {}
