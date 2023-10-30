@@ -2,6 +2,7 @@ import * as express from 'express';
 import helmet from 'helmet';
 
 const googleAnalyticsDomain = '*.google-analytics.com';
+const azureMediaPlayer = 'https://amp.azure.net/libs/amp/latest/';
 const self = "'self'";
 
 /**
@@ -15,7 +16,13 @@ export class Helmet {
 
   public enableFor(app: express.Express): void {
     // include default helmet functions
-    const scriptSrc = [self, googleAnalyticsDomain, "'sha256-+6WnXIl4mbFTCARd8N3COQmT3bJJmo32N8q8ZSQAIcU='"];
+    const scriptSrc = [
+      self,
+      googleAnalyticsDomain,
+      "'sha256-+6WnXIl4mbFTCARd8N3COQmT3bJJmo32N8q8ZSQAIcU='",
+      azureMediaPlayer,
+    ];
+    const scriptSrcAttr = [self, "'unsafe-inline'"];
 
     if (this.developmentMode) {
       // Uncaught EvalError: Refused to evaluate a string as JavaScript because 'unsafe-eval'
@@ -29,13 +36,15 @@ export class Helmet {
       helmet({
         contentSecurityPolicy: {
           directives: {
-            connectSrc: [self],
+            connectSrc: [self, azureMediaPlayer],
             defaultSrc: ["'none'"],
-            fontSrc: [self, 'data:'],
-            imgSrc: [self, googleAnalyticsDomain],
+            fontSrc: [self, azureMediaPlayer, 'data:'],
+            imgSrc: [self, googleAnalyticsDomain, azureMediaPlayer, 'data:'],
             objectSrc: [self],
             scriptSrc,
-            styleSrc: [self],
+            styleSrc: [self, "'unsafe-inline'", azureMediaPlayer],
+            scriptSrcAttr,
+            workerSrc: ["'self'", 'blob:'],
           },
         },
         referrerPolicy: { policy: 'origin' },
