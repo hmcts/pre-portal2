@@ -30,7 +30,7 @@ Run:
 yarn start
 ```
 
-The applications's home page will be available at https://localhost:3000
+The applications's home page will be available at https://localhost:4550
 
 ### Running with Docker
 
@@ -49,7 +49,7 @@ docker-compose up
 This will start the frontend container exposing the application's port
 (set to `3000` in this template app).
 
-In order to test if the application is up, you can visit https://localhost:3000 in your browser.
+In order to test if the application is up, you can visit https://localhost:4550 in your browser.
 You should get a very basic home page (no styles, etc.).
 
 ## Developing

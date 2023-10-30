@@ -1,5 +1,5 @@
 nodejs:
-  applicationPort: 3000
+  applicationPort: 4550
   aadIdentityName: pre
   ingressHost: pre-portal.{{ .Values.global.environment }}.platform.hmcts.net
   image: 'sdshmctspublic.azurecr.io/pre/portal:latest'
