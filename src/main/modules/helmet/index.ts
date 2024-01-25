@@ -36,10 +36,10 @@ export class Helmet {
       helmet({
         contentSecurityPolicy: {
           directives: {
-            connectSrc: [self],
+            connectSrc: [self, azureMediaPlayer],
             defaultSrc: ["'none'"],
             fontSrc: [self, azureMediaPlayer, 'data:'],
-            imgSrc: [self, googleAnalyticsDomain],
+            imgSrc: [self, googleAnalyticsDomain, azureMediaPlayer, 'data:'],
             objectSrc: [self],
             scriptSrc,
             styleSrc: [self, "'unsafe-inline'", azureMediaPlayer],

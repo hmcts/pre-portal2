@@ -17,7 +17,7 @@ import { Component, Input } from '@angular/core';
       </div>
       <div class="govuk-notification-banner__content">
         <p data-testid="notification-banner-body" class="govuk-body">
-          <ng-content></ng-content>
+          <ng-content />
         </p>
       </div>
     </div>

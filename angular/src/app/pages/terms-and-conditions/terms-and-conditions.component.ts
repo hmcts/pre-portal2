@@ -8,7 +8,7 @@ import { ErrorMessage } from '../../components/error-summary/error-summary.compo
   selector: 'app-terms-and-conditions',
   template: `
     <div class="govuk-grid-column-two-thirds">
-      <app-error-summary [errors]="errorMessages"></app-error-summary>
+      <app-error-summary [errors]="errorMessages" />
       <h1 class="govuk-heading-xl">Pre-Recorded Evidence (PRE) Service</h1>
 
       <p class="govuk-body-l">

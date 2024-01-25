@@ -8,8 +8,7 @@ import { ErrorMessage } from '../../components/error-summary/error-summary.compo
   selector: 'app-two-factor-auth-page',
   template: `
     <div class="govuk-grid-column-two-thirds">
-      <app-error-summary
-        [errors]="getErrorSummaryMessages()"></app-error-summary>
+      <app-error-summary [errors]="getErrorSummaryMessages()" />
       <h1 class="govuk-heading-xl" data-testid="two-factor-auth-title">
         Enter security code
       </h1>

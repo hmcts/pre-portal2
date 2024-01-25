@@ -14,8 +14,7 @@ import { validatePassword } from '../../helpers/validate-password';
       </app-notification-banner>
 
       <h1 class="govuk-heading-xl">Register your account</h1>
-      <app-error-summary
-        [errors]="getErrorSummaryMessages()"></app-error-summary>
+      <app-error-summary [errors]="getErrorSummaryMessages()" />
       <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
         <div class="govuk-form-group">
           <label for="email" class="govuk-label"> Email </label>

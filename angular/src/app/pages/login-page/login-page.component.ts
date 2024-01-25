@@ -9,8 +9,7 @@ import { validatePassword } from '../../helpers/validate-password';
   selector: 'app-login-page',
   template: `
     <div class="govuk-grid-column-two-thirds">
-      <app-error-summary
-        [errors]="getErrorSummaryMessages()"></app-error-summary>
+      <app-error-summary [errors]="getErrorSummaryMessages()" />
       <h1 class="govuk-heading-xl">Sign in</h1>
       <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
         <div
@@ -102,7 +101,9 @@ import { validatePassword } from '../../helpers/validate-password';
 
       <hr />
       <app-details title="Redeem invitation">
-        <a routerLink="enter-invitation">Sign up with an invitation code</a>
+        <a class="govuk-link" routerLink="enter-invitation"
+          >Sign up with an invitation code</a
+        >
       </app-details>
     </div>
   `,

@@ -18,9 +18,6 @@ import { RecordingData } from './recording-data.model';
         </strong>
       </div>
 
-      <app-watch-recording [selectedRecordingSource]="selectedRecordingLink">
-      </app-watch-recording>
-
       <table class="govuk-table">
         <caption class="govuk-table__caption govuk-table__caption--m">
           Recordings shared with you
@@ -32,7 +29,6 @@ import { RecordingData } from './recording-data.model';
             <th scope="col" class="govuk-table__header">Date</th>
             <th scope="col" class="govuk-table__header">Witness</th>
             <th scope="col" class="govuk-table__header">Defendants</th>
-            <th scope="col" class="govuk-table__header">Recording UID</th>
             <th scope="col" class="govuk-table__header">Version</th>
             <th scope="col" class="govuk-table__header"></th>
           </tr>
@@ -66,14 +62,13 @@ import { RecordingData } from './recording-data.model';
                 {{ d }}<br *ngIf="!last" />
               </ng-container>
             </td>
-            <td class="govuk-table__cell">{{ rowData.recordingId }}</td>
             <td class="govuk-table__cell">
               {{ rowData.recordingVersion }}
             </td>
             <td class="govuk-table__cell">
               <a
                 class="govuk-link"
-                href="/browse/{{ rowData.recordingId }}"
+                href="#/watch/{{ rowData.recordingId }}"
                 (click)="selectRecording(rowData)"
                 >Play<span class="govuk-visually-hidden">{{
                   rowData.recordingId
@@ -90,7 +85,18 @@ export class BrowsePageComponent implements OnInit {
   // TODO Get user data from logged in user
   user: { name: string } = { name: 'Test User' };
   // TODO Call api query recordings shared with user ngOnInit
-  recordingData: RecordingData[] = [];
+  recordingData: RecordingData[] = [
+    new RecordingData(
+      '123',
+      1,
+      'Example Ref',
+      'Example Court',
+      new Date(),
+      'https://amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest',
+      'Person 1',
+      ['Person 2', 'Person 3', 'Person 4']
+    ),
+  ];
   selectedRecordingLink?: string;
 
   constructor(private route: ActivatedRoute) {}

@@ -28,6 +28,8 @@ export class BackLinkComponent implements OnInit, OnDestroy {
   private updateLink(url: string) {
     switch (url) {
       case '/':
+      case '/terms-and-conditions':
+      case '/accessibility-statement':
         this.isVisible = false;
         break;
       case '/browse':

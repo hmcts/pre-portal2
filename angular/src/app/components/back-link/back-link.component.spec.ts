@@ -25,6 +25,8 @@ describe('BackLinkComponent', () => {
           { path: '', component: TestComponent },
           { path: 'browse', component: TestComponent },
           { path: 'forgotten-password', component: TestComponent },
+          { path: 'terms-and-conditions', component: TestComponent },
+          { path: 'accessibility-statement', component: TestComponent },
         ]),
       ],
     }).compileComponents();
@@ -41,6 +43,22 @@ describe('BackLinkComponent', () => {
 
   it('should set visibility and content correctly for the login page at the "/" URL', () => {
     router.navigateByUrl('/');
+    fixture.detectChanges();
+
+    const linkElement = fixture.debugElement.query(By.css('.govuk-back-link'));
+    expect(linkElement).toBeFalsy();
+  });
+
+  it('should set visibility and content correctly for the terms and conditions page at the "/terms-and-conditions" URL', () => {
+    router.navigateByUrl('/terms-and-conditions');
+    fixture.detectChanges();
+
+    const linkElement = fixture.debugElement.query(By.css('.govuk-back-link'));
+    expect(linkElement).toBeFalsy();
+  });
+
+  it('should set visibility and content correctly for the accessibility statement page at the "/accessibility-statement" URL', () => {
+    router.navigateByUrl('/accessibility-statement');
     fixture.detectChanges();
 
     const linkElement = fixture.debugElement.query(By.css('.govuk-back-link'));
