@@ -18,7 +18,7 @@
     "test:routes": "jest -c jest.routes.config.js",
     "test:a11y": "jest --detectOpenHandles --forceExit -c jest.a11y.config.js --maxWorkers 15",
     "test:smoke": "NODE_TLS_REJECT_UNAUTHORIZED=0 jest -c jest.smoke.config.js",
-    "test:functional": "NODE_TLS_REJECT_UNAUTHORIZED=0 codeceptjs run --steps",
+    "test:functional": "yarn playwright install && NODE_TLS_REJECT_UNAUTHORIZED=0 codeceptjs run --steps",
     "cichecks": "yarn install && yarn build && yarn rebuild puppeteer && yarn lint && yarn test && yarn test:routes && yarn test:a11y",
     "prepare": "husky install"
   },
@@ -100,7 +100,7 @@
     "nock": "^13.3.2",
     "nodemon": "^3.0.3",
     "pa11y": "^7.0.0",
-    "playwright": "^1.36.2",
+    "playwright": "^1.41.2",
     "prettier": "^3.0.0",
     "sass": "^1.65.1",
     "sass-loader": "^13.3.2",
