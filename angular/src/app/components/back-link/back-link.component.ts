@@ -30,6 +30,7 @@ export class BackLinkComponent implements OnInit, OnDestroy {
       case '/':
       case '/terms-and-conditions':
       case '/accessibility-statement':
+      case '/cookies':
         this.isVisible = false;
         break;
       case '/browse':

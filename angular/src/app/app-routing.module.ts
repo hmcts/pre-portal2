@@ -11,6 +11,7 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import { AccessibilityPageComponent } from './pages/accessibility-page/accessibility-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { WatchPageComponent } from './pages/watch-page/watch-page.component';
+import { CookiesPageComponent } from './pages/cookies-page/cookies-page.component';
 
 export const routes: Routes = [
   { path: '', component: LoginPageComponent },
@@ -26,6 +27,7 @@ export const routes: Routes = [
   { path: 'register', component: RegisterPageComponent },
   { path: 'accessibility-statement', component: AccessibilityPageComponent },
   { path: 'watch/:id', component: WatchPageComponent },
+  { path: 'cookies', component: CookiesPageComponent },
   { path: '**', component: NotFoundPageComponent },
 ];
 

@@ -23,6 +23,8 @@ import { AccessibilityPageComponent } from './pages/accessibility-page/accessibi
 import { BackLinkComponent } from './components/back-link/back-link.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { WatchPageComponent } from './pages/watch-page/watch-page.component';
+import { CookieBannerComponent } from './components/cookie-banner/cookie-banner.component';
+import { CookiesPageComponent } from './pages/cookies-page/cookies-page.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { WatchPageComponent } from './pages/watch-page/watch-page.component';
     BackLinkComponent,
     NotFoundPageComponent,
     WatchPageComponent,
+    CookieBannerComponent,
+    CookiesPageComponent,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
