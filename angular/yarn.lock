@@ -2881,10 +2881,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jasmine@npm:~4.3.0":
-  version: 4.3.6
-  resolution: "@types/jasmine@npm:4.3.6"
-  checksum: 1dd9cc3633db98a0fc7149184cc3916c5158cfdfd65d437b81502d55e5e147305aac3bbce65ed144253b2406e47821629a18d1111b102fdc4f0c6867735a2c91
+"@types/jasmine@npm:~4.6.0":
+  version: 4.6.4
+  resolution: "@types/jasmine@npm:4.6.4"
+  checksum: 91fd628b04d334ec9f80f0a4e19fbd357c0d385cb36ea2bf69f5158042d4a70ba4d3421ac9194da9fc338f57e699930d8d2544d68562e91ebedba2984a7549a0
   languageName: node
   linkType: hard
 
@@ -4347,7 +4347,7 @@ __metadata:
     "@angular/platform-browser": ^16.1.0
     "@angular/platform-browser-dynamic": ^16.1.0
     "@angular/router": ^16.1.0
-    "@types/jasmine": ~4.3.0
+    "@types/jasmine": ~4.6.0
     "@typescript-eslint/eslint-plugin": 6.7.2
     "@typescript-eslint/parser": 6.7.2
     eslint: ^8.49.0
