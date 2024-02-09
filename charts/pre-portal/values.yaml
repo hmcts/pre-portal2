@@ -8,4 +8,12 @@ nodejs:
   #    pre:
   #      secrets:
   #        - AppInsightsInstrumentationKey
+  keyVaults:
+    pre-hmctskv:
+      secrets:
+        - name: redis6-access-key
+          alias: REDIS_ACCESS_KEY
+        - name: AppInsightsInstrumentationKey
+          alias: APPINSIGHTS_INSTRUMENTATIONKEY
   environment:
+    REDIS_HOST: 'pre-portal-{{ .Values.global.environment }}.redis.cache.windows.net'

@@ -7,8 +7,8 @@ export class PropertiesVolume {
   enableFor(server: Application): void {
     if (server.locals.ENV !== 'development') {
       propertiesVolume.addTo(config);
-
-      this.setSecret('secrets.rpe.AppInsightsInstrumentationKey', 'appInsights.instrumentationKey');
+      this.setSecret('secrets.pre-hmctskv.AppInsightsInstrumentationKey', 'appInsights.instrumentationKey');
+      this.setSecret('secrets.pre-hmctskv.redis-access-key', 'session.redis.key');
     }
   }
 
