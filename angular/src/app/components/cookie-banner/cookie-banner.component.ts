@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-cookie-banner',
@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
       aria-label="Cookies on Pre Recorded Evidence Service"
       *ngIf="!hideBanner">
       <div
+        data-testid="cookie-banner-accept-reject"
         class="govuk-cookie-banner__message govuk-width-container"
         *ngIf="!showAcceptMessage && !showRejectMessage">
         <div class="govuk-grid-row">
@@ -52,6 +53,7 @@ import { Component, OnInit } from '@angular/core';
         </div>
       </div>
       <div
+        data-testid="cookie-banner-accepted"
         class="govuk-cookie-banner__message govuk-width-container"
         [hidden]="!showAcceptMessage">
         <div class="govuk-grid-row">
@@ -78,6 +80,7 @@ import { Component, OnInit } from '@angular/core';
         </div>
       </div>
       <div
+        data-testid="cookie-banner-rejected"
         class="govuk-cookie-banner__message govuk-width-container"
         [hidden]="!showRejectMessage">
         <div class="govuk-grid-row">

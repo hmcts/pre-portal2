@@ -12,7 +12,8 @@ import { Component } from '@angular/core';
         </p>
 
         <p class="govuk-body">
-          These cookies are used across the GOV.UK Design System website.
+          These cookies are used across the Pre Recorded Evidence Service
+          website.
         </p>
 
         <p class="govuk-body">
