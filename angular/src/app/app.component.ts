@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
+    <!--    <app-cookie-banner />-->
     <a
       href="#main-content"
       class="govuk-skip-link"
