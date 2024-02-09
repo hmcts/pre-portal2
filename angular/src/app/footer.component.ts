@@ -27,6 +27,15 @@ import { Component } from '@angular/core';
                   >Accessibility statement</a
                 >
               </li>
+
+              <li class="govuk-footer__inline-list-item">
+                <a
+                  class="govuk-footer__link"
+                  routerLink="/cookies"
+                  target="_blank"
+                  >Cookies</a
+                >
+              </li>
             </ul>
 
             <svg

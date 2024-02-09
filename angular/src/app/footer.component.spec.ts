@@ -39,12 +39,21 @@ describe('FooterComponent', () => {
     ).toEqual('Accessibility statement');
   });
 
+  it('should render cookies link', () => {
+    const fixture = TestBed.createComponent(FooterComponent);
+    fixture.detectChanges();
+    const complied = fixture.nativeElement as HTMLElement;
+    expect(
+      complied.querySelectorAll('.govuk-footer__link')[2]?.textContent
+    ).toEqual('Cookies');
+  });
+
   it('should render open government licence link', () => {
     const fixture = TestBed.createComponent(FooterComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(
-      compiled.querySelectorAll('.govuk-footer__link')[2]?.textContent
+      compiled.querySelectorAll('.govuk-footer__link')[3]?.textContent
     ).toEqual('Open Government Licence v3.0');
   });
 
@@ -53,7 +62,7 @@ describe('FooterComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(
-      compiled.querySelectorAll('.govuk-footer__link')[3]?.textContent
+      compiled.querySelectorAll('.govuk-footer__link')[4]?.textContent
     ).toEqual('© Crown copyright');
   });
 });
