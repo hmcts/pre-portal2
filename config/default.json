@@ -3,7 +3,7 @@
   "appInsights": {
     "instrumentationKey": false
   },
-  "preApi": {
-    "url": "https://pre-api.local"
+  "pre": {
+    "apiUrl": "https://pre-api.local"
   }
 }

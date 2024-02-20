@@ -7,7 +7,6 @@ export class PropertiesVolume {
   enableFor(server: Application): void {
     require('dotenv').config();
     set(config, 'session.redis.key', process.env.REDIS_ACCESS_KEY);
-    set(config, 'pre.apiUrl', process.env.PRE_API_URL ?? 'https://pre-api.local');
     if (server.locals.ENV !== 'development') {
       propertiesVolume.addTo(config);
       this.setSecret('secrets.pre-hmctskv.AppInsightsInstrumentationKey', 'appInsights.instrumentationKey');
