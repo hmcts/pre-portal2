@@ -1,13 +1,5 @@
 {% extends "template.njk" %}
 
-{% block head %}
-  {% include "webpack/css.njk" %}
-  <link
-    href="//amp.azure.net/libs/amp/latest/skins/amp-default/azuremediaplayer.min.css"
-    rel="stylesheet"
-    crossorigin="anonymous" />
-{% endblock %}
-
 {% block beforeContent %}
   {{
     govukBackLink({
