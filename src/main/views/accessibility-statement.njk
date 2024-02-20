@@ -1,0 +1,122 @@
+{% extends "template.njk" %}
+
+{% block head %}
+  {% include "webpack/css.njk" %}
+  <link
+    href="//amp.azure.net/libs/amp/latest/skins/amp-default/azuremediaplayer.min.css"
+    rel="stylesheet"
+    crossorigin="anonymous" />
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Accessibility statement</h1>
+
+      <p class="govuk-body">
+        HM Courts &amp; Tribunals Service is committed to making its website
+        accessible, in accordance with the Public Sector Bodies (Websites and
+        Mobile Applications) (No. 2) Accessibility Regulations 2018.<br />
+        This accessibility statement applies to the Pre-Recorded Evidence (PRE)
+        Portal.
+      </p>
+
+      <h2 data-testid="heading-compliance" class="govuk-heading-l">
+        Compliance status
+      </h2>
+      <p class="govuk-body">
+        This website is not compliant with the
+        <a
+          href="https://www.w3.org/TR/WCAG21/"
+          rel="noreferrer noopener"
+          target="_blank"
+        >Web Content Accessibility Guidelines version 2.1</a
+        >
+        AA standard. The non-compliances are listed below.
+      </p>
+
+      <h2 data-testid="heading-non-accessible-content" class="govuk-heading-l">
+        Non-accessible content
+      </h2>
+      <p class="govuk-body">
+        The content listed below is non-accessible for the following reason:
+      </p>
+      <p class="govuk-body">
+        Non-compliance with the accessibility regulations
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>videos do not have captions</li>
+        <li>
+          the text will not reflow in a single column when you change the size
+          of the browser window
+        </li>
+        <li>
+          the table used for our online forms might be difficult to navigate
+          using just a keyboard
+        </li>
+        <li>colours and contrasts ratios are optimum</li>
+        <li>not all elements have names available to an accessibility API</li>
+        <li>
+          some fieldsets do not contain a legend element to provide description
+        </li>
+      </ul>
+
+      <h2 data-testid="heading-preparation" class="govuk-heading-l">
+        Preparation of this accessibility statement
+      </h2>
+      <p class="govuk-body">
+        This statement was prepared on 1 June&nbsp;2023. It was last reviewed on
+        1&nbsp;June 2023.
+      </p>
+      <p class="govuk-body">
+        This website was last tested on 31 May 2023. The test was carried out
+        through an internal evaluation based on
+        <a href="https://pa11y.org/" rel="noreferrer noopener" target="_blank"
+        >Pa11y</a
+        >
+        testing.
+      </p>
+      <p class="govuk-body">
+        This statement will be reviewed on or before 31 May 2024.
+      </p>
+
+      <h2 data-testid="heading-feedback" class="govuk-heading-l">
+        Feedback and contact information
+      </h2>
+      <p class="govuk-body">
+        We're always looking to improve the accessibility of this website. If
+        you find any problems not listed on this page or you think we're not
+        meeting the accessibility requirements, please contact the court
+        associated with the case being supported by the Pre-Recorded Evidence
+        (PRE) application. See
+        <a
+          href="https://www.gov.uk/find-court-tribunal"
+          rel="noreferrer noopener"
+          target="_blank"
+        >Find a court or tribunal - GOV.UK (www.gov.uk)</a
+        >
+        to find contact details and information.
+      </p>
+
+      <h2 data-testid="heading-enforcement" class="govuk-heading-l">
+        Enforcement procedure
+      </h2>
+      <p class="govuk-body">
+        The Equality and Human Rights Commission (EHRC) is responsible for
+        enforcing the Public Sector Bodies (Websites and Mobile Applications)
+        (No. 2) Accessibility Regulations 2018 (the 'accessibility
+        regulations').
+      </p>
+      <p class="govuk-body">
+        If you're not happy with how we respond to your complaint, contact the
+        <a
+          href="https://www.gov.uk/equality-advisory-support-service"
+          rel="noreferrer noopener"
+          target="_blank"
+        >Equality Advisory and Support Service (EASS)</a>.
+      </p>
+    </div>
+  </div>
+
+{% endblock %}
