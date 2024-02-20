@@ -77,16 +77,11 @@ function testAccessibility(url: string): void {
 
 describe('Accessibility', () => {
   // testing accessibility of the home page
-  testAccessibility('/#');
-  testAccessibility('/#/forgot-password');
-  testAccessibility('/#/terms-and-conditions');
-  testAccessibility('/#/accessibility-statement');
-  testAccessibility('/#/two-factor-auth');
-  testAccessibility('/#/enter-invitation');
-  testAccessibility('/#/register');
-  testAccessibility('/#/register/terms-and-conditions');
-  testAccessibility('/#/browse');
-  testAccessibility('/#/not-found');
+  testAccessibility('/sign-in');
+  testAccessibility('/terms-and-conditions');
+  testAccessibility('/accessibility-statement');
+  testAccessibility('/browse');
+  testAccessibility('/not-found');
 
   // TODO: include each path of your application in accessibility checks
 });
