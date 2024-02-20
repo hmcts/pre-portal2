@@ -2,12 +2,13 @@ node_modules/
 .nyc_output
 .sass-cache
 *.css
+.env
 
 .idea/
 *.iml
 
 *swp
-*log
+
 .DS_Store
 
 src/main/public/img/lib/*
@@ -27,9 +28,6 @@ src/main/views/govuk
 coverage/
 smoke-output/
 functional-output/
-version
-
-.eslintcache
 
 # yarn v2
 .yarn/*
