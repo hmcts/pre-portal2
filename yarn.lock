@@ -8351,10 +8351,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"govuk-frontend@npm:4.3.1":
-  version: 4.3.1
-  resolution: "govuk-frontend@npm:4.3.1"
-  checksum: 10c0/c594df79cb779a0fa4c8068c65b8357344e26444f515f9978198aacaa1857f1088df73b571c36fe4c8be6d6daa233527a24281dc32c2a2d44ea561abf734b9d5
+"govuk-frontend@npm:5.1.0":
+  version: 5.1.0
+  resolution: "govuk-frontend@npm:5.1.0"
+  checksum: 10c0/5ef7bd743b5bb1a7a05f3a527c7bbdeceeff8d7a7b8021249f0aa62af1eb47cb91499e4d0940d6666e4c46295976a3dd23ae2c92819debd39cd417c71f4ed19a
   languageName: node
   linkType: hard
 
@@ -12168,7 +12168,7 @@ __metadata:
     express: "npm:4.18.1"
     express-nunjucks: "npm:2.2.5"
     glob: "npm:8.0.3"
-    govuk-frontend: "npm:4.3.1"
+    govuk-frontend: "npm:5.1.0"
     helmet: "npm:6.0.0"
     html-webpack-plugin: "npm:5.5.0"
     husky: "npm:8.0.1"

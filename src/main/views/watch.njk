@@ -1,0 +1,119 @@
+{% extends "template.njk" %}
+
+{% block head %}
+  {% include "webpack/css.njk" %}
+  <link
+    href="//amp.azure.net/libs/amp/latest/skins/amp-default/azuremediaplayer.min.css"
+    rel="stylesheet"
+    crossorigin="anonymous" />
+{% endblock %}
+
+{% block beforeContent %}
+  {{
+    govukBackLink({
+      "href": "/browse"
+    })
+  }}
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-xl">Case Ref: ExampleRef</h1>
+
+  <div class="govuk-!-margin-bottom-2 video-wrapper">
+    <video
+      data-testid="recording-video"
+      class="azuremediaplayer amp-default-skin amp-big-play-centered"
+      controls
+      width="100%"
+      height="auto"
+      data-setup='{"nativeControlsForTouch": false}'>
+      <source
+        src="selectedRecordingSource"
+        type="application/vnd.ms-sstr+xml" />
+      <p class="amp-no-js">
+        To view this video please enable JavaScript, and consider upgrading to
+        a web browser that supports HTML5 video
+      </p>
+    </video>
+  </div>
+
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Please note</span>
+      Playback is preferred on non-mobile devices. If possible, please use a
+      preferred device.
+    </strong>
+  </div>
+
+  <h2 class="govuk-heading-m">Recording details</h2>
+  <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key" data-testid="summary-title-date">
+        Date
+      </dt>
+      <dd
+        class="govuk-summary-list__value"
+        data-testid="summary-value-date">
+        20/02/2024
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key" data-testid="summary-title-uid">
+        Recording UID
+      </dt>
+      <dd class="govuk-summary-list__value" data-testid="summary-value-uid">
+        123
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt
+        class="govuk-summary-list__key"
+        data-testid="summary-title-version">
+        Recording Version
+      </dt>
+      <dd
+        class="govuk-summary-list__value"
+        data-testid="summary-value-version">
+        1
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key" data-testid="summary-title-court">
+        Court
+      </dt>
+      <dd
+        class="govuk-summary-list__value"
+        data-testid="summary-value-court">
+        Example Court
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt
+        class="govuk-summary-list__key"
+        data-testid="summary-title-witness">
+        Witness
+      </dt>
+      <dd
+        class="govuk-summary-list__value"
+        data-testid="summary-value-witness">
+        Person 1
+      </dd>
+    </div>
+    <div class="govuk-summary-list__row">
+      <dt
+        class="govuk-summary-list__key"
+        data-testid="summary-title-defendants">
+        Defendants
+      </dt>
+      <dd
+        class="govuk-summary-list__value"
+        data-testid="summary-value-defendants">
+        Person 2<br />
+        Person 3<br />
+        Person 4<br />
+      </dd>
+    </div>
+  </dl>
+  </div>
+{% endblock %}

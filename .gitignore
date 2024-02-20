@@ -3,6 +3,7 @@ node_modules/
 .sass-cache
 *.css
 .env
+.eslintcache
 
 .idea/
 *.iml

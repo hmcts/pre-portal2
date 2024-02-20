@@ -3,3 +3,24 @@
 {% block content %}
   <h1 class="govuk-heading-xl">Default page template</h1>
 {% endblock %}
+
+{% from "govuk/components/footer/macro.njk" import govukFooter %}
+
+{{ govukFooter({
+  meta: {
+    items: [
+      {
+        href: "#",
+        text: "Item 1"
+      },
+      {
+        href: "#",
+        text: "Item 2"
+      },
+      {
+        href: "#",
+        text: "Item 3"
+      }
+    ]
+  }
+}) }}
