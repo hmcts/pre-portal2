@@ -2,5 +2,8 @@
   "useCSRFProtection": true,
   "appInsights": {
     "instrumentationKey": false
+  },
+  "preApi": {
+    "url": "https://pre-api.local"
   }
 }

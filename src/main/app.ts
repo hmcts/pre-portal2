@@ -1,21 +1,24 @@
 import * as path from 'path';
 
+
+import axios from 'axios';
+import * as bodyParser from 'body-parser';
+import config = require('config');
+import cookieParser from 'cookie-parser';
+import express from 'express';
+import { glob } from 'glob';
+import favicon from 'serve-favicon';
+
 import { HTTPError } from './HttpError';
 import { AppInsights } from './modules/appinsights';
 import { Helmet } from './modules/helmet';
 import { Nunjucks } from './modules/nunjucks';
 import { PropertiesVolume } from './modules/properties-volume';
 
-import axios from 'axios';
-import * as bodyParser from 'body-parser';
-import cookieParser from 'cookie-parser';
-import express from 'express';
-import { glob } from 'glob';
-import favicon from 'serve-favicon';
-
-const { setupDev } = require('./development');
 
 const { Logger } = require('@hmcts/nodejs-logging');
+
+const { setupDev } = require('./development');
 
 const env = process.env.NODE_ENV || 'development';
 const developmentMode = env === 'development';
@@ -30,6 +33,9 @@ new AppInsights().enable();
 new Nunjucks(developmentMode).enableFor(app);
 // secure the application by adding various HTTP headers to its responses
 new Helmet(developmentMode).enableFor(app);
+
+axios.defaults.baseURL = config.get('pre.apiUrl');
+// axios.defaults.headers.common['Authorization'] = 'Token token=' + config.get('ardoq.apiKey');
 
 app.use(favicon(path.join(__dirname, '/public/assets/images/favicon.ico')));
 app.use(bodyParser.json());
