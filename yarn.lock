@@ -3085,19 +3085,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^20.1.0":
+"@types/node@npm:*, @types/node@npm:^20.1.0, @types/node@npm:^20.11.19":
   version: 20.11.19
   resolution: "@types/node@npm:20.11.19"
   dependencies:
     undici-types: ~5.26.4
   checksum: 259d16643ba611ade617a8212e594a3ac014727457507389bbf7213971346ab052d870f1e6e2df0afd0876ecd7874f578bccb130be01e069263cfc7136ddc0c1
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:18.7.17":
-  version: 18.7.17
-  resolution: "@types/node@npm:18.7.17"
-  checksum: bb1b832f4ad42a106d189d87e95aef117f0026a7ea291f34c5d106a25419d6d4c9d39099688ad46746cc3c2307c263be4adec1049a35dc12c9e48f19975b2dc6
   languageName: node
   linkType: hard
 
@@ -12145,7 +12138,7 @@ __metadata:
     "@types/lodash": 4.14.185
     "@types/mini-css-extract-plugin": 2.5.1
     "@types/mocha": ^10.0.6
-    "@types/node": 18.7.17
+    "@types/node": ^20.11.19
     "@types/nunjucks": 3.2.1
     "@types/require-directory": 2.1.2
     "@types/serve-favicon": 2.5.3
@@ -12211,7 +12204,7 @@ __metadata:
     tsconfig-paths: 4.1.0
     typed-rest-client: ^1.8.9
     typescript: 4.8.3
-    webpack: 5.74.0
+    webpack: 5.75.0
     webpack-cli: 4.10.0
     webpack-dev-middleware: 5.3.3
     webpack-node-externals: 3.0.0
@@ -15183,9 +15176,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack@npm:5.74.0":
-  version: 5.74.0
-  resolution: "webpack@npm:5.74.0"
+"webpack@npm:5.75.0":
+  version: 5.75.0
+  resolution: "webpack@npm:5.75.0"
   dependencies:
     "@types/eslint-scope": ^3.7.3
     "@types/estree": ^0.0.51
@@ -15216,7 +15209,7 @@ __metadata:
       optional: true
   bin:
     webpack: bin/webpack.js
-  checksum: 320c41369a75051b19e18c63f408b3dcc481852e992f83d311771c5ec0f05f2946385e8ebef62030cf3587f0a3d2f12779ffdb191569a966847289ba7313f946
+  checksum: 2bcc5f3c195f375944e8af2f00bf2feea39cb9fda5f763b0d1b00077f1c51783db25c94d3fae96a07dead9fa085e6ae7474417e5ab31719c9776ea5969ceb83a
   languageName: node
   linkType: hard
 
