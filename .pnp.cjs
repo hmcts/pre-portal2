@@ -11052,10 +11052,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["ip", [\
-        ["npm:1.1.8", {\
-          "packageLocation": "./.yarn/cache/ip-npm-1.1.8-abea558b72-a2ade53eb3.zip/node_modules/ip/",\
+        ["npm:1.1.9", {\
+          "packageLocation": "./.yarn/cache/ip-npm-1.1.9-e72dd3cc0a-b6d91fd45a.zip/node_modules/ip/",\
           "packageDependencies": [\
-            ["ip", "npm:1.1.8"]\
+            ["ip", "npm:1.1.9"]\
           ],\
           "linkType": "HARD"\
         }],\
@@ -14170,7 +14170,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["pac-resolver", "npm:7.0.0"],\
             ["degenerator", "npm:5.0.1"],\
-            ["ip", "npm:1.1.8"],\
+            ["ip", "npm:1.1.9"],\
             ["netmask", "npm:2.0.2"]\
           ],\
           "linkType": "HARD"\
