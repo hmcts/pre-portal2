@@ -4,11 +4,11 @@ import { expect } from 'chai';
 import request from 'supertest';
 
 /* eslint-disable jest/expect-expect */
-describe('Home page', () => {
+describe('Sign out page', () => {
   describe('on GET', () => {
-    test('should redirect', async () => {
+    test('should return 302', async () => {
       await request(app)
-        .get('/')
+        .get('/sign-out')
         .expect(res => expect(res.status).to.equal(302));
     });
   });
