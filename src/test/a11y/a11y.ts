@@ -1,44 +1,52 @@
-import axios from 'axios';
-import { config } from '../config';
-import * as https from 'https';
+import { app } from '../../main/app';
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+import request from 'supertest';
+import { afterAll } from '@jest/globals';
 
 const pa11y = require('pa11y');
-const server = axios.create({
-  baseURL: config.TEST_URL,
-  httpAgent: new https.Agent({ rejectUnauthorized: false }),
-});
 
-interface Pa11yResult {
+const appServers: any[] = [];
+function server() {
+  const server = app.listen();
+  appServers.push(server);
+  return server;
+}
+
+class Pa11yResult {
   documentTitle: string;
   pageUrl: string;
   issues: PallyIssue[];
+
+  constructor(documentTitle: string, pageUrl: string, issues: PallyIssue[]) {
+    this.documentTitle = documentTitle;
+    this.pageUrl = pageUrl;
+    this.issues = issues;
+  }
 }
 
-interface PallyIssue {
+class PallyIssue {
   code: string;
   context: string;
   message: string;
   selector: string;
   type: string;
   typeCode: number;
+
+  constructor(code: string, context: string, message: string, selector: string, type: string, typeCode: number) {
+    this.code = code;
+    this.context = context;
+    this.message = message;
+    this.selector = selector;
+    this.type = type;
+    this.typeCode = typeCode;
+  }
 }
 
-function ensurePageCallWillSucceed(url: string): Promise<void> {
-  server.get(url).catch(error => {
-    // if the url is for /not-found then don't worry about 404 status codes
-    if (url === '/not-found' && error.response.status === 404) {
-      return;
-    }
-    throw new Error(`Failed to load page: ${url}`);
-  });
-  return Promise.resolve();
-}
-
-function runPally(url: string): Pa11yResult {
-  return pa11y(config.TEST_URL + url, {
+function runPally(url: string): Promise<Pa11yResult> {
+  return pa11y(url, {
     hideElements: '.govuk-footer__licence-logo, .govuk-header__logotype-crown',
+    // Ignoring NoSuchID due to how Angular app links between pages: Links say they are linking to '/browse' when they actually link to '/#/browse' which is not listed as a route.
+    ignore: ['WCAG2AA.Principle2.Guideline2_4.2_4_1.G1,G123,G124.NoSuchID'],
   });
 }
 
@@ -51,19 +59,27 @@ function expectNoErrors(messages: PallyIssue[]): void {
   }
 }
 
-jest.retryTimes(3);
-jest.setTimeout(15000);
+function testAccessibility(url: string): void {
+  describe(`Page ${url}`, () => {
+    test('should have no accessibility errors', async () => {
+      // await ensurePageCallWillSucceed(url);
+      const result = await runPally(await request(server()).get(url).url);
+      expect(result.issues).toEqual(expect.any(Array));
+      expectNoErrors(result.issues);
+    });
+  });
+}
 
 describe('Accessibility', () => {
-  describe.each(['/sign-in', '/terms-and-conditions', '/accessibility-statement', '/browse', '/not-found'])(
-    'Page %s',
-    url => {
-      test('should have no accessibility errors', async () => {
-        await ensurePageCallWillSucceed(url);
-        const result = await runPally(url);
-        expect(result.issues).toEqual(expect.any(Array));
-        expectNoErrors(result.issues);
-      });
-    }
-  );
+  afterAll(async () => {
+    appServers.forEach(server => server.close());
+  });
+  // testing accessibility of the home page
+  testAccessibility('/terms-and-conditions');
+  testAccessibility('/accessibility-statement');
+  testAccessibility('/sign-in');
+  testAccessibility('/browse');
+  testAccessibility('/not-found');
+
+  // TODO: include each path of your application in accessibility checks
 });
