@@ -3,7 +3,7 @@ import { fail } from 'assert';
 import axios, { AxiosResponse } from 'axios';
 import { expect } from 'chai';
 
-const testUrl = process.env.TEST_URL || 'http://localhost:4550';
+const testUrl = process.env.TEST_URL || 'http://localhost:4550/sign-in';
 
 describe('Smoke Test', () => {
   describe('Home page loads', () => {
@@ -14,7 +14,7 @@ describe('Smoke Test', () => {
             'Accept-Encoding': 'gzip',
           },
         });
-        expect(response.data).includes('<app-root></app-root>');
+        expect(response.data).includes('<h1 class="govuk-heading-xl">Sign in</h1>');
       } catch {
         fail('Heading not present and/or correct');
       }
