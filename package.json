@@ -61,6 +61,7 @@
     "nunjucks": "3.2.3",
     "require-directory": "2.1.1",
     "serve-favicon": "2.5.0",
+    "supertest": "^6.3.4",
     "ts-node": "10.9.1",
     "tsconfig-paths": "4.1.0",
     "typed-rest-client": "^1.8.9",
