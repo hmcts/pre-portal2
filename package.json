@@ -12,6 +12,7 @@
     "lint:fix": "prettier --write . && eslint --fix .",
     "build": "yarn webpack --config webpack.config.js",
     "build:prod": "NODE_ENV=production yarn webpack --mode production --config webpack.config.js",
+    "build:ts": "tsc -P . --outDir ./src/main",
     "test": "npx if-env CI=true && exit 0 || yarn test:unit",
     "test:unit": "jest",
     "test:coverage": "jest --coverage",
