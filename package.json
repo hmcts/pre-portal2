@@ -19,12 +19,13 @@
     "test:routes": "jest -c jest.routes.config.js",
     "test:a11y": "NODE_TLS_REJECT_UNAUTHORIZED=0 jest -c jest.a11y.config.js --maxWorkers 15",
     "test:smoke": "NODE_TLS_REJECT_UNAUTHORIZED=0 jest -c jest.smoke.config.js",
-    "test:functional": "NODE_TLS_REJECT_UNAUTHORIZED=0 codeceptjs --config ./src/test/functional/codecept.conf.js run --steps",
+    "test:functional": "NODE_TLS_REJECT_UNAUTHORIZED=0 codeceptjs run --config ./codecept.conf.js --steps",
     "cichecks": "yarn build && yarn rebuild puppeteer && yarn lint && yarn test && yarn test:routes && yarn test:a11y",
     "prepare": "husky install",
     "prettier": "prettier --write ."
   },
   "dependencies": {
+    "@codeceptjs/allure-legacy": "^1.0.2",
     "@hmcts/info-provider": "1.0.0",
     "@hmcts/nodejs-healthcheck": "1.7.3",
     "@hmcts/nodejs-logging": "4.0.4",
