@@ -1,0 +1,69 @@
+{% extends "template.njk" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Sign in</h1>
+      <form id="loginForm" method="post" action="/sign-in">
+        <div class="govuk-form-group">
+          <label for="email" class="govuk-label" aria-describedby="email-hint">
+            Email
+          </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            required
+            email
+            class="govuk-input govuk-!-width-three-quarters"
+            value=""
+            aria-description="Enter your email address"
+            autocomplete="email" />
+        </div>
+        <div class="govuk-form-group">
+          <label for="password" class="govuk-label"> Password </label>
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text"> Password criteria </span>
+            </summary>
+            <div class="govuk-details__text">
+              Passwords must have at least 8 characters. <br />
+              Passwords must contain characters from at least three of the
+              following four classes: uppercase, lowercase, digit, and
+              non-alphanumeric (special).
+            </div>
+          </details>
+
+          <input
+            type="password"
+            name="password"
+            id="password"
+            required
+            class="govuk-input govuk-!-width-three-quarters"
+            aria-description="Enter your password"
+            autocomplete="current-password" />
+        </div>
+        <button
+          type="submit"
+          id="continue"
+          class="govuk-button"
+          data-module="govuk-button"
+          data-prevent-double-click="true">
+          Sign in
+        </button>
+      </form>
+      <h2 class="govuk-heading-m">Problems signing in</h2>
+      <ul class="govuk-list">
+        <li>
+          <a
+            class="govuk-link"
+            href="/forgot-password"
+            id="forgotten-password">
+            I have forgotten my password
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}

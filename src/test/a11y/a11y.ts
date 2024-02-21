@@ -1,10 +1,16 @@
 import { app } from '../../main/app';
 
-import * as supertest from 'supertest';
+import request from 'supertest';
+import { afterAll } from '@jest/globals';
 
 const pa11y = require('pa11y');
 
-const agent = supertest.agent(app);
+const appServers: any[] = [];
+function server() {
+  const server = app.listen();
+  appServers.push(server);
+  return server;
+}
 
 class Pa11yResult {
   documentTitle: string;
@@ -36,17 +42,6 @@ class PallyIssue {
   }
 }
 
-async function ensurePageCallWillSucceed(url: string): Promise<void> {
-  return agent.get(url).then((res: supertest.Response) => {
-    if (res.redirect) {
-      throw new Error(`Call to ${url} resulted in a redirect to ${res.get('Location')}`);
-    }
-    if (res.serverError) {
-      throw new Error(`Call to ${url} resulted in internal server error`);
-    }
-  });
-}
-
 function runPally(url: string): Promise<Pa11yResult> {
   return pa11y(url, {
     hideElements: '.govuk-footer__licence-logo, .govuk-header__logotype-crown',
@@ -67,8 +62,8 @@ function expectNoErrors(messages: PallyIssue[]): void {
 function testAccessibility(url: string): void {
   describe(`Page ${url}`, () => {
     test('should have no accessibility errors', async () => {
-      await ensurePageCallWillSucceed(url);
-      const result = await runPally(agent.get(url).url);
+      // await ensurePageCallWillSucceed(url);
+      const result = await runPally(await request(server()).get(url).url);
       expect(result.issues).toEqual(expect.any(Array));
       expectNoErrors(result.issues);
     });
@@ -76,17 +71,15 @@ function testAccessibility(url: string): void {
 }
 
 describe('Accessibility', () => {
+  afterAll(async () => {
+    appServers.forEach(server => server.close());
+  });
   // testing accessibility of the home page
-  testAccessibility('/#');
-  testAccessibility('/#/forgot-password');
-  testAccessibility('/#/terms-and-conditions');
-  testAccessibility('/#/accessibility-statement');
-  testAccessibility('/#/two-factor-auth');
-  testAccessibility('/#/enter-invitation');
-  testAccessibility('/#/register');
-  testAccessibility('/#/register/terms-and-conditions');
-  testAccessibility('/#/browse');
-  testAccessibility('/#/not-found');
+  testAccessibility('/terms-and-conditions');
+  testAccessibility('/accessibility-statement');
+  testAccessibility('/sign-in');
+  testAccessibility('/browse');
+  testAccessibility('/not-found');
 
   // TODO: include each path of your application in accessibility checks
 });

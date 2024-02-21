@@ -6,7 +6,9 @@ import { Helmet } from './modules/helmet';
 import { Nunjucks } from './modules/nunjucks';
 import { PropertiesVolume } from './modules/properties-volume';
 
+import axios from 'axios';
 import * as bodyParser from 'body-parser';
+import config = require('config');
 import cookieParser from 'cookie-parser';
 import express from 'express';
 import { glob } from 'glob';
@@ -30,11 +32,14 @@ new Nunjucks(developmentMode).enableFor(app);
 // secure the application by adding various HTTP headers to its responses
 new Helmet(developmentMode).enableFor(app);
 
-app.use(favicon(path.join(__dirname, 'assets/images/favicon.ico')));
+axios.defaults.baseURL = config.get('pre.apiUrl');
+// axios.defaults.headers.common['Authorization'] = 'Token token=' + config.get('ardoq.apiKey');
+
+app.use(favicon(path.join(__dirname, '/public/assets/images/favicon.ico')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../../angular/dist')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use((req, res, next) => {
   res.setHeader('Cache-Control', 'no-cache, max-age=0, must-revalidate, no-store');
   next();
@@ -48,7 +53,8 @@ glob
 setupDev(app, developmentMode);
 // returning "not found" page for requests with paths not resolved by the router
 app.use((req, res) => {
-  res.redirect(301, '/#/not-found');
+  res.status(404);
+  res.render('not-found');
 });
 
 // error handler

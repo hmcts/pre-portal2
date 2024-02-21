@@ -11,14 +11,6 @@ def yarnBuilder = new uk.gov.hmcts.contino.YarnBuilder(this)
 withPipeline(type, product, component) {
   syncBranchesWithMaster(['perftest', 'ithc', 'demo'])
   enableSlackNotifications('#pre-builds')
-  before('build') {
-    sh 'cd angular && yarn install && yarn build'
-  }
-
-  before('test') {
-    sh 'cd angular && yarn test-ci'
-  }
-
   afterSuccess('build') {
     yarnBuilder.yarn('rebuild puppeteer')
     yarnBuilder.yarn('build')

@@ -1,10 +1,46 @@
 {% extends "govuk/template.njk" %}
+{% from "govuk/components/footer/macro.njk" import govukFooter %}
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
 
 {% block head %}
   {% include "webpack/css.njk" %}
 {% endblock %}
 
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/",
+    useTudorCrown: true,
+    serviceName: "HMCTS Pre-Recorded Evidence Service",
+    serviceUrl: "/"
+  }) }}
+{% endblock %}
+
 {% block bodyEnd %}
   {# Run JavaScript at end of the <body>, to avoid blocking the initial render. #}
   {% include "webpack/js.njk" %}
+{% endblock %}
+
+{% block footer %}
+  {{ govukFooter({
+    meta: {
+      items: [
+        {
+          href: '/terms-and-conditions',
+          text: 'Terms and conditions',
+          attributes: {
+            target: "_blank"
+          }
+        },
+        {
+          href: '/accessibility-statement',
+          text: 'Accessibility statement',
+          attributes: {
+            target: "_blank"
+          }
+        }
+      ]
+    }
+  }) }}
 {% endblock %}

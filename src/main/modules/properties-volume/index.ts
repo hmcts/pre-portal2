@@ -5,6 +5,8 @@ import { get, set } from 'lodash';
 
 export class PropertiesVolume {
   enableFor(server: Application): void {
+    require('dotenv').config();
+    set(config, 'session.redis.key', process.env.REDIS_ACCESS_KEY);
     if (server.locals.ENV !== 'development') {
       propertiesVolume.addTo(config);
       this.setSecret('secrets.pre-hmctskv.AppInsightsInstrumentationKey', 'appInsights.instrumentationKey');
