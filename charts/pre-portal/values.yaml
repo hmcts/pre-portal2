@@ -19,5 +19,7 @@ nodejs:
           alias: APIM_SUB_PORTAL_PRIMARY_KEY
         - name: apim-sub-portal-secondary-key
           alias: APIM_SUB_PORTAL_SECONDARY_KEY
+        - name: pre-portal-sso
+          alias: B2C_APP_CLIENT_SECRET
   environment:
     REDIS_HOST: 'pre-portal-{{ .Values.global.environment }}.redis.cache.windows.net'

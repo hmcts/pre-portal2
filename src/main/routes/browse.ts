@@ -28,7 +28,10 @@ export default function (app: Application): void {
         throw new Error('Failed to retrieve recordings');
       }
 
-      res.render('browse', { recordings });
+      res.render('browse', {
+        recordings: recordings,
+        user: req.oidc?.user
+      });
     } catch (e) {
       res.status(500);
       res.render('error');
