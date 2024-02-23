@@ -2,6 +2,7 @@ import * as path from 'path';
 
 import { HTTPError } from './HttpError';
 import { AppInsights } from './modules/appinsights';
+import { Auth } from './modules/auth';
 import { Helmet } from './modules/helmet';
 import { Nunjucks } from './modules/nunjucks';
 import { PropertiesVolume } from './modules/properties-volume';
@@ -13,6 +14,8 @@ import cookieParser from 'cookie-parser';
 import express from 'express';
 import { glob } from 'glob';
 import favicon from 'serve-favicon';
+
+import 'dotenv/config';
 
 const { setupDev } = require('./development');
 
@@ -40,6 +43,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+if (process.env.PORTAL_AUTH_DISABLED !== '1') {
+  new Auth().enableFor(app);
+}
+
+// Middleware to make the `user` object available for all views
+// app.use(function (req, res, next) {
+//   res.locals.user = req.oidc?.user;
+//   next();
+// });
+
 app.use((req, res, next) => {
   res.setHeader('Cache-Control', 'no-cache, max-age=0, must-revalidate, no-store');
   next();
@@ -58,12 +71,13 @@ app.use((req, res) => {
 });
 
 // error handler
-app.use((err: HTTPError, req: express.Request, res: express.Response) => {
-  logger.error(`${err.stack || err}`);
+app.use((err: HTTPError, req: express.Request, res: express.Response, next: express.NextFunction) => {
+  logger.error(err.message);
+  logger.error(JSON.stringify(err));
 
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = env === 'development' ? err : {};
-  res.status(err.status || 500);
-  res.render('error');
+  res.status(err.status || 500).json({
+    message: err.message,
+    errors: err.stack || err,
+  });
+  next();
 });

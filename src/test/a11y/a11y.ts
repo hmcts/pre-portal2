@@ -80,6 +80,4 @@ describe('Accessibility', () => {
   testAccessibility('/sign-in');
   testAccessibility('/browse');
   testAccessibility('/not-found');
-
-  // TODO: include each path of your application in accessibility checks
 });
