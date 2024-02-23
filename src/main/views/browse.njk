@@ -4,13 +4,13 @@
   {{
     govukBackLink({
       "text": "Sign out",
-      "href": "/sign-out"
+      "href": "/logout"
     })
   }}
 {% endblock %}
 
 {% block content %}
-    <h1 class="govuk-heading-xl">Welcome back Test User</h1>
+    <h1 class="govuk-heading-xl">Welcome back, {{ user.name }}</h1>
 
     <div class="govuk-warning-text">
       <span class="govuk-warning-text__icon" aria-hidden="true">!</span>

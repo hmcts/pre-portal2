@@ -24,7 +24,10 @@ export default function (app: Application): void {
 
       const recordings = await client.getRecordings(request);
 
-      res.render('browse', { recordings });
+      res.render('browse', {
+        recordings: recordings,
+        user: req.oidc?.user
+      });
     } catch (e) {
       res.status(500);
       res.render('error');

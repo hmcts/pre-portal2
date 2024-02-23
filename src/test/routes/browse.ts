@@ -8,11 +8,14 @@ import { PreClient } from '../../main/services/pre-api/pre-client';
 /* eslint-disable jest/expect-expect */
 describe('Browse page success', () => {
   describe('on GET', () => {
-    test('should return 200', async () => {
+    test('should return 302', async () => {
       mock();
       await request(app)
         .get('/browse')
-        .expect(res => expect(res.status).to.equal(200));
+        .expect(res => {
+          expect(res.status).to.equal(302);
+          expect(res.header.location).to.include('.b2clogin.com');
+        });
     });
     test('should return 200 when no recordings are returned', async () => {
       mockGetRecordings([]);

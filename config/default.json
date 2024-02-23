@@ -8,12 +8,32 @@
     "apiKey": {
       "primary": "",
       "secondary": ""
-    }
+    },
+    "portalUrl": "https://localhost:4550"
   },
   "ams": {
     "azureMediaServices": "https://preamsdev-ukso1.streaming.media.azure.net",
     "azureMediaServicesKeyDelivery": "https://preamsdev.keydelivery.uksouth.media.azure.net",
     "flowKey": "",
     "flowUrl": ""
+  },
+  "session": {
+    "redis": {
+      "key": "",
+      "host": ""
+    },
+    "maxAge": 86400000,
+    "secret": "superlongrandomstringthatshouldbebetterinprod"
+  },
+  "b2c": {
+    "appClientId": "c8deb898-d595-4fb2-8ba5-52fffa8db064",
+    "appClientSecret": "",
+    "signUpSignInPolicyAuthority": "https://hmctsdevextid.b2clogin.com/hmctsdevextid.onmicrosoft.com/oauth2/v2.0/authorize?p=b2c_1a_signup_signin",
+    "resetPasswordPolicyAuthority": "https://hmctsdevextid.b2clogin.com/hmctsdevextid.onmicrosoft.com/<reset-password-user-flow-name>",
+    "editProfilePolicyAuthority": "https://hmctsdevextid.b2clogin.com/hmctsdevextid.onmicrosoft.com/<edit-profile-user-flow-name>",
+    "knownAuthorities": ["https://hmctsdevextid.b2clogin.com"],
+    "baseUrl": "https://hmctsdevextid.b2clogin.com/hmctsdevextid.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_SIGNUP_SIGNIN&redirect_uri=https://localhost:4550/callback",
+    "appRedirectUri": "",
+    "logoutEndpoint": "https://hmctsdevextid.b2clogin.com/hmctsdevextid.onmicrosoft.com/<sign-in-sign-up-user-flow-name>/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost:4550"
   }
 }
