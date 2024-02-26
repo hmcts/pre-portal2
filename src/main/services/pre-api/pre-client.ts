@@ -1,6 +1,7 @@
+import { CaptureSession, Recording, SearchCaptureSessionsRequest } from './types';
+
 import { AxiosInstance } from 'axios';
 
-import { Recording, CaptureSession, SearchCaptureSessionsRequest } from './types';
 
 
 export class PreClient {
@@ -9,7 +10,7 @@ export class PreClient {
   ) { }
 
   public async getCaptureSessions(request: SearchCaptureSessionsRequest): Promise<CaptureSession[]> {
-    let captureSessions = []
+    let captureSessions = [];
 
     try {
       const response = await this.httpClient.get('/capture-sessions', request);
@@ -23,7 +24,7 @@ export class PreClient {
   }
 
   public async getRecording(id: string): Promise<Recording> {
-    let recording = {} as Recording
+    let recording = {} as Recording;
 
     try {
       const response = await this.httpClient.get(`/recordings/${id}`);

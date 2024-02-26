@@ -1,10 +1,9 @@
-import { HTTPError } from 'HttpError';
-import { Application } from 'express';
-import axios from 'axios';
-import config from 'config';
-
 import { PreClient } from '../services/pre-api/pre-client';
 import { SearchCaptureSessionsRequest } from '../services/pre-api/types';
+
+import axios from 'axios';
+import config from 'config';
+import { Application } from 'express';
 
 
 export default function (app: Application): void {
@@ -30,8 +29,8 @@ export default function (app: Application): void {
       // TODO: Insert API response to to template
       const recordings = await client.getCaptureSessions(request);
       res.render('browse');
-    } catch (err) {
-      next(new HTTPError(err.message, 400));
+    } catch (e) {
+
     }
 
   });

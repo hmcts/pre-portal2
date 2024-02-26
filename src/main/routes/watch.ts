@@ -1,9 +1,9 @@
-import { HTTPError } from 'HttpError';
-import { Application } from 'express';
+import { PreClient } from '../services/pre-api/pre-client';
+
 import axios from 'axios';
 import config from 'config';
+import { Application } from 'express';
 
-import { PreClient } from '../services/pre-api/pre-client';
 
 
 export default function (app: Application): void {
@@ -24,8 +24,8 @@ export default function (app: Application): void {
       // TODO: Insert API response to to template
       const recordings = await client.getRecording(req.params.id);
       res.render('watch');
-    } catch (err) {
-      next(new HTTPError(err.message, 400));
+    } catch (e) {
+
     }
   });
 }
