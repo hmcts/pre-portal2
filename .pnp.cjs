@@ -52,7 +52,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/mini-css-extract-plugin", "npm:2.5.1"],\
             ["@types/mocha", "npm:10.0.6"],\
             ["@types/node", "npm:20.11.19"],\
-            ["@types/nunjucks", "npm:3.2.1"],\
+            ["@types/nunjucks", "npm:3.2.6"],\
             ["@types/require-directory", "npm:2.1.6"],\
             ["@types/serve-favicon", "npm:2.5.3"],\
             ["@typescript-eslint/eslint-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.37.0"],\
@@ -5696,10 +5696,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/nunjucks", [\
-        ["npm:3.2.1", {\
-          "packageLocation": "./.yarn/cache/@types-nunjucks-npm-3.2.1-856dc9e81e-40f3dd8968.zip/node_modules/@types/nunjucks/",\
+        ["npm:3.2.6", {\
+          "packageLocation": "./.yarn/cache/@types-nunjucks-npm-3.2.6-5125e5f97e-a139cc51d8.zip/node_modules/@types/nunjucks/",\
           "packageDependencies": [\
-            ["@types/nunjucks", "npm:3.2.1"]\
+            ["@types/nunjucks", "npm:3.2.6"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -16348,7 +16348,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/mini-css-extract-plugin", "npm:2.5.1"],\
             ["@types/mocha", "npm:10.0.6"],\
             ["@types/node", "npm:20.11.19"],\
-            ["@types/nunjucks", "npm:3.2.1"],\
+            ["@types/nunjucks", "npm:3.2.6"],\
             ["@types/require-directory", "npm:2.1.6"],\
             ["@types/serve-favicon", "npm:2.5.3"],\
             ["@typescript-eslint/eslint-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.37.0"],\

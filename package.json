@@ -40,7 +40,7 @@
     "@types/lodash": "4.14.202",
     "@types/mocha": "^10.0.6",
     "@types/node": "^20.11.19",
-    "@types/nunjucks": "3.2.1",
+    "@types/nunjucks": "3.2.6",
     "@types/require-directory": "2.1.6",
     "@types/serve-favicon": "2.5.3",
     "applicationinsights": "2.3.5",
