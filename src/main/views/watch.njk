@@ -101,7 +101,7 @@
       </dd>
 
       {% for participant in recording.participants %}
-        { % if participant.participantType == "WITNESS" %}
+        {% if participant.participantType == "WITNESS" %}
           <dd
             class="govuk-summary-list__value"
             data-testid="summary-value-witness">
@@ -117,7 +117,7 @@
         Defendants
       </dt>
       {% for participant in recording.participants %}
-        { % if participant.participantType == "DEFENDANT" %}
+        {% if participant.participantType == "DEFENDANT" %}
           <dd
             class="govuk-summary-list__value"
             data-testid="summary-value-defendants">
