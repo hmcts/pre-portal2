@@ -2,6 +2,9 @@ import { app } from '../../main/app';
 
 import { expect } from 'chai';
 import request from 'supertest';
+import { mock } from '../mock-api';
+
+mock();
 
 /* eslint-disable jest/expect-expect */
 describe('Browse page', () => {

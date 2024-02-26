@@ -2,41 +2,9 @@ import { app } from '../../main/app';
 
 import { expect } from 'chai';
 import request from 'supertest';
-import { Recording } from '../../main/services/pre-api/types';
-import { PreClient } from '../../main/services/pre-api/pre-client';
+import { mock } from '../mock-api';
 
-jest.spyOn(PreClient.prototype, 'getRecording').mockImplementation(async (id: string) => {
-  if (id === 'something') {
-    return Promise.resolve({
-      id: 'something',
-      parentRecordingId: 'parentId',
-      version: 1,
-      filename: 'filename',
-      duration: 'duration',
-      editInstructions: 'editInstructions',
-      captureSession: {
-        id: '',
-        bookingId: '',
-        origin: '',
-        ingestAddress: '',
-        liveOutputUrl: '',
-        startedAt: '',
-        startedByUserId: '',
-        finishedAt: '',
-        finishedByUserId: '',
-        status: '',
-        deletedAt: '',
-        courtName: '',
-      },
-      deletedAt: 'deletedAt',
-      createdAt: 'createdAt',
-      caseReference: 'caseReference',
-      isTestCase: false,
-      participants: [],
-    } as Recording);
-  }
-  return Promise.resolve(null);
-});
+mock();
 
 /* eslint-disable jest/expect-expect */
 describe('Watch page', () => {
