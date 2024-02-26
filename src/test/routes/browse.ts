@@ -5,24 +5,24 @@ import request from 'supertest';
 import { mock, reset } from '../mock-api';
 
 /* eslint-disable jest/expect-expect */
-describe('Browse page 500 error', () => {
-  describe('on GET', () => {
-    test('should return 500', async () => {
-      await request(app)
-        .get('/watch/something')
-        .expect(res => expect(res.status).to.equal(500));
-    });
-  });
-});
-
-/* eslint-disable jest/expect-expect */
-describe('Browse page', () => {
+describe('Browse page success', () => {
   describe('on GET', () => {
     test('should return 200', async () => {
       mock();
       await request(app)
         .get('/browse')
         .expect(res => expect(res.status).to.equal(200));
+    });
+  });
+});
+
+/* eslint-disable jest/expect-expect */
+describe('Browse page failure', () => {
+  describe('on GET', () => {
+    test('should return 500', async () => {
+      await request(app)
+        .get('/watch/something')
+        .expect(res => expect(res.status).to.equal(500));
     });
   });
 });
