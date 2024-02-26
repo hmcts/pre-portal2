@@ -9,9 +9,14 @@ export default function (app: Application): void {
     try {
       const client = new PreClient();
 
-      // TODO: Use search parameters from request
       const request: SearchCaptureSessionsRequest = {
-
+        caseReference: req.query.caseReference as string,
+        bookingId: req.query.bookingId as string,
+        origin: 'PRE',
+        recordingStatus: 'RECORDING_AVAILABLE',
+        scheduledFor: req.query.scheduledFor as string,
+        page: req.query.page as unknown as number,
+        size: 10
       };
 
       // TODO: Insert API response to to template
