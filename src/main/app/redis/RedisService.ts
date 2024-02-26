@@ -1,7 +1,6 @@
 import { Logger } from '@hmcts/nodejs-logging';
 import * as redis from 'redis';
 
-
 export class RedisService {
   public getClient(host: string, key: string, logger: Logger): unknown {
     const client = redis.createClient({
