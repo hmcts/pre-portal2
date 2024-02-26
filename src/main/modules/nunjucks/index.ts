@@ -10,11 +10,15 @@ export class Nunjucks {
 
   enableFor(app: express.Express): void {
     app.set('view engine', 'njk');
-    nunjucks.configure(path.join(__dirname, '..', '..', 'views'), {
-      autoescape: true,
-      watch: this.developmentMode,
-      express: app,
-    });
+    nunjucks
+      .configure(path.join(__dirname, '..', '..', 'views'), {
+        autoescape: true,
+        watch: this.developmentMode,
+        express: app,
+      })
+      .addFilter('formatDate', (date: string) => {
+        return new Date(date).toLocaleDateString('en-GB');
+      });
 
     app.use((req, res, next) => {
       res.locals.pagePath = req.path;

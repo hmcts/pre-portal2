@@ -55,7 +55,7 @@
       <dd
         class="govuk-summary-list__value"
         data-testid="summary-value-date">
-        {{ recording.capture_session.started_at }}
+        {{ recording.capture_session.started_at | formatDate }}
       </dd>
     </div>
     <div class="govuk-summary-list__row">

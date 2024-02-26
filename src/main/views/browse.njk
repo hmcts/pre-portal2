@@ -55,7 +55,7 @@
               {{ recording.capture_session.court_name }}
             </td>
             <td class="govuk-table__cell">
-              {{ recording.capture_session.started_at }}
+              {{ recording.capture_session.started_at | formatDate }}
             </td>
             <td class="govuk-table__cell">
               {% for participant in recording.participants %}
