@@ -1,10 +1,15 @@
 import { PreClient } from '../services/pre-api/pre-client';
 import { SearchRecordingsRequest } from '../services/pre-api/types';
+import { SessionUser } from '../services/session-user/session-user';
 
+import { Logger } from '@hmcts/nodejs-logging';
 import { Application } from 'express';
+import { requiresAuth } from 'express-openid-connect';
 
 export default function (app: Application): void {
-  app.get('/browse', async (req, res) => {
+  const logger = Logger.getLogger('browse');
+
+  app.get('/browse', requiresAuth(), async (req, res) => {
     try {
       const client = new PreClient();
 
@@ -22,15 +27,16 @@ export default function (app: Application): void {
         size: 10,
       };
 
-      const recordings = await client.getRecordings(request);
+      const recordings = await client.getRecordings(SessionUser.getLoggedInUser(req).id, request);
 
       res.render('browse', {
-        recordings: recordings,
-        user: req.oidc?.user
+        recordings,
+        user: req.oidc?.user,
       });
     } catch (e) {
       res.status(500);
-      res.render('error');
+      res.render('error', { message: e.message });
+      logger.error(e.message);
     }
   });
 }

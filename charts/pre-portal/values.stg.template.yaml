@@ -2,3 +2,7 @@ nodejs:
   # Don't modify below here
   image: ${IMAGE_NAME}
   ingressHost: ${SERVICE_FQDN}
+  environment:
+    PORTAL_URL: https://pre-portal-staging.staging.platform.hmcts.net
+    API_URL: https://sds-api-mgmt.staging.platform.hmcts.net/pre-api
+    ALLOW_CONFIG_MUTATIONS: true

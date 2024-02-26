@@ -4,17 +4,13 @@ const { I } = inject();
 
 export const iAmOnPage = (text: string): void => {
   const url = new URL(text, config.TEST_URL);
-  console.log('email', config.b2c.testLogin.email);
-  console.log('password', config.b2c.testLogin.password);
-  if (!url.searchParams.has('lng')) {
-    url.searchParams.set('lng', 'en');
-  }
-  I.amOnPage(url.toString());
+  console.log(url.toString());
+  I.retry({ retries: 3, maxTimeout: 5000 }).amOnPage(url.toString());
 };
 Given('I go to {string}', iAmOnPage);
 
 Then('the page URL should be {string}', (url: string) => {
-  I.waitInUrl(url);
+  I.retry({ retries: 3, maxTimeout: 5000 }).waitInUrl(url);
 });
 
 Then('the page should include {string}', (text: string) => {

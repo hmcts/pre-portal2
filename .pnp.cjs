@@ -94,12 +94,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-html-reporter", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.7.0"],\
             ["jest-junit", "npm:14.0.1"],\
             ["jest-mock", "npm:29.7.0"],\
+            ["jose", "npm:5.2.2"],\
             ["jquery", "npm:3.6.1"],\
             ["lint", "npm:0.8.19"],\
             ["lint-staged", "npm:13.0.3"],\
             ["lodash", "npm:4.17.21"],\
             ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.6.1"],\
             ["nock", "npm:13.2.9"],\
+            ["node-mocks-http", "npm:1.14.1"],\
             ["nodemon", "npm:2.0.22"],\
             ["nunjucks", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.2.4"],\
             ["pa11y", "npm:6.2.3"],\
@@ -12835,6 +12837,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@panva/asn1.js", "npm:1.0.0"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:5.2.2", {\
+          "packageLocation": "./.yarn/cache/jose-npm-5.2.2-e921996149-d23def3c1d.zip/node_modules/jose/",\
+          "packageDependencies": [\
+            ["jose", "npm:5.2.2"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["jquery", [\
@@ -13756,6 +13765,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["merge-descriptors", "npm:1.0.1"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:1.0.3", {\
+          "packageLocation": "./.yarn/cache/merge-descriptors-npm-1.0.3-10b44ad75c-52117adbe0.zip/node_modules/merge-descriptors/",\
+          "packageDependencies": [\
+            ["merge-descriptors", "npm:1.0.3"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["merge-stream", [\
@@ -14433,6 +14449,27 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/node-int64-npm-0.4.0-0dc04ec3b2-d0b30b1ee6.zip/node_modules/node-int64/",\
           "packageDependencies": [\
             ["node-int64", "npm:0.4.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["node-mocks-http", [\
+        ["npm:1.14.1", {\
+          "packageLocation": "./.yarn/cache/node-mocks-http-npm-1.14.1-92277e4de4-cc37618fb5.zip/node_modules/node-mocks-http/",\
+          "packageDependencies": [\
+            ["node-mocks-http", "npm:1.14.1"],\
+            ["@types/express", "npm:4.17.21"],\
+            ["@types/node", "npm:20.11.24"],\
+            ["accepts", "npm:1.3.8"],\
+            ["content-disposition", "npm:0.5.4"],\
+            ["depd", "npm:1.1.2"],\
+            ["fresh", "npm:0.5.2"],\
+            ["merge-descriptors", "npm:1.0.3"],\
+            ["methods", "npm:1.1.2"],\
+            ["mime", "npm:1.6.0"],\
+            ["parseurl", "npm:1.3.3"],\
+            ["range-parser", "npm:1.2.1"],\
+            ["type-is", "npm:1.6.18"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -15588,12 +15625,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-html-reporter", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.7.0"],\
             ["jest-junit", "npm:14.0.1"],\
             ["jest-mock", "npm:29.7.0"],\
+            ["jose", "npm:5.2.2"],\
             ["jquery", "npm:3.6.1"],\
             ["lint", "npm:0.8.19"],\
             ["lint-staged", "npm:13.0.3"],\
             ["lodash", "npm:4.17.21"],\
             ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.6.1"],\
             ["nock", "npm:13.2.9"],\
+            ["node-mocks-http", "npm:1.14.1"],\
             ["nodemon", "npm:2.0.22"],\
             ["nunjucks", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.2.4"],\
             ["pa11y", "npm:6.2.3"],\

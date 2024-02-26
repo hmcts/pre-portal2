@@ -3,30 +3,19 @@ nodejs:
   aadIdentityName: pre
   ingressHost: pre-portal.{{ .Values.global.environment }}.platform.hmcts.net
   image: 'sdshmctspublic.azurecr.io/pre/portal:latest'
-  #  Uncomment once the vault containing the app insights key has been set up
-  #  keyVaults:
-  #    pre:
-  #      secrets:
-  #        - AppInsightsInstrumentationKey
   keyVaults:
     pre-hmctskv:
       secrets:
-        - name: redis6-access-key
-          alias: REDIS_ACCESS_KEY
-        - name: AppInsightsInstrumentationKey
-          alias: APPINSIGHTS_INSTRUMENTATIONKEY
-        - name: apim-sub-portal-primary-key
-          alias: APIM_SUB_PORTAL_PRIMARY_KEY
-        - name: apim-sub-portal-secondary-key
-          alias: APIM_SUB_PORTAL_SECONDARY_KEY
-        - name: pp-authorization
-          alias: PP_AUTHORIZATION
-        - name: ams-flow-url
-          alias: AMS_FLOW_URL
-        - name: pre-portal-sso
-          alias: B2C_APP_CLIENT_SECRET
-        - name: b2c-test-login-email
-        - nane: b2c-test-login-password
+        - redis6-access-key
+        - AppInsightsInstrumentationKey
+        - apim-sub-portal-primary-key
+        - apim-sub-portal-secondary-key
+        - pp-authorization
+        - ams-flow-url
+        - pre-portal-sso
+        - b2c-test-login-email
+        - b2c-test-login-password
   environment:
     REDIS_HOST: 'pre-portal-{{ .Values.global.environment }}.redis.cache.windows.net'
     PRE_API_URL: 'https://sds-api-mgmt.staging.platform.hmcts.net/pre-api'
+    PORTAL_URL: https://pre-portal.platform.hmcts.net

@@ -1,33 +1,60 @@
+import { UserProfile } from '../../types/user-profile';
+
 import { Recording, RecordingPlaybackData, SearchRecordingsRequest } from './types';
 
 import { Logger } from '@hmcts/nodejs-logging';
 import axios from 'axios';
-import config = require('config');
+import config from 'config';
 
 export class PreClient {
-  constructor(private readonly logger = Logger.getLogger('app')) {}
+  logger = Logger.getLogger('pre-client');
 
-  // TODO: get only recordings shared with the authenticated user
-  public async getRecordings(request: SearchRecordingsRequest): Promise<Recording[]> {
+  public async getUserByEmail(email: string): Promise<UserProfile> {
+    const response = await axios.get('/users/by-email/' + email);
+    if (response.data.length !== 1) {
+      this.logger.error('No user found for email: ' + email);
+      return {} as UserProfile;
+    }
+    const user = response.data[0] as UserProfile;
+    if (!user.active) {
+      this.logger.error('User is not active: ' + email);
+      return {} as UserProfile;
+    }
+    return user;
+  }
+
+  public async getRecordings(xUserId: string, request: SearchRecordingsRequest): Promise<Recording[]> {
+    this.logger.debug('Getting recordings with request: ' + JSON.stringify(request));
+
     try {
       const response = await axios.get('/recordings', {
+        headers: {
+          'X-User-Id': xUserId,
+        },
         params: request,
       });
 
-      if (!response.data['_embedded'] || !response.data['_embedded']['recordingDTOList']) {
+      if (response.data['page']['totalElements'] === 0) {
         return [];
       }
-
       return response.data['_embedded']['recordingDTOList'] as Recording[];
     } catch (e) {
-      this.logger.error(e);
+      // log the error
+      this.logger.info('path', e.response?.request.path);
+      this.logger.info('res headers', e.response?.headers);
+      this.logger.info('data', e.response?.data);
+      // rethrow the error for the UI
       throw e;
     }
   }
 
-  public async getRecording(id: string): Promise<Recording | null> {
+  public async getRecording(xUserId: string, id: string): Promise<Recording | null> {
     try {
-      const response = await axios.get(`/recordings/${id}`);
+      const response = await axios.get(`/recordings/${id}`, {
+        headers: {
+          'X-User-Id': xUserId,
+        },
+      });
 
       return response.data as Recording;
     } catch (e) {
@@ -70,7 +97,7 @@ export class PreClient {
         ],
       } as RecordingPlaybackData;
     } catch (e) {
-      if (e.response.status === 404) {
+      if (e.response?.status === 404) {
         return null;
       }
 

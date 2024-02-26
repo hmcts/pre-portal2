@@ -48,7 +48,7 @@
           {% for recording in recordings %}
             <tr
               class="govuk-table__row"
-              id="recording.id">
+              id="recording-{{ recording.id }}">
               <td class="govuk-table__cell" style="position: sticky; left: 0; z-index: 1; background-color: #ffffff;">
                 {{ recording.case_reference }}
               </td>
