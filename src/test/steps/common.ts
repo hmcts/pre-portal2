@@ -1,9 +1,11 @@
-import { config as testConfig } from '../config';
+import { config } from '../config';
 
 const { I } = inject();
 
 export const iAmOnPage = (text: string): void => {
-  const url = new URL(text, testConfig.TEST_URL);
+  const url = new URL(text, config.TEST_URL);
+  console.log('email', config.b2c.testLogin.email);
+  console.log('password', config.b2c.testLogin.password);
   if (!url.searchParams.has('lng')) {
     url.searchParams.set('lng', 'en');
   }
@@ -17,4 +19,15 @@ Then('the page URL should be {string}', (url: string) => {
 
 Then('the page should include {string}', (text: string) => {
   I.waitForText(text);
+});
+
+Then('I am on the {string} page', (path: string) => {
+  const url = new URL(path, config.TEST_URL);
+  I.amOnPage(url.toString());
+});
+
+Then('I sign in as the test user', () => {
+  I.fillField('Email Address', config.b2c.testLogin.email as string);
+  I.fillField('Password', config.b2c.testLogin.password as string);
+  I.click('Sign in');
 });

@@ -8,6 +8,8 @@ export class PropertiesVolume {
     require('dotenv').config();
     set(config, 'session.redis.key', process.env.REDIS_ACCESS_KEY);
     set(config, 'b2c.appClientSecret', process.env.B2C_APP_CLIENT_SECRET);
+    set(config, 'b2c.testLogin.email', process.env.B2C_TEST_LOGIN_EMAIL);
+    set(config, 'b2c.testLogin.password', process.env.B2C_TEST_LOGIN_PASSWORD);
     if (server.locals.ENV !== 'development') {
       propertiesVolume.addTo(config);
       this.setSecret('secrets.pre-hmctskv.AppInsightsInstrumentationKey', 'appInsights.instrumentationKey');
@@ -15,6 +17,8 @@ export class PropertiesVolume {
       this.setSecret('secrets.pre-hmctskv.apim-sub-portal-primary-key', 'pre.apiKey.primary');
       this.setSecret('secrets.pre-hmctskv.apim-sub-portal-secondary-key', 'pre.apiKey.secondary');
       this.setSecret('secrets.pre-hmctskv.pre-portal-sso', 'b2c.appClientSecret');
+      this.setSecret('secrets.pre-hmctskv.b2c-test-login-email', 'b2c.testLogin.email');
+      this.setSecret('secrets.pre-hmctskv.b2c-test-login-password', 'b2c.testLogin.password');
     }
   }
 
