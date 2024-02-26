@@ -6,7 +6,9 @@ def type = "nodejs"
 def product = "pre"
 def component = "portal"
 
-
+def vaultOverrides = [
+  'dev': 'dev'
+]
 
 def secrets = [
   'pre-hmctskv-${env}':
@@ -30,7 +32,6 @@ def yarnBuilder = new uk.gov.hmcts.contino.YarnBuilder(this)
 
 withPipeline(type, product, component) {
   disableLegacyDeployment()
-  loadVaultSecrets(secrets)
   syncBranchesWithMaster(['perftest', 'ithc', 'demo'])
   enableSlackNotifications('#pre-builds')
   afterSuccess('build') {
