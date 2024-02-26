@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - "master"
+      - 'master'
 
 env:
   tenant: hmcts-dev-external-id.onmicrosoft.com
@@ -10,13 +10,13 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: 'Upload TrustFrameworkBase Policy'
-      uses: azure-ad-b2c/deploy-trustframework-policy@v3
-      with:
-        folder: "./b2c_policies"
-        files: "TrustFrameworkBase.xml,TrustFrameworkLocalization.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml,ProfileEdit.xml,PasswordReset.xml"
-        tenant: ${{ env.tenant }}
-        clientId: ${{ secrets.PRE_PORTAL_SSO_CLIENT_ID }}
-        clientSecret: ${{ secrets.PRE_MANAGEMENT_APP }}
+      - name: 'Upload TrustFrameworkBase Policy'
+        uses: azure-ad-b2c/deploy-trustframework-policy@v3
+        with:
+          folder: './b2c_policies'
+          files: 'TrustFrameworkBase.xml,TrustFrameworkLocalization.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml,ProfileEdit.xml,PasswordReset.xml'
+          tenant: ${{ env.tenant }}
+          clientId: ${{ secrets.PRE_PORTAL_SSO_CLIENT_ID }}
+          clientSecret: ${{ secrets.PRE_MANAGEMENT_APP }}
