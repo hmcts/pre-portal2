@@ -2,7 +2,6 @@ import { PreClient } from '../services/pre-api/pre-client';
 
 import { Application } from 'express';
 
-
 export default function (app: Application): void {
   app.get('/watch/:id', async (req, res) => {
     try {
@@ -16,10 +15,10 @@ export default function (app: Application): void {
 
       const captureSession = recording.captureSession;
 
-      res.render('watch', { captureSession, recording});
+      res.render('watch', { captureSession, recording });
     } catch (e) {
       res.status(500);
-      res.render('error');
+      res.render('error', { message: e.message });
     }
   });
 }
