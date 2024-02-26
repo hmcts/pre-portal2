@@ -30,6 +30,14 @@ export const config = {
       password: sysConfig.get('b2c.testLogin.password'),
     },
   },
+  session: {
+    redis: {
+      key: '',
+      host: '',
+    },
+    maxAge: 86400000,
+    secret: 'superlongrandomstringthatshouldbebetterinprod',
+  },
 };
 
 config.helpers = {

@@ -1,10 +1,11 @@
+import { RedisService } from '../../app/redis/RedisService';
+
 import { Logger } from '@hmcts/nodejs-logging';
 import config from 'config';
 import RedisStore from 'connect-redis';
 import { Application } from 'express';
 import { ConfigParams, auth } from 'express-openid-connect';
 import session from 'express-session';
-import * as redis from 'redis';
 import FileStoreFactory from 'session-file-store';
 
 const FileStore = FileStoreFactory(session);
@@ -18,7 +19,7 @@ export class Auth {
   }
 
   private getConfigParams(app: Application, logger: Logger): ConfigParams {
-    const authConfig = {
+    return {
       authRequired: true,
       attemptSilentLogin: true,
       idpLogout: true,
@@ -45,25 +46,16 @@ export class Auth {
         store: this.getSessionStore(app, logger) as any, // https://github.com/auth0/express-openid-connect/issues/234
       },
     };
-
-    return authConfig;
   }
 
   private getSessionStore(app: Application, logger: Logger) {
     const redisHost = config.get('session.redis.host');
     if (redisHost) {
-      const client = redis.createClient({
-        socket: {
-          host: redisHost as string,
-          port: 6380,
-          connectTimeout: 15000,
-          tls: true,
-        },
-        password: config.get('session.redis.key') as string,
-      });
-
-      client.connect().catch(logger.error);
-
+      const client = new RedisService().getClient(
+        config.get('session.redis.host'),
+        config.get('session.redis.key'),
+        logger
+      );
       app.locals.redisClient = client;
       return new RedisStore({ client });
     }
