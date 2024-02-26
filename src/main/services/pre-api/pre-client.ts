@@ -2,8 +2,6 @@ import { CaptureSession, Recording, SearchCaptureSessionsRequest } from './types
 
 import axios from 'axios';
 
-
-
 export class PreClient {
   public async getCaptureSessions(request: SearchCaptureSessionsRequest): Promise<CaptureSession[] | null> {
     const captureSessions: CaptureSession[] = [];

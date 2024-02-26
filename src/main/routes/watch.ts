@@ -13,9 +13,7 @@ export default function (app: Application): void {
         throw new Error('Failed to retrieve recording');
       }
 
-      const captureSession = recording.captureSession;
-
-      res.render('watch', { captureSession, recording });
+      res.render('watch', { recording });
     } catch (e) {
       res.status(500);
       res.render('error', { message: e.message });

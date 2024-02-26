@@ -17,7 +17,7 @@
 {% endblock %}
 
 {% block content %}
-  <h1 class="govuk-heading-xl">Case Ref: {{ recording.caseReference }}</h1>
+  <h1 class="govuk-heading-xl">Case Ref: {{ recording.case_reference }}</h1>
 
   <div class="govuk-!-margin-bottom-2 video-wrapper">
     <video
@@ -55,7 +55,7 @@
       <dd
         class="govuk-summary-list__value"
         data-testid="summary-value-date">
-        {{ captureSession.startedAt }}
+        {{ recording.capture_session.started_at }}
       </dd>
     </div>
     <div class="govuk-summary-list__row">
@@ -85,7 +85,7 @@
       <dd
         class="govuk-summary-list__value"
         data-testid="summary-value-court">
-        {{ captureSession.courtName }}
+        {{ recording.capture_session.court_name }}
       </dd>
     </div>
     <div class="govuk-summary-list__row">
@@ -94,18 +94,13 @@
         data-testid="summary-title-witness">
         Witness
       </dt>
-      <dd
-        class="govuk-summary-list__value"
-        data-testid="summary-value-witness">
-        Person 1
-      </dd>
 
       {% for participant in recording.participants %}
-        {% if participant.participantType == "WITNESS" %}
+        {% if participant.participant_type == "WITNESS" %}
           <dd
             class="govuk-summary-list__value"
             data-testid="summary-value-witness">
-            {{ participant.firstName }} {{ participant.lastName }}
+            {{ participant.first_name }} {{ participant.last_name }}
           </dd>
         {% endif %}
       {% endfor %}
@@ -117,11 +112,11 @@
         Defendants
       </dt>
       {% for participant in recording.participants %}
-        {% if participant.participantType == "DEFENDANT" %}
+        {% if participant.participant_type == "DEFENDANT" %}
           <dd
             class="govuk-summary-list__value"
             data-testid="summary-value-defendants">
-            {{ participant.firstName }} {{ participant.lastName }}
+            {{ participant.first_name }} {{ participant.last_name }}
           </dd>
         {% endif %}
       {% endfor %}
