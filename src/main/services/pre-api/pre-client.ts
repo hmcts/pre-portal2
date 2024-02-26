@@ -6,12 +6,15 @@ import axios from 'axios';
 
 export class PreClient {
   public async getCaptureSessions(request: SearchCaptureSessionsRequest): Promise<CaptureSession[] | null> {
-    let captureSessions = [];
+    const captureSessions: CaptureSession[] = [];
 
     try {
       const response = await axios.get('/capture-sessions', request);
+      const dtoList = response.data['_embedded']['captureSessionDTOList'];
 
-      // TODO: Map response to Capture Session list
+      dtoList.forEach((captureSession: CaptureSession) => {
+        return captureSessions.push(captureSession);
+      });
     } catch (e) {
       return null;
     }
@@ -20,16 +23,12 @@ export class PreClient {
   }
 
   public async getRecording(id: string): Promise<Recording | null> {
-    let recording = {} as Recording;
-
     try {
       const response = await axios.get(`/recordings/${id}`);
 
-      // TODO: Map response to Recording
+      return response.data as Recording;
     } catch (e) {
       return null;
     }
-
-    return recording;
   }
 }
