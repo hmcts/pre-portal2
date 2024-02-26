@@ -1,4 +1,6 @@
-export interface SearchCaptureSessionsRequest {
+import { AxiosRequestConfig } from 'axios';
+
+export interface SearchCaptureSessionsRequest extends AxiosRequestConfig {
   caseReference?: string;
   bookingId?: string;
   origin?: string;

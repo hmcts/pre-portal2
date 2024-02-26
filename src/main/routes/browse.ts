@@ -5,7 +5,7 @@ import { Application } from 'express';
 
 
 export default function (app: Application): void {
-  app.get('/browse', async (req, res, next) => {
+  app.get('/browse', async (req, res) => {
     try {
       const client = new PreClient();
 

@@ -1,6 +1,6 @@
 import { CaptureSession, Recording, SearchCaptureSessionsRequest } from './types';
 
-import axios, { AxiosInstance } from 'axios';
+import axios from 'axios';
 
 
 
