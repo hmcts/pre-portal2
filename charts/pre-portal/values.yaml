@@ -15,5 +15,9 @@ nodejs:
           alias: REDIS_ACCESS_KEY
         - name: AppInsightsInstrumentationKey
           alias: APPINSIGHTS_INSTRUMENTATIONKEY
+        - name: apim-sub-portal-primary-key
+          alias: APIM_SUB_PORTAL_PRIMARY_KEY
+        - name: apim-sub-portal-secondary-key
+          alias: APIM_SUB_PORTAL_SECONDARY_KEY
   environment:
     REDIS_HOST: 'pre-portal-{{ .Values.global.environment }}.redis.cache.windows.net'
