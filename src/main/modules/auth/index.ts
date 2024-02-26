@@ -3,7 +3,6 @@ import config from 'config';
 import RedisStore from 'connect-redis';
 import { Application } from 'express';
 import { ConfigParams, auth } from 'express-openid-connect';
-// import axios from "axios";
 import session from 'express-session';
 import * as redis from 'redis';
 import FileStoreFactory from 'session-file-store';
@@ -31,30 +30,10 @@ export class Auth {
       clientSecret: config.get('b2c.appClientSecret') as string,
       authorizationParams: {
         response_type: 'id_token',
-        response_mode: 'form_post',
-        scope: 'openid profile email',
+        scope: 'openid email profile',
       },
-      // afterCallback: async (req, res, session, decodedState) => {
-      //   const axiosInstance = axios.create({
-      //     baseURL: config.get('b2c.baseUrl'),
-      //   });
-      //   const userProfile = await axiosInstance.get('/userinfo');
-      //   return {
-      //     ...session,
-      //     userProfile // access using `req.appSession.userProfile`
-      //   };
-      // },
-      // backchannelLogout: set this up i think
-      // routes: {
-      //   backchannelLogout: '/logout',
-      //   callback: false,
-      //   login: '/browse',
-      //   logout: false,
-      //   postLogoutRedirect: '/logout'
-      // },
       session: {
         name: 'preportal-session',
-        // signSessionStoreCookie: true,
         rollingDuration: config.get('session.maxAge') as number,
         cookie: {
           httpOnly: true,
