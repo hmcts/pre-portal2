@@ -14,7 +14,7 @@ export class PropertiesVolume {
       this.setSecret('secrets.pre-hmctskv.redis6-access-key', 'session.redis.key');
       this.setSecret('secrets.pre-hmctskv.apim-sub-portal-primary-key', 'pre.apiKey.primary');
       this.setSecret('secrets.pre-hmctskv.apim-sub-portal-secondary-key', 'pre.apiKey.secondary');
-      this.setSecret('secrets.pre-hmctskv.redis-access-key', 'b2c.appClientSecret');
+      this.setSecret('secrets.pre-hmctskv.pre-portal-sso', 'b2c.appClientSecret');
     }
   }
 
