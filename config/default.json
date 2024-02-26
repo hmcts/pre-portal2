@@ -4,6 +4,10 @@
     "instrumentationKey": false
   },
   "pre": {
-    "apiUrl": "https://pre-api.local"
+    "apiUrl": "https://pre-api.local",
+    "apiKey": {
+      "primary": "",
+      "secondary": ""
+    }
   }
 }
