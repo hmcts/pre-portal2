@@ -1,23 +1,18 @@
-import { CaptureSession, Recording, SearchCaptureSessionsRequest } from './types';
+import { Recording, SearchRecordingsRequest } from './types';
 
 import axios from 'axios';
 
 export class PreClient {
-  public async getCaptureSessions(request: SearchCaptureSessionsRequest): Promise<CaptureSession[] | null> {
-    const captureSessions: CaptureSession[] = [];
-
+  public async getRecordings(request: SearchRecordingsRequest): Promise<Recording[] | null> {
     try {
-      const response = await axios.get('/capture-sessions', request);
-      const dtoList = response.data['_embedded']['captureSessionDTOList'];
-
-      dtoList.forEach((captureSession: CaptureSession) => {
-        return captureSessions.push(captureSession);
+      const response = await axios.get('/recordings', {
+        params: request,
       });
+
+      return response.data['_embedded']['recordingDTOList'] as Recording[];
     } catch (e) {
       return null;
     }
-
-    return captureSessions;
   }
 
   public async getRecording(id: string): Promise<Recording | null> {

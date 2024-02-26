@@ -100,7 +100,7 @@
           data-testid="summary-value-witness">
           {% for participant in recording.participants %}
             {% if participant.participant_type == "WITNESS" %}
-              {{ participant.first_name }} {{ participant.last_name }},
+              {{ participant.first_name }} {{ participant.last_name }}<br />
             {% endif %}
           {% endfor %}
         </dd>
@@ -116,7 +116,7 @@
           data-testid="summary-value-defendants">
           {% for participant in recording.participants %}
             {% if participant.participant_type == "DEFENDANT" %}
-              {{ participant.first_name }} {{ participant.last_name }},
+              {{ participant.first_name }} {{ participant.last_name }}<br />
             {% endif %}
           {% endfor %}
         </dd>

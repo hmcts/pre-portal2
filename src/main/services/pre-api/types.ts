@@ -1,11 +1,13 @@
-import { AxiosRequestConfig } from 'axios';
-
-export interface SearchCaptureSessionsRequest extends AxiosRequestConfig {
+export interface SearchRecordingsRequest {
+  captureSessionId?: string;
+  parentRecordingId?: string;
+  participantId?: string;
+  witnessName?: string;
+  defendantName?: string;
   caseReference?: string;
-  bookingId?: string;
-  origin?: string;
-  recordingStatus?: string;
   scheduledFor?: string;
+  courtId?: string;
+  includeDeleted?: boolean;
   page?: number;
   size?: number;
 }

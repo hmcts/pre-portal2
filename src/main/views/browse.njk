@@ -36,41 +36,51 @@
         <th scope="col" class="govuk-table__header"></th>
       </tr>
       </thead>
-{#      <tbody#}
-{#        class="govuk-table__body"#}
-{#        *ngIf="recordingData.length === 0"#}
-{#        data-testid="no-data-message">#}
-{#      <td>No records found.</td>#}
-{#      </tbody>#}
-      <tbody class="govuk-table__body" *ngIf="recordingData.length > 0">
-      <tr
-        class="govuk-table__row"
-        id="rowData.recordingId">
-        <td class="govuk-table__cell">
-          Example Ref
-        </td>
-        <td class="govuk-table__cell">
-          Example Court
-        </td>
-        <td class="govuk-table__cell">
-          20/02/2024
-        </td>
-        <td class="govuk-table__cell">
-          Person 1
-        </td>
-        <td class="govuk-table__cell">
-          Person 2<br />
-          Person 3<br />
-          Person 4<br />
-        </td>
-        <td class="govuk-table__cell">
-          1
-        </td>
-        <td class="govuk-table__cell">
-          <a class="govuk-link" href="/watch/anything">Play</a>
-        </td>
-      </tr>
-      </tbody>
+      {% if recordings.length === 0 %}
+        <tbody
+          class="govuk-table__body"
+          data-testid="no-data-message">
+        <td>No records found.</td>
+        </tbody>
+      {% else %}
+        <tbody class="govuk-table__body">
+        {% for recording in recordings %}
+          <tr
+            class="govuk-table__row"
+            id="recording.id">
+            <td class="govuk-table__cell">
+              {{ recording.case_reference }}
+            </td>
+            <td class="govuk-table__cell">
+              {{ recording.capture_session.court_name }}
+            </td>
+            <td class="govuk-table__cell">
+              {{ recording.capture_session.started_at }}
+            </td>
+            <td class="govuk-table__cell">
+              {% for participant in recording.participants %}
+                {% if participant.participant_type == "WITNESS" %}
+                  {{ participant.first_name }} {{ participant.last_name }}<br />
+                {% endif %}
+              {% endfor %}
+            </td>
+            <td class="govuk-table__cell">
+              {% for participant in recording.participants %}
+                {% if participant.participant_type == "DEFENDANT" %}
+                  {{ participant.first_name }} {{ participant.last_name }}<br />
+                {% endif %}
+              {% endfor %}
+            </td>
+            <td class="govuk-table__cell">
+              {{ recording.version }}
+            </td>
+            <td class="govuk-table__cell">
+              <a class="govuk-link" href="/watch/{{ recording.id }}">Play</a>
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      {% endif %}
     </table>
 
 {% endblock %}
