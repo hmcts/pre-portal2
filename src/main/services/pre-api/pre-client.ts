@@ -11,7 +11,11 @@ export class PreClient {
 
       return response.data['_embedded']['recordingDTOList'] as Recording[];
     } catch (e) {
-      return null;
+      if (e instanceof TypeError) {
+        return [];
+      } else {
+        return null;
+      }
     }
   }
 
