@@ -21,7 +21,7 @@ describe('Browse page failure', () => {
   describe('on GET', () => {
     test('should return 500', async () => {
       await request(app)
-        .get('/watch/something')
+        .get('/browse')
         .expect(res => expect(res.status).to.equal(500));
     });
   });
