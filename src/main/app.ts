@@ -35,7 +35,7 @@ new Helmet(developmentMode).enableFor(app);
 axios.defaults.baseURL = config.get('pre.apiUrl');
 axios.defaults.baseURL = config.get('pre.apiUrl');
 axios.defaults.headers.common['Ocp-Apim-Subscription-Key'] = config.get('pre.apiKey');
-axios.defaults.headers.common['X-User-Id'] = '1234';
+axios.defaults.headers.common['X-User-Id'] = '7BDAD858-6B71-42D7-A611-BF3A12031984';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.put['Content-Type'] = 'application/json';
 
