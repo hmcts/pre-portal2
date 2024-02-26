@@ -2842,12 +2842,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/csurf@npm:1.11.2":
-  version: 1.11.2
-  resolution: "@types/csurf@npm:1.11.2"
+"@types/csurf@npm:1.11.5":
+  version: 1.11.5
+  resolution: "@types/csurf@npm:1.11.5"
   dependencies:
     "@types/express-serve-static-core": "*"
-  checksum: 1827f6760d43ae12390f0308289f2c40537bbcb19ec854d0c654e3129074edf6108ddab99a06986813b6cf31d4fc9fa34eaa3d418f647edf607d8af4c69d62e7
+  checksum: a51b0f3276a8c88eb986709790c227c5cc4b7d663136ee360edd17ac88df1dab5d8ccf9feed737ee46530243bff11f66ead725c585e417c1ca710d0b0245ded3
   languageName: node
   linkType: hard
 
@@ -2860,10 +2860,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/es6-promisify@npm:6.0.1":
-  version: 6.0.1
-  resolution: "@types/es6-promisify@npm:6.0.1"
-  checksum: a717113805ed9d35f02f3fdf9a4c00b0589ca32e8a66bd22b950418e21900fda060a5578fa9ad37bd7c62f17ed327bd7570cea5dac522254d720cc1a861ecf12
+"@types/es6-promisify@npm:6.0.4":
+  version: 6.0.4
+  resolution: "@types/es6-promisify@npm:6.0.4"
+  checksum: 1df492c95d43eee2f16f5f196d56869c5c44229a35488dced5f47a518cb17532d05407b5046b964fc51fffb94761c9d5206f320a3f816e9a5276ec2edb36dc0e
   languageName: node
   linkType: hard
 
@@ -3019,10 +3019,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:4.14.185":
-  version: 4.14.185
-  resolution: "@types/lodash@npm:4.14.185"
-  checksum: f81d13da5ecab110ca9c5c7cc2bedc3c9802a6acf668576aecd1b8f4b134ed81d06c15f1e600fb08f05975098280a0d97d30cddfc2cb39ec1c6b56e971ca53b3
+"@types/lodash@npm:4.14.202":
+  version: 4.14.202
+  resolution: "@types/lodash@npm:4.14.202"
+  checksum: a91acf3564a568c6f199912f3eb2c76c99c5a0d7e219394294213b3f2d54f672619f0fde4da22b29dc5d4c31457cd799acc2e5cb6bd90f9af04a1578483b6ff7
   languageName: node
   linkType: hard
 
@@ -3081,18 +3081,18 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*, @types/node@npm:^20.1.0, @types/node@npm:^20.11.19":
-  version: 20.11.19
-  resolution: "@types/node@npm:20.11.19"
+  version: 20.11.20
+  resolution: "@types/node@npm:20.11.20"
   dependencies:
     undici-types: ~5.26.4
-  checksum: 259d16643ba611ade617a8212e594a3ac014727457507389bbf7213971346ab052d870f1e6e2df0afd0876ecd7874f578bccb130be01e069263cfc7136ddc0c1
+  checksum: 79d339622fed1c0e64297c8b9f558815a91edb9fea3acb69c1201b919d450e12915cf98b1a96b2d2c121bf86f30b62b6de3708f8894c5319f8dfb3a991e3ccdd
   languageName: node
   linkType: hard
 
-"@types/nunjucks@npm:3.2.1":
-  version: 3.2.1
-  resolution: "@types/nunjucks@npm:3.2.1"
-  checksum: 40f3dd8968cd30c19a99c6eec55e3bf354da39ce08840a8d652a7c9754a7e5a8a59f92fb258862c56d223f9908b62c347006d0a26f685a5dc72f13bdb68ce778
+"@types/nunjucks@npm:3.2.6":
+  version: 3.2.6
+  resolution: "@types/nunjucks@npm:3.2.6"
+  checksum: a139cc51d877052f5a471516acfc091b48c8c6e999aeaf1148e775c8dfd722f999731b092c9174492af0f7d4a6cd592004562356fbf51af8ce8fc88ee3c29e97
   languageName: node
   linkType: hard
 
@@ -3110,12 +3110,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/require-directory@npm:2.1.2":
-  version: 2.1.2
-  resolution: "@types/require-directory@npm:2.1.2"
+"@types/require-directory@npm:2.1.6":
+  version: 2.1.6
+  resolution: "@types/require-directory@npm:2.1.6"
   dependencies:
     "@types/node": "*"
-  checksum: fa68f3f68457966d99095cf295af6128ec57b1738c6824f73c0b96ffbc2c39214064ac73dbd02beb661368c0f0066fd3af57ceb6f94a18b3414f3b58a1e35701
+  checksum: 7c4a9408e04d106d968a911af913ea4cad6d3c4f17eef7fa7c948835173ce596b24baf36d495575fbd975cb2aaea66de7b660292766ecc3c6168a6f5b897bde9
   languageName: node
   linkType: hard
 
@@ -12147,17 +12147,17 @@ __metadata:
     "@types/compression": ^1.7.2
     "@types/config": 3.3.0
     "@types/cookie-parser": 1.4.6
-    "@types/csurf": 1.11.2
-    "@types/es6-promisify": 6.0.1
+    "@types/csurf": 1.11.5
+    "@types/es6-promisify": 6.0.4
     "@types/express": 4.17.14
     "@types/glob": 8.0.0
     "@types/jest": ^29.5.12
-    "@types/lodash": 4.14.185
+    "@types/lodash": 4.14.202
     "@types/mini-css-extract-plugin": 2.5.1
     "@types/mocha": ^10.0.6
     "@types/node": ^20.11.19
-    "@types/nunjucks": 3.2.1
-    "@types/require-directory": 2.1.2
+    "@types/nunjucks": 3.2.6
+    "@types/require-directory": 2.1.6
     "@types/serve-favicon": 2.5.3
     "@typescript-eslint/eslint-plugin": 5.37.0
     "@typescript-eslint/parser": 5.37.0
