@@ -1,7 +1,10 @@
-on: push
+on:
+  push:
+    branches:
+      - "master"
 
 env:
-  clientId: c8deb898-d595-4fb2-8ba5-52fffa8db064
+  tenant: hmcts-dev-external-id.onmicrosoft.com
 
 jobs:
   build-and-deploy:
