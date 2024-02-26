@@ -1,25 +1,13 @@
 import { PreClient } from '../services/pre-api/pre-client';
 import { SearchCaptureSessionsRequest } from '../services/pre-api/types';
 
-import axios from 'axios';
-import config from 'config';
 import { Application } from 'express';
 
 
 export default function (app: Application): void {
   app.get('/browse', async (req, res, next) => {
     try {
-      const client = new PreClient(
-        axios.create({
-          baseURL: config.get('pre.apiUrl'),
-          headers: {
-            // TODO: Add API key from config
-            Authorization: 'Bearer ' + config.get('pre.apiKey'),
-            // TODO: Add user id from session
-            'X-User-Id': '1234',
-          },
-        })
-      );
+      const client = new PreClient();
 
       // TODO: Use search parameters from request
       const request: SearchCaptureSessionsRequest = {

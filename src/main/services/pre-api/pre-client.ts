@@ -1,19 +1,15 @@
 import { CaptureSession, Recording, SearchCaptureSessionsRequest } from './types';
 
-import { AxiosInstance } from 'axios';
+import axios, { AxiosInstance } from 'axios';
 
 
 
 export class PreClient {
-  constructor(
-    private readonly httpClient: AxiosInstance,
-  ) { }
-
   public async getCaptureSessions(request: SearchCaptureSessionsRequest): Promise<CaptureSession[]> {
     let captureSessions = [];
 
     try {
-      const response = await this.httpClient.get('/capture-sessions', request);
+      const response = await axios.get('/capture-sessions', request);
 
       // TODO: Map response to Capture Session list
     } catch (e) {
@@ -27,7 +23,7 @@ export class PreClient {
     let recording = {} as Recording;
 
     try {
-      const response = await this.httpClient.get(`/recordings/${id}`);
+      const response = await axios.get(`/recordings/${id}`);
     } catch (e) {
 
     }
