@@ -37,4 +37,15 @@ withPipeline(type, product, component) {
     yarnBuilder.yarn('rebuild puppeteer')
     yarnBuilder.yarn('build')
   }
+
+  onMaster {
+    env.ENVIRONMENT = "stg"
+    loadVaultSecrets(secrets)
+  }
+
+  onPR {
+    env.ENVIRONMENT = "dev"
+    env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+    loadVaultSecrets(secrets)
+  }
 }
