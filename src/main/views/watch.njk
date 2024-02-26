@@ -95,15 +95,15 @@
         Witness
       </dt>
 
-      {% for participant in recording.participants %}
-        {% if participant.participant_type == "WITNESS" %}
-          <dd
-            class="govuk-summary-list__value"
-            data-testid="summary-value-witness">
-            {{ participant.first_name }} {{ participant.last_name }}
-          </dd>
-        {% endif %}
-      {% endfor %}
+        <dd
+          class="govuk-summary-list__value"
+          data-testid="summary-value-witness">
+          {% for participant in recording.participants %}
+            {% if participant.participant_type == "WITNESS" %}
+              {{ participant.first_name }} {{ participant.last_name }},
+            {% endif %}
+          {% endfor %}
+        </dd>
     </div>
     <div class="govuk-summary-list__row">
       <dt
@@ -111,15 +111,15 @@
         data-testid="summary-title-defendants">
         Defendants
       </dt>
-      {% for participant in recording.participants %}
-        {% if participant.participant_type == "DEFENDANT" %}
-          <dd
-            class="govuk-summary-list__value"
-            data-testid="summary-value-defendants">
-            {{ participant.first_name }} {{ participant.last_name }}
-          </dd>
-        {% endif %}
-      {% endfor %}
+        <dd
+          class="govuk-summary-list__value"
+          data-testid="summary-value-defendants">
+          {% for participant in recording.participants %}
+            {% if participant.participant_type == "DEFENDANT" %}
+              {{ participant.first_name }} {{ participant.last_name }},
+            {% endif %}
+          {% endfor %}
+        </dd>
     </div>
   </dl>
 {% endblock %}
