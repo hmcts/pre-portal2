@@ -17,7 +17,7 @@
 {% endblock %}
 
 {% block content %}
-  <h1 class="govuk-heading-xl">Case Ref: ExampleRef</h1>
+  <h1 class="govuk-heading-xl">Case Ref: {{ recording.caseReference }}</h1>
 
   <div class="govuk-!-margin-bottom-2 video-wrapper">
     <video
@@ -55,7 +55,7 @@
       <dd
         class="govuk-summary-list__value"
         data-testid="summary-value-date">
-        20/02/2024
+        {{ captureSession.startedAt }}
       </dd>
     </div>
     <div class="govuk-summary-list__row">
@@ -63,7 +63,7 @@
         Recording UID
       </dt>
       <dd class="govuk-summary-list__value" data-testid="summary-value-uid">
-        123
+        {{ recording.id }}
       </dd>
     </div>
     <div class="govuk-summary-list__row">
@@ -75,7 +75,7 @@
       <dd
         class="govuk-summary-list__value"
         data-testid="summary-value-version">
-        1
+        {{ recording.version }}
       </dd>
     </div>
     <div class="govuk-summary-list__row">
@@ -85,7 +85,7 @@
       <dd
         class="govuk-summary-list__value"
         data-testid="summary-value-court">
-        Example Court
+        {{ captureSession.courtName }}
       </dd>
     </div>
     <div class="govuk-summary-list__row">
@@ -99,6 +99,16 @@
         data-testid="summary-value-witness">
         Person 1
       </dd>
+
+      {% for participant in recording.participants %}
+        { % if participant.participantType == "WITNESS" %}
+          <dd
+            class="govuk-summary-list__value"
+            data-testid="summary-value-witness">
+            {{ participant.firstName }} {{ participant.lastName }}
+          </dd>
+        {% endif %}
+      {% endfor %}
     </div>
     <div class="govuk-summary-list__row">
       <dt
@@ -106,13 +116,15 @@
         data-testid="summary-title-defendants">
         Defendants
       </dt>
-      <dd
-        class="govuk-summary-list__value"
-        data-testid="summary-value-defendants">
-        Person 2<br />
-        Person 3<br />
-        Person 4<br />
-      </dd>
+      {% for participant in recording.participants %}
+        { % if participant.participantType == "DEFENDANT" %}
+          <dd
+            class="govuk-summary-list__value"
+            data-testid="summary-value-defendants">
+            {{ participant.firstName }} {{ participant.lastName }}
+          </dd>
+        {% endif %}
+      {% endfor %}
     </div>
   </dl>
 {% endblock %}

@@ -45,7 +45,7 @@ export interface Participant {
   participantType: string;
   firstName: string;
   lastName: string;
-  deltedAt: string;
+  deletedAt: string;
   createdAt: string;
   modifiedAt: string;
 }
