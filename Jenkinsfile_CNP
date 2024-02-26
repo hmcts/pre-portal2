@@ -2,13 +2,36 @@
 
 @Library("Infrastructure")
 
+import uk.gov.hmcts.contino.AppPipelineConfig
+
 def type = "nodejs"
 def product = "pre"
 def component = "portal"
 
+static Map<String, Object> secret(String secretName, String envVariable) {
+  [$class     : 'AzureKeyVaultSecret',
+   secretType : 'Secret',
+   name       : secretName,
+   envVariable: envVariable
+  ]
+}
+
+def secrets = [
+  'pre-hmcts${env}' :[
+    secret('pre-portal-sso', 'B2C_APP_CLIENT_SECRET'),
+    secret('b2c-test-login-email', 'B2C_TEST_LOGIN_EMAIL'),
+    secret('b2c-test-login-password', 'B2C_TEST_LOGIN_PASSWORD')
+  ]
+]
+
 def yarnBuilder = new uk.gov.hmcts.contino.YarnBuilder(this)
 
+def pipelineConf = new AppPipelineConfig()
+pipelineConf.vaultSecrets = secrets
+
 withPipeline(type, product, component) {
+  disableLegacyDeployment()
+  loadVaultSecrets(secrets)
   syncBranchesWithMaster(['perftest', 'ithc', 'demo'])
   enableSlackNotifications('#pre-builds')
   afterSuccess('build') {
