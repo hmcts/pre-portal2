@@ -8,9 +8,8 @@ export default function (app: Application): void {
     try {
       const client = new PreClient();
 
-      // TODO: Insert API response to to template
-      const recordings = await client.getRecording(req.params.id);
-      res.render('watch');
+      const recording = await client.getRecording(req.params.id);
+      res.render('watch', { recording });
     } catch (e) {
 
     }

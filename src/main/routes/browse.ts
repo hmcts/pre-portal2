@@ -19,9 +19,8 @@ export default function (app: Application): void {
         size: 10
       };
 
-      // TODO: Insert API response to to template
       const recordings = await client.getCaptureSessions(request);
-      res.render('browse');
+      res.render('browse', { recordings });
     } catch (e) {
 
     }
