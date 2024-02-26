@@ -7,7 +7,7 @@ export class PropertiesVolume {
   enableFor(server: Application): void {
     require('dotenv').config();
     set(config, 'session.redis.key', process.env.REDIS_ACCESS_KEY);
-    set(config, 'b2c.appClientSecret', process.env.B2C_APP_CLIENT_SECRET);
+    set(config, 'b2c.appClientSecret', process.env.B2C_APP_CLIENT_SECRET || 'b2c.appClientSecret');
     set(config, 'b2c.testLogin.email', process.env.B2C_TEST_LOGIN_EMAIL);
     set(config, 'b2c.testLogin.password', process.env.B2C_TEST_LOGIN_PASSWORD);
     if (server.locals.ENV !== 'development') {
