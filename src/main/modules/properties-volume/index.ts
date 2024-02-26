@@ -21,6 +21,7 @@ export class PropertiesVolume {
       this.setSecret('secrets.pre-hmctskv.pp-authorization', 'ams.flowKey');
       this.setSecret('secrets.pre-hmctskv.ams-flow-url', 'ams.flowUrl');
       this.setSecret('secrets.pre-hmctskv.redis-access-key', 'b2c.appClientSecret');
+      this.setSecret('secrets.pre-hmctskv.pre-portal-sso', 'b2c.appClientSecret');
     }
   }
 
