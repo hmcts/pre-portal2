@@ -19,10 +19,16 @@ export default function (app: Application): void {
         size: 10
       };
 
-      const recordings = await client.getCaptureSessions(request);
-      res.render('browse', { recordings });
-    } catch (e) {
+      const captureSessions = await client.getCaptureSessions(request);
 
+      if (!captureSessions) {
+        throw new Error('Failed to retrieve capture sessions');
+      }
+
+      res.render('browse', { recordings: captureSessions });
+    } catch (e) {
+      res.status(500);
+      res.render('error');
     }
 
   });

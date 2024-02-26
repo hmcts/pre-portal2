@@ -9,9 +9,17 @@ export default function (app: Application): void {
       const client = new PreClient();
 
       const recording = await client.getRecording(req.params.id);
-      res.render('watch', { recording });
-    } catch (e) {
 
+      if (!recording) {
+        throw new Error('Failed to retrieve recording');
+      }
+
+      const captureSession = recording.captureSession;
+
+      res.render('watch', { captureSession, recording});
+    } catch (e) {
+      res.status(500);
+      res.render('error');
     }
   });
 }
