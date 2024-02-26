@@ -70,4 +70,5 @@ export function mock() {
 
 export function reset() {
   jest.spyOn(PreClient.prototype, 'getRecording').mockRestore();
+  jest.spyOn(PreClient.prototype, 'getRecordings').mockRestore();
 }
