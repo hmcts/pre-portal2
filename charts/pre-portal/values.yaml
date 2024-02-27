@@ -22,6 +22,6 @@ nodejs:
         - name: pre-portal-sso
           alias: B2C_APP_CLIENT_SECRET
         - name: b2c-test-login-email
-        - nane: b2c-test-login-password
+        - name: b2c-test-login-password
   environment:
     REDIS_HOST: 'pre-portal-{{ .Values.global.environment }}.redis.cache.windows.net'
