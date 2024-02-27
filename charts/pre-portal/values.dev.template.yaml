@@ -7,6 +7,8 @@ nodejs:
   keyVaults:
     pre-hmctskv:
       secrets:
+        - name: redis6-access-key
+          alias: REDIS_ACCESS_KEY
         - name: AppInsightsInstrumentationKey
           alias: APPINSIGHTS_INSTRUMENTATIONKEY
         - name: apim-sub-portal-primary-key
@@ -16,4 +18,6 @@ nodejs:
         - name: pre-portal-sso
           alias: B2C_APP_CLIENT_SECRET
         - name: b2c-test-login-email
+          alias: B2C_TEST_LOGIN_EMAIL
         - name: b2c-test-login-password
+          alias: B2C_TEST_LOGIN_PASSWORD
