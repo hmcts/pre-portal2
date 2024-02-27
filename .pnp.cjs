@@ -41,7 +41,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/body-parser", "npm:1.19.5"],\
             ["@types/chai-as-promised", "npm:7.1.8"],\
             ["@types/compression", "npm:1.7.5"],\
-            ["@types/config", "npm:3.3.0"],\
+            ["@types/config", "npm:3.3.3"],\
             ["@types/cookie-parser", "npm:1.4.6"],\
             ["@types/csurf", "npm:1.11.5"],\
             ["@types/es6-promisify", "npm:6.0.4"],\
@@ -67,7 +67,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["chokidar", "npm:3.5.3"],\
             ["codeceptjs", "npm:3.5.14"],\
             ["compression", "npm:1.7.4"],\
-            ["config", "npm:3.3.8"],\
+            ["config", "npm:3.3.11"],\
             ["cookie-parser", "npm:1.4.6"],\
             ["copy-webpack-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:9.1.0"],\
             ["css-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:6.7.1"],\
@@ -5374,10 +5374,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/config", [\
-        ["npm:3.3.0", {\
-          "packageLocation": "./.yarn/cache/@types-config-npm-3.3.0-bdb6fd80cb-d9485041cf.zip/node_modules/@types/config/",\
+        ["npm:3.3.3", {\
+          "packageLocation": "./.yarn/cache/@types-config-npm-3.3.3-a1da4acecf-738c616fc3.zip/node_modules/@types/config/",\
           "packageDependencies": [\
-            ["@types/config", "npm:3.3.0"]\
+            ["@types/config", "npm:3.3.3"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -8932,10 +8932,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["config", [\
-        ["npm:3.3.8", {\
-          "packageLocation": "./.yarn/cache/config-npm-3.3.8-46e6756218-8ae3b1a073.zip/node_modules/config/",\
+        ["npm:3.3.11", {\
+          "packageLocation": "./.yarn/cache/config-npm-3.3.11-a270a6a709-84d783978c.zip/node_modules/config/",\
           "packageDependencies": [\
-            ["config", "npm:3.3.8"],\
+            ["config", "npm:3.3.11"],\
             ["json5", "npm:2.2.3"]\
           ],\
           "linkType": "HARD"\
@@ -16347,7 +16347,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/body-parser", "npm:1.19.5"],\
             ["@types/chai-as-promised", "npm:7.1.8"],\
             ["@types/compression", "npm:1.7.5"],\
-            ["@types/config", "npm:3.3.0"],\
+            ["@types/config", "npm:3.3.3"],\
             ["@types/cookie-parser", "npm:1.4.6"],\
             ["@types/csurf", "npm:1.11.5"],\
             ["@types/es6-promisify", "npm:6.0.4"],\
@@ -16373,7 +16373,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["chokidar", "npm:3.5.3"],\
             ["codeceptjs", "npm:3.5.14"],\
             ["compression", "npm:1.7.4"],\
-            ["config", "npm:3.3.8"],\
+            ["config", "npm:3.3.11"],\
             ["cookie-parser", "npm:1.4.6"],\
             ["copy-webpack-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:9.1.0"],\
             ["css-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:6.7.1"],\
