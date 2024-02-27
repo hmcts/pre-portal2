@@ -38,7 +38,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@hmcts/nodejs-logging", "npm:4.0.4"],\
             ["@hmcts/properties-volume", "npm:0.0.14"],\
             ["@jest/globals", "npm:29.7.0"],\
-            ["@types/body-parser", "npm:1.19.2"],\
+            ["@types/body-parser", "npm:1.19.5"],\
             ["@types/chai-as-promised", "npm:7.1.8"],\
             ["@types/compression", "npm:1.7.5"],\
             ["@types/config", "npm:3.3.0"],\
@@ -61,7 +61,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["axios", "npm:1.6.7"],\
             ["axios-debug-log", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:0.8.4"],\
             ["babel-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:8.2.5"],\
-            ["body-parser", "npm:1.20.0"],\
+            ["body-parser", "npm:1.20.2"],\
             ["chai", "npm:4.3.6"],\
             ["chai-as-promised", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.1"],\
             ["chokidar", "npm:3.5.3"],\
@@ -5334,15 +5334,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/body-parser", [\
-        ["npm:1.19.2", {\
-          "packageLocation": "./.yarn/cache/@types-body-parser-npm-1.19.2-f845b7b538-e17840c7d7.zip/node_modules/@types/body-parser/",\
-          "packageDependencies": [\
-            ["@types/body-parser", "npm:1.19.2"],\
-            ["@types/connect", "npm:3.4.38"],\
-            ["@types/node", "npm:20.11.20"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:1.19.5", {\
           "packageLocation": "./.yarn/cache/@types-body-parser-npm-1.19.5-97fb106976-1e251118c4.zip/node_modules/@types/body-parser/",\
           "packageDependencies": [\
@@ -7761,6 +7752,25 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["on-finished", "npm:2.4.1"],\
             ["qs", "npm:6.11.0"],\
             ["raw-body", "npm:2.5.1"],\
+            ["type-is", "npm:1.6.18"],\
+            ["unpipe", "npm:1.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:1.20.2", {\
+          "packageLocation": "./.yarn/cache/body-parser-npm-1.20.2-44738662cf-14d37ec638.zip/node_modules/body-parser/",\
+          "packageDependencies": [\
+            ["body-parser", "npm:1.20.2"],\
+            ["bytes", "npm:3.1.2"],\
+            ["content-type", "npm:1.0.5"],\
+            ["debug", "virtual:759fd14db92b54abdb7afb3d21dbf8d50f1a5c59c96cd3f963ce3e3ed063bdb801142fae5f01cc81fb79f7ddc13b7c31a9deb9d5a9cfa48ec107f83de8f7f40e#npm:2.6.9"],\
+            ["depd", "npm:2.0.0"],\
+            ["destroy", "npm:1.2.0"],\
+            ["http-errors", "npm:2.0.0"],\
+            ["iconv-lite", "npm:0.4.24"],\
+            ["on-finished", "npm:2.4.1"],\
+            ["qs", "npm:6.11.0"],\
+            ["raw-body", "npm:2.5.2"],\
             ["type-is", "npm:1.6.18"],\
             ["unpipe", "npm:1.0.0"]\
           ],\
@@ -16334,7 +16344,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@hmcts/nodejs-logging", "npm:4.0.4"],\
             ["@hmcts/properties-volume", "npm:0.0.14"],\
             ["@jest/globals", "npm:29.7.0"],\
-            ["@types/body-parser", "npm:1.19.2"],\
+            ["@types/body-parser", "npm:1.19.5"],\
             ["@types/chai-as-promised", "npm:7.1.8"],\
             ["@types/compression", "npm:1.7.5"],\
             ["@types/config", "npm:3.3.0"],\
@@ -16357,7 +16367,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["axios", "npm:1.6.7"],\
             ["axios-debug-log", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:0.8.4"],\
             ["babel-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:8.2.5"],\
-            ["body-parser", "npm:1.20.0"],\
+            ["body-parser", "npm:1.20.2"],\
             ["chai", "npm:4.3.6"],\
             ["chai-as-promised", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.1"],\
             ["chokidar", "npm:3.5.3"],\
@@ -16832,6 +16842,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/raw-body-npm-2.5.1-9dd1d9fff9-5362adff15.zip/node_modules/raw-body/",\
           "packageDependencies": [\
             ["raw-body", "npm:2.5.1"],\
+            ["bytes", "npm:3.1.2"],\
+            ["http-errors", "npm:2.0.0"],\
+            ["iconv-lite", "npm:0.4.24"],\
+            ["unpipe", "npm:1.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:2.5.2", {\
+          "packageLocation": "./.yarn/cache/raw-body-npm-2.5.2-5cb9dfebc1-ba1583c8d8.zip/node_modules/raw-body/",\
+          "packageDependencies": [\
+            ["raw-body", "npm:2.5.2"],\
             ["bytes", "npm:3.1.2"],\
             ["http-errors", "npm:2.0.0"],\
             ["iconv-lite", "npm:0.4.24"],\
