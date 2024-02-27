@@ -20,7 +20,7 @@ export class Auth {
 
   private getConfigParams(app: Application, logger: Logger): ConfigParams {
     return {
-      authRequired: true,
+      authRequired: false,
       attemptSilentLogin: true,
       idpLogout: true,
       secret: config.get('session.secret') as string,
