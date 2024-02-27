@@ -4,3 +4,16 @@ nodejs:
   ingressHost: ${SERVICE_FQDN}
   environment:
     PORTAL_URL: https://pre-portal-pr-${CHANGE_ID}.dev.platform.hmcts.net
+  keyVaults:
+    pre-hmctskv:
+      secrets:
+        - name: AppInsightsInstrumentationKey
+          alias: APPINSIGHTS_INSTRUMENTATIONKEY
+        - name: apim-sub-portal-primary-key
+          alias: APIM_SUB_PORTAL_PRIMARY_KEY
+        - name: apim-sub-portal-secondary-key
+          alias: APIM_SUB_PORTAL_SECONDARY_KEY
+        - name: pre-portal-sso
+          alias: B2C_APP_CLIENT_SECRET
+        - name: b2c-test-login-email
+        - name: b2c-test-login-password
