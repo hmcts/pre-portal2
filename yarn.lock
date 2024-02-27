@@ -2807,10 +2807,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/config@npm:3.3.0":
-  version: 3.3.0
-  resolution: "@types/config@npm:3.3.0"
-  checksum: d9485041cfa05864d3b8095cf7b44fae910887f6782dc43ab1ba4ea78d9cdf4a8c9d697557318ede2b4b63a05b7f91e8571b8dbe048ad024e709d9e51e0487d8
+"@types/config@npm:3.3.3":
+  version: 3.3.3
+  resolution: "@types/config@npm:3.3.3"
+  checksum: 738c616fc385fa93e61b2236b43fbcfd93b1b53fc222fa14f2ebaef17ec7eaf03bf3d768fa8cb00df1b5173574893c020dc73eab11ddd6ea769dbf9ea113e8da
   languageName: node
   linkType: hard
 
@@ -5673,12 +5673,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"config@npm:3.3.8":
-  version: 3.3.8
-  resolution: "config@npm:3.3.8"
+"config@npm:3.3.11":
+  version: 3.3.11
+  resolution: "config@npm:3.3.11"
   dependencies:
-    json5: ^2.2.1
-  checksum: 8ae3b1a073eb32b8b8e8079f4f8874d170bed291df6e3d50d0333ef1524714e6fe051593298de565daa603dc11abda21dd480c9134dbf977caddb9821816c439
+    json5: ^2.2.3
+  checksum: 84d783978ca7bf74bc6347868b6db29b853f5eda66021a04d77a84027b8b8b9d2fb5744409de5a39a5d63d867c3ac5f4169407701fa48f380015065b2701b221
   languageName: node
   linkType: hard
 
@@ -12155,7 +12155,7 @@ __metadata:
     "@types/body-parser": 1.19.5
     "@types/chai-as-promised": 7.1.8
     "@types/compression": ^1.7.2
-    "@types/config": 3.3.0
+    "@types/config": 3.3.3
     "@types/cookie-parser": 1.4.6
     "@types/csurf": 1.11.5
     "@types/es6-promisify": 6.0.4
@@ -12181,7 +12181,7 @@ __metadata:
     chokidar: 3.5.3
     codeceptjs: ^3.3.6
     compression: ^1.7.4
-    config: 3.3.8
+    config: 3.3.11
     cookie-parser: 1.4.6
     copy-webpack-plugin: 9.1.0
     css-loader: 6.7.1
