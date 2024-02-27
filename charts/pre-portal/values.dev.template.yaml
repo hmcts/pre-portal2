@@ -2,3 +2,5 @@ nodejs:
   # Don't modify below here
   image: ${IMAGE_NAME}
   ingressHost: ${SERVICE_FQDN}
+  environment:
+    PORTAL_URL: https://pre-portal-pr-${CHANGE_ID}.dev.platform.hmcts.net

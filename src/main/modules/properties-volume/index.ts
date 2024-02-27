@@ -10,6 +10,7 @@ export class PropertiesVolume {
     set(config, 'b2c.appClientSecret', process.env.B2C_APP_CLIENT_SECRET || 'b2c.appClientSecret');
     set(config, 'b2c.testLogin.email', process.env.B2C_TEST_LOGIN_EMAIL);
     set(config, 'b2c.testLogin.password', process.env.B2C_TEST_LOGIN_PASSWORD);
+    set(config, 'pre.portalUrl', process.env.PORTAL_URL || 'https://localhost:4550');
     if (server.locals.ENV !== 'development') {
       propertiesVolume.addTo(config);
       this.setSecret('secrets.pre-hmctskv.AppInsightsInstrumentationKey', 'appInsights.instrumentationKey');

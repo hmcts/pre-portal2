@@ -33,6 +33,20 @@ export class Auth {
         response_type: 'id_token',
         scope: 'openid email profile',
       },
+      // afterCallback: async (req, res, session, decodedState) => {
+      //   // const userProfile = await request(`${issuerBaseURL}/userinfo`);
+      //   // return {
+      //   //   ...session,
+      //   //   userProfile // access using `req.appSession.userProfile`
+      //   // };
+      //   console.log(decodedState);
+      //   return session;
+      // },
+      getLoginState() {
+        return {
+          callbackHostname: config.get('pre.portalUrl') as string,
+        };
+      },
       session: {
         name: 'preportal-session',
         rollingDuration: config.get('session.maxAge') as number,

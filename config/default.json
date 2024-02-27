@@ -26,6 +26,7 @@
     "testLogin": {
       "email": "",
       "password": ""
-    }
+    },
+    "callbackHostname": "localhost:4550"
   }
 }
