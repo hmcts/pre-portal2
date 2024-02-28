@@ -59,13 +59,44 @@ export const mockRecordings: Recording[] = [
 ];
 
 export function mock() {
+  mockGetRecording();
+  mockGetRecordings();
+  mockGetRecordingPlaybackData();
+}
+
+export function mockGetRecording(recording?: Recording) {
+  if (recording) {
+    jest.spyOn(PreClient.prototype, 'getRecording').mockImplementation(async (id: string) => {
+      return Promise.resolve(recording);
+    });
+    return;
+  }
+
   jest.spyOn(PreClient.prototype, 'getRecording').mockImplementation(async (id: string) => {
     return Promise.resolve(mockRecordings.find(r => r.id === id) || null);
   });
+}
+
+export function mockGetRecordings(recordings?: Recording[]) {
+  if (recordings) {
+    jest.spyOn(PreClient.prototype, 'getRecordings').mockImplementation(async () => {
+      return Promise.resolve(recordings);
+    });
+    return;
+  }
 
   jest.spyOn(PreClient.prototype, 'getRecordings').mockImplementation(async () => {
     return Promise.resolve(mockRecordings);
   });
+}
+
+export function mockGetRecordingPlaybackData(data?: RecordingPlaybackData) {
+  if (data) {
+    jest.spyOn(PreClient.prototype, 'getRecordingPlaybackData').mockImplementation(async (id: string) => {
+      return Promise.resolve(data);
+    });
+    return;
+  }
 
   jest.spyOn(PreClient.prototype, 'getRecordingPlaybackData').mockImplementation(async (id: string) => {
     return Promise.resolve({
