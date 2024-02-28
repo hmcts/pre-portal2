@@ -2,7 +2,7 @@ import { app } from '../../main/app';
 
 import { expect } from 'chai';
 import request from 'supertest';
-import { mock, reset } from '../mock-api';
+import { mock, mockGetRecording, mockGetRecordingPlaybackData, reset } from '../mock-api';
 
 /* eslint-disable jest/expect-expect */
 describe('Watch page success', () => {
@@ -18,6 +18,8 @@ describe('Watch page success', () => {
 
 /* eslint-disable jest/expect-expect */
 describe('Watch page failure', () => {
+  mockGetRecording(null);
+  mockGetRecordingPlaybackData(null);
   describe('on GET', () => {
     test('should return 500', async () => {
       await request(app)
