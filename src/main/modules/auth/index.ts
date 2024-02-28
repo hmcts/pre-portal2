@@ -32,6 +32,7 @@ export class Auth {
       authorizationParams: {
         response_type: 'id_token',
         scope: 'openid email profile',
+        redirect_uri: `${config.get('pre.portalUrl')}/callback`,
       },
       // afterCallback: async (req, res, session, decodedState) => {
       //   // const userProfile = await request(`${issuerBaseURL}/userinfo`);
