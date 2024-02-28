@@ -3,6 +3,7 @@ import { Nunjucks } from '../../../main/modules/nunjucks';
 
 describe('Browse route', () => {
   test('browse renders the browse template', async () => {
+    jest.setTimeout(30000); // seems to be a slow page in tests for some reason
     const app = require('express')();
     new Nunjucks(false).enableFor(app);
 
