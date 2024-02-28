@@ -70,6 +70,16 @@ function testAccessibility(url: string): void {
   });
 }
 
+jest.mock('express-openid-connect', () => {
+  return {
+    requiresAuth: jest.fn().mockImplementation(() => {
+      return (req: any, res: any, next: any) => {
+        next();
+      };
+    }),
+  };
+});
+
 describe('Accessibility', () => {
   afterAll(async () => {
     appServers.forEach(server => server.close());
@@ -78,7 +88,7 @@ describe('Accessibility', () => {
   testAccessibility('/terms-and-conditions');
   testAccessibility('/accessibility-statement');
   testAccessibility('/sign-in');
-  // testAccessibility('/browse'); // disabling this as _need_ login to work and this will involved moving pa11y to
-  // run on the functional test step of the pipeline so it can login to a running app
+  testAccessibility('/browse');
   testAccessibility('/not-found');
+  testAccessibility('/watch/something');
 });
