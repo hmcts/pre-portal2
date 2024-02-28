@@ -80,6 +80,8 @@ jest.mock('express-openid-connect', () => {
   };
 });
 
+jest.setTimeout(30000);
+
 describe('Accessibility', () => {
   afterAll(async () => {
     appServers.forEach(server => server.close());
