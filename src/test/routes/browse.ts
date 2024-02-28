@@ -13,6 +13,12 @@ describe('Browse page success', () => {
         .get('/browse')
         .expect(res => expect(res.status).to.equal(200));
     });
+    test('should return 200 when no recordings are returned', async () => {
+      mockGetRecordings([]);
+      await request(app)
+        .get('/browse')
+        .expect(res => expect(res.status).to.equal(200));
+    });
   });
 });
 
