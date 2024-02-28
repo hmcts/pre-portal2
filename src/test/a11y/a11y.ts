@@ -2,6 +2,7 @@ import { app } from '../../main/app';
 
 import request from 'supertest';
 import { afterAll } from '@jest/globals';
+import { mock, reset } from '../mock-api';
 
 const pa11y = require('pa11y');
 
@@ -81,10 +82,12 @@ jest.mock('express-openid-connect', () => {
 });
 
 jest.setTimeout(30000);
+mock();
 
 describe('Accessibility', () => {
   afterAll(async () => {
     appServers.forEach(server => server.close());
+    reset();
   });
   // testing accessibility of the home page
   testAccessibility('/terms-and-conditions');
