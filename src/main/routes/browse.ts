@@ -30,12 +30,12 @@ export default function (app: Application): void {
       }
 
       res.render('browse', {
-        recordings: recordings,
-        user: req.oidc?.user
+        recordings,
+        user: req.oidc?.user,
       });
     } catch (e) {
       res.status(500);
-      res.render('error');
+      res.render('error', { message: e.message });
     }
   });
 }

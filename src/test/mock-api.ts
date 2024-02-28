@@ -1,4 +1,4 @@
-import { Recording } from '../main/services/pre-api/types';
+import { Recording, SearchRecordingsRequest } from '../main/services/pre-api/types';
 import { PreClient } from '../main/services/pre-api/pre-client';
 
 export const mockRecordings: Recording[] = [
@@ -63,7 +63,8 @@ export function mock() {
     return Promise.resolve(mockRecordings.find(r => r.id === id) || null);
   });
 
-  jest.spyOn(PreClient.prototype, 'getRecordings').mockImplementation(async () => {
+  jest.spyOn(PreClient.prototype, 'getRecordings').mockImplementation(async (req: SearchRecordingsRequest) => {
+    console.log('here');
     return Promise.resolve(mockRecordings);
   });
 }
