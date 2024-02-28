@@ -1,9 +1,10 @@
 import { PreClient } from '../services/pre-api/pre-client';
 
 import { Application } from 'express';
+import { requiresAuth } from 'express-openid-connect';
 
 export default function (app: Application): void {
-  app.get('/watch/:id', async (req, res) => {
+  app.get('/watch/:id', requiresAuth(), async (req, res) => {
     try {
       const client = new PreClient();
 

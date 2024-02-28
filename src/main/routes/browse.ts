@@ -2,9 +2,10 @@ import { PreClient } from '../services/pre-api/pre-client';
 import { SearchRecordingsRequest } from '../services/pre-api/types';
 
 import { Application } from 'express';
+import { requiresAuth } from 'express-openid-connect';
 
 export default function (app: Application): void {
-  app.get('/browse', async (req, res) => {
+  app.get('/browse', requiresAuth(), async (req, res) => {
     try {
       const client = new PreClient();
 
