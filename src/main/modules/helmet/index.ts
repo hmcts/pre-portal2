@@ -1,8 +1,9 @@
+import config from 'config';
 import * as express from 'express';
 import helmet from 'helmet';
 
 const googleAnalyticsDomain = '*.google-analytics.com';
-const azureMediaPlayer = 'https://amp.azure.net/libs/amp/latest/';
+const azureMediaPlayer = 'https://amp.azure.net/libs/amp/2.3.11/';
 const self = "'self'";
 
 /**
@@ -15,13 +16,11 @@ export class Helmet {
   }
 
   public enableFor(app: express.Express): void {
+    const azureMediaServices = config.get('ams.azureMediaServices') as string;
+    const azureMediaServicesKeyDelivery = config.get('ams.azureMediaServicesKeyDelivery') as string;
+
     // include default helmet functions
-    const scriptSrc = [
-      self,
-      googleAnalyticsDomain,
-      "'sha256-+6WnXIl4mbFTCARd8N3COQmT3bJJmo32N8q8ZSQAIcU='",
-      azureMediaPlayer,
-    ];
+    const scriptSrc = [self, googleAnalyticsDomain, "'unsafe-inline'", azureMediaPlayer];
     const scriptSrcAttr = [self, "'unsafe-inline'"];
 
     if (this.developmentMode) {
@@ -36,15 +35,17 @@ export class Helmet {
       helmet({
         contentSecurityPolicy: {
           directives: {
-            connectSrc: [self, azureMediaPlayer],
+            connectSrc: [self, azureMediaPlayer, azureMediaServices, azureMediaServicesKeyDelivery],
             defaultSrc: ["'none'"],
             fontSrc: [self, azureMediaPlayer, 'data:'],
             imgSrc: [self, googleAnalyticsDomain, azureMediaPlayer, 'data:'],
+            manifestSrc: [self],
+            mediaSrc: [self, 'blob:'],
             objectSrc: [self],
             scriptSrc,
             styleSrc: [self, "'unsafe-inline'", azureMediaPlayer],
             scriptSrcAttr,
-            workerSrc: ["'self'", 'blob:'],
+            workerSrc: [self, 'blob:'],
           },
         },
         referrerPolicy: { policy: 'origin' },
