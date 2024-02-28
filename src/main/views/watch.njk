@@ -17,7 +17,7 @@
 {% endblock %}
 
 {% block content %}
-  <h1 class="govuk-heading-xl">Case Ref: ExampleRef</h1>
+  <h1 class="govuk-heading-xl">Case Ref: {{ recording.case_reference }}</h1>
 
   <div class="govuk-!-margin-bottom-2 video-wrapper">
     <video
@@ -41,7 +41,7 @@
     <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
     <strong class="govuk-warning-text__text">
       <span class="govuk-warning-text__assistive">Please note</span>
-      Playback is preferred on non-mobile devices. If possible, please use a
+      playback is preferred on non-mobile devices. If possible, please use a
       preferred device.
     </strong>
   </div>
@@ -55,7 +55,7 @@
       <dd
         class="govuk-summary-list__value"
         data-testid="summary-value-date">
-        20/02/2024
+        {{ recording.capture_session.started_at | formatDate }}
       </dd>
     </div>
     <div class="govuk-summary-list__row">
@@ -63,7 +63,7 @@
         Recording UID
       </dt>
       <dd class="govuk-summary-list__value" data-testid="summary-value-uid">
-        123
+        {{ recording.id }}
       </dd>
     </div>
     <div class="govuk-summary-list__row">
@@ -75,7 +75,7 @@
       <dd
         class="govuk-summary-list__value"
         data-testid="summary-value-version">
-        1
+        {{ recording.version }}
       </dd>
     </div>
     <div class="govuk-summary-list__row">
@@ -85,7 +85,7 @@
       <dd
         class="govuk-summary-list__value"
         data-testid="summary-value-court">
-        Example Court
+        {{ recording.capture_session.court_name }}
       </dd>
     </div>
     <div class="govuk-summary-list__row">
@@ -94,11 +94,16 @@
         data-testid="summary-title-witness">
         Witness
       </dt>
-      <dd
-        class="govuk-summary-list__value"
-        data-testid="summary-value-witness">
-        Person 1
-      </dd>
+
+        <dd
+          class="govuk-summary-list__value"
+          data-testid="summary-value-witness">
+          {% for participant in recording.participants %}
+            {% if participant.participant_type == "WITNESS" %}
+              {{ participant.first_name }} {{ participant.last_name }}<br />
+            {% endif %}
+          {% endfor %}
+        </dd>
     </div>
     <div class="govuk-summary-list__row">
       <dt
@@ -106,13 +111,15 @@
         data-testid="summary-title-defendants">
         Defendants
       </dt>
-      <dd
-        class="govuk-summary-list__value"
-        data-testid="summary-value-defendants">
-        Person 2<br />
-        Person 3<br />
-        Person 4<br />
-      </dd>
+        <dd
+          class="govuk-summary-list__value"
+          data-testid="summary-value-defendants">
+          {% for participant in recording.participants %}
+            {% if participant.participant_type == "DEFENDANT" %}
+              {{ participant.first_name }} {{ participant.last_name }}<br />
+            {% endif %}
+          {% endfor %}
+        </dd>
     </div>
   </dl>
 {% endblock %}
