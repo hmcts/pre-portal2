@@ -48,14 +48,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 if (process.env.PORTAL_AUTH_DISABLED !== '1') {
+  logger.info('Enabling Auth. Env: ' + env);
   new Auth().enableFor(app);
+} else {
+  logger.warn('Disabling Auth to to PORTAL_AUTH_DISABLED === ' + process.env.PORTAL_AUTH_DISABLED);
 }
-
-// Middleware to make the `user` object available for all views
-// app.use(function (req, res, next) {
-//   res.locals.user = req.oidc?.user;
-//   next();
-// });
 
 app.use((req, res, next) => {
   res.setHeader('Cache-Control', 'no-cache, max-age=0, must-revalidate, no-store');
