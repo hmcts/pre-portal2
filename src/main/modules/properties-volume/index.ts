@@ -15,7 +15,7 @@ export class PropertiesVolume {
       this.setSecret('secrets.pre-hmctskv.redis6-access-key', 'session.redis.key');
       this.setSecret('secrets.pre-hmctskv.apim-sub-portal-primary-key', 'pre.apiKey.primary');
       this.setSecret('secrets.pre-hmctskv.apim-sub-portal-secondary-key', 'pre.apiKey.secondary');
-      this.setSecret('secrets.pre-hmctskv.ams-flow-key', 'pre.ams.flowKey');
+      this.setSecret('secrets.pre-hmctskv.pp-authorization', 'pre.ams.flowKey');
       this.setSecret('secrets.pre-hmctskv.ams-flow-url', 'pre.ams.flowUrl');
     }
   }
