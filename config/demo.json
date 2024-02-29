@@ -1,6 +1,6 @@
 {
   "pre": {
-    "apiUrl": "https://sds-api-mgmt.demo.platform.hmcts.net/pre-api"
+    "apiUrl": "https://sds-api-mgmt.demo.platform.hmcts.net"
   },
   "b2c": {
     "signUpSignInPolicyAuthority": "https://hmctsdemoextid.b2clogin.com/hmctsdemoextid.onmicrosoft.com/<sign-in-sign-up-user-flow-name>",

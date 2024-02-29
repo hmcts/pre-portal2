@@ -35,12 +35,12 @@ new Nunjucks(developmentMode).enableFor(app);
 // secure the application by adding various HTTP headers to its responses
 new Helmet(developmentMode).enableFor(app);
 
-axios.defaults.baseURL = config.get('pre.apiUrl');
-axios.defaults.baseURL = config.get('pre.apiUrl');
-axios.defaults.headers.common['Ocp-Apim-Subscription-Key'] = config.get('pre.apiKey');
-axios.defaults.headers.common['X-User-Id'] = 'e1b7674b-b94d-4e07-9957-48345845885a';
+logger.info('Setting PRE API url to: ' + config.get('pre.apiUrl'));
+
+axios.defaults.baseURL = 'https://sds-api-mgmt.staging.platform.hmcts.net/pre-api';
+axios.defaults.headers.common['Ocp-Apim-Subscription-Key'] = config.get('pre.apiKey.primary');
+axios.defaults.headers.common['X-User-Id'] = 'a114f40e-bdba-432d-b53f-37169ee5bf99';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
-axios.defaults.headers.put['Content-Type'] = 'application/json';
 
 app.use(favicon(path.join(__dirname, '/public/assets/images/favicon.ico')));
 app.use(bodyParser.json());
