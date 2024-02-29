@@ -1,4 +1,5 @@
 import { RedisService } from '../../app/redis/RedisService';
+import { PreClient } from '../../services/pre-api/pre-client';
 
 import { Logger } from '@hmcts/nodejs-logging';
 import config from 'config';
@@ -6,6 +7,7 @@ import RedisStore from 'connect-redis';
 import { Application } from 'express';
 import { ConfigParams, auth } from 'express-openid-connect';
 import session from 'express-session';
+import * as jose from 'jose';
 import FileStoreFactory from 'session-file-store';
 
 const FileStore = FileStoreFactory(session);
@@ -34,22 +36,22 @@ export class Auth {
         scope: 'openid email profile',
         redirect_uri: `${config.get('pre.portalUrl')}/callback`,
       },
-      // afterCallback: async (req, res, session, decodedState) => {
-      //   // const userProfile = await request(`${issuerBaseURL}/userinfo`);
-      //   // return {
-      //   //   ...session,
-      //   //   userProfile // access using `req.appSession.userProfile`
-      //   // };
-      //   console.log(decodedState);
-      //   return session;
-      // },
+      afterCallback: async (req, res, s) => {
+        const claims = jose.decodeJwt(s.id_token);
+        const client = new PreClient();
+        const userProfile = await client.getUserByEmail(claims.email as string);
+        return {
+          ...s,
+          userProfile,
+        };
+      },
       getLoginState() {
         return {
           callbackHostname: config.get('pre.portalUrl') as string,
         };
       },
       session: {
-        name: 'preportal-session',
+        name: '__session',
         rollingDuration: config.get('session.maxAge') as number,
         cookie: {
           httpOnly: true,

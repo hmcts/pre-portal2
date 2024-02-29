@@ -8,7 +8,7 @@ export default function (app: Application): void {
     try {
       const client = new PreClient();
 
-      const recording = await client.getRecording(req.params.id);
+      const recording = await client.getRecording(req['__session'].userProfile.id, req.params.id);
 
       if (!recording) {
         throw new Error('Failed to retrieve recording');

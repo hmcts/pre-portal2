@@ -39,7 +39,6 @@ logger.info('Setting PRE API url to: ' + config.get('pre.apiUrl'));
 
 axios.defaults.baseURL = 'https://sds-api-mgmt.staging.platform.hmcts.net/pre-api';
 axios.defaults.headers.common['Ocp-Apim-Subscription-Key'] = config.get('pre.apiKey.primary');
-axios.defaults.headers.common['X-User-Id'] = 'a114f40e-bdba-432d-b53f-37169ee5bf99';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 app.use(favicon(path.join(__dirname, '/public/assets/images/favicon.ico')));

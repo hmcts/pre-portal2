@@ -1,4 +1,4 @@
-import { mock, reset } from '../mock-api';
+import { mock, mockXUserId, reset } from '../mock-api';
 import { PreClient } from '../../main/services/pre-api/pre-client';
 import { SearchRecordingsRequest } from '../../main/services/pre-api/types';
 import { describe } from '@jest/globals';
@@ -9,13 +9,13 @@ const preClient = new PreClient();
 describe('PreClient success', () => {
   test('get recording', async () => {
     mock();
-    const recording = await preClient.getRecording('something');
+    const recording = await preClient.getRecording(mockXUserId, 'something');
     expect(recording).toBeTruthy();
   });
   test('get recordings', async () => {
     mock();
     const request = {} as SearchRecordingsRequest;
-    const recordings = await preClient.getRecordings(request);
+    const recordings = await preClient.getRecordings(mockXUserId, request);
     expect(recordings).toBeTruthy();
   });
 });
@@ -23,12 +23,12 @@ describe('PreClient success', () => {
 /* eslint-disable jest/expect-expect */
 describe('PreClient failure', () => {
   test('get recording', async () => {
-    const recording = await preClient.getRecording('something');
+    const recording = await preClient.getRecording(mockXUserId, 'something');
     expect(recording).toBeFalsy();
   });
   test('get recordings', async () => {
     try {
-      await preClient.getRecordings({});
+      await preClient.getRecordings(mockXUserId, {});
     } catch (e) {
       expect(e.code).toBe('ECONNREFUSED');
     }

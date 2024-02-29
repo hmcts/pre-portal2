@@ -12,6 +12,17 @@ jest.mock('express-openid-connect', () => {
     }),
   };
 });
+jest.mock('../../../main/services/session-user/session-user', () => {
+  return {
+    SessionUser: {
+      getLoggedInUser: jest.fn().mockImplementation((req: Express.Request) => {
+        return {
+          id: '123',
+        };
+      }),
+    },
+  };
+});
 describe('Browse route', () => {
   beforeAll(() => {
     reset();

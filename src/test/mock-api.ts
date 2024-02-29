@@ -58,15 +58,18 @@ export const mockRecordings: Recording[] = [
   } as Recording,
 ];
 
+export const mockXUserId = 'a114f40e-bdba-432d-b53f-37169ee5bf99';
+
 export function mock() {
-  jest.spyOn(PreClient.prototype, 'getRecording').mockImplementation(async (id: string) => {
+  jest.spyOn(PreClient.prototype, 'getRecording').mockImplementation(async (xUserId: string, id: string) => {
     return Promise.resolve(mockRecordings.find(r => r.id === id) || null);
   });
 
-  jest.spyOn(PreClient.prototype, 'getRecordings').mockImplementation(async (req: SearchRecordingsRequest) => {
-    console.log('here');
-    return Promise.resolve(mockRecordings);
-  });
+  jest
+    .spyOn(PreClient.prototype, 'getRecordings')
+    .mockImplementation(async (xUserId: string, req: SearchRecordingsRequest) => {
+      return Promise.resolve(mockRecordings);
+    });
 }
 
 export function reset() {

@@ -1,5 +1,6 @@
 import { PreClient } from '../services/pre-api/pre-client';
 import { SearchRecordingsRequest } from '../services/pre-api/types';
+import { SessionUser } from '../services/session-user/session-user';
 
 import { Logger } from '@hmcts/nodejs-logging';
 import { Application } from 'express';
@@ -26,11 +27,7 @@ export default function (app: Application): void {
         size: 10,
       };
 
-      const recordings = await client.getRecordings(request);
-
-      if (!recordings) {
-        throw new Error('Failed to retrieve recordings');
-      }
+      const recordings = await client.getRecordings(SessionUser.getLoggedInUser(req).id, request);
 
       res.render('browse', {
         recordings,
