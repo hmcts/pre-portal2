@@ -58,6 +58,19 @@ export const mockRecordings: Recording[] = [
   } as Recording,
 ];
 
+// needs to return the paginated list
+export const mockedPaginatedRecordings = {
+  _embedded: {
+    recordingDTOList: mockRecordings,
+  },
+  page: {
+    size: 20,
+    totalElements: 2,
+    totalPages: 1,
+    number: 0,
+  },
+};
+
 export const mockXUserId = 'a114f40e-bdba-432d-b53f-37169ee5bf99';
 
 export function mock() {

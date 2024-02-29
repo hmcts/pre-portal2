@@ -14,7 +14,12 @@ export class PreClient {
       this.logger.error('No user found for email: ' + email);
       return {} as UserProfile;
     }
-    return response.data[0] as UserProfile;
+    const user = response.data[0] as UserProfile;
+    if (!user.active) {
+      this.logger.error('User is not active: ' + email);
+      return {} as UserProfile;
+    }
+    return user;
   }
 
   public async getRecordings(xUserId: string, request: SearchRecordingsRequest): Promise<Recording[]> {
@@ -42,7 +47,7 @@ export class PreClient {
 
   public async getRecording(xUserId: string, id: string): Promise<Recording | null> {
     try {
-      const response = await axios.get(`/pre-api/recordings/${id}`, {
+      const response = await axios.get(`/recordings/${id}`, {
         headers: {
           'X-User-Id': xUserId,
         },
