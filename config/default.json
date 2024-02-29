@@ -6,8 +6,8 @@
   "pre": {
     "apiUrl": "https://pre-api.local",
     "apiKey": {
-      "primary": "",
-      "secondary": ""
+      "primary": "123",
+      "secondary": "456"
     },
     "portalUrl": "https://localhost:4550"
   },

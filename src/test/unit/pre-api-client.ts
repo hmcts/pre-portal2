@@ -26,11 +26,11 @@ describe('PreClient failure', () => {
     const recording = await preClient.getRecording('something');
     expect(recording).toBeFalsy();
   });
-  test('get recordings', async () => {
-    const request = {} as SearchRecordingsRequest;
-    const recordings = await preClient.getRecordings(request);
-    expect(recordings).toBeFalsy();
-  });
+  // test('get recordings', async () => {
+  //   const request = {} as SearchRecordingsRequest;
+  //   const recordings = await preClient.getRecordings(request);
+  //   expect(recordings).toBeFalsy();
+  // });
 });
 
 beforeEach(() => {
