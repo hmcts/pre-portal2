@@ -18,7 +18,11 @@ export class PropertiesVolume {
     set(config, 'pre.apiKey.primary', process.env.APIM_SUB_PORTAL_PRIMARY_KEY ?? 'pre.apiKey.primary');
     set(config, 'pre.primaryApiKey', process.env.APIM_SUB_PORTAL_PRIMARY_KEY ?? 'pre.primaryApiKey');
     set(config, 'pre.apiKey.secondary', process.env.APIM_SUB_PORTAL_SECONDARY_KEY ?? 'pre.apiKey.secondary');
-    set(config, 'appInsights.instrumentationKey', process.env.APPINSIGHTS_INSTRUMENTATIONKEY);
+    set(
+      config,
+      'appInsights.instrumentationKey',
+      process.env.APPINSIGHTS_INSTRUMENTATIONKEY ?? 'appInsights.instrumentationKey'
+    );
     this.logger.info('==============================================');
     this.logger.info('pre.portalUrl', config.get('pre.portalUrl'));
     this.logger.info('pre.primaryApiKey', config.get('pre.primaryApiKey'));
