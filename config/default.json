@@ -9,6 +9,7 @@
       "primary": "",
       "secondary": ""
     },
+    "primaryApiKey": "",
     "portalUrl": "https://localhost:4550"
   },
   "session": {
