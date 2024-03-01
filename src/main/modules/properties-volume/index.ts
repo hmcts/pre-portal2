@@ -15,14 +15,17 @@ export class PropertiesVolume {
     set(config, 'b2c.testLogin.password', process.env.B2C_TEST_LOGIN_PASSWORD);
     set(config, 'pre.portalUrl', process.env.PORTAL_URL || 'https://localhost:4550');
     set(config, 'pre.apiUrl', process.env.API_URL || 'https://localhost:4551');
-    set(config, 'pre.apiKey.primary', process.env.APIM_SUB_PORTAL_PRIMARY_KEY || '123');
-    set(config, 'pre.apiKey.secondary', process.env.APIM_SUB_PORTAL_SECONDARY_KEY || '456');
+    this.logger.info('1 setting pre.apiKey.primary' + (config.get('pre.apiKey.primary') as string).length);
+    set(config, 'pre.apiKey.primary', process.env.APIM_SUB_PORTAL_PRIMARY_KEY);
+    this.logger.info('2 setting pre.apiKey.primary' + (config.get('pre.apiKey.primary') as string).length);
+    set(config, 'pre.apiKey.secondary', process.env.APIM_SUB_PORTAL_SECONDARY_KEY);
     if (server.locals.ENV !== 'development') {
       propertiesVolume.addTo(config);
       this.setSecret('secrets.pre-hmctskv.AppInsightsInstrumentationKey', 'appInsights.instrumentationKey');
       this.setSecret('secrets.pre-hmctskv.redis6-access-key', 'session.redis.key');
+      this.logger.info('3 setting pre.apiKey.primary' + (config.get('pre.apiKey.primary') as string).length);
       this.setSecret('secrets.pre-hmctskv.apim-sub-portal-primary-key', 'pre.apiKey.primary');
-      this.logger.info('setting pre.apiKey.primary');
+      this.logger.info('4 setting pre.apiKey.primary' + (config.get('pre.apiKey.primary') as string).length);
       this.setSecret('secrets.pre-hmctskv.apim-sub-portal-secondary-key', 'pre.apiKey.secondary');
       this.setSecret('secrets.pre-hmctskv.pre-portal-sso', 'b2c.appClientSecret');
       this.setSecret('secrets.pre-hmctskv.b2c-test-login-email', 'b2c.testLogin.email');

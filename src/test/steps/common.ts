@@ -4,12 +4,10 @@ const { I } = inject();
 
 export const iAmOnPage = (text: string): void => {
   const url = new URL(text, config.TEST_URL);
-  console.log('email', config.b2c.testLogin.email);
-  console.log('password', config.b2c.testLogin.password);
   if (!url.searchParams.has('lng')) {
     url.searchParams.set('lng', 'en');
   }
-  I.amOnPage(url.toString());
+  I.retry({ retries: 3, maxTimeout: 5000 }).amOnPage(url.toString());
 };
 Given('I go to {string}', iAmOnPage);
 
