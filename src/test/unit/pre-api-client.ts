@@ -46,7 +46,6 @@ describe('PreClient', () => {
   mockedAxios.get.mockImplementation((url: string, config: object) => {
     // @ts-ignore
     if (url === '/users/by-email/test@testy.com') {
-      console.log('here');
       return Promise.resolve({
         status: 200,
         data: [mockedUser],
