@@ -1,13 +1,1 @@
-{
-  "pre": {
-    "apiUrl": "https://sds-api-mgmt.staging.platform.hmcts.net/pre-api"
-  },
-  "b2c": {
-    "signUpSignInPolicyAuthority": "https://hmctsstgextid.b2clogin.com/hmctsstgextid.onmicrosoft.com/<sign-in-sign-up-user-flow-name>",
-    "resetPasswordPolicyAuthority": "https://hmctsstgextid.b2clogin.com/hmctsstgextid.onmicrosoft.com/<reset-password-user-flow-name>",
-    "editProfilePolicyAuthority": "https://hmctsstgextid.b2clogin.com/hmctsstgextid.onmicrosoft.com/<edit-profile-user-flow-name>",
-    "authorityDomain": "https://hmctsstgextid.b2clogin.com",
-    "appRedirectUri": "",
-    "logoutEndpoint": "https://hmctsstgextid.b2clogin.com/hmctsstgextid.onmicrosoft.com/<sign-in-sign-up-user-flow-name>/oauth2/v2.0/logout?post_logout_redirect_uri=http://localhost:4550"
-  }
-}
+{}
