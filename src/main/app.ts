@@ -26,7 +26,6 @@ const developmentMode = env === 'development';
 
 export const app = express();
 app.locals.ENV = env;
-process.env.ALLOW_CONFIG_MUTATIONS = 'true';
 
 const logger = Logger.getLogger('app');
 

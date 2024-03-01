@@ -4,9 +4,7 @@ const { I } = inject();
 
 export const iAmOnPage = (text: string): void => {
   const url = new URL(text, config.TEST_URL);
-  if (!url.searchParams.has('lng')) {
-    url.searchParams.set('lng', 'en');
-  }
+  console.log(url.toString());
   I.retry({ retries: 3, maxTimeout: 5000 }).amOnPage(url.toString());
 };
 Given('I go to {string}', iAmOnPage);
