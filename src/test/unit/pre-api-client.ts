@@ -3,6 +3,7 @@ import { PreClient } from '../../main/services/pre-api/pre-client';
 import { SearchRecordingsRequest } from '../../main/services/pre-api/types';
 import { describe } from '@jest/globals';
 import axios from 'axios';
+import config = require('config');
 
 const preClient = new PreClient();
 jest.mock('axios');
@@ -46,6 +47,19 @@ describe('PreClient', () => {
     }
     throw new Error('Invalid URL: ' + url);
   });
+  mockedAxios.post.mockImplementation((url, data, _config) => {
+    if (url === (config.get('ams.flowUrl') as string)) {
+      return Promise.resolve({
+        status: 200,
+        data: {
+          manifestpath: 'something',
+          aestoken: 'something',
+        },
+      });
+    }
+    throw new Error('Invalid URL: ' + url);
+  });
+  mockedAxios.create.mockImplementation(() => mockedAxios);
 
   test('get recording', async () => {
     const recording = await preClient.getRecording('something');
@@ -72,5 +86,10 @@ describe('PreClient', () => {
     } catch (e) {
       expect(e).toBe('Network Error');
     }
+  });
+  test('get recording playback data', async () => {
+    const recording = await preClient.getRecordingPlaybackData('something');
+    expect(recording).toBeTruthy();
+    expect(recording?.src).toBe('something');
   });
 });
