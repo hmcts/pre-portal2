@@ -19,7 +19,7 @@
     "test:routes": "jest -c jest.routes.config.js",
     "test:a11y": "PORTAL_AUTH_DISABLED=1 NODE_TLS_REJECT_UNAUTHORIZED=0 jest -c jest.a11y.config.js --maxWorkers 15",
     "test:smoke": "NODE_TLS_REJECT_UNAUTHORIZED=0 jest -c jest.smoke.config.js",
-    "test:functional": "yarn playwright install && TEST_URL=https://pre-portal-pr-82.dev.platform.hmcts.net/ NODE_TLS_REJECT_UNAUTHORIZED=0 codeceptjs run --config ./codecept.conf.js --steps",
+    "test:functional": "yarn playwright install && NODE_TLS_REJECT_UNAUTHORIZED=0 codeceptjs run --config ./codecept.conf.js --steps",
     "cichecks": "yarn build && yarn rebuild puppeteer && yarn lint && yarn test && yarn test:routes && yarn test:a11y",
     "prepare": "husky install",
     "prettier": "prettier --write ."

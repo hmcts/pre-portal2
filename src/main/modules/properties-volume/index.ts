@@ -12,8 +12,8 @@ export class PropertiesVolume {
     set(config, 'b2c.testLogin.password', process.env.B2C_TEST_LOGIN_PASSWORD);
     set(config, 'pre.portalUrl', process.env.PORTAL_URL || 'https://localhost:4550');
     set(config, 'pre.apiUrl', process.env.API_URL || 'https://localhost:4551');
-    set(config, 'pre.apiKey.primary', process.env.API_KEY_PRIMARY || '123');
-    set(config, 'pre.apiKey.secondary', process.env.API_KEY_SECONDARY || '456');
+    set(config, 'pre.apiKey.primary', process.env.APIM_SUB_PORTAL_PRIMARY_KEY || '123');
+    set(config, 'pre.apiKey.secondary', process.env.APIM_SUB_PORTAL_SECONDARY_KEY || '456');
     if (server.locals.ENV !== 'development') {
       propertiesVolume.addTo(config);
       this.setSecret('secrets.pre-hmctskv.AppInsightsInstrumentationKey', 'appInsights.instrumentationKey');
