@@ -37,7 +37,7 @@ new Helmet(developmentMode).enableFor(app);
 
 logger.info('Setting PRE API url to: ' + config.get('pre.apiUrl'));
 
-axios.defaults.baseURL = 'https://sds-api-mgmt.staging.platform.hmcts.net/pre-api';
+axios.defaults.baseURL = config.get('pre.apiUrl');
 axios.defaults.headers.common['Ocp-Apim-Subscription-Key'] = config.get('pre.apiKey.primary');
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 

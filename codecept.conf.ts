@@ -20,6 +20,7 @@ export const config: CodeceptJS.MainConfig = {
     retryFailedStep: {
       enabled: true,
     },
+    retry: 3,
     tryTo: {
       enabled: true,
     },
