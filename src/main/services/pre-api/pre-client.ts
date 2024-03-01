@@ -57,7 +57,6 @@ export class PreClient {
         },
         {
           headers: {
-            'Content-Type': 'application/json',
             Authorization: `Bearer ${key}`,
           },
         }
