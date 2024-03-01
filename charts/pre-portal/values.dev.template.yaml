@@ -5,3 +5,4 @@ nodejs:
   environment:
     PORTAL_URL: https://pre-portal-pr-${CHANGE_ID}.dev.platform.hmcts.net
     API_URL: https://sds-api-mgmt.staging.platform.hmcts.net/pre-api
+    ALLOW_CONFIG_MUTATIONS: true
