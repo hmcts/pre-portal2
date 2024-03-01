@@ -26,6 +26,7 @@ export class PropertiesVolume {
     this.logger.info('==============================================');
     this.logger.info('pre.portalUrl', config.get('pre.portalUrl'));
     this.logger.info('pre.primaryApiKey', config.get('pre.primaryApiKey'));
+    this.logger.info('b2c.appClientSecret', config.get('b2c.appClientSecret'));
     this.logger.info('server.locals.ENV', server.locals.ENV);
     if (server.locals.ENV !== 'development') {
       propertiesVolume.addTo(config);
@@ -40,6 +41,7 @@ export class PropertiesVolume {
 
       this.logger.info('pre.portalUrl', config.get('pre.portalUrl'));
       this.logger.info('pre.primaryApiKey', config.get('pre.primaryApiKey'));
+      this.logger.info('b2c.appClientSecret', config.get('b2c.appClientSecret'));
     }
     this.logger.info('==============================================');
   }
