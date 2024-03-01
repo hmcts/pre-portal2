@@ -19,5 +19,9 @@ nodejs:
           alias: APIM_SUB_PORTAL_PRIMARY_KEY
         - name: apim-sub-portal-secondary-key
           alias: APIM_SUB_PORTAL_SECONDARY_KEY
+        - name: pp-authorization
+          alias: PP_AUTHORIZATION
+        - name: ams-flow-url
+          alias: AMS_FLOW_URL
   environment:
     REDIS_HOST: 'pre-portal-{{ .Values.global.environment }}.redis.cache.windows.net'

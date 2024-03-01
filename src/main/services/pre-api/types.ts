@@ -51,3 +51,9 @@ export interface Participant {
   createdAt: string;
   modifiedAt: string;
 }
+
+export interface RecordingPlaybackData {
+  src: string;
+  type: string;
+  protectionInfo: { [key: string]: string }[];
+}

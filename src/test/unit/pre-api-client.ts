@@ -1,38 +1,95 @@
-import { mock, reset } from '../mock-api';
+import { mockedPaginatedRecordings, mockRecordings } from '../mock-api';
 import { PreClient } from '../../main/services/pre-api/pre-client';
 import { SearchRecordingsRequest } from '../../main/services/pre-api/types';
 import { describe } from '@jest/globals';
+import axios from 'axios';
+import config = require('config');
 
 const preClient = new PreClient();
+jest.mock('axios');
 
 /* eslint-disable jest/expect-expect */
-describe('PreClient success', () => {
+describe('PreClient', () => {
+  const mockedAxios = axios as jest.Mocked<typeof axios>;
+  // @ts-ignore
+  mockedAxios.get.mockImplementation((url, config) => {
+    if (url === '/recordings/something') {
+      return Promise.resolve({
+        status: 200,
+        data: mockRecordings.find(r => r.id === 'something'),
+      });
+    }
+    if (url === '/recordings') {
+      // @ts-ignore
+      if (config['params']['caseReference'] == 'uhoh') {
+        return Promise.reject('Network Error');
+      }
+
+      // @ts-ignore
+      if (config['params']['caseReference'] == 'noresults') {
+        return Promise.resolve({
+          status: 200,
+          data: {
+            page: {
+              size: 20,
+              totalElements: 0,
+              totalPages: 1,
+              number: 0,
+            },
+          },
+        });
+      }
+
+      return Promise.resolve({
+        status: 200,
+        data: mockedPaginatedRecordings,
+      });
+    }
+    throw new Error('Invalid URL: ' + url);
+  });
+  mockedAxios.post.mockImplementation((url, data, _config) => {
+    if (url === (config.get('ams.flowUrl') as string)) {
+      return Promise.resolve({
+        status: 200,
+        data: {
+          manifestpath: 'something',
+          aestoken: 'something',
+        },
+      });
+    }
+    throw new Error('Invalid URL: ' + url);
+  });
+  mockedAxios.create.mockImplementation(() => mockedAxios);
+
   test('get recording', async () => {
-    mock();
     const recording = await preClient.getRecording('something');
     expect(recording).toBeTruthy();
+    expect(recording?.id).toBe('something');
   });
   test('get recordings', async () => {
-    mock();
     const request = {} as SearchRecordingsRequest;
     const recordings = await preClient.getRecordings(request);
     expect(recordings).toBeTruthy();
+    expect(recordings.length).toBe(2);
   });
-});
-
-/* eslint-disable jest/expect-expect */
-describe('PreClient failure', () => {
-  test('get recording', async () => {
-    const recording = await preClient.getRecording('something');
-    expect(recording).toBeFalsy();
-  });
-  test('get recordings', async () => {
-    const request = {} as SearchRecordingsRequest;
+  test('get recordings no results', async () => {
+    const request = {
+      caseReference: 'noresults',
+    } as SearchRecordingsRequest;
     const recordings = await preClient.getRecordings(request);
-    expect(recordings).toBeFalsy();
+    expect(recordings).toBeTruthy();
+    expect(recordings.length).toBe(0);
   });
-});
-
-beforeEach(() => {
-  reset();
+  test('network error', async () => {
+    try {
+      await preClient.getRecordings({ caseReference: 'uhoh' } as SearchRecordingsRequest);
+    } catch (e) {
+      expect(e).toBe('Network Error');
+    }
+  });
+  test('get recording playback data', async () => {
+    const recording = await preClient.getRecordingPlaybackData('something');
+    expect(recording).toBeTruthy();
+    expect(recording?.src).toBe('something');
+  });
 });

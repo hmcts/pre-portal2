@@ -3,8 +3,7 @@
 {% block head %}
   {% include "webpack/css.njk" %}
   <link
-    href="//amp.azure.net/libs/amp/latest/skins/amp-default/azuremediaplayer.min.css"
-    rel="stylesheet"
+    href="//amp.azure.net/libs/amp/2.3.11/skins/amp-default/azuremediaplayer.min.css" rel="stylesheet"
     crossorigin="anonymous" />
 {% endblock %}
 
@@ -21,15 +20,13 @@
 
   <div class="govuk-!-margin-bottom-2 video-wrapper">
     <video
+      id="player"
       data-testid="recording-video"
       class="azuremediaplayer amp-default-skin amp-big-play-centered"
       controls
       width="100%"
       height="auto"
       data-setup='{"nativeControlsForTouch": false}'>
-      <source
-        src="selectedRecordingSource"
-        type="application/vnd.ms-sstr+xml" />
       <p class="amp-no-js">
         To view this video please enable JavaScript, and consider upgrading to
         a web browser that supports HTML5 video
@@ -122,4 +119,23 @@
         </dd>
     </div>
   </dl>
+
+  <script src="//amp.azure.net/libs/amp/2.3.11/azuremediaplayer.min.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" crossorigin="anonymous" data-testid="recording-video-script">
+  var player = amp("player", {
+    controls: true,
+    logo: {
+      enabled: false
+    },
+  });
+
+  player.src([{
+    src: "{{ recordingPlaybackData.src }}",
+    type: "{{ recordingPlaybackData.type }}",
+    protectionInfo: [{
+      type: "AES",
+      authenticationToken: "{{ recordingPlaybackData.protectionInfo[0].authenticationToken }}"
+    }]
+  }]);
+  </script>
 {% endblock %}

@@ -9,5 +9,11 @@
       "primary": "",
       "secondary": ""
     }
+  },
+  "ams": {
+    "azureMediaServices": "https://preamsdev-ukso1.streaming.media.azure.net",
+    "azureMediaServicesKeyDelivery": "https://preamsdev.keydelivery.uksouth.media.azure.net",
+    "flowKey": "",
+    "flowUrl": ""
   }
 }

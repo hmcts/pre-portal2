@@ -24,10 +24,6 @@ export default function (app: Application): void {
 
       const recordings = await client.getRecordings(request);
 
-      if (!recordings) {
-        throw new Error('Failed to retrieve recordings');
-      }
-
       res.render('browse', { recordings });
     } catch (e) {
       res.status(500);
