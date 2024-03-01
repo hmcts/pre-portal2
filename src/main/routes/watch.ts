@@ -8,10 +8,19 @@ export default function (app: Application): void {
       const client = new PreClient();
 
       const recording = await client.getRecording(req.params.id);
+
+      if (recording === null) {
+        res.status(404);
+        res.render('not-found');
+        return;
+      }
+
       const recordingPlaybackData = await client.getRecordingPlaybackData(req.params.id);
 
-      if (!recording || !recordingPlaybackData) {
-        throw new Error('Failed to retrieve recording');
+      if (recordingPlaybackData === null) {
+        res.status(404);
+        res.render('not-found');
+        return;
       }
 
       res.render('watch', { recording, recordingPlaybackData });

@@ -1,23 +1,27 @@
 import { Recording, RecordingPlaybackData, SearchRecordingsRequest } from './types';
 
+import { Logger } from '@hmcts/nodejs-logging';
 import axios from 'axios';
 import config = require('config');
 
 export class PreClient {
+  constructor(private readonly logger = Logger.getLogger('app')) {}
+
   // TODO: get only recordings shared with the authenticated user
-  public async getRecordings(request: SearchRecordingsRequest): Promise<Recording[] | null> {
+  public async getRecordings(request: SearchRecordingsRequest): Promise<Recording[]> {
     try {
       const response = await axios.get('/recordings', {
         params: request,
       });
 
+      if (!response.data['_embedded'] || !response.data['_embedded']['recordingDTOList']) {
+        return [];
+      }
+
       return response.data['_embedded']['recordingDTOList'] as Recording[];
     } catch (e) {
-      if (e instanceof TypeError) {
-        return [];
-      } else {
-        return null;
-      }
+      this.logger.error(e);
+      throw e;
     }
   }
 
@@ -27,7 +31,12 @@ export class PreClient {
 
       return response.data as Recording;
     } catch (e) {
-      return null;
+      if (e.response.status === 404) {
+        return null;
+      }
+
+      this.logger.error(e);
+      throw e;
     }
   }
 
@@ -35,6 +44,9 @@ export class PreClient {
     const url = config.get('ams.flowUrl') as string;
     const key = config.get('ams.flowKey') as string;
     const axiosClient = axios.create(); // TODO: move AMS playback logic to API and use instead of flow above
+
+    delete axiosClient.defaults.headers.common['Ocp-Apim-Subscription-Key'];
+    delete axiosClient.defaults.headers.common['X-User-Id'];
 
     try {
       const response = await axiosClient.post(
@@ -62,7 +74,12 @@ export class PreClient {
         ],
       } as RecordingPlaybackData;
     } catch (e) {
-      return null;
+      if (e.response.status === 404) {
+        return null;
+      }
+
+      this.logger.error(e);
+      throw e;
     }
   }
 }

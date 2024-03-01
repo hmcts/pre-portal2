@@ -58,6 +58,19 @@ export const mockRecordings: Recording[] = [
   } as Recording,
 ];
 
+// needs to return the paginated list
+export const mockedPaginatedRecordings = {
+  _embedded: {
+    recordingDTOList: mockRecordings,
+  },
+  page: {
+    size: 20,
+    totalElements: 2,
+    totalPages: 1,
+    number: 0,
+  },
+};
+
 export function mock() {
   mockGetRecording();
   mockGetRecordings();
@@ -77,7 +90,7 @@ export function mockGetRecording(recording?: Recording | null) {
   });
 }
 
-export function mockGetRecordings(recordings?: Recording[] | null) {
+export function mockGetRecordings(recordings?: Recording[]) {
   if (recordings !== undefined) {
     jest.spyOn(PreClient.prototype, 'getRecordings').mockImplementation(async () => {
       return Promise.resolve(recordings);

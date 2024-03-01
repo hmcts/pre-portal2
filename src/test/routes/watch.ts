@@ -19,24 +19,25 @@ describe('Watch page success', () => {
 /* eslint-disable jest/expect-expect */
 describe('Watch page failure', () => {
   describe('on GET', () => {
-    test('should return 500 when both api calls fail', async () => {
+    test('should return 404 when both api calls fail', async () => {
       mockGetRecording(null);
       mockGetRecordingPlaybackData(null);
       await request(app)
         .get('/watch/something')
-        .expect(res => expect(res.status).to.equal(500));
+        .expect(res => expect(res.status).to.equal(404));
     });
-    test('should return 500 when getRecording fails', async () => {
+    test('should return 404 when getRecording fails', async () => {
       mockGetRecording(null);
       await request(app)
         .get('/watch/something')
-        .expect(res => expect(res.status).to.equal(500));
+        .expect(res => expect(res.status).to.equal(404));
     });
-    test('should return 500 when getRecordingPlaybackData fails', async () => {
+    test('should return 404 when getRecordingPlaybackData fails', async () => {
+      mockGetRecording();
       mockGetRecordingPlaybackData(null);
       await request(app)
         .get('/watch/something')
-        .expect(res => expect(res.status).to.equal(500));
+        .expect(res => expect(res.status).to.equal(404));
     });
   });
 });

@@ -3,6 +3,7 @@ import { app } from '../../main/app';
 import { expect } from 'chai';
 import request from 'supertest';
 import { mock, reset, mockGetRecordings } from '../mock-api';
+import { PreClient } from '../../main/services/pre-api/pre-client';
 
 /* eslint-disable jest/expect-expect */
 describe('Browse page success', () => {
@@ -26,7 +27,9 @@ describe('Browse page success', () => {
 describe('Browse page failure', () => {
   describe('on GET', () => {
     test('should return 500', async () => {
-      mockGetRecordings(null);
+      jest.spyOn(PreClient.prototype, 'getRecordings').mockImplementation(() => {
+        throw new Error('error');
+      });
 
       await request(app)
         .get('/browse')
