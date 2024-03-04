@@ -7,6 +7,8 @@ import { get, set } from 'lodash';
 export class PropertiesVolume {
   private logger = Logger.getLogger('properties-volume');
   enableFor(server: Application): void {
+    set(config, 'pre.apiUrl', process.env.PRE_API_URL || 'https://localhost:4550');
+
     if (server.locals.ENV === 'production') {
       this.logger.info('Loading properties from mounted KV');
       propertiesVolume.addTo(config);
@@ -21,7 +23,6 @@ export class PropertiesVolume {
       require('dotenv').config();
       set(config, 'ams.flowKey', process.env.AMS_FLOW_KEY || 'ams.flowKey');
       set(config, 'ams.flowUrl', process.env.AMS_FLOW_URL || 'ams.flowUrl');
-      set(config, 'pre.apiUrl', process.env.PRE_API_URL || 'https://localhost:4550');
       set(config, 'pre.apiKey.primary', process.env.PRE_API_KEY_PRIMARY || 'pre.apiKey.primary');
     }
     this.logger.info('pre.apiUrl', config.get('pre.apiUrl'));
