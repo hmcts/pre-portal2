@@ -8,6 +8,7 @@ export class PropertiesVolume {
   private logger = Logger.getLogger('properties-volume');
   enableFor(server: Application): void {
     if (server.locals.ENV === 'production') {
+      this.logger.info('Loading properties from mounted KV');
       propertiesVolume.addTo(config);
       this.setSecret('secrets.pre-hmctskv.AppInsightsInstrumentationKey', 'appInsights.instrumentationKey');
       this.setSecret('secrets.pre-hmctskv.redis6-access-key', 'session.redis.key');
@@ -16,21 +17,12 @@ export class PropertiesVolume {
       this.setSecret('secrets.pre-hmctskv.pp-authorization', 'ams.flowKey');
       this.setSecret('secrets.pre-hmctskv.ams-flow-url', 'ams.flowUrl');
     } else {
+      this.logger.info('Loading properties from .env file');
       require('dotenv').config();
-      set(config, 'session.redis.key', process.env.REDIS_ACCESS_KEY || '0');
-      set(config, 'ams.flowKey', process.env.PP_AUTHORIZATION || '1');
-      set(config, 'ams.flowUrl', process.env.AMS_FLOW_URL || '2');
-      set(config, 'pre.apiKey.primary', process.env.PRE_API_KEY_PRIMARY || '3');
-      set(config, 'appInsights.instrumentationKey', process.env.APP_INSIGHTS_INSTRUMENTATION_KEY || '4');
+      set(config, 'ams.flowKey', process.env.AMS_FLOW_KEY || 'ams.flowKey');
+      set(config, 'ams.flowUrl', process.env.AMS_FLOW_URL || 'ams.flowUrl');
+      set(config, 'pre.apiKey.primary', process.env.PRE_API_KEY_PRIMARY || 'pre.apiKey.primary');
     }
-    this.logger.info('==============================================');
-    this.logger.info('session.redis.key', config.get('session.redis.key'));
-    this.logger.info('ams.flowKey', config.get('ams.flowKey'));
-    this.logger.info('ams.flowUrl', config.get('ams.flowUrl'));
-    this.logger.info('pre.apiKey.primary', config.get('pre.apiKey.primary'));
-    this.logger.info('appInsights.instrumentationKey', config.get('appInsights.instrumentationKey'));
-    this.logger.info('server.locals.ENV', server.locals.ENV);
-    this.logger.info('==============================================');
   }
 
   private setSecret(fromPath: string, toPath: string): void {
