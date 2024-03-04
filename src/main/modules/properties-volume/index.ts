@@ -10,6 +10,7 @@ export class PropertiesVolume {
   enableFor(server: Application): void {
     set(config, 'pre.portalUrl', process.env.PORTAL_URL || 'https://localhost:4550');
     set(config, 'pre.apiUrl', process.env.API_URL || 'https://localhost:4551');
+    set(config, 'session.secret', process.env.SESSION_SECRET || 'superlongrandomstringthatshouldbebetterinprod');
 
     if (server.locals.ENV === 'production') {
       this.logger.info('Loading properties from mounted KV');
