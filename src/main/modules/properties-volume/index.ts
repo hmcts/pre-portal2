@@ -9,10 +9,10 @@ export class PropertiesVolume {
   enableFor(server: Application): void {
     require('dotenv').config();
     set(config, 'session.redis.key', process.env.REDIS_ACCESS_KEY || '0');
-    set(config, 'ams.flowKey', process.env.PP_AUTHORIZATION);
-    set(config, 'ams.flowUrl', process.env.AMS_FLOW_URL || '1');
-    set(config, 'pre.apiKey.primary', process.env.PRE_API_KEY_PRIMARY || '2');
-    set(config, 'appInsights.instrumentationKey', process.env.APP_INSIGHTS_INSTRUMENTATION_KEY || '3');
+    set(config, 'ams.flowKey', process.env.PP_AUTHORIZATION || '1');
+    set(config, 'ams.flowUrl', process.env.AMS_FLOW_URL || '2');
+    set(config, 'pre.apiKey.primary', process.env.PRE_API_KEY_PRIMARY || '3');
+    set(config, 'appInsights.instrumentationKey', process.env.APP_INSIGHTS_INSTRUMENTATION_KEY || '4');
     if (server.locals.ENV !== 'development') {
       propertiesVolume.addTo(config);
       this.setSecret('secrets.pre-hmctskv.AppInsightsInstrumentationKey', 'appInsights.instrumentationKey');
