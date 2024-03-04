@@ -14,7 +14,7 @@ export class PropertiesVolume {
     set(config, 'pre.apiKey.primary', process.env.PRE_API_KEY_PRIMARY ?? '2');
     set(config, 'appInsights.instrumentationKey', process.env.APP_INSIGHTS_INSTRUMENTATION_KEY ?? '3');
     if (server.locals.ENV !== 'development') {
-      propertiesVolume.addTo(config);
+      propertiesVolume.addTo(config, { failOnError: true });
       this.setSecret('secrets.pre-hmctskv.AppInsightsInstrumentationKey', 'appInsights.instrumentationKey');
       this.setSecret('secrets.pre-hmctskv.redis6-access-key', 'session.redis.key');
       this.setSecret('secrets.pre-hmctskv.apim-sub-portal-primary-key', 'pre.apiKey.primary');
@@ -29,6 +29,7 @@ export class PropertiesVolume {
     this.logger.info('appInsights.instrumentationKey', config.get('appInsights.instrumentationKey'));
     this.logger.info('server.locals.ENV', server.locals.ENV);
     this.logger.info('==============================================');
+    process.exit();
   }
 
   private setSecret(fromPath: string, toPath: string): void {
