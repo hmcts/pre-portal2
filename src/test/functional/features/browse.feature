@@ -5,6 +5,8 @@ Feature: View Browse Page
       When I go to '/'
       Then the page should include 'Sign in'
       Then I sign in as the test user
+      When I go to '/'
+      When I go to '/'
       Then I am on the '/browse' page
       Then the page should include 'Welcome back,'
       Then the page should include 'Recordings shared with you'
