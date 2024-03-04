@@ -30,7 +30,6 @@ export class PropertiesVolume {
     this.logger.info('appInsights.instrumentationKey', config.get('appInsights.instrumentationKey'));
     this.logger.info('server.locals.ENV', server.locals.ENV);
     this.logger.info('==============================================');
-    process.exit();
   }
 
   private setSecret(fromPath: string, toPath: string): void {
