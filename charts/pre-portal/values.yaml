@@ -11,17 +11,11 @@ nodejs:
   keyVaults:
     pre-hmctskv:
       secrets:
-        - name: redis6-access-key
-          alias: REDIS_ACCESS_KEY
-        - name: AppInsightsInstrumentationKey
-          alias: APPINSIGHTS_INSTRUMENTATIONKEY
-        - name: apim-sub-portal-primary-key
-          alias: APIM_SUB_PORTAL_PRIMARY_KEY
-        - name: apim-sub-portal-secondary-key
-          alias: APIM_SUB_PORTAL_SECONDARY_KEY
-        - name: pp-authorization
-          alias: PP_AUTHORIZATION
-        - name: ams-flow-url
-          alias: AMS_FLOW_URL
+        - redis6-access-key
+        - AppInsightsInstrumentationKey
+        - apim-sub-portal-primary-key
+        - apim-sub-portal-secondary-key
+        - pp-authorization
+        - ams-flow-url
   environment:
     REDIS_HOST: 'pre-portal-{{ .Values.global.environment }}.redis.cache.windows.net'

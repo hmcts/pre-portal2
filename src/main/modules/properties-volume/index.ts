@@ -8,8 +8,8 @@ export class PropertiesVolume {
   private logger = Logger.getLogger('properties-volume');
   enableFor(server: Application): void {
     require('dotenv').config();
-    set(config, 'session.redis.key', process.env.REDIS_ACCESS_KEY);
-    set(config, 'ams.flowKey', process.env.AMS_FLOW_KEY);
+    set(config, 'session.redis.key', process.env.REDIS_ACCESS_KEY ?? '0');
+    set(config, 'ams.flowKey', process.env.PP_AUTHORIZATION);
     set(config, 'ams.flowUrl', process.env.AMS_FLOW_URL ?? '1');
     set(config, 'pre.apiKey.primary', process.env.PRE_API_KEY_PRIMARY ?? '2');
     set(config, 'appInsights.instrumentationKey', process.env.APP_INSIGHTS_INSTRUMENTATION_KEY ?? '3');
@@ -23,7 +23,8 @@ export class PropertiesVolume {
       this.setSecret('secrets.pre-hmctskv.ams-flow-url', 'ams.flowUrl');
     }
     this.logger.info('==============================================');
-    this.logger.info('ams.flowKey', config.get('ams.flowUrl'));
+    this.logger.info('ams.flowUrl', config.get('ams.flowUrl'));
+    this.logger.info('session.redis.key', config.get('session.redis.key'));
     this.logger.info('pre.apiKey.primary', config.get('pre.apiKey.primary'));
     this.logger.info('appInsights.instrumentationKey', config.get('appInsights.instrumentationKey'));
     this.logger.info('server.locals.ENV', server.locals.ENV);
