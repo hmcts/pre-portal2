@@ -45,8 +45,6 @@ export class PreClient {
     const key = config.get('ams.flowKey') as string;
     const axiosClient = axios.create(); // TODO: move AMS playback logic to API and use instead of flow above
 
-    axiosClient.defaults.headers.common = {};
-
     try {
       const response = await axiosClient.post(
         url,
