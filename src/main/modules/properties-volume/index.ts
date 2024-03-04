@@ -25,7 +25,6 @@ export class PropertiesVolume {
       set(config, 'ams.flowUrl', process.env.AMS_FLOW_URL || 'ams.flowUrl');
       set(config, 'pre.apiKey.primary', process.env.PRE_API_KEY_PRIMARY || 'pre.apiKey.primary');
     }
-    this.logger.info('pre.apiUrl', config.get('pre.apiUrl'));
   }
 
   private setSecret(fromPath: string, toPath: string): void {
