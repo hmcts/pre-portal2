@@ -7,13 +7,7 @@ import { get, set } from 'lodash';
 export class PropertiesVolume {
   private logger = Logger.getLogger('properties-volume');
   enableFor(server: Application): void {
-    require('dotenv').config();
-    set(config, 'session.redis.key', process.env.REDIS_ACCESS_KEY || '0');
-    set(config, 'ams.flowKey', process.env.PP_AUTHORIZATION || '1');
-    set(config, 'ams.flowUrl', process.env.AMS_FLOW_URL || '2');
-    set(config, 'pre.apiKey.primary', process.env.PRE_API_KEY_PRIMARY || '3');
-    set(config, 'appInsights.instrumentationKey', process.env.APP_INSIGHTS_INSTRUMENTATION_KEY || '4');
-    if (server.locals.ENV !== 'development') {
+    if (server.locals.ENV === 'production') {
       propertiesVolume.addTo(config);
       this.setSecret('secrets.pre-hmctskv.AppInsightsInstrumentationKey', 'appInsights.instrumentationKey');
       this.setSecret('secrets.pre-hmctskv.redis6-access-key', 'session.redis.key');
@@ -21,6 +15,13 @@ export class PropertiesVolume {
       this.setSecret('secrets.pre-hmctskv.apim-sub-portal-secondary-key', 'pre.apiKey.secondary');
       this.setSecret('secrets.pre-hmctskv.pp-authorization', 'ams.flowKey');
       this.setSecret('secrets.pre-hmctskv.ams-flow-url', 'ams.flowUrl');
+    } else {
+      require('dotenv').config();
+      set(config, 'session.redis.key', process.env.REDIS_ACCESS_KEY || '0');
+      set(config, 'ams.flowKey', process.env.PP_AUTHORIZATION || '1');
+      set(config, 'ams.flowUrl', process.env.AMS_FLOW_URL || '2');
+      set(config, 'pre.apiKey.primary', process.env.PRE_API_KEY_PRIMARY || '3');
+      set(config, 'appInsights.instrumentationKey', process.env.APP_INSIGHTS_INSTRUMENTATION_KEY || '4');
     }
     this.logger.info('==============================================');
     this.logger.info('session.redis.key', config.get('session.redis.key'));
