@@ -45,9 +45,6 @@ export class PreClient {
     const key = config.get('ams.flowKey') as string;
     const axiosClient = axios.create(); // TODO: move AMS playback logic to API and use instead of flow above
 
-    delete axiosClient.defaults.headers.common['Ocp-Apim-Subscription-Key'];
-    delete axiosClient.defaults.headers.common['X-User-Id'];
-
     try {
       const response = await axiosClient.post(
         url,
@@ -57,7 +54,7 @@ export class PreClient {
         },
         {
           headers: {
-            Authorization: `Bearer ${key}`,
+            'X-Flow-Key': key,
           },
         }
       );
