@@ -77,9 +77,7 @@ app.use((err: HTTPError, req: express.Request, res: express.Response, next: expr
   logger.error(err.message);
   logger.error(JSON.stringify(err));
 
-  res.status(err.status || 500).json({
-    message: err.message,
-    errors: err.stack || err,
-  });
+  res.status(err.status || 500);
+  res.render('error', { error: err.message });
   next();
 });
