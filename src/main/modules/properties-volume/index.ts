@@ -21,6 +21,7 @@ export class PropertiesVolume {
       require('dotenv').config();
       set(config, 'ams.flowKey', process.env.AMS_FLOW_KEY || 'ams.flowKey');
       set(config, 'ams.flowUrl', process.env.AMS_FLOW_URL || 'ams.flowUrl');
+      set(config, 'pre.apiUrl', process.env.PRE_API_URL);
       set(config, 'pre.apiKey.primary', process.env.PRE_API_KEY_PRIMARY || 'pre.apiKey.primary');
     }
   }
