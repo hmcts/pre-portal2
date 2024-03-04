@@ -12,6 +12,7 @@ export class PropertiesVolume {
     set(config, 'pre.apiUrl', process.env.API_URL || 'https://localhost:4551');
 
     if (server.locals.ENV === 'production') {
+      this.logger.info('Loading properties from mounted KV');
       propertiesVolume.addTo(config);
       this.setSecret('secrets.pre-hmctskv.AppInsightsInstrumentationKey', 'appInsights.instrumentationKey');
       this.setSecret('secrets.pre-hmctskv.redis6-access-key', 'session.redis.key');
@@ -24,6 +25,7 @@ export class PropertiesVolume {
       this.setSecret('secrets.pre-hmctskv.b2c-test-login-email', 'b2c.testLogin.email');
       this.setSecret('secrets.pre-hmctskv.b2c-test-login-password', 'b2c.testLogin.password');
     } else {
+      this.logger.info('Loading properties from .env file');
       require('dotenv').config();
       set(
         config,
@@ -39,12 +41,6 @@ export class PropertiesVolume {
       set(config, 'b2c.testLogin.email', process.env.B2C_TEST_LOGIN_EMAIL);
       set(config, 'b2c.testLogin.password', process.env.B2C_TEST_LOGIN_PASSWORD);
     }
-    this.logger.info('==============================================');
-    this.logger.info('pre.portalUrl', config.get('pre.portalUrl'));
-    this.logger.info('pre.primaryApiKey', config.get('pre.primaryApiKey'));
-    this.logger.info('b2c.appClientSecret', config.get('b2c.appClientSecret'));
-    this.logger.info('server.locals.ENV', server.locals.ENV);
-    this.logger.info('==============================================');
   }
 
   private setSecret(fromPath: string, toPath: string): void {
