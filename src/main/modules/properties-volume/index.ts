@@ -24,6 +24,7 @@ export class PropertiesVolume {
       set(config, 'pre.apiUrl', process.env.PRE_API_URL || 'https://localhost:4550');
       set(config, 'pre.apiKey.primary', process.env.PRE_API_KEY_PRIMARY || 'pre.apiKey.primary');
     }
+    this.logger.info('pre.apiUrl', config.get('pre.apiUrl'));
   }
 
   private setSecret(fromPath: string, toPath: string): void {

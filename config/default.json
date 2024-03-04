@@ -4,7 +4,7 @@
     "instrumentationKey": false
   },
   "pre": {
-    "apiUrl": "https://pre-api.local",
+    "apiUrl": "",
     "apiKey": {
       "primary": "",
       "secondary": ""
