@@ -33,7 +33,7 @@ new Nunjucks(developmentMode).enableFor(app);
 new Helmet(developmentMode).enableFor(app);
 
 axios.defaults.baseURL = config.get('pre.apiUrl');
-axios.defaults.headers.common['Ocp-Apim-Subscription-Key'] = config.get('pre.apiKey');
+axios.defaults.headers.common['Ocp-Apim-Subscription-Key'] = config.get('pre.apiKey.primary');
 axios.defaults.headers.common['X-User-Id'] = 'e1b7674b-b94d-4e07-9957-48345845885a'; // TODO: get authenticated user id
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.headers.put['Content-Type'] = 'application/json';
