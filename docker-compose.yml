@@ -9,4 +9,4 @@ services:
         - https_proxy
         - no_proxy
     ports:
-      - '4550:4550'
+      - '4551:4551'
