@@ -2,6 +2,7 @@ import { app } from '../../main/app';
 
 import request from 'supertest';
 import { afterAll } from '@jest/globals';
+import { mock, reset } from '../mock-api';
 
 const pa11y = require('pa11y');
 
@@ -70,9 +71,23 @@ function testAccessibility(url: string): void {
   });
 }
 
+jest.mock('express-openid-connect', () => {
+  return {
+    requiresAuth: jest.fn().mockImplementation(() => {
+      return (req: any, res: any, next: any) => {
+        next();
+      };
+    }),
+  };
+});
+
+jest.setTimeout(30000);
+mock();
+
 describe('Accessibility', () => {
   afterAll(async () => {
     appServers.forEach(server => server.close());
+    reset();
   });
   // testing accessibility of the home page
   testAccessibility('/terms-and-conditions');
@@ -80,6 +95,5 @@ describe('Accessibility', () => {
   testAccessibility('/sign-in');
   testAccessibility('/browse');
   testAccessibility('/not-found');
-
-  // TODO: include each path of your application in accessibility checks
+  testAccessibility('/watch/something');
 });

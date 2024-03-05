@@ -9,7 +9,10 @@ describe('Home page', () => {
     test('should redirect', async () => {
       await request(app)
         .get('/')
-        .expect(res => expect(res.status).to.equal(302));
+        .expect(res => {
+          expect(res.status).to.equal(302);
+          expect(res.header.location).to.include('.b2clogin.com');
+        });
     });
   });
 });

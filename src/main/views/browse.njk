@@ -4,13 +4,13 @@
   {{
     govukBackLink({
       "text": "Sign out",
-      "href": "/sign-out"
+      "href": "/logout"
     })
   }}
 {% endblock %}
 
 {% block content %}
-    <h1 class="govuk-heading-xl">Welcome back Test User</h1>
+    <h1 class="govuk-heading-xl">Welcome back, {{ user.name }}</h1>
 
     <div class="govuk-warning-text">
       <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
@@ -48,7 +48,7 @@
           {% for recording in recordings %}
             <tr
               class="govuk-table__row"
-              id="recording.id">
+              id="recording-{{ recording.id }}">
               <td class="govuk-table__cell" style="position: sticky; left: 0; z-index: 1; background-color: #ffffff;">
                 {{ recording.case_reference }}
               </td>

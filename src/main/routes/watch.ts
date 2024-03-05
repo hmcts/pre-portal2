@@ -1,13 +1,15 @@
 import { PreClient } from '../services/pre-api/pre-client';
+import { SessionUser } from '../services/session-user/session-user';
 
 import { Application } from 'express';
+import { requiresAuth } from 'express-openid-connect';
 
 export default function (app: Application): void {
-  app.get('/watch/:id', async (req, res) => {
+  app.get('/watch/:id', requiresAuth(), async (req, res) => {
     try {
       const client = new PreClient();
 
-      const recording = await client.getRecording(req.params.id);
+      const recording = await client.getRecording(SessionUser.getLoggedInUser(req).id, req.params.id);
 
       if (recording === null) {
         res.status(404);
@@ -25,6 +27,7 @@ export default function (app: Application): void {
 
       res.render('watch', { recording, recordingPlaybackData });
     } catch (e) {
+      console.log('Error in watch route', e.message);
       res.status(500);
       res.render('error', { message: e.message });
     }

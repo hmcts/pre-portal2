@@ -1,4 +1,4 @@
-import { Recording, RecordingPlaybackData } from '../main/services/pre-api/types';
+import { Recording, RecordingPlaybackData, SearchRecordingsRequest } from '../main/services/pre-api/types';
 import { PreClient } from '../main/services/pre-api/pre-client';
 
 export const mockRecordings: Recording[] = [
@@ -71,6 +71,8 @@ export const mockedPaginatedRecordings = {
   },
 };
 
+export const mockXUserId = 'a114f40e-bdba-432d-b53f-37169ee5bf99';
+
 export function mock() {
   mockGetRecording();
   mockGetRecordings();
@@ -79,28 +81,32 @@ export function mock() {
 
 export function mockGetRecording(recording?: Recording | null) {
   if (recording !== undefined) {
-    jest.spyOn(PreClient.prototype, 'getRecording').mockImplementation(async (id: string) => {
+    jest.spyOn(PreClient.prototype, 'getRecording').mockImplementation(async (xUserId: string, id: string) => {
       return Promise.resolve(recording);
     });
     return;
   }
 
-  jest.spyOn(PreClient.prototype, 'getRecording').mockImplementation(async (id: string) => {
+  jest.spyOn(PreClient.prototype, 'getRecording').mockImplementation(async (xUserId: string, id: string) => {
     return Promise.resolve(mockRecordings.find(r => r.id === id) || null);
   });
 }
 
 export function mockGetRecordings(recordings?: Recording[]) {
   if (recordings !== undefined) {
-    jest.spyOn(PreClient.prototype, 'getRecordings').mockImplementation(async () => {
-      return Promise.resolve(recordings);
-    });
+    jest
+      .spyOn(PreClient.prototype, 'getRecordings')
+      .mockImplementation(async (xUserId: string, request: SearchRecordingsRequest) => {
+        return Promise.resolve(recordings);
+      });
     return;
   }
 
-  jest.spyOn(PreClient.prototype, 'getRecordings').mockImplementation(async () => {
-    return Promise.resolve(mockRecordings);
-  });
+  jest
+    .spyOn(PreClient.prototype, 'getRecordings')
+    .mockImplementation(async (xUserId: string, req: SearchRecordingsRequest) => {
+      return Promise.resolve(mockRecordings);
+    });
 }
 
 export function mockGetRecordingPlaybackData(data?: RecordingPlaybackData | null) {
