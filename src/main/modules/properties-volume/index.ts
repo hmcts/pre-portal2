@@ -34,8 +34,8 @@ export class PropertiesVolume {
         process.env.APPINSIGHTS_INSTRUMENTATIONKEY ?? 'appInsights.instrumentationKey'
       );
       set(config, 'pre.apiKey.primary', process.env.APIM_SUB_PORTAL_PRIMARY_KEY || 'pre.apiKey.primary');
-      set(config, 'pre.primaryApiKey', process.env.APIM_SUB_PORTAL_PRIMARY_KEY || 'pre.primaryApiKey');
       set(config, 'pre.apiKey.secondary', process.env.APIM_SUB_PORTAL_SECONDARY_KEY || 'pre.apiKey.secondary');
+      set(config, 'pre.apiUrl', process.env.PRE_API_URL || 'https://localhost:4551');
       set(config, 'ams.flowKey', process.env.PP_AUTHORIZATION);
       set(config, 'ams.flowUrl', process.env.AMS_FLOW_URL);
       set(config, 'b2c.appClientSecret', process.env.B2C_APP_CLIENT_SECRET || 'b2c.appClientSecret');
