@@ -82,9 +82,9 @@
     "@typescript-eslint/parser": "5.37.0",
     "axios-debug-log": "0.8.4",
     "babel-loader": "8.3.0",
-    "chai": "4.3.6",
+    "chai": "4.4.1",
     "chai-as-promised": "7.1.1",
-    "chokidar": "3.5.3",
+    "chokidar": "3.6.0",
     "codeceptjs": "^3.3.6",
     "copy-webpack-plugin": "9.1.0",
     "css-loader": "6.7.1",
@@ -133,5 +133,5 @@
     "**/*": "prettier --write --ignore-unknown",
     "**/*.{js,ts}": "eslint --cache --fix"
   },
-  "packageManager": "yarn@3.8.0"
+  "packageManager": "yarn@3.8.1"
 }
