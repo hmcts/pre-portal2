@@ -11,7 +11,7 @@ describe('Home page', () => {
         .get('/')
         .expect(res => {
           expect(res.status).to.equal(302);
-          expect(res.header.location).to.include('.b2clogin.com');
+          expect(res.header.location).to.include('browse');
         });
     });
   });
