@@ -4974,7 +4974,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chokidar@npm:>=3.0.0 <4.0.0, chokidar@npm:^3.5.2":
+"chokidar@npm:3.6.0, chokidar@npm:>=3.0.0 <4.0.0, chokidar@npm:^3.5.2":
   version: 3.6.0
   resolution: "chokidar@npm:3.6.0"
   dependencies:
@@ -11979,7 +11979,7 @@ __metadata:
     body-parser: 1.20.2
     chai: 4.4.1
     chai-as-promised: 7.1.1
-    chokidar: 3.5.3
+    chokidar: 3.6.0
     codeceptjs: ^3.3.6
     compression: ^1.7.4
     config: 3.3.11
