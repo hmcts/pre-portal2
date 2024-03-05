@@ -23,7 +23,7 @@ export class Auth {
   private getConfigParams(app: Application, logger: Logger): ConfigParams {
     return {
       authRequired: false,
-      attemptSilentLogin: true,
+      attemptSilentLogin: false,
       idpLogout: true,
       secret: config.get('session.secret') as string,
       baseURL: config.get('pre.portalUrl') as string,
@@ -44,11 +44,6 @@ export class Auth {
         return {
           ...s,
           userProfile,
-        };
-      },
-      getLoginState() {
-        return {
-          callbackHostname: config.get('pre.portalUrl') as string,
         };
       },
       session: {
