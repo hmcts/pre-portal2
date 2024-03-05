@@ -75,7 +75,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["debug", "virtual:52cc1f08fdfa0ce0882bedf10264a24f906e33f7892b3412b78b3e749d6e4b50a5c4d47e46903c21fe956663d3ab6f4d2b4677d28abd53464b00761501f37601#npm:4.3.4"],\
             ["dotenv", "npm:16.4.5"],\
             ["eslint", "npm:8.56.0"],\
-            ["eslint-config-prettier", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:8.5.0"],\
+            ["eslint-config-prettier", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:8.10.0"],\
             ["eslint-plugin-import", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.26.0"],\
             ["eslint-plugin-jest", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:27.0.4"],\
             ["express", "npm:4.18.3"],\
@@ -10437,17 +10437,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["eslint-config-prettier", [\
-        ["npm:8.5.0", {\
-          "packageLocation": "./.yarn/cache/eslint-config-prettier-npm-8.5.0-a1dd58b6d8-0d0f5c32e7.zip/node_modules/eslint-config-prettier/",\
+        ["npm:8.10.0", {\
+          "packageLocation": "./.yarn/cache/eslint-config-prettier-npm-8.10.0-c1aac67611-153266badd.zip/node_modules/eslint-config-prettier/",\
           "packageDependencies": [\
-            ["eslint-config-prettier", "npm:8.5.0"]\
+            ["eslint-config-prettier", "npm:8.10.0"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:8.5.0", {\
-          "packageLocation": "./.yarn/__virtual__/eslint-config-prettier-virtual-1fc9f72065/0/cache/eslint-config-prettier-npm-8.5.0-a1dd58b6d8-0d0f5c32e7.zip/node_modules/eslint-config-prettier/",\
+        ["virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:8.10.0", {\
+          "packageLocation": "./.yarn/__virtual__/eslint-config-prettier-virtual-1adc1bf0a3/0/cache/eslint-config-prettier-npm-8.10.0-c1aac67611-153266badd.zip/node_modules/eslint-config-prettier/",\
           "packageDependencies": [\
-            ["eslint-config-prettier", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:8.5.0"],\
+            ["eslint-config-prettier", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:8.10.0"],\
             ["@types/eslint", null],\
             ["eslint", "npm:8.56.0"]\
           ],\
@@ -16329,7 +16329,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["debug", "virtual:52cc1f08fdfa0ce0882bedf10264a24f906e33f7892b3412b78b3e749d6e4b50a5c4d47e46903c21fe956663d3ab6f4d2b4677d28abd53464b00761501f37601#npm:4.3.4"],\
             ["dotenv", "npm:16.4.5"],\
             ["eslint", "npm:8.56.0"],\
-            ["eslint-config-prettier", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:8.5.0"],\
+            ["eslint-config-prettier", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:8.10.0"],\
             ["eslint-plugin-import", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.26.0"],\
             ["eslint-plugin-jest", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:27.0.4"],\
             ["express", "npm:4.18.3"],\
