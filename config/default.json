@@ -9,7 +9,7 @@
       "primary": "",
       "secondary": ""
     },
-    "portalUrl": ""
+    "portalUrl": "https://localhost:4551"
   },
   "ams": {
     "azureMediaServices": "https://preamsdev-ukso1.streaming.media.azure.net",
