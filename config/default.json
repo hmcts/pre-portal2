@@ -9,7 +9,7 @@
       "primary": "",
       "secondary": ""
     },
-    "portalUrl": "https://localhost:4550"
+    "portalUrl": "https://localhost:4551"
   },
   "ams": {
     "azureMediaServices": "https://preamsdev-ukso1.streaming.media.azure.net",
@@ -33,6 +33,6 @@
       "email": "",
       "password": ""
     },
-    "callbackHostname": "localhost:4550"
+    "callbackHostname": "localhost:4551"
   }
 }
