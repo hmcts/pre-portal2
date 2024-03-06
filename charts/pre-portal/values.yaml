@@ -18,4 +18,4 @@ nodejs:
   environment:
     REDIS_HOST: pre-portal-{{ .Values.global.environment }}.redis.cache.windows.net
     PRE_API_URL: https://sds-api-mgmt.staging.platform.hmcts.net/pre-api
-    PORTAL_URL: https://${SERVICE_FQDN}
+    PORTAL_URL: https://pre-portal.platform.hmcts.net
