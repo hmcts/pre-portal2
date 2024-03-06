@@ -100,7 +100,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:13.3.0"],\
             ["lodash", "npm:4.17.21"],\
             ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.8.1"],\
-            ["nock", "npm:13.2.9"],\
+            ["nock", "npm:13.5.4"],\
             ["node-mocks-http", "npm:1.14.1"],\
             ["nodemon", "npm:2.0.22"],\
             ["nunjucks", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.2.4"],\
@@ -14379,13 +14379,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["nock", [\
-        ["npm:13.2.9", {\
-          "packageLocation": "./.yarn/cache/nock-npm-13.2.9-de18b54858-04a2dc60b4.zip/node_modules/nock/",\
+        ["npm:13.5.4", {\
+          "packageLocation": "./.yarn/cache/nock-npm-13.5.4-2c4f77b249-d31f924e34.zip/node_modules/nock/",\
           "packageDependencies": [\
-            ["nock", "npm:13.2.9"],\
+            ["nock", "npm:13.5.4"],\
             ["debug", "virtual:52cc1f08fdfa0ce0882bedf10264a24f906e33f7892b3412b78b3e749d6e4b50a5c4d47e46903c21fe956663d3ab6f4d2b4677d28abd53464b00761501f37601#npm:4.3.4"],\
             ["json-stringify-safe", "npm:5.0.1"],\
-            ["lodash", "npm:4.17.21"],\
             ["propagate", "npm:2.0.1"]\
           ],\
           "linkType": "HARD"\
@@ -15639,7 +15638,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:13.3.0"],\
             ["lodash", "npm:4.17.21"],\
             ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.8.1"],\
-            ["nock", "npm:13.2.9"],\
+            ["nock", "npm:13.5.4"],\
             ["node-mocks-http", "npm:1.14.1"],\
             ["nodemon", "npm:2.0.22"],\
             ["nunjucks", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.2.4"],\
