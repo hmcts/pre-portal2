@@ -91,7 +91,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["html-webpack-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.6.0"],\
             ["husky", "npm:8.0.3"],\
             ["jest", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:29.7.0"],\
-            ["jest-html-reporter", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.7.0"],\
+            ["jest-html-reporter", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.10.2"],\
             ["jest-junit", "npm:14.0.1"],\
             ["jest-mock", "npm:29.7.0"],\
             ["jose", "npm:5.2.2"],\
@@ -100,7 +100,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:13.3.0"],\
             ["lodash", "npm:4.17.21"],\
             ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.8.1"],\
-            ["nock", "npm:13.2.9"],\
+            ["nock", "npm:13.5.4"],\
             ["node-mocks-http", "npm:1.14.1"],\
             ["nodemon", "npm:2.0.22"],\
             ["nunjucks", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.2.4"],\
@@ -2507,32 +2507,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["@babel/plugin-transform-typescript", [\
-        ["npm:7.23.6", {\
-          "packageLocation": "./.yarn/cache/@babel-plugin-transform-typescript-npm-7.23.6-844378e798-0462241843.zip/node_modules/@babel/plugin-transform-typescript/",\
-          "packageDependencies": [\
-            ["@babel/plugin-transform-typescript", "npm:7.23.6"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:007f0aeaeddd6e3938a1aeae6f8547e34832695e5e16c9d476cb48e55e35e116ac64a1dd6ddf6a9adcfb6e622daeeb70ff7589ac2e02ebfe34fc85900197c11a#npm:7.23.6", {\
-          "packageLocation": "./.yarn/__virtual__/@babel-plugin-transform-typescript-virtual-11cc3b834f/0/cache/@babel-plugin-transform-typescript-npm-7.23.6-844378e798-0462241843.zip/node_modules/@babel/plugin-transform-typescript/",\
-          "packageDependencies": [\
-            ["@babel/plugin-transform-typescript", "virtual:007f0aeaeddd6e3938a1aeae6f8547e34832695e5e16c9d476cb48e55e35e116ac64a1dd6ddf6a9adcfb6e622daeeb70ff7589ac2e02ebfe34fc85900197c11a#npm:7.23.6"],\
-            ["@babel/core", "npm:7.24.0"],\
-            ["@babel/helper-annotate-as-pure", "npm:7.22.5"],\
-            ["@babel/helper-create-class-features-plugin", "virtual:f00338ec3492134cf40c6cf47b882340961a2fbb5572856b65c6b302f252ed973d545770bd2fa534f15736440a433d2e4fc9c3f67d6aa18dc3e6251025a8c8c6#npm:7.24.0"],\
-            ["@babel/helper-plugin-utils", "npm:7.24.0"],\
-            ["@babel/plugin-syntax-typescript", "virtual:15ef0a4ad61c166598c4d195dc64a0b7270b186e9a584ea25871b4181189fa5a61a49aa37f6bcda6ffed25499ff900f1a33224b0c22868c8eb1eaf1dd4f0dc11#npm:7.23.3"],\
-            ["@types/babel__core", null]\
-          ],\
-          "packagePeers": [\
-            "@babel/core",\
-            "@types/babel__core"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
       ["@babel/plugin-transform-unicode-escapes", [\
         ["npm:7.23.3", {\
           "packageLocation": "./.yarn/cache/@babel-plugin-transform-unicode-escapes-npm-7.23.3-a6c6f6fa8b-561c429183.zip/node_modules/@babel/plugin-transform-unicode-escapes/",\
@@ -2747,33 +2721,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/types", "npm:7.24.0"],\
             ["@types/babel__core", null],\
             ["esutils", "npm:2.0.3"]\
-          ],\
-          "packagePeers": [\
-            "@babel/core",\
-            "@types/babel__core"\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@babel/preset-typescript", [\
-        ["npm:7.23.3", {\
-          "packageLocation": "./.yarn/cache/@babel-preset-typescript-npm-7.23.3-f4c363b2f7-105a2d39bb.zip/node_modules/@babel/preset-typescript/",\
-          "packageDependencies": [\
-            ["@babel/preset-typescript", "npm:7.23.3"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["virtual:0f497e0ed515b79f36ad7cd5c143761dcb5abee28f00d6c9be2adc2e3a13de2c9bfb06611b0cedc042a08ba7d62e4090a5d732ef6375fc5efc05dd4f81a3a81c#npm:7.23.3", {\
-          "packageLocation": "./.yarn/__virtual__/@babel-preset-typescript-virtual-007f0aeaed/0/cache/@babel-preset-typescript-npm-7.23.3-f4c363b2f7-105a2d39bb.zip/node_modules/@babel/preset-typescript/",\
-          "packageDependencies": [\
-            ["@babel/preset-typescript", "virtual:0f497e0ed515b79f36ad7cd5c143761dcb5abee28f00d6c9be2adc2e3a13de2c9bfb06611b0cedc042a08ba7d62e4090a5d732ef6375fc5efc05dd4f81a3a81c#npm:7.23.3"],\
-            ["@babel/core", "npm:7.24.0"],\
-            ["@babel/helper-plugin-utils", "npm:7.24.0"],\
-            ["@babel/helper-validator-option", "npm:7.23.5"],\
-            ["@babel/plugin-syntax-jsx", "virtual:15ef0a4ad61c166598c4d195dc64a0b7270b186e9a584ea25871b4181189fa5a61a49aa37f6bcda6ffed25499ff900f1a33224b0c22868c8eb1eaf1dd4f0dc11#npm:7.23.3"],\
-            ["@babel/plugin-transform-modules-commonjs", "virtual:55ce56aab17d0923fe645e0ff1e18c3587fe9998c78e051ee3a1f427044700c120813a02ff500dd91b75831a33c7332c2dc912bae7a43cf30efd5fe30a2d40b2#npm:7.23.3"],\
-            ["@babel/plugin-transform-typescript", "virtual:007f0aeaeddd6e3938a1aeae6f8547e34832695e5e16c9d476cb48e55e35e116ac64a1dd6ddf6a9adcfb6e622daeeb70ff7589ac2e02ebfe34fc85900197c11a#npm:7.23.6"],\
-            ["@types/babel__core", null]\
           ],\
           "packagePeers": [\
             "@babel/core",\
@@ -3989,14 +3936,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:6.0.1", {\
-          "packageLocation": "./.yarn/cache/@sinonjs-fake-timers-npm-6.0.1-cebf4d0bfb-8e331aa141.zip/node_modules/@sinonjs/fake-timers/",\
-          "packageDependencies": [\
-            ["@sinonjs/fake-timers", "npm:6.0.1"],\
-            ["@sinonjs/commons", "npm:1.8.6"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:9.1.2", {\
           "packageLocation": "./.yarn/cache/@sinonjs-fake-timers-npm-9.1.2-3ff37ab7fb-7d3aef54e1.zip/node_modules/@sinonjs/fake-timers/",\
           "packageDependencies": [\
@@ -4007,16 +3946,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@sinonjs/samsam", [\
-        ["npm:5.3.1", {\
-          "packageLocation": "./.yarn/cache/@sinonjs-samsam-npm-5.3.1-deedfea087-1c2c49d51b.zip/node_modules/@sinonjs/samsam/",\
-          "packageDependencies": [\
-            ["@sinonjs/samsam", "npm:5.3.1"],\
-            ["@sinonjs/commons", "npm:1.8.6"],\
-            ["lodash.get", "npm:4.4.2"],\
-            ["type-detect", "npm:4.0.8"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:7.0.1", {\
           "packageLocation": "./.yarn/cache/@sinonjs-samsam-npm-7.0.1-d14786a4c3-291efb158d.zip/node_modules/@sinonjs/samsam/",\
           "packageDependencies": [\
@@ -12095,13 +12024,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["isarray", [\
-        ["npm:0.0.1", {\
-          "packageLocation": "./.yarn/cache/isarray-npm-0.0.1-92e37e0a70-49191f1425.zip/node_modules/isarray/",\
-          "packageDependencies": [\
-            ["isarray", "npm:0.0.1"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:1.0.0", {\
           "packageLocation": "./.yarn/cache/isarray-npm-1.0.0-db4f547720-f032df8e02.zip/node_modules/isarray/",\
           "packageDependencies": [\
@@ -12498,21 +12420,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["jest-html-reporter", [\
-        ["npm:3.7.0", {\
-          "packageLocation": "./.yarn/cache/jest-html-reporter-npm-3.7.0-fa345dd658-4e9e03e93c.zip/node_modules/jest-html-reporter/",\
+        ["npm:3.10.2", {\
+          "packageLocation": "./.yarn/cache/jest-html-reporter-npm-3.10.2-57a81097f7-a8376fbfde.zip/node_modules/jest-html-reporter/",\
           "packageDependencies": [\
-            ["jest-html-reporter", "npm:3.7.0"]\
+            ["jest-html-reporter", "npm:3.10.2"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.7.0", {\
-          "packageLocation": "./.yarn/__virtual__/jest-html-reporter-virtual-0f497e0ed5/0/cache/jest-html-reporter-npm-3.7.0-fa345dd658-4e9e03e93c.zip/node_modules/jest-html-reporter/",\
+        ["virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.10.2", {\
+          "packageLocation": "./.yarn/__virtual__/jest-html-reporter-virtual-328a45f7ac/0/cache/jest-html-reporter-npm-3.10.2-57a81097f7-a8376fbfde.zip/node_modules/jest-html-reporter/",\
           "packageDependencies": [\
-            ["jest-html-reporter", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.7.0"],\
-            ["@babel/core", "npm:7.24.0"],\
-            ["@babel/preset-env", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.24.0"],\
-            ["@babel/preset-typescript", "virtual:0f497e0ed515b79f36ad7cd5c143761dcb5abee28f00d6c9be2adc2e3a13de2c9bfb06611b0cedc042a08ba7d62e4090a5d732ef6375fc5efc05dd4f81a3a81c#npm:7.23.3"],\
-            ["@jest/console", "npm:29.7.0"],\
+            ["jest-html-reporter", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.10.2"],\
             ["@jest/test-result", "npm:29.7.0"],\
             ["@jest/types", "npm:29.6.3"],\
             ["@types/jest", "npm:29.5.12"],\
@@ -12520,7 +12438,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["dateformat", "npm:3.0.2"],\
             ["jest", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:29.7.0"],\
             ["mkdirp", "npm:1.0.4"],\
-            ["sinon", "npm:9.2.4"],\
             ["strip-ansi", "npm:6.0.1"],\
             ["typescript", "patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=3b564f"],\
             ["xmlbuilder", "npm:15.0.0"]\
@@ -13124,13 +13041,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["just-extend", [\
-        ["npm:4.2.1", {\
-          "packageLocation": "./.yarn/cache/just-extend-npm-4.2.1-ccc4201277-ff9fdede24.zip/node_modules/just-extend/",\
-          "packageDependencies": [\
-            ["just-extend", "npm:4.2.1"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:6.2.0", {\
           "packageLocation": "./.yarn/cache/just-extend-npm-6.2.0-25e57ed812-022024d6f6.zip/node_modules/just-extend/",\
           "packageDependencies": [\
@@ -14342,18 +14252,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["nise", [\
-        ["npm:4.1.0", {\
-          "packageLocation": "./.yarn/cache/nise-npm-4.1.0-bca1f3b90c-b2ea1c96a4.zip/node_modules/nise/",\
-          "packageDependencies": [\
-            ["nise", "npm:4.1.0"],\
-            ["@sinonjs/commons", "npm:1.8.6"],\
-            ["@sinonjs/fake-timers", "npm:6.0.1"],\
-            ["@sinonjs/text-encoding", "npm:0.7.2"],\
-            ["just-extend", "npm:4.2.1"],\
-            ["path-to-regexp", "npm:1.8.0"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:5.1.9", {\
           "packageLocation": "./.yarn/cache/nise-npm-5.1.9-6af6a9c69b-ab9fd6eabc.zip/node_modules/nise/",\
           "packageDependencies": [\
@@ -14379,13 +14277,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["nock", [\
-        ["npm:13.2.9", {\
-          "packageLocation": "./.yarn/cache/nock-npm-13.2.9-de18b54858-04a2dc60b4.zip/node_modules/nock/",\
+        ["npm:13.5.4", {\
+          "packageLocation": "./.yarn/cache/nock-npm-13.5.4-2c4f77b249-d31f924e34.zip/node_modules/nock/",\
           "packageDependencies": [\
-            ["nock", "npm:13.2.9"],\
+            ["nock", "npm:13.5.4"],\
             ["debug", "virtual:52cc1f08fdfa0ce0882bedf10264a24f906e33f7892b3412b78b3e749d6e4b50a5c4d47e46903c21fe956663d3ab6f4d2b4677d28abd53464b00761501f37601#npm:4.3.4"],\
             ["json-stringify-safe", "npm:5.0.1"],\
-            ["lodash", "npm:4.17.21"],\
             ["propagate", "npm:2.0.1"]\
           ],\
           "linkType": "HARD"\
@@ -15254,14 +15151,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:1.8.0", {\
-          "packageLocation": "./.yarn/cache/path-to-regexp-npm-1.8.0-a1904f5c44-709f6f083c.zip/node_modules/path-to-regexp/",\
-          "packageDependencies": [\
-            ["path-to-regexp", "npm:1.8.0"],\
-            ["isarray", "npm:0.0.1"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:6.2.1", {\
           "packageLocation": "./.yarn/cache/path-to-regexp-npm-6.2.1-8ebfe03654-f0227af828.zip/node_modules/path-to-regexp/",\
           "packageDependencies": [\
@@ -15630,7 +15519,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["html-webpack-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.6.0"],\
             ["husky", "npm:8.0.3"],\
             ["jest", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:29.7.0"],\
-            ["jest-html-reporter", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.7.0"],\
+            ["jest-html-reporter", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.10.2"],\
             ["jest-junit", "npm:14.0.1"],\
             ["jest-mock", "npm:29.7.0"],\
             ["jose", "npm:5.2.2"],\
@@ -15639,7 +15528,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:13.3.0"],\
             ["lodash", "npm:4.17.21"],\
             ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.8.1"],\
-            ["nock", "npm:13.2.9"],\
+            ["nock", "npm:13.5.4"],\
             ["node-mocks-http", "npm:1.14.1"],\
             ["nodemon", "npm:2.0.22"],\
             ["nunjucks", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.2.4"],\
@@ -17180,19 +17069,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@sinonjs/samsam", "npm:7.0.1"],\
             ["diff", "npm:5.2.0"],\
             ["nise", "npm:5.1.9"],\
-            ["supports-color", "npm:7.2.0"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
-        ["npm:9.2.4", {\
-          "packageLocation": "./.yarn/cache/sinon-npm-9.2.4-3c6e379b87-34b881886d.zip/node_modules/sinon/",\
-          "packageDependencies": [\
-            ["sinon", "npm:9.2.4"],\
-            ["@sinonjs/commons", "npm:1.8.6"],\
-            ["@sinonjs/fake-timers", "npm:6.0.1"],\
-            ["@sinonjs/samsam", "npm:5.3.1"],\
-            ["diff", "npm:4.0.2"],\
-            ["nise", "npm:4.1.0"],\
             ["supports-color", "npm:7.2.0"]\
           ],\
           "linkType": "HARD"\
