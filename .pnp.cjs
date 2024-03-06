@@ -99,7 +99,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint", "npm:0.8.19"],\
             ["lint-staged", "npm:13.3.0"],\
             ["lodash", "npm:4.17.21"],\
-            ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.6.1"],\
+            ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.8.1"],\
             ["nock", "npm:13.2.9"],\
             ["node-mocks-http", "npm:1.14.1"],\
             ["nodemon", "npm:2.0.22"],\
@@ -13910,13 +13910,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["mini-css-extract-plugin", [\
-        ["npm:2.6.1", {\
-          "packageLocation": "./.yarn/cache/mini-css-extract-plugin-npm-2.6.1-4e6d2beaf0-df60840404.zip/node_modules/mini-css-extract-plugin/",\
-          "packageDependencies": [\
-            ["mini-css-extract-plugin", "npm:2.6.1"]\
-          ],\
-          "linkType": "SOFT"\
-        }],\
         ["npm:2.8.1", {\
           "packageLocation": "./.yarn/cache/mini-css-extract-plugin-npm-2.8.1-5f239540c1-209f15a18c.zip/node_modules/mini-css-extract-plugin/",\
           "packageDependencies": [\
@@ -13924,12 +13917,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.6.1", {\
-          "packageLocation": "./.yarn/__virtual__/mini-css-extract-plugin-virtual-e6908ddce0/0/cache/mini-css-extract-plugin-npm-2.6.1-4e6d2beaf0-df60840404.zip/node_modules/mini-css-extract-plugin/",\
+        ["virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.8.1", {\
+          "packageLocation": "./.yarn/__virtual__/mini-css-extract-plugin-virtual-3498fbaa71/0/cache/mini-css-extract-plugin-npm-2.8.1-5f239540c1-209f15a18c.zip/node_modules/mini-css-extract-plugin/",\
           "packageDependencies": [\
-            ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.6.1"],\
+            ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.8.1"],\
             ["@types/webpack", null],\
             ["schema-utils", "npm:4.2.0"],\
+            ["tapable", "npm:2.2.1"],\
             ["webpack", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.76.0"]\
           ],\
           "packagePeers": [\
@@ -15644,7 +15638,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint", "npm:0.8.19"],\
             ["lint-staged", "npm:13.3.0"],\
             ["lodash", "npm:4.17.21"],\
-            ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.6.1"],\
+            ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.8.1"],\
             ["nock", "npm:13.2.9"],\
             ["node-mocks-http", "npm:1.14.1"],\
             ["nodemon", "npm:2.0.22"],\
