@@ -1,1 +1,34 @@
- <script src="/main-dev.js"></script>
+<script src="/main-dev.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const analyticsCookiesForm = document.getElementById('analyticsCookiesForm');
+  const hideCookiesForm = document.getElementById('hideCookiesForm');
+
+  const cookies = document.cookie.split('; ').reduce((result, cookie) => {
+    const [name, value] = cookie.split('=');
+    result[name] = value;
+    return result;
+  }, {});
+
+  if (cookies.analytics === 'yes') {
+    analyticsCookiesForm.style.display = 'none';
+  } else {
+    hideCookiesForm.style.display = 'none';
+  }
+});
+
+function analyticsCookiesForm(event) {
+  console.log('analyticsCookiesForm');
+  event.preventDefault();
+  const formData = new FormData(event.target);
+  const analyticsCookies = formData.get('cookies[analytics]');
+  document.cookie = `analytics=${analyticsCookies}; path=/`;
+  return false;
+}
+
+function hideCookiesForm(event) {
+  event.preventDefault();
+  document.cookie = 'hide=yes; path=/';
+  return false;
+}
+</script>

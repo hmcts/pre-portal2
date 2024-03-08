@@ -28,50 +28,54 @@
   <p class="govuk-body">You’ve accepted analytics cookies. You can <a class="govuk-link" href="/cookies">change your cookie settings</a> at any time.</p>
 {% endset %}
 
-{{ govukCookieBanner({
-  ariaLabel: "Cookies on Pre Recorded Evidence Service",
-  messages: [
-    {
-      headingText: "Cookies on Pre Recorded Evidence Service",
-      html: html,
-      actions: [
-        {
-          text: "Accept analytics cookies",
-          type: "submit",
-          name: "cookies[analytics]",
-          value: "yes"
-        },
-        {
-          text: "Reject analytics cookies",
-          type: "submit",
-          name: "cookies[analytics]",
-          value: "no"
-        },
-        {
-          text: "View cookies",
-          href: "/cookies"
-        }
-      ]
-    }
-  ]
-}) }}
+<form id="analyticsCookiesForm" onsubmit="return analyticsCookiesForm(event);">
+  {{ govukCookieBanner({
+    ariaLabel: "Cookies on Pre Recorded Evidence Service",
+    messages: [
+      {
+        headingText: "Cookies on Pre Recorded Evidence Service",
+        html: html,
+        actions: [
+          {
+            text: "Accept analytics cookies",
+            type: "submit",
+            name: "cookies[analytics]",
+            value: "yes"
+          },
+          {
+            text: "Reject analytics cookies",
+            type: "submit",
+            name: "cookies[analytics]",
+            value: "no"
+          },
+          {
+            text: "View cookies",
+            href: "/cookies"
+          }
+        ]
+      }
+    ]
+  }) }}
+</form>
 
-{{ govukCookieBanner({
-  ariaLabel: "Cookies on Pre Recorded Evidence Service",
-  messages: [
-    {
-      html: acceptHtml,
-      actions: [
-        {
-          text: "Hide cookie message",
-          type: "submit",
-          name: "cookies[hide]",
-          value: "yes"
-        }
-      ]
-    }
-  ]
-}) }}
+<form id="hideCookiesForm" onsubmit="return hideCookiesForm(event);">
+  {{ govukCookieBanner({
+    ariaLabel: "Cookies on Pre Recorded Evidence Service",
+    messages: [
+      {
+        html: acceptHtml,
+        actions: [
+          {
+            text: "Hide cookie message",
+            type: "submit",
+            name: "cookies[hide]",
+            value: "yes"
+          }
+        ]
+      }
+    ]
+  }) }}
+</form>
 
 {{ govukSkipLink({
   text: "Skip to main content",
