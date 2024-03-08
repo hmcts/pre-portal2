@@ -94,7 +94,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-html-reporter", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.10.2"],\
             ["jest-junit", "npm:14.0.1"],\
             ["jest-mock", "npm:29.7.0"],\
-            ["jose", "npm:5.2.2"],\
+            ["jose", "npm:5.2.3"],\
             ["jquery", "npm:3.6.1"],\
             ["lint", "npm:0.8.19"],\
             ["lint-staged", "npm:13.3.0"],\
@@ -9866,7 +9866,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["futoin-hkdf", "npm:1.5.3"],\
             ["http-errors", "npm:1.8.1"],\
             ["joi", "npm:17.12.2"],\
-            ["jose", "npm:2.0.6"],\
+            ["jose", "npm:2.0.7"],\
             ["on-headers", "npm:1.0.2"],\
             ["openid-client", "npm:4.9.1"],\
             ["url-join", "npm:4.0.1"]\
@@ -12765,18 +12765,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["jose", [\
-        ["npm:2.0.6", {\
-          "packageLocation": "./.yarn/cache/jose-npm-2.0.6-28b3274077-c13a95f38f.zip/node_modules/jose/",\
+        ["npm:2.0.7", {\
+          "packageLocation": "./.yarn/cache/jose-npm-2.0.7-2ef7d608df-a8820108c0.zip/node_modules/jose/",\
           "packageDependencies": [\
-            ["jose", "npm:2.0.6"],\
+            ["jose", "npm:2.0.7"],\
             ["@panva/asn1.js", "npm:1.0.0"]\
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:5.2.2", {\
-          "packageLocation": "./.yarn/cache/jose-npm-5.2.2-e921996149-d23def3c1d.zip/node_modules/jose/",\
+        ["npm:5.2.3", {\
+          "packageLocation": "./.yarn/cache/jose-npm-5.2.3-11c452707f-7c41025d3e.zip/node_modules/jose/",\
           "packageDependencies": [\
-            ["jose", "npm:5.2.2"]\
+            ["jose", "npm:5.2.3"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -14732,7 +14732,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["openid-client", "npm:4.9.1"],\
             ["aggregate-error", "npm:3.1.0"],\
             ["got", "npm:11.8.6"],\
-            ["jose", "npm:2.0.6"],\
+            ["jose", "npm:2.0.7"],\
             ["lru-cache", "npm:6.0.0"],\
             ["make-error", "npm:1.3.6"],\
             ["object-hash", "npm:2.2.0"],\
@@ -15522,7 +15522,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-html-reporter", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.10.2"],\
             ["jest-junit", "npm:14.0.1"],\
             ["jest-mock", "npm:29.7.0"],\
-            ["jose", "npm:5.2.2"],\
+            ["jose", "npm:5.2.3"],\
             ["jquery", "npm:3.6.1"],\
             ["lint", "npm:0.8.19"],\
             ["lint-staged", "npm:13.3.0"],\
