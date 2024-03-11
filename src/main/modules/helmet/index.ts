@@ -35,7 +35,7 @@ export class Helmet {
       helmet({
         contentSecurityPolicy: {
           directives: {
-            connectSrc: [self, azureMediaPlayer, azureMediaServices, azureMediaServicesKeyDelivery],
+            connectSrc: [self, azureMediaPlayer, azureMediaServices, azureMediaServicesKeyDelivery, 'dynatrace.com'],
             defaultSrc: ["'none'"],
             fontSrc: [self, azureMediaPlayer, 'data:'],
             imgSrc: [self, googleAnalyticsDomain, azureMediaPlayer, 'data:'],
