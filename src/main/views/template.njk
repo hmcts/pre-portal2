@@ -28,7 +28,7 @@
   <p class="govuk-body">You’ve accepted analytics cookies. You can <a class="govuk-link" href="/cookies">change your cookie settings</a> at any time.</p>
 {% endset %}
 
-<form id="analyticsCookiesForm" onsubmit="return analyticsCookiesForm(event);">
+<form id="analyticsCookiesForm" onsubmit="setCookies(event);">
   {{ govukCookieBanner({
     ariaLabel: "Cookies on Pre Recorded Evidence Service",
     messages: [
@@ -39,13 +39,13 @@
           {
             text: "Accept analytics cookies",
             type: "submit",
-            name: "cookies[analytics]",
+            name: "analyticsCookies",
             value: "yes"
           },
           {
             text: "Reject analytics cookies",
             type: "submit",
-            name: "cookies[analytics]",
+            name: "analyticsCookies",
             value: "no"
           },
           {
@@ -58,7 +58,7 @@
   }) }}
 </form>
 
-<form id="hideCookiesForm" onsubmit="return hideCookiesForm(event);">
+<form id="hideCookiesForm" onsubmit="setCookies(event);">
   {{ govukCookieBanner({
     ariaLabel: "Cookies on Pre Recorded Evidence Service",
     messages: [
@@ -68,7 +68,7 @@
           {
             text: "Hide cookie message",
             type: "submit",
-            name: "cookies[hide]",
+            name: "hideCookiesBanner",
             value: "yes"
           }
         ]

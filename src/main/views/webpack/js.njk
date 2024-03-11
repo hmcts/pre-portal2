@@ -1,6 +1,22 @@
 <script src="/main-dev.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  updateCookiesBanner();
+});
+
+function setCookies(event) {
+  event.preventDefault();
+
+  const clickedButton = event.submitter;
+  const cookieValue = clickedButton.value;
+  const cookieName = clickedButton.name;
+
+  document.cookie = `${cookieName}=${cookieValue}; path=/`;
+
+  updateCookiesBanner();
+}
+
+function updateCookiesBanner(event) {
   const analyticsCookiesForm = document.getElementById('analyticsCookiesForm');
   const hideCookiesForm = document.getElementById('hideCookiesForm');
 
@@ -10,25 +26,16 @@ document.addEventListener('DOMContentLoaded', function() {
     return result;
   }, {});
 
-  if (cookies.analytics === 'yes') {
+  if (cookies['hideCookiesBanner']) {
+    hideCookiesForm.style.display = 'none';
+  } else {
+    hideCookiesForm.style.display = 'block';
+  }
+
+  if (cookies['analyticsCookies']) {
     analyticsCookiesForm.style.display = 'none';
   } else {
     hideCookiesForm.style.display = 'none';
   }
-});
-
-function analyticsCookiesForm(event) {
-  console.log('analyticsCookiesForm');
-  event.preventDefault();
-  const formData = new FormData(event.target);
-  const analyticsCookies = formData.get('cookies[analytics]');
-  document.cookie = `analytics=${analyticsCookies}; path=/`;
-  return false;
-}
-
-function hideCookiesForm(event) {
-  event.preventDefault();
-  document.cookie = 'hide=yes; path=/';
-  return false;
 }
 </script>
