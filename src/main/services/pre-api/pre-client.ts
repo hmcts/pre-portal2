@@ -9,6 +9,21 @@ import config from 'config';
 export class PreClient {
   logger = Logger.getLogger('pre-client');
 
+  public async isInvitedUser(email: string): Promise<boolean> {
+    const response = await axios.get('/invites', {
+      params: {
+        email,
+      },
+    });
+    return response.data.page.totalElements > 0;
+  }
+
+  public async redeemInvitedUser(email: string): Promise<void> {
+    await axios.post('/invites/redeem', {
+      email,
+    });
+  }
+
   public async getUserByEmail(email: string): Promise<UserProfile> {
     const response = await axios.get('/users/by-email/' + email);
     if (response.data.length !== 1) {
