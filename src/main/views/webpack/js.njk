@@ -1,1 +1,49 @@
- <script src="/main-dev.js"></script>
+<script src="/main-dev.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  updateCookiesBanner();
+});
+
+function setCookies(event) {
+  event.preventDefault();
+
+  const clickedButton = event.submitter;
+  const cookieValue = clickedButton.value;
+  const cookieName = clickedButton.name;
+
+  if (cookieName === 'resetCookies') {
+    document.cookie = 'hideCookiesBanner=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    document.cookie = 'analyticsCookies=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    updateCookiesBanner();
+    return;
+  }
+
+  document.cookie = `${cookieName}=${cookieValue}; path=/`;
+
+  updateCookiesBanner();
+}
+
+function updateCookiesBanner(event) {
+  const analyticsCookiesForm = document.getElementById('analyticsCookiesForm');
+  const hideCookiesForm = document.getElementById('hideCookiesForm');
+
+  const cookies = document.cookie.split('; ').reduce((result, cookie) => {
+    const [name, value] = cookie.split('=');
+    result[name] = value;
+    return result;
+  }, {});
+
+  if (cookies['hideCookiesBanner']) {
+    hideCookiesForm.style.display = 'none';
+  } else {
+    hideCookiesForm.style.display = 'block';
+  }
+
+  if (cookies['analyticsCookies']) {
+    analyticsCookiesForm.style.display = 'none';
+  } else {
+    analyticsCookiesForm.style.display = 'block';
+    hideCookiesForm.style.display = 'none';
+  }
+}
+</script>

@@ -2,6 +2,8 @@
 {% from "govuk/components/footer/macro.njk" import govukFooter %}
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/cookie-banner/macro.njk" import govukCookieBanner %}
+{% from "govuk/components/skip-link/macro.njk" import govukSkipLink %}
 
 
 {% block head %}
@@ -15,6 +17,70 @@
     serviceName: "HMCTS Pre-Recorded Evidence Service",
     serviceUrl: "/"
   }) }}
+{% endblock %}
+
+{% block bodyStart %}
+{% set html %}
+  <p class="govuk-body">We use some essential cookies to make this service work.</p>
+  <p class="govuk-body">We’d also like to use analytics cookies so we can understand how you use the service and make improvements.</p>
+{% endset %}
+{% set acceptHtml %}
+  <p class="govuk-body">You’ve accepted analytics cookies. You can <a class="govuk-link" href="/cookies">change your cookie settings</a> at any time.</p>
+{% endset %}
+
+<form id="analyticsCookiesForm" onsubmit="setCookies(event);">
+  {{ govukCookieBanner({
+    ariaLabel: "Cookies on Pre Recorded Evidence Service",
+    messages: [
+      {
+        headingText: "Cookies on Pre Recorded Evidence Service",
+        html: html,
+        actions: [
+          {
+            text: "Accept analytics cookies",
+            type: "submit",
+            name: "analyticsCookies",
+            value: "yes"
+          },
+          {
+            text: "Reject analytics cookies",
+            type: "submit",
+            name: "analyticsCookies",
+            value: "no"
+          },
+          {
+            text: "View cookies",
+            href: "/cookies"
+          }
+        ]
+      }
+    ]
+  }) }}
+</form>
+
+<form id="hideCookiesForm" onsubmit="setCookies(event);">
+  {{ govukCookieBanner({
+    ariaLabel: "Cookies on Pre Recorded Evidence Service",
+    messages: [
+      {
+        html: acceptHtml,
+        actions: [
+          {
+            text: "Hide cookie message",
+            type: "submit",
+            name: "hideCookiesBanner",
+            value: "yes"
+          }
+        ]
+      }
+    ]
+  }) }}
+</form>
+
+{{ govukSkipLink({
+  text: "Skip to main content",
+  href: "#"
+}) }}
 {% endblock %}
 
 {% block bodyEnd %}
@@ -36,6 +102,13 @@
         {
           href: '/accessibility-statement',
           text: 'Accessibility statement',
+          attributes: {
+            target: "_blank"
+          }
+        },
+        {
+          href: '/cookies',
+          text: 'Cookies',
           attributes: {
             target: "_blank"
           }
