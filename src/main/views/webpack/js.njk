@@ -11,6 +11,13 @@ function setCookies(event) {
   const cookieValue = clickedButton.value;
   const cookieName = clickedButton.name;
 
+  if (cookieName === 'resetCookies') {
+    document.cookie = 'hideCookiesBanner=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    document.cookie = 'analyticsCookies=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    location.reload()
+    return;
+  }
+
   document.cookie = `${cookieName}=${cookieValue}; path=/`;
 
   updateCookiesBanner();

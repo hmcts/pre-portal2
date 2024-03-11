@@ -26,7 +26,7 @@
         >
         from the Information Commissioner's Office.
       </p>
-      <form class="js-cookies-page-form">
+      <form class="js-cookies-page-form" onsubmit="setCookies(event);">
         <h2 class="govuk-heading-l govuk-!-margin-top-6">
           Essential cookies (strictly necessary)
         </h2>
@@ -53,7 +53,17 @@
             </tr>
           </tbody>
         </table>
-      </  form>
+
+        <button
+          class="govuk-button"
+          value="yes"
+          type="submit"
+          name="resetCookies"
+          data-module="govuk-button"
+          data-prevent-double-click="true">
+          Reset cookies
+        </button>
+      </form>
     </div>
   </div>
 {% endblock %}
