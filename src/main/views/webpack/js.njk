@@ -14,7 +14,7 @@ function setCookies(event) {
   if (cookieName === 'resetCookies') {
     document.cookie = 'hideCookiesBanner=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     document.cookie = 'analyticsCookies=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    location.reload()
+    updateCookiesBanner();
     return;
   }
 
@@ -42,6 +42,7 @@ function updateCookiesBanner(event) {
   if (cookies['analyticsCookies']) {
     analyticsCookiesForm.style.display = 'none';
   } else {
+    analyticsCookiesForm.style.display = 'block';
     hideCookiesForm.style.display = 'none';
   }
 }
