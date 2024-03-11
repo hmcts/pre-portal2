@@ -9,7 +9,7 @@ export class PropertiesVolume {
 
   enableFor(server: Application): void {
     set(config, 'pre.portalUrl', process.env.PORTAL_URL || 'https://localhost:4551');
-    set(config, 'pre.apiUrl', process.env.API_URL || 'https://localhost:4550');
+    set(config, 'pre.apiUrl', process.env.PRE_API_URL || 'https://localhost:4550');
     set(config, 'session.secret', process.env.SESSION_SECRET || 'superlongrandomstringthatshouldbebetterinprod');
 
     if (server.locals.ENV === 'production') {
@@ -35,7 +35,6 @@ export class PropertiesVolume {
       );
       set(config, 'pre.apiKey.primary', process.env.APIM_SUB_PORTAL_PRIMARY_KEY || 'pre.apiKey.primary');
       set(config, 'pre.apiKey.secondary', process.env.APIM_SUB_PORTAL_SECONDARY_KEY || 'pre.apiKey.secondary');
-      set(config, 'pre.apiUrl', process.env.PRE_API_URL || 'https://localhost:4550');
       set(config, 'ams.flowKey', process.env.PP_AUTHORIZATION);
       set(config, 'ams.flowUrl', process.env.AMS_FLOW_URL);
       set(config, 'b2c.appClientSecret', process.env.B2C_APP_CLIENT_SECRET || 'b2c.appClientSecret');
