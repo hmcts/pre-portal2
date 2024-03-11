@@ -9,6 +9,11 @@
   }}
 {% endblock %}
 
+{% block head %}
+  {{ super() }}
+  <meta http-equiv="refresh" content="300">
+{% endblock %}
+
 {% block content %}
     <h1 class="govuk-heading-xl">Welcome back, {{ user.name }}</h1>
 
