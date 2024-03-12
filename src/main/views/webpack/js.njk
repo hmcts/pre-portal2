@@ -1,7 +1,9 @@
 <script src="/main-dev.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  updateCookiesBanner();
+console.log('loaded js.njk');
+document.addEventListener('DOMContentLoaded', function(event) {
+  console.log('DOMContentLoaded', event);
+  updateCookiesBanner(event);
 });
 
 function setCookies(event) {
@@ -14,7 +16,8 @@ function setCookies(event) {
   if (cookieName === 'resetCookies') {
     document.cookie = 'hideCookiesBanner=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; secure; samesite=strict';
     document.cookie = 'analyticsCookies=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; secure; samesite=strict';
-    updateCookiesBanner();
+    updateCookiesBanner(event);
+    location.replace(window.location.href + '#analyticsCookiesForm');
     return;
   }
 
@@ -23,7 +26,7 @@ function setCookies(event) {
 
   document.cookie = `${cookieName}=${cookieValue}; path=/; expires=${expiresDate.toUTCString()}; secure; samesite=strict`;
 
-  updateCookiesBanner();
+  updateCookiesBanner(event);
 }
 
 function updateCookiesBanner(event) {
