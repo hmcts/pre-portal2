@@ -25,58 +25,67 @@
   <p class="govuk-body">We use some essential cookies to make this service work.</p>
   <p class="govuk-body">We’d also like to use analytics cookies so we can understand how you use the service and make improvements.</p>
 {% endset %}
+
 {% set acceptHtml %}
-  <p class="govuk-body">You’ve accepted analytics cookies. You can <a class="govuk-link" href="/cookies">change your cookie settings</a> at any time.</p>
+  <p class="govuk-body">You’ve accepted additional cookies. You can <a class="govuk-link" href="/cookies">change your cookie settings</a> at any time.</p>
 {% endset %}
 
-<form id="analyticsCookiesForm" onsubmit="setCookies(event);">
-  {{ govukCookieBanner({
-    ariaLabel: "Cookies on Pre Recorded Evidence Service",
-    messages: [
-      {
-        headingText: "Cookies on Pre Recorded Evidence Service",
-        html: html,
-        actions: [
-          {
-            text: "Accept analytics cookies",
-            type: "submit",
-            name: "analyticsCookies",
-            value: "yes"
-          },
-          {
-            text: "Reject analytics cookies",
-            type: "submit",
-            name: "analyticsCookies",
-            value: "no"
-          },
-          {
-            text: "View cookies",
-            href: "/cookies"
-          }
-        ]
-      }
-    ]
-  }) }}
-</form>
+{% set rejectHtml %}
+  <p class="govuk-body">You’ve rejected additional cookies. You can <a class="govuk-link" href="/cookies">change your cookie settings</a> at any time.</p>
+{% endset %}
 
-<form id="hideCookiesForm" onsubmit="setCookies(event);">
-  {{ govukCookieBanner({
-    ariaLabel: "Cookies on Pre Recorded Evidence Service",
-    messages: [
+{{ govukCookieBanner({
+  classes: 'cookie-banner',
+  ariaLabel: 'Cookies on Pre Recorded Evidence',
+  hidden: true,
+  messages: [
+    {
+      classes: 'cookie-banner-message',
+      headingText: 'Cookies on Pre Recorded Evidence',
+      html: html,
+      actions: [
       {
-        html: acceptHtml,
-        actions: [
-          {
-            text: "Hide cookie message",
-            type: "submit",
-            name: "hideCookiesBanner",
-            value: "yes"
-          }
-        ]
+        classes: 'cookie-banner-accept-button',
+        text: 'Accept additional cookies',
+        type: "button"
+      },
+      {
+        classes: 'cookie-banner-reject-button',
+        text: 'Reject additional cookies',
+        type: "button"
+      },
+      {
+        text: 'View cookies',
+        href: "/cookies"
       }
     ]
-  }) }}
-</form>
+    },
+    {
+      classes: 'cookie-banner-accept-message',
+      html: acceptHtml,
+      role: "alert",
+      hidden: true,
+      actions: [
+      {
+        classes: 'cookie-banner-hide-button',
+        text: 'Hide this message'
+      }
+    ]
+    },
+    {
+      classes: 'cookie-banner-reject-message',
+      html: rejectHtml,
+      role: "alert",
+      hidden: true,
+      actions: [
+      {
+        classes: 'cookie-banner-hide-button',
+        text: 'Hide this message'
+      }
+    ]
+    }
+  ]
+}) }}
 
 {{ govukSkipLink({
   text: "Skip to main content",
