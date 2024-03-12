@@ -12,13 +12,16 @@ function setCookies(event) {
   const cookieName = clickedButton.name;
 
   if (cookieName === 'resetCookies') {
-    document.cookie = 'hideCookiesBanner=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    document.cookie = 'analyticsCookies=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    document.cookie = 'hideCookiesBanner=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; secure; samesite=strict';
+    document.cookie = 'analyticsCookies=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; secure; samesite=strict';
     updateCookiesBanner();
     return;
   }
 
-  document.cookie = `${cookieName}=${cookieValue}; path=/`;
+  let expiresDate = new Date();
+  expiresDate.setFullYear(expiresDate.getFullYear() + 1);
+
+  document.cookie = `${cookieName}=${cookieValue}; path=/; expires=${expiresDate.toUTCString()}; secure; samesite=strict`;
 
   updateCookiesBanner();
 }
