@@ -18,9 +18,10 @@ export class Helmet {
   public enableFor(app: express.Express): void {
     const azureMediaServices = config.get('ams.azureMediaServices') as string;
     const azureMediaServicesKeyDelivery = config.get('ams.azureMediaServicesKeyDelivery') as string;
+    const dynatraceDomain = '*.dynatrace.com';
 
     // include default helmet functions
-    const scriptSrc = [self, googleAnalyticsDomain, "'unsafe-inline'", azureMediaPlayer];
+    const scriptSrc = [self, googleAnalyticsDomain, "'unsafe-inline'", azureMediaPlayer, dynatraceDomain];
     const scriptSrcAttr = [self, "'unsafe-inline'"];
 
     if (this.developmentMode) {
@@ -35,7 +36,7 @@ export class Helmet {
       helmet({
         contentSecurityPolicy: {
           directives: {
-            connectSrc: [self, azureMediaPlayer, azureMediaServices, azureMediaServicesKeyDelivery, 'dynatrace.com'],
+            connectSrc: [self, azureMediaPlayer, azureMediaServices, azureMediaServicesKeyDelivery],
             defaultSrc: ["'none'"],
             fontSrc: [self, azureMediaPlayer, 'data:'],
             imgSrc: [self, googleAnalyticsDomain, azureMediaPlayer, 'data:'],

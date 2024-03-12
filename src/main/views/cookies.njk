@@ -1,5 +1,7 @@
 {% extends "template.njk" %}
 
+{% block pageTitle %}Cookies - PRE Portal{% endblock %}
+
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -47,8 +49,18 @@
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">example_cookie</th>
-              <td class="govuk-table__cell">Example cookie purpose</td>
+              <th scope="row" class="govuk-table__header">__session</th>
+              <td class="govuk-table__cell">This tracks that you are logged into the system and contains your user profile for the PRE Portal.</td>
+              <td class="govuk-table__cell">1 day</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">analyticsCookies</th>
+              <td class="govuk-table__cell">This tracks if you have accepted the tracking of non-essential cookies or not.</td>
+              <td class="govuk-table__cell">1 year</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">hideCookiesBanner</th>
+              <td class="govuk-table__cell">This tracks if you want to hide the cookie information banner or not.</td>
               <td class="govuk-table__cell">1 year</td>
             </tr>
           </tbody>
