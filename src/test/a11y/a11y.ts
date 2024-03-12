@@ -96,4 +96,5 @@ describe('Accessibility', () => {
   testAccessibility('/browse');
   testAccessibility('/not-found');
   testAccessibility('/watch/something');
+  testAccessibility('/cookies');
 });

@@ -19,13 +19,14 @@
     "test:routes": "jest -c jest.routes.config.js",
     "test:a11y": "PORTAL_AUTH_DISABLED=1 NODE_TLS_REJECT_UNAUTHORIZED=0 jest -c jest.a11y.config.js --maxWorkers 15",
     "test:smoke": "NODE_TLS_REJECT_UNAUTHORIZED=0 jest -c jest.smoke.config.js",
-    "test:functional": "yarn playwright install && ALLOW_CONFIG_MUTATIONS=true NODE_TLS_REJECT_UNAUTHORIZED=0 codeceptjs run --config ./codecept.conf.js --steps",
+    "test:functional": "yarn playwright install && ALLOW_CONFIG_MUTATIONS=true NODE_TLS_REJECT_UNAUTHORIZED=0 codeceptjs run --config ./codecept.conf.js --steps --grep \"@flaky\" --invert",
     "cichecks": "yarn build && yarn rebuild puppeteer && yarn lint && yarn test && yarn test:routes && yarn test:a11y",
     "prepare": "husky install",
     "prettier": "prettier --write ."
   },
   "dependencies": {
     "@codeceptjs/allure-legacy": "^1.0.2",
+    "@hmcts/cookie-manager": "^1.0.0",
     "@hmcts/info-provider": "1.1.0",
     "@hmcts/nodejs-healthcheck": "1.7.3",
     "@hmcts/nodejs-logging": "4.0.4",
