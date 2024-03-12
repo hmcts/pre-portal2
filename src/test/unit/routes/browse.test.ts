@@ -43,7 +43,10 @@ describe('Browse route', () => {
 
     const response = await request(app).get('/browse');
     expect(response.status).equal(200);
-    expect(response.text).contain('Recordings shared with you');
+    expect(response.text).contain('Recordings');
+    expect(response.text).contain('Welcome back,');
+    expect(response.text).contain('playback is preferred on non-mobile devices');
+    expect(response.text).contain('<a href="/logout" class="govuk-back-link">Sign out</a>');
   });
 
   test('should return 500', async () => {
