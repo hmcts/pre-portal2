@@ -7,5 +7,5 @@ module.exports = {
     '^.+\\.ts?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-  coveragePathIgnorePatterns: ['/src/main/modules/properties-volume/*'],
+  coveragePathIgnorePatterns: ['/src/main/modules/properties-volume/*', '/src/main/assets/js/*.js'],
 };
