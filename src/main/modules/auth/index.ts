@@ -39,7 +39,13 @@ export class Auth {
       afterCallback: async (req, res, s) => {
         const claims = jose.decodeJwt(s.id_token);
         // @todo add jwt validation here
+
+        // check if the user is a new user
         const client = new PreClient();
+        const invitedUser = await client.isInvitedUser(claims.email as string);
+        if (invitedUser) {
+          await client.redeemInvitedUser(claims.email as string);
+        }
         const userProfile = await client.getUserByEmail(claims.email as string);
         return {
           ...s,
