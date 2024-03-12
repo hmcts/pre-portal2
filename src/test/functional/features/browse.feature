@@ -7,5 +7,5 @@ Feature: View Browse Page
       When I go to '/'
       Then I am on the '/browse' page
       Then the page should include 'Welcome back,'
-      Then the page should include 'Recordings shared with you'
+      Then the page should include 'Recordings'
 
