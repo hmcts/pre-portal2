@@ -117,15 +117,17 @@ describe('PreClient', () => {
   });
   test('get recordings', async () => {
     const request = {} as SearchRecordingsRequest;
-    const recordings = await preClient.getRecordings(mockXUserId, request);
+    const { recordings, pagination } = await preClient.getRecordings(mockXUserId, request);
     expect(recordings).toBeTruthy();
     expect(recordings.length).toBe(2);
+    expect(pagination).toBeTruthy();
   });
   test('get recordings no results', async () => {
     const request = {} as SearchRecordingsRequest;
-    const recordings = await preClient.getRecordings(otherXUserId, request);
+    const { recordings, pagination } = await preClient.getRecordings(otherXUserId, request);
     expect(recordings).toBeTruthy();
     expect(recordings.length).toBe(0);
+    expect(pagination).toBeTruthy();
   });
   test('network error', async () => {
     try {

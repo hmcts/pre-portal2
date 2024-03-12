@@ -1,6 +1,6 @@
 import { UserProfile } from '../../types/user-profile';
 
-import { Recording, RecordingPlaybackData, SearchRecordingsRequest } from './types';
+import { Pagination, Recording, RecordingPlaybackData, SearchRecordingsRequest } from './types';
 
 import { Logger } from '@hmcts/nodejs-logging';
 import axios from 'axios';
@@ -38,7 +38,10 @@ export class PreClient {
     return user;
   }
 
-  public async getRecordings(xUserId: string, request: SearchRecordingsRequest): Promise<Recording[]> {
+  public async getRecordings(
+    xUserId: string,
+    request: SearchRecordingsRequest
+  ): Promise<{ recordings: Recording[]; pagination: Pagination }> {
     this.logger.debug('Getting recordings with request: ' + JSON.stringify(request));
 
     try {
@@ -49,10 +52,18 @@ export class PreClient {
         params: request,
       });
 
-      if (response.data['page']['totalElements'] === 0) {
-        return [];
-      }
-      return response.data['_embedded']['recordingDTOList'] as Recording[];
+      const pagination = {
+        currentPage: response.data['page']['number'],
+        totalPages: response.data['page']['totalPages'],
+        totalElements: response.data['page']['totalElements'],
+        size: response.data['page']['size'],
+      } as Pagination;
+      const recordings =
+        response.data['page']['totalElements'] === 0
+          ? []
+          : (response.data['_embedded']['recordingDTOList'] as Recording[]);
+
+      return { recordings, pagination };
     } catch (e) {
       // log the error
       this.logger.info('path', e.response?.request.path);

@@ -57,3 +57,10 @@ export interface RecordingPlaybackData {
   type: string;
   protectionInfo: { [key: string]: string }[];
 }
+
+export interface Pagination {
+  currentPage: number;
+  totalPages: number;
+  totalElements: number;
+  size: number;
+}
