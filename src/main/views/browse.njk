@@ -1,3 +1,5 @@
+{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
 {% extends "template.njk" %}
 
 {% block pageTitle %}{{ title }} - PRE Portal{% endblock %}
@@ -29,7 +31,7 @@
     </div>
 
     <h2 class="govuk-heading-m">
-      Recordings shared with you
+      {{ title }}
     </h2>
     <div style="overflow-x: auto; width: 100%;">
       <table class="govuk-table">
@@ -90,6 +92,9 @@
           </tbody>
         {% endif %}
       </table>
+    </div>
+    <div style="display: flex; justify-content: center;">
+      {{ govukPagination(paginationLinks) }}
     </div>
 
 {% endblock %}

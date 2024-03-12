@@ -1,4 +1,4 @@
-import { Recording, RecordingPlaybackData, SearchRecordingsRequest } from '../main/services/pre-api/types';
+import { Pagination, Recording, RecordingPlaybackData, SearchRecordingsRequest } from '../main/services/pre-api/types';
 import { PreClient } from '../main/services/pre-api/pre-client';
 
 export const mockRecordings: Recording[] = [
@@ -58,6 +58,13 @@ export const mockRecordings: Recording[] = [
   } as Recording,
 ];
 
+export const mockPagination = {
+  currentPage: 0,
+  totalPages: 1,
+  totalElements: 2,
+  size: 10,
+} as Pagination;
+
 // needs to return the paginated list
 export const mockedPaginatedRecordings = {
   _embedded: {
@@ -92,12 +99,20 @@ export function mockGetRecording(recording?: Recording | null) {
   });
 }
 
-export function mockGetRecordings(recordings?: Recording[]) {
+export function mockGetRecordings(recordings?: Recording[], page: number = 0) {
   if (recordings !== undefined) {
+    const pagination = {
+      currentPage: page,
+      totalPages: Math.ceil(recordings.length / 10),
+      totalElements: recordings.length,
+      size: 10,
+    } as Pagination;
+    const recordingSubset = recordings.slice(page * 10, (page + 1) * 10);
+
     jest
       .spyOn(PreClient.prototype, 'getRecordings')
       .mockImplementation(async (xUserId: string, request: SearchRecordingsRequest) => {
-        return Promise.resolve(recordings);
+        return Promise.resolve({ recordings: recordingSubset, pagination });
       });
     return;
   }
@@ -105,7 +120,7 @@ export function mockGetRecordings(recordings?: Recording[]) {
   jest
     .spyOn(PreClient.prototype, 'getRecordings')
     .mockImplementation(async (xUserId: string, req: SearchRecordingsRequest) => {
-      return Promise.resolve(mockRecordings);
+      return Promise.resolve({ recordings: mockRecordings, pagination: mockPagination });
     });
 }
 
