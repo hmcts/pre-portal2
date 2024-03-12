@@ -99,12 +99,20 @@ export function mockGetRecording(recording?: Recording | null) {
   });
 }
 
-export function mockGetRecordings(recordings?: Recording[]) {
+export function mockGetRecordings(recordings?: Recording[], page: number = 0) {
   if (recordings !== undefined) {
+    const pagination = {
+      currentPage: page,
+      totalPages: Math.ceil(recordings.length / 10),
+      totalElements: recordings.length,
+      size: 10,
+    } as Pagination;
+    const recordingSubset = recordings.slice(page * 10, (page + 1) * 10);
+
     jest
       .spyOn(PreClient.prototype, 'getRecordings')
       .mockImplementation(async (xUserId: string, request: SearchRecordingsRequest) => {
-        return Promise.resolve({ recordings, pagination: mockPagination });
+        return Promise.resolve({ recordings: recordingSubset, pagination });
       });
     return;
   }
