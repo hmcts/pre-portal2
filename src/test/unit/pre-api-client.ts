@@ -5,6 +5,8 @@ import { describe } from '@jest/globals';
 import axios from 'axios';
 import { UserProfile } from '../../main/types/user-profile';
 import config from 'config';
+import { mockeduser } from './test-helper';
+import { AccessStatus } from '../../main/types/access-status';
 
 const preClient = new PreClient();
 jest.mock('axios');
@@ -12,58 +14,24 @@ jest.mock('axios');
 /* eslint-disable jest/expect-expect */
 describe('PreClient', () => {
   const mockedAxios = axios as jest.Mocked<typeof axios>;
-  const mockedUser = {
-    id: '123',
-    court: {
-      id: '123',
-      name: 'Test',
-      court_type: 'Test',
-      location_code: 'Test',
-      regions: [
-        {
-          name: 'Test',
-        },
-      ],
-      rooms: [],
-    },
-    role: {
-      id: 'Test',
-      name: 'Test',
-      description: 'Test',
-      permissions: [],
-    },
-    last_access: null,
-    active: true,
-    user: {
-      id: 'Test',
-      first_name: 'Test',
-      last_name: 'Test',
-      email: 'test@testy.com',
-      phone_number: null,
-      organisation: null,
-    },
-  };
   // @ts-ignore
   mockedAxios.get.mockImplementation((url: string, config: object) => {
     // @ts-ignore
     if (url === '/users/by-email/test@testy.com') {
       return Promise.resolve({
         status: 200,
-        data: [mockedUser],
+        data: mockeduser,
       });
     }
     if (url === '/users/by-email/mctest@testy.com') {
-      return Promise.resolve({
-        status: 200,
-        data: [],
-      });
+      return Promise.reject('404');
     }
     if (url === '/users/by-email/inactive@testy.com') {
-      const inactiveUser = { ...mockedUser };
-      inactiveUser.active = false;
+      const inactiveUser = { ...mockeduser } as UserProfile;
+      inactiveUser.portal_access[0].status = AccessStatus.INACTIVE;
       return Promise.resolve({
         status: 200,
-        data: [inactiveUser],
+        data: inactiveUser,
       });
     }
     if (url === '/recordings/something') {
@@ -132,6 +100,7 @@ describe('PreClient', () => {
   test('network error', async () => {
     try {
       await preClient.getRecordings(otherXUserId, { caseReference: 'uhoh' } as SearchRecordingsRequest);
+      expect(true).toBe(false); // shouldn't get here...
     } catch (e) {
       expect(e).toBe('Network Error');
     }
@@ -142,12 +111,20 @@ describe('PreClient', () => {
     expect(user.user.email).toBe('test@testy.com');
   });
   test('get user by email 404', async () => {
-    const user = await preClient.getUserByEmail('mctest@testy.com');
-    expect(user).toEqual({} as UserProfile);
+    try {
+      await preClient.getUserByEmail('mctest@testy.com');
+      expect(true).toBe(false); // shouldn't get here...
+    } catch (e) {
+      expect(e).toEqual('404');
+    }
   });
   test('get user by email inactive', async () => {
-    const user = await preClient.getUserByEmail('inactive@testy.com');
-    expect(user).toEqual({} as UserProfile);
+    try {
+      await preClient.getUserByEmail('inactive@testy.com');
+      expect(true).toBe(false); // shouldn't get here...
+    } catch (e) {
+      expect(e.message).toEqual('User is not active: inactive@testy.com');
+    }
   });
   test('get recording playback data', async () => {
     const recording = await preClient.getRecordingPlaybackData('something');
