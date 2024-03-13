@@ -26,6 +26,9 @@ export class PreClient {
   public async getUserByEmail(email: string): Promise<UserProfile> {
     const response = await axios.get('/users/by-email/' + email);
     const user = response.data as UserProfile;
+    if (!user.portal_access) {
+      throw new Error('User has not been invited to the portal: ' + email);
+    }
     if (user.portal_access[0].status === AccessStatus.INACTIVE) {
       throw new Error('User is not active: ' + email);
     }
