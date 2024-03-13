@@ -60,16 +60,18 @@ export default function (app: Application): void {
       }
 
       // Add the pages immediately 2 before and 2 after the current page
-      for (
-        let i = Math.max(1, pagination.currentPage - 2);
-        i <= Math.min(pagination.currentPage + 2, pagination.totalPages - 2);
-        i++
-      ) {
-        paginationLinks.items.push({
-          href: `/browse?page=${i}`,
-          number: i + 1,
-          current: i === pagination.currentPage,
-        });
+      if (pagination.totalPages > 2) {
+        for (
+          let i = Math.max(2, pagination.currentPage - 2);
+          i <= Math.min(pagination.currentPage + 2, pagination.totalPages - 2);
+          i++
+        ) {
+          paginationLinks.items.push({
+            href: `/browse?page=${i}`,
+            number: i + 1,
+            current: i === pagination.currentPage,
+          });
+        }
       }
 
       // Add an ellipsis if the current page is more than 2 pages away from the last page

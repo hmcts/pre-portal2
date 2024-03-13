@@ -93,8 +93,10 @@
         {% endif %}
       </table>
     </div>
-    <div style="display: flex; justify-content: center;">
-      {{ govukPagination(paginationLinks) }}
-    </div>
+    {% if paginationLinks.items.length > 1 %}
+      <div style="display: flex; justify-content: center;">
+        {{ govukPagination(paginationLinks) }}
+      </div>
+    {% endif %}
 
 {% endblock %}
