@@ -1,3 +1,4 @@
+import { AccessStatus } from '../../types/access-status';
 import { UserProfile } from '../../types/user-profile';
 
 import { Pagination, Recording, RecordingPlaybackData, SearchRecordingsRequest } from './types';
@@ -19,21 +20,14 @@ export class PreClient {
   }
 
   public async redeemInvitedUser(email: string): Promise<void> {
-    await axios.post('/invites/redeem', {
-      email,
-    });
+    await axios.post('/invites/redeem?email=' + email);
   }
 
   public async getUserByEmail(email: string): Promise<UserProfile> {
     const response = await axios.get('/users/by-email/' + email);
-    if (response.data.length !== 1) {
-      this.logger.error('No user found for email: ' + email);
-      return {} as UserProfile;
-    }
-    const user = response.data[0] as UserProfile;
-    if (!user.active) {
-      this.logger.error('User is not active: ' + email);
-      return {} as UserProfile;
+    const user = response.data as UserProfile;
+    if (user.portal_access[0].status === AccessStatus.INACTIVE) {
+      throw new Error('User is not active: ' + email);
     }
     return user;
   }

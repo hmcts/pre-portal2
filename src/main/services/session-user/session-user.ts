@@ -1,7 +1,7 @@
 import { UserProfile } from '../../types/user-profile';
 
 export class SessionUser {
-  public static getLoggedInUser(req: Express.Request): UserProfile {
+  public static getLoggedInUserPortalId(req: Express.Request): string {
     if (!req['__session']) {
       throw new Error('No session found');
     }
@@ -9,9 +9,9 @@ export class SessionUser {
       throw new Error('No userProfile found in session');
     }
     const user = req['__session'].userProfile as UserProfile;
-    if (!user.id) {
+    if (!user.portal_access || !user.portal_access[0]) {
       throw new Error('No user id found in session');
     }
-    return user;
+    return user.portal_access[0].id;
   }
 }
