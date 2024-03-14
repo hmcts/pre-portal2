@@ -9748,10 +9748,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jquery@npm:3.6.1":
-  version: 3.6.1
-  resolution: "jquery@npm:3.6.1"
-  checksum: 6177d866a74f1137cad800f142c7cdbd5ab19cd4282546f8bdb4890c9f933b1d542ab96f2aa15d007e43c98de7315b0513e849ec5359d3ac5640f720892fe547
+"jquery@npm:3.7.1":
+  version: 3.7.1
+  resolution: "jquery@npm:3.7.1"
+  checksum: 4370b8139d6ae82867eb6f7f21d1edccf1d1bdf41c0840920ea80d366c2cd5dbe1ceebb110ee9772aa839b04400faa1572c5c560b507c688ed7b61cea26c0e27
   languageName: node
   linkType: hard
 
@@ -12178,7 +12178,7 @@ __metadata:
     jest-junit: 14.0.1
     jest-mock: ^29.3.1
     jose: ^5.2.2
-    jquery: 3.6.1
+    jquery: 3.7.1
     lint: ^0.8.6
     lint-staged: 13.3.0
     lodash: 4.17.21

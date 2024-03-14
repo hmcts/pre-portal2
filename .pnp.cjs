@@ -96,7 +96,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-junit", "npm:14.0.1"],\
             ["jest-mock", "npm:29.7.0"],\
             ["jose", "npm:5.2.3"],\
-            ["jquery", "npm:3.6.1"],\
+            ["jquery", "npm:3.7.1"],\
             ["lint", "npm:0.8.19"],\
             ["lint-staged", "npm:13.3.0"],\
             ["lodash", "npm:4.17.21"],\
@@ -12681,10 +12681,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["jquery", [\
-        ["npm:3.6.1", {\
-          "packageLocation": "./.yarn/cache/jquery-npm-3.6.1-6f29087f48-6177d866a7.zip/node_modules/jquery/",\
+        ["npm:3.7.1", {\
+          "packageLocation": "./.yarn/cache/jquery-npm-3.7.1-eeeac0f21e-4370b8139d.zip/node_modules/jquery/",\
           "packageDependencies": [\
-            ["jquery", "npm:3.6.1"]\
+            ["jquery", "npm:3.7.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -15423,7 +15423,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-junit", "npm:14.0.1"],\
             ["jest-mock", "npm:29.7.0"],\
             ["jose", "npm:5.2.3"],\
-            ["jquery", "npm:3.6.1"],\
+            ["jquery", "npm:3.7.1"],\
             ["lint", "npm:0.8.19"],\
             ["lint-staged", "npm:13.3.0"],\
             ["lodash", "npm:4.17.21"],\
