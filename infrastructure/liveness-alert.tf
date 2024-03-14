@@ -1,9 +1,9 @@
 module "pre-portal-liveness-alert" {
+  count               = var.env == "prod" ? 1 : 0
   source            = "git@github.com:hmcts/cnp-module-metric-alert"
   location          = data.azurerm_application_insights.app_insights.location
   app_insights_name = data.azurerm_application_insights.app_insights.name
 
-  enabled     = var.env == "prod"
   alert_name  = "PRE_Portal_liveness"
   alert_desc  = "Triggers when pre portal looks it's been down within a 30 minutes window timeframe."
   common_tags = var.common_tags
