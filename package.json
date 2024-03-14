@@ -63,7 +63,7 @@
     "govuk-frontend": "5.1.0",
     "helmet": "6.2.0",
     "jose": "^5.2.2",
-    "jquery": "3.6.1",
+    "jquery": "3.7.1",
     "lint": "^0.8.6",
     "lodash": "4.17.21",
     "nunjucks": "3.2.4",
