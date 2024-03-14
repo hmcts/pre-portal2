@@ -1,7 +1,8 @@
 import os from 'os';
 
+import { PreClient } from '../services/pre-api/pre-client';
+
 import healthcheck from '@hmcts/nodejs-healthcheck';
-import config from 'config';
 import { Application } from 'express';
 
 export default function (app: Application): void {
@@ -13,7 +14,10 @@ export default function (app: Application): void {
     checks: {
       // currently no API health check is possible for B2C
       ...(redis ? { redis } : {}),
-      'pre-api': healthcheck.web(new URL('/health', config.get('pre.apiUrl'))),
+      'pre-api': healthcheck.raw(() => {
+        const client = new PreClient();
+        return client.healthCheck().then(healthcheck.up).catch(healthcheck.down);
+      }),
     },
     ...(redis
       ? {
