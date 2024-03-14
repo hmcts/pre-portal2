@@ -88,7 +88,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["express-session", "npm:1.18.0"],\
             ["glob", "npm:8.1.0"],\
             ["govuk-frontend", "npm:5.1.0"],\
-            ["helmet", "npm:6.0.0"],\
+            ["helmet", "npm:6.2.0"],\
             ["html-webpack-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.6.0"],\
             ["husky", "npm:8.0.3"],\
             ["jest", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:29.7.0"],\
@@ -96,7 +96,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-junit", "npm:14.0.1"],\
             ["jest-mock", "npm:29.7.0"],\
             ["jose", "npm:5.2.3"],\
-            ["jquery", "npm:3.6.1"],\
+            ["jquery", "npm:3.7.1"],\
             ["lint", "npm:0.8.19"],\
             ["lint-staged", "npm:13.3.0"],\
             ["lodash", "npm:4.17.21"],\
@@ -111,7 +111,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["redis", "npm:4.6.13"],\
             ["request", "npm:2.88.2"],\
             ["require-directory", "npm:2.1.1"],\
-            ["sass", "npm:1.71.1"],\
+            ["sass", "npm:1.72.0"],\
             ["sass-lint", "npm:1.13.1"],\
             ["sass-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:13.3.3"],\
             ["serve-favicon", "npm:2.5.0"],\
@@ -11031,10 +11031,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["helmet", [\
-        ["npm:6.0.0", {\
-          "packageLocation": "./.yarn/cache/helmet-npm-6.0.0-2285459f57-0dd89d5b77.zip/node_modules/helmet/",\
+        ["npm:6.2.0", {\
+          "packageLocation": "./.yarn/cache/helmet-npm-6.2.0-43622c54ea-cf01e02424.zip/node_modules/helmet/",\
           "packageDependencies": [\
-            ["helmet", "npm:6.0.0"]\
+            ["helmet", "npm:6.2.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -12681,10 +12681,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["jquery", [\
-        ["npm:3.6.1", {\
-          "packageLocation": "./.yarn/cache/jquery-npm-3.6.1-6f29087f48-6177d866a7.zip/node_modules/jquery/",\
+        ["npm:3.7.1", {\
+          "packageLocation": "./.yarn/cache/jquery-npm-3.7.1-eeeac0f21e-4370b8139d.zip/node_modules/jquery/",\
           "packageDependencies": [\
-            ["jquery", "npm:3.6.1"]\
+            ["jquery", "npm:3.7.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -15415,7 +15415,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["express-session", "npm:1.18.0"],\
             ["glob", "npm:8.1.0"],\
             ["govuk-frontend", "npm:5.1.0"],\
-            ["helmet", "npm:6.0.0"],\
+            ["helmet", "npm:6.2.0"],\
             ["html-webpack-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.6.0"],\
             ["husky", "npm:8.0.3"],\
             ["jest", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:29.7.0"],\
@@ -15423,7 +15423,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-junit", "npm:14.0.1"],\
             ["jest-mock", "npm:29.7.0"],\
             ["jose", "npm:5.2.3"],\
-            ["jquery", "npm:3.6.1"],\
+            ["jquery", "npm:3.7.1"],\
             ["lint", "npm:0.8.19"],\
             ["lint-staged", "npm:13.3.0"],\
             ["lodash", "npm:4.17.21"],\
@@ -15438,7 +15438,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["redis", "npm:4.6.13"],\
             ["request", "npm:2.88.2"],\
             ["require-directory", "npm:2.1.1"],\
-            ["sass", "npm:1.71.1"],\
+            ["sass", "npm:1.72.0"],\
             ["sass-lint", "npm:1.13.1"],\
             ["sass-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:13.3.3"],\
             ["serve-favicon", "npm:2.5.0"],\
@@ -16524,10 +16524,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["sass", [\
-        ["npm:1.71.1", {\
-          "packageLocation": "./.yarn/cache/sass-npm-1.71.1-3aced13991-19c4939d30.zip/node_modules/sass/",\
+        ["npm:1.72.0", {\
+          "packageLocation": "./.yarn/cache/sass-npm-1.72.0-fb38bb530c-f420079c7d.zip/node_modules/sass/",\
           "packageDependencies": [\
-            ["sass", "npm:1.71.1"],\
+            ["sass", "npm:1.72.0"],\
             ["chokidar", "npm:3.6.0"],\
             ["immutable", "npm:4.3.5"],\
             ["source-map-js", "npm:1.0.2"]\
@@ -16578,7 +16578,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["fibers", null],\
             ["neo-async", "npm:2.6.2"],\
             ["node-sass", null],\
-            ["sass", "npm:1.71.1"],\
+            ["sass", "npm:1.72.0"],\
             ["sass-embedded", null],\
             ["webpack", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.90.3"]\
           ],\

@@ -34,6 +34,15 @@ describe('PreClient', () => {
         data: inactiveUser,
       });
     }
+    if (url === '/users/by-email/noportal_access@testy.com') {
+      const noPortalUser = { ...mockeduser };
+      // @ts-ignore
+      delete noPortalUser.portal_access;
+      return Promise.resolve({
+        status: 200,
+        data: noPortalUser,
+      });
+    }
     if (url === '/recordings/something') {
       return Promise.resolve({
         status: 200,
@@ -130,5 +139,12 @@ describe('PreClient', () => {
     const recording = await preClient.getRecordingPlaybackData('something');
     expect(recording).toBeTruthy();
     expect(recording?.src).toBe('something');
+  });
+  test("user doesn't have a portal_access object in their profile", async () => {
+    try {
+      await preClient.getUserByEmail('noportal_access@testy.com');
+    } catch (e) {
+      expect(e.message).toEqual('User has not been invited to the portal: noportal_access@testy.com');
+    }
   });
 });

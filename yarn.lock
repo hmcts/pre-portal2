@@ -8329,10 +8329,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"helmet@npm:6.0.0":
-  version: 6.0.0
-  resolution: "helmet@npm:6.0.0"
-  checksum: 0dd89d5b77c5334e815f5d29376ca7af0ad1007136890f497be3455d9ed9734e7203e13d9931e29e4d2ced1c632c52440f16d2a02e8835fd8b8706a12052faad
+"helmet@npm:6.2.0":
+  version: 6.2.0
+  resolution: "helmet@npm:6.2.0"
+  checksum: cf01e024244205bd10d70fd2f3874244b72ba37a10a4604e4383bbd63fe1438ee24bae7672c4ee5c5e16e6cd88ac58003274034fab0ba199761471555a322b37
   languageName: node
   linkType: hard
 
@@ -9748,10 +9748,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jquery@npm:3.6.1":
-  version: 3.6.1
-  resolution: "jquery@npm:3.6.1"
-  checksum: 6177d866a74f1137cad800f142c7cdbd5ab19cd4282546f8bdb4890c9f933b1d542ab96f2aa15d007e43c98de7315b0513e849ec5359d3ac5640f720892fe547
+"jquery@npm:3.7.1":
+  version: 3.7.1
+  resolution: "jquery@npm:3.7.1"
+  checksum: 4370b8139d6ae82867eb6f7f21d1edccf1d1bdf41c0840920ea80d366c2cd5dbe1ceebb110ee9772aa839b04400faa1572c5c560b507c688ed7b61cea26c0e27
   languageName: node
   linkType: hard
 
@@ -12170,7 +12170,7 @@ __metadata:
     express-session: ^1.18.0
     glob: 8.1.0
     govuk-frontend: 5.1.0
-    helmet: 6.0.0
+    helmet: 6.2.0
     html-webpack-plugin: 5.6.0
     husky: 8.0.3
     jest: 29.7.0
@@ -12178,7 +12178,7 @@ __metadata:
     jest-junit: 14.0.1
     jest-mock: ^29.3.1
     jose: ^5.2.2
-    jquery: 3.6.1
+    jquery: 3.7.1
     lint: ^0.8.6
     lint-staged: 13.3.0
     lodash: 4.17.21
@@ -12193,7 +12193,7 @@ __metadata:
     redis: ^4.6.13
     request: 2.88.2
     require-directory: 2.1.1
-    sass: 1.71.1
+    sass: 1.72.0
     sass-lint: 1.13.1
     sass-loader: 13.3.3
     serve-favicon: 2.5.0
@@ -13232,16 +13232,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.71.1":
-  version: 1.71.1
-  resolution: "sass@npm:1.71.1"
+"sass@npm:1.72.0":
+  version: 1.72.0
+  resolution: "sass@npm:1.72.0"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
     immutable: ^4.0.0
     source-map-js: ">=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: 19c4939d3042eb9459d462bbd27b1f576fa18034e23c87ca0005b87effdee431c16503b5a785edcdcde1a76dfb804716d9ad42c85a78968ac3825d515e45cb53
+  checksum: f420079c7d51660b7256ee52463c1499ede36f7fd5c8ef50c687451777ad641509001454dea45244073cedd7c00e7a3bc1c362e55206ac6686171b994edb41e4
   languageName: node
   linkType: hard
 
