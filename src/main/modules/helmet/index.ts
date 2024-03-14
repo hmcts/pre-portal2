@@ -50,6 +50,7 @@ export class Helmet {
           },
         },
         referrerPolicy: { policy: 'origin' },
+        crossOriginEmbedderPolicy: false,
       })
     );
   }
