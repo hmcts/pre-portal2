@@ -10,6 +10,10 @@ import config from 'config';
 export class PreClient {
   logger = Logger.getLogger('pre-client');
 
+  public async healthCheck(): Promise<void> {
+    await axios.get('/health');
+  }
+
   public async isInvitedUser(email: string): Promise<boolean> {
     const response = await axios.get('/invites', {
       params: {
