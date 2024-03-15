@@ -40,3 +40,5 @@ functional-output/
 !.yarn/unplugged
 !.yarn/plugins
 !.yarn/cache
+
+**/.terraform
