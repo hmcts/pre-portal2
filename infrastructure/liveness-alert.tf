@@ -17,7 +17,7 @@ EOF
   frequency_in_minutes       = "15"
   time_window_in_minutes     = "30"
   severity_level             = "2"
-  action_group_name          = data.azurerm_monitor_action_group.action_group.name
+  action_group_name          = data.azurerm_monitor_action_group.action_group[count.index].name
   custom_email_subject       = "PRE Portal liveness"
   trigger_threshold_operator = "GreaterThan"
   trigger_threshold          = "5"
