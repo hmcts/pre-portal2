@@ -62,7 +62,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/parser", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.62.0"],\
             ["applicationinsights", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.3.5"],\
             ["axios", "npm:1.6.7"],\
-            ["axios-debug-log", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:0.8.4"],\
+            ["axios-debug-log", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.0.0"],\
             ["babel-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:8.3.0"],\
             ["body-parser", "npm:1.20.2"],\
             ["chai", "npm:4.4.1"],\
@@ -5977,17 +5977,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["axios-debug-log", [\
-        ["npm:0.8.4", {\
-          "packageLocation": "./.yarn/cache/axios-debug-log-npm-0.8.4-75c4d61990-529222882e.zip/node_modules/axios-debug-log/",\
+        ["npm:1.0.0", {\
+          "packageLocation": "./.yarn/cache/axios-debug-log-npm-1.0.0-b3208ab9aa-db41f20439.zip/node_modules/axios-debug-log/",\
           "packageDependencies": [\
-            ["axios-debug-log", "npm:0.8.4"]\
+            ["axios-debug-log", "npm:1.0.0"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:0.8.4", {\
-          "packageLocation": "./.yarn/__virtual__/axios-debug-log-virtual-44bb67cc81/0/cache/axios-debug-log-npm-0.8.4-75c4d61990-529222882e.zip/node_modules/axios-debug-log/",\
+        ["virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.0.0", {\
+          "packageLocation": "./.yarn/__virtual__/axios-debug-log-virtual-7246624ab1/0/cache/axios-debug-log-npm-1.0.0-b3208ab9aa-db41f20439.zip/node_modules/axios-debug-log/",\
           "packageDependencies": [\
-            ["axios-debug-log", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:0.8.4"],\
+            ["axios-debug-log", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.0.0"],\
             ["@types/axios", null],\
             ["@types/debug", "npm:4.1.12"],\
             ["axios", "npm:1.6.7"],\
@@ -15389,7 +15389,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/parser", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.62.0"],\
             ["applicationinsights", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.3.5"],\
             ["axios", "npm:1.6.7"],\
-            ["axios-debug-log", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:0.8.4"],\
+            ["axios-debug-log", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.0.0"],\
             ["babel-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:8.3.0"],\
             ["body-parser", "npm:1.20.2"],\
             ["chai", "npm:4.4.1"],\
