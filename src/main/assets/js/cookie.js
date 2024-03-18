@@ -23,7 +23,7 @@ cookieManager.on('UserPreferencesSaved', preferences => {
 });
 
 cookieManager.on('PreferenceFormSubmitted', () => {
-  const message = document.querySelector('.cookie-preference-success');
+  const message = document.querySelector('.cookie-settings__confirmation');
   if (message) {
     message.style.display = 'block';
   }
