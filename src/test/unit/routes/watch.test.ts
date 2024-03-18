@@ -38,10 +38,24 @@ describe('Watch page failure', () => {
     test('should return 404 when getRecording fails', async () => {
       mockGetRecording(null);
       await request(app)
-        .get('/watch/something')
+        .get('/watch/12345678-1234-1234-1234-1234567890zz')
         .expect(res => expect(res.status).to.equal(404));
     });
     test('should return 404 when getRecordingPlaybackData fails', async () => {
+      mockGetRecording();
+      mockGetRecordingPlaybackData(null);
+      await request(app)
+        .get('/watch/12345678-1234-1234-1234-1234567890zz/playback')
+        .expect(res => expect(res.status).to.equal(404));
+    });
+
+    test('should return 404 when getRecording id is invalid', async () => {
+      mockGetRecording(null);
+      await request(app)
+        .get('/watch/something')
+        .expect(res => expect(res.status).to.equal(404));
+    });
+    test('should return 404 when getRecordingPlaybackData id is invalid', async () => {
       mockGetRecording();
       mockGetRecordingPlaybackData(null);
       await request(app)
