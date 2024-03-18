@@ -94,7 +94,7 @@ export class PreClient {
     }
   }
 
-  public async getRecordingPlaybackData(id: string): Promise<RecordingPlaybackData | null> {
+  public async getRecordingPlaybackData(xUserId: string, id: string): Promise<RecordingPlaybackData | null> {
     const url = config.get('ams.flowUrl') as string;
     const key = config.get('ams.flowKey') as string;
     const axiosClient = axios.create(); // TODO: move AMS playback logic to API and use instead of flow above
@@ -104,7 +104,7 @@ export class PreClient {
         url,
         {
           RecordingId: id,
-          AccountID: 'e1b7674b-b94d-4e07-9957-48345845885a', // TODO: get authenticated user id. Remove when AMS playback logic is moved to API
+          AccountID: xUserId,
         },
         {
           headers: {

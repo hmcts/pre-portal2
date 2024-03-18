@@ -46,7 +46,10 @@ export default function (app: Application): void {
 
     try {
       const client = new PreClient();
-      const recordingPlaybackData = await client.getRecordingPlaybackData(req.params.id);
+      const recordingPlaybackData = await client.getRecordingPlaybackData(
+        SessionUser.getLoggedInUserPortalId(req),
+        req.params.id
+      );
 
       if (recordingPlaybackData === null) {
         res.status(404);

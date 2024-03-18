@@ -137,7 +137,7 @@ describe('PreClient', () => {
     }
   });
   test('get recording playback data', async () => {
-    const recording = await preClient.getRecordingPlaybackData(mockRecordingId);
+    const recording = await preClient.getRecordingPlaybackData(otherXUserId, mockRecordingId);
     expect(recording).toBeTruthy();
     expect(recording?.src).toBe('something');
   });
