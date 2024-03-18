@@ -126,19 +126,23 @@ export function mockGetRecordings(recordings?: Recording[], page: number = 0) {
 
 export function mockGetRecordingPlaybackData(data?: RecordingPlaybackData | null) {
   if (data !== undefined) {
-    jest.spyOn(PreClient.prototype, 'getRecordingPlaybackData').mockImplementation(async (id: string) => {
-      return Promise.resolve(data);
-    });
+    jest
+      .spyOn(PreClient.prototype, 'getRecordingPlaybackData')
+      .mockImplementation(async (xUserId: string, id: string) => {
+        return Promise.resolve(data);
+      });
     return;
   }
 
-  jest.spyOn(PreClient.prototype, 'getRecordingPlaybackData').mockImplementation(async (id: string) => {
-    return Promise.resolve({
-      src: 'src',
-      type: 'type',
-      protectionInfo: [],
-    } as RecordingPlaybackData);
-  });
+  jest
+    .spyOn(PreClient.prototype, 'getRecordingPlaybackData')
+    .mockImplementation(async (xUserId: string, id: string) => {
+      return Promise.resolve({
+        src: 'src',
+        type: 'type',
+        protectionInfo: [],
+      } as RecordingPlaybackData);
+    });
 }
 
 export function reset() {
