@@ -19,7 +19,8 @@ export default function (app: Application): void {
     try {
       const client = new PreClient();
 
-      const recording = await client.getRecording(SessionUser.getLoggedInUserPortalId(req), req.params.id);
+      const userPortalId = await SessionUser.getLoggedInUserPortalId(req);
+      const recording = await client.getRecording(userPortalId, req.params.id);
 
       if (recording === null) {
         res.status(404);
@@ -46,10 +47,9 @@ export default function (app: Application): void {
 
     try {
       const client = new PreClient();
-      const recordingPlaybackData = await client.getRecordingPlaybackData(
-        SessionUser.getLoggedInUserPortalId(req),
-        req.params.id
-      );
+
+      const userPortalId = await SessionUser.getLoggedInUserPortalId(req);
+      const recordingPlaybackData = await client.getRecordingPlaybackData(userPortalId, req.params.id);
 
       if (recordingPlaybackData === null) {
         res.status(404);
