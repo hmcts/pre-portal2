@@ -17,19 +17,32 @@ export default function (app: Application): void {
         return;
       }
 
-      const recordingPlaybackData = await client.getRecordingPlaybackData(req.params.id);
+      const recordingPlaybackDataUrl = `/watch/${req.params.id}/playback`;
 
-      if (recordingPlaybackData === null) {
-        res.status(404);
-        res.render('not-found');
-        return;
-      }
-
-      res.render('watch', { recording, recordingPlaybackData });
+      res.render('watch', { recording, recordingPlaybackDataUrl });
     } catch (e) {
       console.log('Error in watch route', e.message);
       res.status(500);
       res.render('error', { message: e.message });
+    }
+  });
+
+  app.get('/watch/:id/playback', requiresAuth(), async (req, res) => {
+    try {
+      const client = new PreClient();
+      const recordingPlaybackData = await client.getRecordingPlaybackData(req.params.id);
+
+      if (recordingPlaybackData === null) {
+        res.status(404);
+        res.json({ error: 'Recording playback data not found' });
+        return;
+      }
+
+      res.json(recordingPlaybackData);
+    } catch (e) {
+      console.log('Error in watch playback route', e.message);
+      res.status(500);
+      res.json({ error: e.message });
     }
   });
 }
