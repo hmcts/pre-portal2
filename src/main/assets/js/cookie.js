@@ -23,7 +23,7 @@ cookieManager.on('UserPreferencesSaved', preferences => {
 });
 
 cookieManager.on('PreferenceFormSubmitted', () => {
-  const message = document.querySelector('.cookie-settings__confirmation');
+  const message = document.querySelector('.govuk-notification-banner--success');
   if (message) {
     message.style.display = 'block';
   }
