@@ -1477,7 +1477,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@codeceptjs/configure@npm:0.10.0, @codeceptjs/configure@npm:^0.10.0":
+"@codeceptjs/configure@npm:0.10.0":
   version: 0.10.0
   resolution: "@codeceptjs/configure@npm:0.10.0"
   dependencies:
@@ -1486,6 +1486,18 @@ __metadata:
   peerDependencies:
     codeceptjs: ">= 2.3.3"
   checksum: e4556a9c1fdea92ede4a9bae296403d677bf89d5070cf53e7637d62062e00bf40c09fa34345d2fbca468c31d33bc0b3fdc3626e67f8d74a6d589f1e060e52f81
+  languageName: node
+  linkType: hard
+
+"@codeceptjs/configure@npm:^1.0.0":
+  version: 1.0.1
+  resolution: "@codeceptjs/configure@npm:1.0.1"
+  dependencies:
+    lodash.merge: ^4.6.2
+    lodash.mergewith: ^4.6.2
+  peerDependencies:
+    codeceptjs: ">= 2.3.3"
+  checksum: f570ddc1dba5cd53319cb23a1819723cfdba946b084fb39d84d25e0735300fdfb018ec5d8b1f7718d979cb17468126748d04d96aaeb7e1815694f9baca49dde2
   languageName: node
   linkType: hard
 
@@ -12135,7 +12147,7 @@ __metadata:
     "@babel/eslint-parser": 7.23.10
     "@babel/preset-env": 7.24.0
     "@codeceptjs/allure-legacy": ^1.0.2
-    "@codeceptjs/configure": ^0.10.0
+    "@codeceptjs/configure": ^1.0.0
     "@hmcts/cookie-manager": ^1.0.0
     "@hmcts/info-provider": 1.1.0
     "@hmcts/nodejs-healthcheck": 1.8.4
@@ -12228,7 +12240,7 @@ __metadata:
     ts-node: 10.9.2
     tsconfig-paths: 4.2.0
     typed-rest-client: ^1.8.9
-    typescript: 4.8.3
+    typescript: 4.9.5
     webpack: 5.90.3
     webpack-cli: 4.10.0
     webpack-dev-middleware: 5.3.3
@@ -14700,23 +14712,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:4.8.3":
-  version: 4.8.3
-  resolution: "typescript@npm:4.8.3"
+"typescript@npm:4.9.5":
+  version: 4.9.5
+  resolution: "typescript@npm:4.9.5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 8286a5edcaf3d68e65c451aa1e7150ad1cf53ee0813c07ec35b7abdfdb10f355ecaa13c6a226a694ae7a67785fd7eeebf89f845da0b4f7e4a35561ddc459aba0
+  checksum: ee000bc26848147ad423b581bd250075662a354d84f0e06eb76d3b892328d8d4440b7487b5a83e851b12b255f55d71835b008a66cbf8f255a11e4400159237db
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@4.8.3#~builtin<compat/typescript>":
-  version: 4.8.3
-  resolution: "typescript@patch:typescript@npm%3A4.8.3#~builtin<compat/typescript>::version=4.8.3&hash=3b564f"
+"typescript@patch:typescript@4.9.5#~builtin<compat/typescript>":
+  version: 4.9.5
+  resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=289587"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: dfe2ee3b9da1d74b9e06784ae90c20c435db9ad6ab23172911f6cdbfd7ab7213ae3611c4254c5a2c6dc2e89f05a658b95493890bf62d218267033b3d8a2e4dd6
+  checksum: 1f8f3b6aaea19f0f67cba79057674ba580438a7db55057eb89cc06950483c5d632115c14077f6663ea76fd09fce3c190e6414bb98582ec80aa5a4eaf345d5b68
   languageName: node
   linkType: hard
 
