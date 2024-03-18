@@ -9,7 +9,7 @@ export default function (app: Application): void {
     try {
       const client = new PreClient();
 
-      const recording = await client.getRecording(SessionUser.getLoggedInUserPortalId(req), req.params.id);
+      const recording = await client.getRecording(await SessionUser.getLoggedInUserPortalId(req), req.params.id);
 
       if (recording === null) {
         res.status(404);

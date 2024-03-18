@@ -27,7 +27,10 @@ export default function (app: Application): void {
         size: 10,
       };
 
-      const { recordings, pagination } = await client.getRecordings(SessionUser.getLoggedInUserPortalId(req), request);
+      const { recordings, pagination } = await client.getRecordings(
+        await SessionUser.getLoggedInUserPortalId(req),
+        request
+      );
 
       const paginationLinks = {
         previous: {},

@@ -4,23 +4,29 @@ import { createRequest } from 'node-mocks-http';
 import { UserProfile } from '../../../main/types/user-profile';
 import { mockeduser } from '../test-helper';
 
+jest.mock('../../../main/services/pre-api/pre-client', () => ({
+  PreClient: jest.fn().mockImplementation(() => ({
+    constructor: () => {},
+    getUserByEmail: jest.fn().mockImplementation((s: string) => {
+      return Promise.resolve(mockeduser as UserProfile);
+    }),
+  })),
+}));
 describe('Session Users', () => {
   test('getLoggedInUser no session', async () => {
-    const t = () => {
-      SessionUser.getLoggedInUserPortalId({} as Express.Request);
+    const t = async () => {
+      await SessionUser.getLoggedInUserPortalId({} as Express.Request);
     };
-    expect(t).toThrow(Error);
-    expect(t).toThrow('No session found');
+    await expect(t).rejects.toThrow('No session found');
   });
 
   test('getLoggedInUser no userProfile', async () => {
     const req = createRequest();
     req['__session'] = {};
-    const t = () => {
-      SessionUser.getLoggedInUserPortalId(req);
+    const t = async () => {
+      await SessionUser.getLoggedInUserPortalId(req);
     };
-    expect(t).toThrow(Error);
-    expect(t).toThrow('No userProfile found in session');
+    await expect(t).rejects.toThrow('No userProfile found in session');
   });
 
   test('getLoggedInUserPortalId no user id', async () => {
@@ -28,11 +34,10 @@ describe('Session Users', () => {
     req['__session'] = {
       userProfile: {},
     };
-    const t = () => {
-      SessionUser.getLoggedInUserPortalId(req);
+    const t = async () => {
+      await SessionUser.getLoggedInUserPortalId(req);
     };
-    expect(t).toThrow(Error);
-    expect(t).toThrow('No user id found in session');
+    await expect(t).rejects.toThrow('No user id found in session');
   });
 
   test('getLoggedInUser ok', async () => {
@@ -40,7 +45,7 @@ describe('Session Users', () => {
     req['__session'] = {
       userProfile: mockeduser as UserProfile,
     };
-    const user = SessionUser.getLoggedInUserPortalId(req);
+    const user = await SessionUser.getLoggedInUserPortalId(req);
     expect(user).toBe('3fa85f64-5717-4562-b3fc-2c963f66afa6');
   });
 });
