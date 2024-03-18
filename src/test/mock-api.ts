@@ -3,7 +3,7 @@ import { PreClient } from '../main/services/pre-api/pre-client';
 
 export const mockRecordings: Recording[] = [
   {
-    id: 'something',
+    id: '12345678-1234-1234-1234-1234567890ab',
     parentRecordingId: 'parentId',
     version: 1,
     filename: 'filename',
@@ -30,7 +30,7 @@ export const mockRecordings: Recording[] = [
     participants: [],
   } as Recording,
   {
-    id: 'somethingElse',
+    id: '12345678-1234-1234-1234-1234567890ac',
     parentRecordingId: 'parentId',
     version: 1,
     filename: 'filename',
@@ -126,19 +126,23 @@ export function mockGetRecordings(recordings?: Recording[], page: number = 0) {
 
 export function mockGetRecordingPlaybackData(data?: RecordingPlaybackData | null) {
   if (data !== undefined) {
-    jest.spyOn(PreClient.prototype, 'getRecordingPlaybackData').mockImplementation(async (id: string) => {
-      return Promise.resolve(data);
-    });
+    jest
+      .spyOn(PreClient.prototype, 'getRecordingPlaybackData')
+      .mockImplementation(async (xUserId: string, id: string) => {
+        return Promise.resolve(data);
+      });
     return;
   }
 
-  jest.spyOn(PreClient.prototype, 'getRecordingPlaybackData').mockImplementation(async (id: string) => {
-    return Promise.resolve({
-      src: 'src',
-      type: 'type',
-      protectionInfo: [],
-    } as RecordingPlaybackData);
-  });
+  jest
+    .spyOn(PreClient.prototype, 'getRecordingPlaybackData')
+    .mockImplementation(async (xUserId: string, id: string) => {
+      return Promise.resolve({
+        src: 'src',
+        type: 'type',
+        protectionInfo: [],
+      } as RecordingPlaybackData);
+    });
 }
 
 export function reset() {

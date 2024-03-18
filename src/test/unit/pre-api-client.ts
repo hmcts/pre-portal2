@@ -9,6 +9,7 @@ import { mockeduser } from './test-helper';
 import { AccessStatus } from '../../main/types/access-status';
 
 const preClient = new PreClient();
+const mockRecordingId = '12345678-1234-1234-1234-1234567890ab';
 jest.mock('axios');
 
 /* eslint-disable jest/expect-expect */
@@ -43,10 +44,10 @@ describe('PreClient', () => {
         data: noPortalUser,
       });
     }
-    if (url === '/recordings/something') {
+    if (url === `/recordings/${mockRecordingId}`) {
       return Promise.resolve({
         status: 200,
-        data: mockRecordings.find(r => r.id === 'something'),
+        data: mockRecordings.find(r => r.id === mockRecordingId),
       });
     }
     if (url === '/recordings') {
@@ -88,9 +89,9 @@ describe('PreClient', () => {
   const otherXUserId = 'a114f40e-bdba-432d-b53f-37169ee5bf90';
 
   test('get recording', async () => {
-    const recording = await preClient.getRecording(mockXUserId, 'something');
+    const recording = await preClient.getRecording(mockXUserId, mockRecordingId);
     expect(recording).toBeTruthy();
-    expect(recording?.id).toBe('something');
+    expect(recording?.id).toBe(mockRecordingId);
   });
   test('get recordings', async () => {
     const request = {} as SearchRecordingsRequest;
@@ -136,7 +137,7 @@ describe('PreClient', () => {
     }
   });
   test('get recording playback data', async () => {
-    const recording = await preClient.getRecordingPlaybackData('something');
+    const recording = await preClient.getRecordingPlaybackData(otherXUserId, mockRecordingId);
     expect(recording).toBeTruthy();
     expect(recording?.src).toBe('something');
   });

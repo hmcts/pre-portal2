@@ -20,20 +20,43 @@
 {% block content %}
   <h1 class="govuk-heading-xl">Case Ref: {{ recording.case_reference }}</h1>
 
-  <div class="govuk-!-margin-bottom-2 video-wrapper">
-    <video
-      id="player"
-      data-testid="recording-video"
-      class="azuremediaplayer amp-default-skin amp-big-play-centered"
-      controls
-      width="100%"
-      height="auto"
-      data-setup='{"nativeControlsForTouch": false}'>
-      <p class="amp-no-js">
-        To view this video please enable JavaScript, and consider upgrading to
-        a web browser that supports HTML5 video
-      </p>
-    </video>
+  <div id="videoError" class="govuk-error-summary" data-module="govuk-error-summary" style="display: none;">
+    <div role="alert">
+      <h2 class="govuk-error-summary__title">
+        There is a problem
+      </h2>
+      <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+          <li class="govuk-error-message">
+            The video could not be loaded. Please try again later.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="videoWrapper" class="govuk-!-margin-bottom-2 video-wrapper">
+    <div id="loadingGif" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+      <img
+        src="https://amp.azure.net/libs/amp/2.3.11/skins/amp-default/assets/icons/buffering-rainbow.gif"
+        alt="Loading"
+      />
+    </div>
+    <div id="hideVideo" style="visibility: hidden;">
+      <video
+        id="player"
+        data-testid="recording-video"
+        class="azuremediaplayer amp-default-skin amp-big-play-centered"
+        controls
+        width="100%"
+        height="auto"
+        data-setup='{"nativeControlsForTouch": false}'>
+        <p class="amp-no-js">
+          To view this video please enable JavaScript, and consider upgrading to
+          a web browser that supports HTML5 video
+        </p>
+      </video>
+    </div>
   </div>
 
   <div class="govuk-warning-text">
@@ -130,14 +153,41 @@
       enabled: false
     },
   });
+  var playButton = document.querySelector(".vjs-big-play-button");
+  var hideVideo = document.getElementById("hideVideo");
+  var loadingGif = document.getElementById("loadingGif");
+  var videoError = document.getElementById("videoError");
+  var videoWrapper = document.getElementById("videoWrapper");
+  playButton.style.visibility = "hidden";
 
-  player.src([{
-    src: "{{ recordingPlaybackData.src }}",
-    type: "{{ recordingPlaybackData.type }}",
-    protectionInfo: [{
-      type: "AES",
-      authenticationToken: "{{ recordingPlaybackData.protectionInfo[0].authenticationToken }}"
-    }]
-  }]);
+  fetch("{{ recordingPlaybackDataUrl }}", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then(function (response) {
+    if (!response.ok) {
+      throw new Error(response);
+    }
+
+    return response.json();
+  }).then(function (data) {
+    player.src([{
+      src: data.src,
+      type: data.type,
+      protectionInfo: [{
+        type: "AES",
+        authenticationToken: data.protectionInfo[0].authenticationToken,
+      }],
+    }]);
+    loadingGif.style.visibility = "hidden";
+    playButton.style.visibility = "visible";
+    hideVideo.style.visibility = "visible";
+  }).catch(function (error) {
+    console.error("Error:", error);
+    loadingGif.style.visibility = "hidden";
+    videoWrapper.style.display = "none";
+    videoError.style.display = "block";
+  });
   </script>
 {% endblock %}
