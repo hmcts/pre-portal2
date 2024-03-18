@@ -4,8 +4,18 @@ import { SessionUser } from '../services/session-user/session-user';
 import { Application } from 'express';
 import { requiresAuth } from 'express-openid-connect';
 
+function validateId(id: string): boolean {
+  return /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(id);
+}
+
 export default function (app: Application): void {
   app.get('/watch/:id', requiresAuth(), async (req, res) => {
+    if (!validateId(req.params.id)) {
+      res.status(404);
+      res.render('not-found');
+      return;
+    }
+
     try {
       const client = new PreClient();
 
@@ -28,13 +38,19 @@ export default function (app: Application): void {
   });
 
   app.get('/watch/:id/playback', requiresAuth(), async (req, res) => {
+    if (!validateId(req.params.id)) {
+      res.status(404);
+      res.json({ message: 'Not found' });
+      return;
+    }
+
     try {
       const client = new PreClient();
       const recordingPlaybackData = await client.getRecordingPlaybackData(req.params.id);
 
       if (recordingPlaybackData === null) {
         res.status(404);
-        res.json({ error: 'Recording playback data not found' });
+        res.json({ message: 'Not found' });
         return;
       }
 
@@ -42,7 +58,7 @@ export default function (app: Application): void {
     } catch (e) {
       console.log('Error in watch playback route', e.message);
       res.status(500);
-      res.json({ error: e.message });
+      res.json({ message: e.message });
     }
   });
 }

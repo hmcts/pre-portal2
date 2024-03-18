@@ -167,7 +167,7 @@
     },
   }).then(function (response) {
     if (!response.ok) {
-      throw new Error(response.data);
+      throw new Error(response);
     }
 
     return response.json();
