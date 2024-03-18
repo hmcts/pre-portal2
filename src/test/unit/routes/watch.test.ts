@@ -1,7 +1,7 @@
 /* eslint-disable jest/expect-expect */
 import { Nunjucks } from '../../../main/modules/nunjucks';
 import { mockGetRecording, mockGetRecordingPlaybackData, reset } from '../../mock-api';
-import { beforeAll } from '@jest/globals';
+import { beforeAll, describe } from '@jest/globals';
 import { expect } from 'chai';
 
 jest.mock('express-openid-connect', () => {
@@ -35,13 +35,6 @@ describe('Watch page failure', () => {
     const watch = require('../../../main/routes/watch').default;
     watch(app);
 
-    test('should return 404 when both api calls fail', async () => {
-      mockGetRecording(null);
-      mockGetRecordingPlaybackData(null);
-      await request(app)
-        .get('/watch/something')
-        .expect(res => expect(res.status).to.equal(404));
-    });
     test('should return 404 when getRecording fails', async () => {
       mockGetRecording(null);
       await request(app)
@@ -52,8 +45,34 @@ describe('Watch page failure', () => {
       mockGetRecording();
       mockGetRecordingPlaybackData(null);
       await request(app)
-        .get('/watch/something')
+        .get('/watch/something/playback')
         .expect(res => expect(res.status).to.equal(404));
+    });
+  });
+});
+
+describe('Watch page success', () => {
+  beforeAll(() => {
+    reset();
+  });
+
+  describe('on GET', () => {
+    const app = require('express')();
+    new Nunjucks(false).enableFor(app);
+    const request = require('supertest');
+
+    const watch = require('../../../main/routes/watch').default;
+    watch(app);
+
+    test('should return 200 when getRecording and getRecordingPlaybackData succeed', async () => {
+      mockGetRecording();
+      mockGetRecordingPlaybackData();
+      await request(app)
+        .get('/watch/12345678-1234-1234-1234-1234567890ab')
+        .expect(res => expect(res.status).to.equal(200));
+      await request(app)
+        .get('/watch/12345678-1234-1234-1234-1234567890ab/playback')
+        .expect(res => expect(res.status).to.equal(200));
     });
   });
 });

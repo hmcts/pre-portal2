@@ -3,7 +3,7 @@ import { PreClient } from '../main/services/pre-api/pre-client';
 
 export const mockRecordings: Recording[] = [
   {
-    id: 'something',
+    id: '12345678-1234-1234-1234-1234567890ab',
     parentRecordingId: 'parentId',
     version: 1,
     filename: 'filename',
@@ -30,7 +30,7 @@ export const mockRecordings: Recording[] = [
     participants: [],
   } as Recording,
   {
-    id: 'somethingElse',
+    id: '12345678-1234-1234-1234-1234567890ac',
     parentRecordingId: 'parentId',
     version: 1,
     filename: 'filename',
