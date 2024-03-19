@@ -48,4 +48,29 @@ describe('Session Users', () => {
     const user = await SessionUser.getLoggedInUserPortalId(req);
     expect(user).toBe('3fa85f64-5717-4562-b3fc-2c963f66afa6');
   });
+
+  test('getLoggedInUserProfile no session', () => {
+    const t = () => {
+      SessionUser.getLoggedInUserProfile({} as Express.Request);
+    };
+    expect(t).toThrow('No session found');
+  });
+
+  test('getLoggedInUserProfile no user profile', () => {
+    const req = createRequest();
+    req['__session'] = {};
+    const t = () => {
+      SessionUser.getLoggedInUserProfile(req);
+    };
+    expect(t).toThrow('No userProfile found in session');
+  });
+
+  test('getLoggedInUserProfile ok', () => {
+    const req = createRequest();
+    req['__session'] = {
+      userProfile: mockeduser as UserProfile,
+    };
+    const user = SessionUser.getLoggedInUserProfile(req);
+    expect(user).toBe(mockeduser);
+  });
 });

@@ -4,6 +4,8 @@ import { mockGetRecordings, reset, mockRecordings } from '../../mock-api';
 import { beforeAll } from '@jest/globals';
 import { expect } from 'chai';
 import { PreClient } from '../../../main/services/pre-api/pre-client';
+import { UserProfile } from '../../../main/types/user-profile';
+import { mockeduser } from '../test-helper';
 
 jest.mock('express-openid-connect', () => {
   return {
@@ -19,6 +21,9 @@ jest.mock('../../../main/services/session-user/session-user', () => {
     SessionUser: {
       getLoggedInUserPortalId: jest.fn().mockImplementation((req: Express.Request) => {
         return '123';
+      }),
+      getLoggedInUserProfile: jest.fn().mockImplementation((req: Express.Request) => {
+        return mockeduser as UserProfile;
       }),
     },
   };

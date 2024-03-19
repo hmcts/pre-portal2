@@ -18,4 +18,14 @@ export class SessionUser {
     await client.getUserByEmail(user.user.email);
     return user.portal_access[0].id;
   }
+
+  public static getLoggedInUserProfile(req: Express.Request): UserProfile {
+    if (!req['__session']) {
+      throw new Error('No session found');
+    }
+    if (!req['__session'].userProfile) {
+      throw new Error('No userProfile found in session');
+    }
+    return req['__session'].userProfile as UserProfile;
+  }
 }
