@@ -29,6 +29,7 @@ describe('PreClient', () => {
     }
     if (url === '/users/by-email/inactive@testy.com') {
       const inactiveUser = { ...mockeduser } as UserProfile;
+      // @ts-ignore
       inactiveUser.portal_access[0].status = AccessStatus.INACTIVE;
       return Promise.resolve({
         status: 200,
@@ -116,25 +117,23 @@ describe('PreClient', () => {
     }
   });
   test('get user by email ok', async () => {
-    const user = await preClient.getUserByEmail('test@testy.com');
+    const user = await preClient.getUserByClaimEmail('test@testy.com');
     expect(user).toBeTruthy();
     expect(user.user.email).toBe('test@testy.com');
   });
   test('get user by email 404', async () => {
     try {
-      await preClient.getUserByEmail('mctest@testy.com');
+      await preClient.getUserByClaimEmail('mctest@testy.com');
       expect(true).toBe(false); // shouldn't get here...
     } catch (e) {
       expect(e).toEqual('404');
     }
   });
   test('get user by email inactive', async () => {
-    try {
-      await preClient.getUserByEmail('inactive@testy.com');
-      expect(true).toBe(false); // shouldn't get here...
-    } catch (e) {
-      expect(e.message).toEqual('User is not active: inactive@testy.com');
-    }
+    const t = async () => {
+      await preClient.getUserByClaimEmail('inactive@testy.com');
+    };
+    await expect(t).rejects.toThrow('User is not active: inactive@testy.com');
   });
   test('get recording playback data', async () => {
     const recording = await preClient.getRecordingPlaybackData(otherXUserId, mockRecordingId);
@@ -143,7 +142,7 @@ describe('PreClient', () => {
   });
   test("user doesn't have a portal_access object in their profile", async () => {
     try {
-      await preClient.getUserByEmail('noportal_access@testy.com');
+      await preClient.getUserByClaimEmail('noportal_access@testy.com');
     } catch (e) {
       expect(e.message).toEqual('User has not been invited to the portal: noportal_access@testy.com');
     }

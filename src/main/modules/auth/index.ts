@@ -42,14 +42,9 @@ export class Auth {
 
         // check if the user is a new user
         const client = new PreClient();
-        const invitedUser = await client.isInvitedUser(claims.email as string);
-        if (invitedUser) {
-          await client.redeemInvitedUser(claims.email as string);
-        }
-        const userProfile = await client.getUserByEmail(claims.email as string);
         return {
           ...s,
-          userProfile,
+          userProfile: await client.getUserByClaimEmail(claims.email as string),
         };
       },
       session: {
