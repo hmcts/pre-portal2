@@ -101,7 +101,7 @@ export default function (app: Application): void {
         recordings,
         paginationLinks,
         title,
-        user: req.oidc?.user,
+        user: SessionUser.getLoggedInUserProfile(req).user,
       });
     } catch (e) {
       res.status(500);
