@@ -14,13 +14,35 @@ export class PreClient {
     await axios.get('/health');
   }
 
-  public async isInvitedUser(email: string): Promise<boolean> {
-    const response = await axios.get('/invites', {
-      params: {
-        email,
-      },
-    });
-    return response.data.page.totalElements > 0;
+  public async getUserByClaimEmail(email: string): Promise<UserProfile> {
+    let userProfile = await this.getUserByEmail(email);
+
+    if (!userProfile.portal_access || userProfile.portal_access.length === 0) {
+      const invitedUser = await this.isInvitedUser(userProfile.user.id);
+      if (!invitedUser) {
+        throw new Error('User has not been invited to the portal: ' + email);
+      }
+      try {
+        await this.redeemInvitedUser(email);
+        userProfile = await this.getUserByEmail(email);
+      } catch (e) {
+        throw new Error('Error redeeming user: ' + email);
+      }
+    } else if (userProfile.portal_access[0].status === AccessStatus.INACTIVE) {
+      throw new Error('User is not active: ' + email);
+    }
+
+    return userProfile;
+  }
+
+  public async isInvitedUser(userId: string): Promise<boolean> {
+    try {
+      const response = await axios.get('/invites/' + userId);
+      return response.data.page.totalElements > 0;
+    } catch (e) {
+      this.logger.error(e.message);
+      return false;
+    }
   }
 
   public async redeemInvitedUser(email: string): Promise<void> {
@@ -30,12 +52,6 @@ export class PreClient {
   public async getUserByEmail(email: string): Promise<UserProfile> {
     const response = await axios.get('/users/by-email/' + email);
     const user = response.data as UserProfile;
-    if (!user.portal_access) {
-      throw new Error('User has not been invited to the portal: ' + email);
-    }
-    if (user.portal_access[0].status === AccessStatus.INACTIVE) {
-      throw new Error('User is not active: ' + email);
-    }
     return user;
   }
 
