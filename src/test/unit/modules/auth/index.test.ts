@@ -36,12 +36,12 @@ describe('Auth Module', () => {
         return Promise.resolve({
           status: 200,
           data: {
-            "user_id": "9ffcc9fb-db21-4d77-a983-c39b01141c6a",
-            "first_name": "Jason",
-            "last_name": "Paige",
-            "email": "test@testy.com",
-            "invited_at": "2024-03-19T17:56:35.381+00:00",
-            "code": null
+            user_id: '9ffcc9fb-db21-4d77-a983-c39b01141c6a',
+            first_name: 'Jason',
+            last_name: 'Paige',
+            email: 'test@testy.com',
+            invited_at: '2024-03-19T17:56:35.381+00:00',
+            code: null,
           },
         });
       }
