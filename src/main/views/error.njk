@@ -3,6 +3,36 @@
 {% block pageTitle %}Error - PRE Portal{% endblock %}
 
 {% block content %}
-  <h1 class="govuk-heading-xl">Something went wrong</h1>
-  <p class="govuk-body">{{ message }}</p>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-8">Something went wrong</h1>
+      <p class="govuk-body">
+        {% if status == 401 %}
+          You do not have access to view this page.
+        {% elif 'nonce mismatch' in message or 'checks.state' in message  %}
+          Your session has timed out or you have tried to access a page without the correct permissions.
+        {% elif 'User has not been invited to the portal' == message %}
+          You don't currently have access to the portal.
+        {% else %}
+          An Unknown error has occurred. This has been logged in our system.
+        {% endif %}
+      </p>
+      <p class="govuk-body">
+        {% if status == 401
+          or 'nonce mismatch' in message
+          or checks.state in message
+          or 'User has not been invited to the portal' == message %}
+          You can
+          <a class="govuk-link" href="/login">sign in again</a>.
+        {% else %}
+          You can
+          <a class="govuk-link" href="/">browse from the homepage</a>.
+        {% endif %}
+      </p>
+      <pre class="govuk-!-margin-top-8">
+        Status code: {{ status }}
+        Error: {{ message }}
+      </pre>
+    </div>
+  </div>
 {% endblock %}

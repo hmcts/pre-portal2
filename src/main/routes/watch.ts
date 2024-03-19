@@ -33,7 +33,7 @@ export default function (app: Application): void {
     } catch (e) {
       console.log('Error in watch route', e.message);
       res.status(500);
-      res.render('error', { message: e.message });
+      res.render('error', { status: 500, message: e.message });
     }
   });
 
