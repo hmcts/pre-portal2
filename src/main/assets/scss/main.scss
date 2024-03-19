@@ -4,8 +4,16 @@
   border: 4px solid $govuk-input-border-colour;
   margin-bottom: 30px;
   padding: 4px;
+  position: relative;
 }
 
 .govuk-notification-banner--success {
   display: none;
+}
+
+.loading-gif {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
