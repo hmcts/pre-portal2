@@ -31,7 +31,6 @@ export default function (app: Application): void {
 
       res.render('watch', { recording, recordingPlaybackDataUrl });
     } catch (e) {
-      console.log('Error in watch route', e.message);
       res.status(500);
       res.render('error', { status: 500, message: e.message });
     }
@@ -60,7 +59,6 @@ export default function (app: Application): void {
 
       res.json(recordingPlaybackData);
     } catch (e) {
-      console.log('Error in watch playback route', e.message);
       res.status(500);
       res.json({ message: e.message });
     }
