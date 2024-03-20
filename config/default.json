@@ -26,9 +26,10 @@
     "secret": "superlongrandomstringthatshouldbebetterinprod"
   },
   "b2c": {
-    "appClientId": "c8deb898-d595-4fb2-8ba5-52fffa8db064",
+    "appClientId": "",
     "appClientSecret": "",
-    "baseUrl": "https://hmctsdevextid.b2clogin.com/hmctsdevextid.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_SIGNUP_SIGNIN",
+    "baseUrl": "",
+    "endSessionEndpoint": "",
     "testLogin": {
       "email": "",
       "password": ""
