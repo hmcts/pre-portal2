@@ -105,7 +105,7 @@ export default function (app: Application): void {
       });
     } catch (e) {
       res.status(500);
-      res.render('error', { message: e.message });
+      res.render('error', { status: 500, message: e.message });
       logger.error(e.message);
     }
   });
