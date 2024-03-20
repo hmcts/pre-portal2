@@ -13,8 +13,18 @@ export class PropertiesVolume {
     set(config, 'session.secret', process.env.SESSION_SECRET ?? 'superlongrandomstringthatshouldbebetterinprod');
     set(config, 'session.redis.host', process.env.REDIS_HOST ?? '');
     set(config, 'b2c.appClientId', process.env.B2C_APP_CLIENT_ID ?? 'c8deb898-d595-4fb2-8ba5-52fffa8db064');
-    set(config, 'b2c.baseUrl', process.env.B2C_BASE_URL ?? 'https://hmctsdevextid.b2clogin.com/hmctsdevextid.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_SIGNUP_SIGNIN');
-    set(config, 'b2c.endSessionEndpoint', process.env.B2C_END_SESSION_ENDPOINT ?? 'https://hmctsdevextid.b2clogin.com/hmctsdevextid.onmicrosoft.com/b2c_1a_signup_signin/oauth2/v2.0/logout');
+    set(
+      config,
+      'b2c.baseUrl',
+      process.env.B2C_BASE_URL ??
+        'https://hmctsdevextid.b2clogin.com/hmctsdevextid.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_SIGNUP_SIGNIN'
+    );
+    set(
+      config,
+      'b2c.endSessionEndpoint',
+      process.env.B2C_END_SESSION_ENDPOINT ??
+        'https://hmctsdevextid.b2clogin.com/hmctsdevextid.onmicrosoft.com/b2c_1a_signup_signin/oauth2/v2.0/logout'
+    );
 
     if (server.locals.ENV === 'production') {
       this.logger.info('Loading properties from mounted KV');

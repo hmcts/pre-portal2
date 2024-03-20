@@ -18,7 +18,6 @@ export class PreClient {
     let userProfile = await this.getUserByEmail(email);
 
     if (!userProfile.portal_access || userProfile.portal_access.length === 0) {
-
       const invitedUser = await this.isInvitedUser(email);
       if (!invitedUser) {
         throw new Error('User has no invites with status [INVITATION_SENT]: ' + email);
@@ -41,7 +40,7 @@ export class PreClient {
       const response = await axios.get('/invites/', {
         params: {
           email,
-          status: AccessStatus.INVITATION_SENT
+          status: AccessStatus.INVITATION_SENT,
         },
       });
       return response.data.page.totalElements > 0;
