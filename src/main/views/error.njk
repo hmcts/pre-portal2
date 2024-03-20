@@ -9,7 +9,7 @@
       <p class="govuk-body">
         {% if status == 401 %}
           You do not have access to view this page.
-        {% elif 'nonce mismatch' in message or 'checks.state' in message  %}
+        {% elif 'nonce mismatch' in message %}
           Your session has timed out or you have tried to access a page without the correct permissions.
         {% elif 'User has not been invited to the portal' == message %}
           You don't currently have access to the portal.
@@ -20,7 +20,6 @@
       <p class="govuk-body">
         {% if status == 401
           or 'nonce mismatch' in message
-          or checks.state in message
           or 'User has not been invited to the portal' == message %}
           You can
           <a class="govuk-link" href="/login">sign in again</a>.
