@@ -136,7 +136,7 @@ describe('Browse route', () => {
     const app = require('express')();
     new Nunjucks(false).enableFor(app);
     const request = require('supertest');
-    const recordings = Array(100).fill(mockRecordings[0]).flat();
+    const recordings = Array(90).fill(mockRecordings[0]).flat();
 
     mockGetRecordings(recordings, 4);
 
@@ -147,12 +147,36 @@ describe('Browse route', () => {
     const text = response.text.replace(/\s+/g, ' ').trim();
     expect(response.status).equal(200);
     expect(text).contain('> 1 <');
+    expect(response.text).contain('<li class="govuk-pagination__item govuk-pagination__item--ellipses">&ctdot;</li>');
     expect(text).contain('> 3 <');
     expect(text).contain('> 4 <');
     expect(text).contain('> 5 <');
     expect(text).contain('> 6 <');
     expect(text).contain('> 7 <');
-    expect(text).contain('> 10 <');
+    expect(text).contain('> 9 <');
+  });
+
+  test('pagination should show all the page numbers', async () => {
+    const app = require('express')();
+    new Nunjucks(false).enableFor(app);
+    const request = require('supertest');
+    const recordings = Array(40).fill(mockRecordings[0]).flat();
+
+    mockGetRecordings(recordings, 1);
+
+    const browse = require('../../../main/routes/browse').default;
+    browse(app);
+
+    const response = await request(app).get('/browse?page=1');
+    const text = response.text.replace(/\s+/g, ' ').trim();
+    expect(response.status).equal(200);
+    expect(text).contain('> 1 <');
+    expect(text).contain('> 2 <');
+    expect(text).contain('> 3 <');
+    expect(text).contain('> 4 <');
+    expect(response.text).not.contain(
+      '<li class="govuk-pagination__item govuk-pagination__item--ellipses">&ctdot;</li>'
+    );
   });
 
   test('heading should contain current page, max page and number of recordings', async () => {
