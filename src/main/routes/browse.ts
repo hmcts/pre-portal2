@@ -32,18 +32,25 @@ export default function (app: Application): void {
         request
       );
 
+      // Example 9 pages: <Previous 0 ... 2 3 |4| 5 6 ... 8 Next>
+      // Page starts at 0
+      // Rolling window of 5 pages centered on the current page
+      // The current page is 5 then 2 pages before and 2 pages after does not include the first+1 or last-1 pages so add in ellipsis
+
       const paginationLinks = {
         previous: {},
         next: {},
         items: [] as ({ href: string; number: number; current: boolean } | { ellipsis: boolean })[],
       };
 
+      // Add previous link if not on the first page
       if (pagination.currentPage > 0) {
         paginationLinks.previous = {
           href: `/browse?page=${pagination.currentPage - 1}`,
         };
       }
 
+      // Add next link if not on the last page
       if (pagination.currentPage < pagination.totalPages - 1) {
         paginationLinks.next = {
           href: `/browse?page=${pagination.currentPage + 1}`,
@@ -57,15 +64,15 @@ export default function (app: Application): void {
         current: 0 === pagination.currentPage,
       });
 
-      // Add an ellipsis if the current page is more than 2 pages away from the first page
-      if (pagination.currentPage > 2) {
+      // Add an ellipsis after the first page if the 2nd page is not in the window
+      if (pagination.currentPage > 3) {
         paginationLinks.items.push({ ellipsis: true });
       }
 
-      // Add the pages immediately 2 before and 2 after the current page
+      // Add the pages immediately 2 before and 2 after the current page to create a rolling window of 5 pages
       for (
-        let i = Math.max(2, pagination.currentPage - 2);
-        i <= Math.min(pagination.currentPage + 2, pagination.totalPages - 2);
+        let i = Math.max(1, pagination.currentPage - 2);
+        i < Math.min(pagination.currentPage + 2, pagination.totalPages - 1);
         i++
       ) {
         paginationLinks.items.push({
@@ -75,12 +82,12 @@ export default function (app: Application): void {
         });
       }
 
-      // Add an ellipsis if the current page is more than 2 pages away from the last page
-      if (pagination.currentPage < pagination.totalPages - 3) {
+      // Add an ellipsis before the last page if the 2nd last page is not in the window
+      if (pagination.currentPage < pagination.totalPages - 4) {
         paginationLinks.items.push({ ellipsis: true });
       }
 
-      // Add the last page if there is more than one page
+      // Add the last page if there is more than one page (don't repeat the first page)
       if (pagination.totalPages > 1) {
         paginationLinks.items.push({
           href: `/browse?page=${pagination.totalPages - 1}`,
