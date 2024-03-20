@@ -6,3 +6,5 @@ nodejs:
     PORTAL_URL: https://pre-portal-pr-${CHANGE_ID}.dev.platform.hmcts.net
     API_URL: https://sds-api-mgmt.staging.platform.hmcts.net/pre-api
     ALLOW_CONFIG_MUTATIONS: true
+    B2C_BASE_URL: https://hmctsdevextid.b2clogin.com/hmctsdevextid.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_SIGNUP_SIGNIN
+    B2C_END_SESSION_ENDPOINT: https://hmctsdevextid.b2clogin.com/hmctsdevextid.onmicrosoft.com/b2c_1a_signup_signin/oauth2/v2.0/logout
