@@ -37,7 +37,9 @@ export class Auth {
         redirect_uri: `${config.get('pre.portalUrl')}/callback`,
       },
       routes: {
-        postLogoutRedirect: config.get('b2c.endSessionEndpoint') as string,
+        postLogoutRedirect: ((config.get('b2c.endSessionEndpoint') as string) +
+          '?post_logout_redirect_uri=' +
+          config.get('pre.portalUrl')) as string,
       },
       afterCallback: async (req, res, s) => {
         const claims = jose.decodeJwt(s.id_token);
