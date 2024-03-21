@@ -32,20 +32,18 @@ export interface UserProfile {
           | [];
       };
     }
-  ];
+  ] | [];
 
-  portal_access:
-    | [
-        {
-          deleted_at: string | null;
-          id: string;
-          invited_at: string;
-          last_access: string | null;
-          registered_at: string | null;
-          status: AccessStatus;
-        }
-      ]
-    | [];
+  portal_access: [
+    {
+      deleted_at: string | null;
+      id: string;
+      invited_at: string;
+      last_access: string | null;
+      registered_at: string | null;
+      status: AccessStatus;
+    }
+  ] | [];
 
   user: {
     id: string;

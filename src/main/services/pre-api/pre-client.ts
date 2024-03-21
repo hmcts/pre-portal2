@@ -43,7 +43,7 @@ export class PreClient {
 
   public async isInvitedUser(email: string): Promise<boolean> {
     try {
-      const response = await axios.get('/invites/', {
+      const response = await axios.get('/invites', {
         params: {
           email,
           status: AccessStatus.INVITATION_SENT,
@@ -57,13 +57,16 @@ export class PreClient {
   }
 
   public async redeemInvitedUser(email: string): Promise<void> {
-    await axios.post('/invites/redeem?email=' + email);
+    await axios.post('/invites/redeem', {}, {
+      params: {
+        email
+      }
+    });
   }
 
   public async getUserByEmail(email: string): Promise<UserProfile> {
-    const response = await axios.get('/users/by-email/' + email);
-    const user = response.data as UserProfile;
-    return user;
+    const response = await axios.get('/users/by-email/' + encodeURIComponent(email));
+    return response.data as UserProfile;
   }
 
   public async getRecordings(
