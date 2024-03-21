@@ -10,7 +10,6 @@ export class PropertiesVolume {
   enableFor(server: Application): void {
     set(config, 'pre.portalUrl', process.env.PORTAL_URL ?? 'https://localhost:4551');
     set(config, 'pre.apiUrl', process.env.PRE_API_URL ?? 'https://localhost:4550');
-    set(config, 'session.secret', process.env.SESSION_SECRET ?? 'superlongrandomstringthatshouldbebetterinprod');
     set(config, 'session.redis.host', process.env.REDIS_HOST ?? '');
     set(config, 'b2c.appClientId', process.env.B2C_APP_CLIENT_ID ?? 'c8deb898-d595-4fb2-8ba5-52fffa8db064');
     set(
@@ -31,6 +30,7 @@ export class PropertiesVolume {
       propertiesVolume.addTo(config);
       this.setSecret('secrets.pre-hmctskv.AppInsightsInstrumentationKey', 'appInsights.instrumentationKey');
       this.setSecret('secrets.pre-hmctskv.redis6-access-key', 'session.redis.key');
+      this.setSecret('secrets.pre-hmctskv.session-secret', 'session.secret');
       this.setSecret('secrets.pre-hmctskv.apim-sub-portal-primary-key', 'pre.apiKey.primary');
       this.setSecret('secrets.pre-hmctskv.apim-sub-portal-primary-key', 'pre.primaryApiKey');
       this.setSecret('secrets.pre-hmctskv.apim-sub-portal-secondary-key', 'pre.apiKey.secondary');
@@ -54,6 +54,7 @@ export class PropertiesVolume {
       set(config, 'b2c.appClientSecret', process.env.B2C_APP_CLIENT_SECRET ?? 'b2c.appClientSecret');
       set(config, 'b2c.testLogin.email', process.env.B2C_TEST_LOGIN_EMAIL);
       set(config, 'b2c.testLogin.password', process.env.B2C_TEST_LOGIN_PASSWORD);
+      set(config, 'session.secret', process.env.SESSION_SECRET ?? 'superlongrandomstringthatshouldbebetterinprod');
     }
   }
 
