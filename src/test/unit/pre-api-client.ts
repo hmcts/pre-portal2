@@ -144,7 +144,7 @@ describe('PreClient', () => {
     try {
       await preClient.getUserByClaimEmail('noportal_access@testy.com');
     } catch (e) {
-      expect(e.message).toEqual('User has not been invited to the portal: noportal_access@testy.com');
+      expect(e.message).toEqual('User has no invites with status [INVITATION_SENT]: noportal_access@testy.com');
     }
   });
 });

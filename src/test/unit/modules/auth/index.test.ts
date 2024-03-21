@@ -24,6 +24,9 @@ describe('Auth Module', () => {
     set(config, 'session.redis.host', 'http://localhost:6379');
     set(config, 'session.redis.key', 'rediskey');
     set(config, 'b2c.appClientSecret', 'appClientSecret');
+    set(config, 'b2c.appClientId', 'appClientId');
+    set(config, 'b2c.baseUrl', 'https://baseUrl.local/');
+    set(config, 'b2c.endSessionEndpoint', 'https://endSessionEndpoint.local/');
     auth.enableFor(app);
     expect(app.locals.redisClient).toBeDefined();
   });
@@ -32,16 +35,16 @@ describe('Auth Module', () => {
     const mockedAxios = axios as jest.Mocked<typeof axios>;
     // @ts-ignore
     mockedAxios.get.mockImplementation((url: string, config: object) => {
-      if (url === '/invites/9ffcc9fb-db21-4d77-a983-c39b01141c6a') {
+      if (url === '/invites' && config['params']['email'] === 'test@testy.com') {
         return Promise.resolve({
           status: 200,
           data: {
-            user_id: '9ffcc9fb-db21-4d77-a983-c39b01141c6a',
-            first_name: 'Jason',
-            last_name: 'Paige',
-            email: 'test@testy.com',
-            invited_at: '2024-03-19T17:56:35.381+00:00',
-            code: null,
+            page: {
+              size: 20,
+              totalElements: 1,
+              totalPages: 1,
+              number: 0,
+            },
           },
         });
       }

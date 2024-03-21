@@ -36,6 +36,9 @@ export class Auth {
         scope: 'openid email profile',
         redirect_uri: `${config.get('pre.portalUrl')}/callback`,
       },
+      routes: {
+        postLogoutRedirect: config.get('b2c.endSessionEndpoint') as string,
+      },
       afterCallback: async (req, res, s) => {
         const claims = jose.decodeJwt(s.id_token);
         // @todo add jwt validation here
