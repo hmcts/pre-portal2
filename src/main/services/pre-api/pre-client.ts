@@ -57,11 +57,15 @@ export class PreClient {
   }
 
   public async redeemInvitedUser(email: string): Promise<void> {
-    await axios.post('/invites/redeem', {}, {
-      params: {
-        email
+    await axios.post(
+      '/invites/redeem',
+      {},
+      {
+        params: {
+          email,
+        },
       }
-    });
+    );
   }
 
   public async getUserByEmail(email: string): Promise<UserProfile> {

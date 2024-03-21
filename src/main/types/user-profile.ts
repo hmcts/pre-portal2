@@ -1,49 +1,53 @@
 import { AccessStatus } from './access-status';
 
 export interface UserProfile {
-  app_access: [
-    {
-      active: boolean;
-      court: {
-        id: string;
-        name: string;
-        court_type: string;
-        location_code: string;
-        regions: [
-          {
+  app_access:
+    | [
+        {
+          active: boolean;
+          court: {
+            id: string;
             name: string;
-          }
-        ];
-        rooms: [];
-      };
-      id: string;
-      last_access: string | null;
-      role: {
-        description: string;
-        id: string;
-        name: string;
-        permissions:
-          | [
+            court_type: string;
+            location_code: string;
+            regions: [
               {
-                id: string;
                 name: string;
               }
-            ]
-          | [];
-      };
-    }
-  ] | [];
+            ];
+            rooms: [];
+          };
+          id: string;
+          last_access: string | null;
+          role: {
+            description: string;
+            id: string;
+            name: string;
+            permissions:
+              | [
+                  {
+                    id: string;
+                    name: string;
+                  }
+                ]
+              | [];
+          };
+        }
+      ]
+    | [];
 
-  portal_access: [
-    {
-      deleted_at: string | null;
-      id: string;
-      invited_at: string;
-      last_access: string | null;
-      registered_at: string | null;
-      status: AccessStatus;
-    }
-  ] | [];
+  portal_access:
+    | [
+        {
+          deleted_at: string | null;
+          id: string;
+          invited_at: string;
+          last_access: string | null;
+          registered_at: string | null;
+          status: AccessStatus;
+        }
+      ]
+    | [];
 
   user: {
     id: string;
