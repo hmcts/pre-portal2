@@ -48,7 +48,7 @@ describe('Auth Module', () => {
           },
         });
       }
-      if (url === '/users/by-email/test@testy.com') {
+      if (url === '/users/by-email/' + encodeURIComponent('test@testy.com')) {
         return Promise.resolve({
           status: 200,
           data: {

@@ -18,13 +18,13 @@ describe('PreClient', () => {
   // @ts-ignore
   mockedAxios.get.mockImplementation((url: string, config: object) => {
     // @ts-ignore
-    if (url === '/users/by-email/test@testy.com') {
+    if (url === '/users/by-email/' + encodeURIComponent('test@testy.com')) {
       return Promise.resolve({
         status: 200,
         data: mockeduser,
       });
     }
-    if (url === '/users/by-email/inactive@testy.com') {
+    if (url === '/users/by-email/' + encodeURIComponent('inactive@testy.com')) {
       const inactiveUser = { ...mockeduser } as UserProfile;
       // @ts-ignore
       inactiveUser.portal_access[0].status = AccessStatus.INACTIVE;
@@ -33,7 +33,7 @@ describe('PreClient', () => {
         data: inactiveUser,
       });
     }
-    if (url === '/users/by-email/noportal_access@testy.com') {
+    if (url === '/users/by-email/' + encodeURIComponent('noportal_access@testy.com')) {
       const noPortalUser = { ...mockeduser };
       // @ts-ignore
       delete noPortalUser.portal_access;
@@ -42,12 +42,12 @@ describe('PreClient', () => {
         data: noPortalUser,
       });
     }
-    if (url === '/users/by-email/noapi@testy.com') {
+    if (url === '/users/by-email/' + encodeURIComponent('noapi@testy.com')) {
       // @ts-ignore
       return Promise.reject({
         status: 404,
         data: {
-          message: 'Not found: User: jason.paige@hmcts.net',
+          message: 'Not found: User: noapi@testy.com',
         },
       });
     }
