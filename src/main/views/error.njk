@@ -20,12 +20,14 @@
       <p class="govuk-body">
         {% if status == 401
           or 'nonce mismatch' in message
-          or 'User has not been invited to the portal' == message %}
+          or 'User has not been invited to the portal' == message
+          or 'Request failed with status code 404' == message%}
           You can
-          <a class="govuk-link" href="/login">sign in again</a>.
+          <a class="govuk-link" href="/logout">sign in again</a>.
         {% else %}
           You can
-          <a class="govuk-link" href="/">browse from the homepage</a>.
+          <a class="govuk-link" href="/">browse from the homepage</a><br />
+          or <a class="govuk-link" href="/logout">sign in again</a>.
         {% endif %}
       </p>
       <pre class="govuk-!-margin-top-8">

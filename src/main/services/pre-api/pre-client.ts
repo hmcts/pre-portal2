@@ -15,7 +15,13 @@ export class PreClient {
   }
 
   public async getUserByClaimEmail(email: string): Promise<UserProfile> {
-    let userProfile = await this.getUserByEmail(email);
+    let userProfile: UserProfile;
+    try {
+      userProfile = await this.getUserByEmail(email);
+    } catch (e) {
+      this.logger.error(e.message);
+      throw new Error('User has not been invited to the portal');
+    }
 
     if (!userProfile.portal_access || userProfile.portal_access.length === 0) {
       const invitedUser = await this.isInvitedUser(email);
