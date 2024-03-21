@@ -15,29 +15,30 @@ export class PreClient {
   }
 
   public async getUserByClaimEmail(email: string): Promise<UserProfile> {
+    let userProfile: UserProfile;
     try {
-      let userProfile = await this.getUserByEmail(email);
-
-      if (!userProfile.portal_access || userProfile.portal_access.length === 0) {
-        const invitedUser = await this.isInvitedUser(email);
-        if (!invitedUser) {
-          throw new Error('User has no invites with status [INVITATION_SENT]: ' + email);
-        }
-        try {
-          await this.redeemInvitedUser(email);
-          userProfile = await this.getUserByEmail(email);
-        } catch (e) {
-          throw new Error('Error redeeming user invitation: ' + email);
-        }
-      } else if (userProfile.portal_access[0].status === AccessStatus.INACTIVE) {
-        throw new Error('User is not active: ' + email);
-      }
-
-      return userProfile;
+      userProfile = await this.getUserByEmail(email);
     } catch (e) {
       this.logger.error(e.message);
       throw new Error('User has not been invited to the portal');
     }
+
+    if (!userProfile.portal_access || userProfile.portal_access.length === 0) {
+      const invitedUser = await this.isInvitedUser(email);
+      if (!invitedUser) {
+        throw new Error('User has no invites with status [INVITATION_SENT]: ' + email);
+      }
+      try {
+        await this.redeemInvitedUser(email);
+        userProfile = await this.getUserByEmail(email);
+      } catch (e) {
+        throw new Error('Error redeeming user invitation: ' + email);
+      }
+    } else if (userProfile.portal_access[0].status === AccessStatus.INACTIVE) {
+      throw new Error('User is not active: ' + email);
+    }
+
+    return userProfile;
   }
 
   public async isInvitedUser(email: string): Promise<boolean> {

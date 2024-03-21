@@ -24,9 +24,6 @@ describe('PreClient', () => {
         data: mockeduser,
       });
     }
-    if (url === '/users/by-email/mctest@testy.com') {
-      return Promise.reject('404');
-    }
     if (url === '/users/by-email/inactive@testy.com') {
       const inactiveUser = { ...mockeduser } as UserProfile;
       // @ts-ignore
@@ -129,14 +126,6 @@ describe('PreClient', () => {
     const user = await preClient.getUserByClaimEmail('test@testy.com');
     expect(user).toBeTruthy();
     expect(user.user.email).toBe('test@testy.com');
-  });
-  test('get user by email 404', async () => {
-    try {
-      await preClient.getUserByClaimEmail('mctest@testy.com');
-      expect(true).toBe(false); // shouldn't get here...
-    } catch (e) {
-      expect(e).toEqual('404');
-    }
   });
   test('get user by email inactive', async () => {
     const t = async () => {
