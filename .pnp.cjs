@@ -93,7 +93,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["husky", "npm:9.0.11"],\
             ["jest", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:29.7.0"],\
             ["jest-html-reporter", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.10.2"],\
-            ["jest-junit", "npm:14.0.1"],\
+            ["jest-junit", "npm:16.0.0"],\
             ["jest-mock", "npm:29.7.0"],\
             ["jose", "npm:5.2.3"],\
             ["jquery", "npm:3.7.1"],\
@@ -12715,10 +12715,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["jest-junit", [\
-        ["npm:14.0.1", {\
-          "packageLocation": "./.yarn/cache/jest-junit-npm-14.0.1-8d0eb32da1-2a9ccfecbe.zip/node_modules/jest-junit/",\
+        ["npm:16.0.0", {\
+          "packageLocation": "./.yarn/cache/jest-junit-npm-16.0.0-39a50dfe1a-412aa4bfee.zip/node_modules/jest-junit/",\
           "packageDependencies": [\
-            ["jest-junit", "npm:14.0.1"],\
+            ["jest-junit", "npm:16.0.0"],\
             ["mkdirp", "npm:1.0.4"],\
             ["strip-ansi", "npm:6.0.1"],\
             ["uuid", "npm:8.3.2"],\
@@ -15810,7 +15810,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["husky", "npm:9.0.11"],\
             ["jest", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:29.7.0"],\
             ["jest-html-reporter", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.10.2"],\
-            ["jest-junit", "npm:14.0.1"],\
+            ["jest-junit", "npm:16.0.0"],\
             ["jest-mock", "npm:29.7.0"],\
             ["jose", "npm:5.2.3"],\
             ["jquery", "npm:3.7.1"],\
