@@ -50,7 +50,7 @@ describe('PreClient', () => {
       return Promise.reject({
         status: 404,
         data: {
-          message: "Not found: User: jason.paige@hmcts.net"
+          message: 'Not found: User: jason.paige@hmcts.net',
         },
       });
     }
