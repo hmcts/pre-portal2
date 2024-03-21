@@ -45,6 +45,15 @@ describe('PreClient', () => {
         data: noPortalUser,
       });
     }
+    if (url === '/users/by-email/noapi@testy.com') {
+      // @ts-ignore
+      return Promise.reject({
+        status: 404,
+        data: {
+          message: "Not found: User: jason.paige@hmcts.net"
+        },
+      });
+    }
     if (url === `/recordings/${mockRecordingId}`) {
       return Promise.resolve({
         status: 200,
@@ -146,5 +155,11 @@ describe('PreClient', () => {
     } catch (e) {
       expect(e.message).toEqual('User has no invites with status [INVITATION_SENT]: noportal_access@testy.com');
     }
+  });
+  test("User doesn't exist in the API", async () => {
+    const t = async () => {
+      await preClient.getUserByClaimEmail('noapi@testy.com');
+    };
+    await expect(t).rejects.toThrow('User has not been invited to the portal');
   });
 });
