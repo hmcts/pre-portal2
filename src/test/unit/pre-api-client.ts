@@ -24,9 +24,6 @@ describe('PreClient', () => {
         data: mockeduser,
       });
     }
-    if (url === '/users/by-email/mctest@testy.com') {
-      return Promise.reject('404');
-    }
     if (url === '/users/by-email/inactive@testy.com') {
       const inactiveUser = { ...mockeduser } as UserProfile;
       // @ts-ignore
@@ -43,6 +40,15 @@ describe('PreClient', () => {
       return Promise.resolve({
         status: 200,
         data: noPortalUser,
+      });
+    }
+    if (url === '/users/by-email/noapi@testy.com') {
+      // @ts-ignore
+      return Promise.reject({
+        status: 404,
+        data: {
+          message: 'Not found: User: jason.paige@hmcts.net',
+        },
       });
     }
     if (url === `/recordings/${mockRecordingId}`) {
@@ -121,14 +127,6 @@ describe('PreClient', () => {
     expect(user).toBeTruthy();
     expect(user.user.email).toBe('test@testy.com');
   });
-  test('get user by email 404', async () => {
-    try {
-      await preClient.getUserByClaimEmail('mctest@testy.com');
-      expect(true).toBe(false); // shouldn't get here...
-    } catch (e) {
-      expect(e).toEqual('404');
-    }
-  });
   test('get user by email inactive', async () => {
     const t = async () => {
       await preClient.getUserByClaimEmail('inactive@testy.com');
@@ -146,5 +144,11 @@ describe('PreClient', () => {
     } catch (e) {
       expect(e.message).toEqual('User has no invites with status [INVITATION_SENT]: noportal_access@testy.com');
     }
+  });
+  test("User doesn't exist in the API", async () => {
+    const t = async () => {
+      await preClient.getUserByClaimEmail('noapi@testy.com');
+    };
+    await expect(t).rejects.toThrow('User has not been invited to the portal');
   });
 });
