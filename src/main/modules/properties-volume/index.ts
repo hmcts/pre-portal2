@@ -24,6 +24,16 @@ export class PropertiesVolume {
       process.env.B2C_END_SESSION_ENDPOINT ??
         'https://hmctsdevextid.b2clogin.com/hmctsdevextid.onmicrosoft.com/b2c_1a_signup_signin/oauth2/v2.0/logout'
     );
+    set(
+      config,
+      'ams.azureMediaServices',
+      process.env.AMS_AZURE_MEDIA_SERVICES ?? 'https://preamstest-ukso1.streaming.media.azure.net'
+    );
+    set(
+      config,
+      'ams.azureMediaServicesKeyDelivery',
+      process.env.AMS_AZURE_MEDIA_SERVICES_KEY_DELIVERY ?? 'https://preamstest.keydelivery.uksouth.media.azure.net'
+    );
 
     if (server.locals.ENV === 'production') {
       this.logger.info('Loading properties from mounted KV');

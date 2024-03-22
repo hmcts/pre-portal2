@@ -12,8 +12,8 @@
     "portalUrl": "https://localhost:4551"
   },
   "ams": {
-    "azureMediaServices": "https://preamstest-ukso1.streaming.media.azure.net",
-    "azureMediaServicesKeyDelivery": "https://preamstest.keydelivery.uksouth.media.azure.net",
+    "azureMediaServices": "",
+    "azureMediaServicesKeyDelivery": "",
     "flowKey": "",
     "flowUrl": ""
   },
