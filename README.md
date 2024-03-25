@@ -22,18 +22,18 @@ This diagram gives an overview of the PRE system which the pre-portal connects t
 
 
       System_Boundary(PowerPlatform, "Power Platform") {
-        System(PowerApps, "Power Apps Forms", "")
+        System(PowerApps, "Power Apps Forms", "User Authentication via MS Teams")
         System(PowerFlows, "Power Flows", "")
         SystemDb(Dataverse, "Dataverse", "")
       }
 
-      Enterprise_Boundary(a0, "SDS Azure Tenant") {
-        System(Portal, "Portal", "")
+      Enterprise_Boundary(a0, "SDS Azure Tenant",) {
+        System(Portal, "Portal", "User Authentication via Azure B2C")
 
         System(function, "pre-functions", "Function apps to control Azure Media Services")
 
         System_Boundary(api, "API") {
-            System(api, "pre-api")
+            System(api, "pre-api", "System Authentication via Azure APIm.<br/>User Authorisation via X-User-Id header")
             SystemDb(db, "API db")
         }
 
@@ -46,10 +46,10 @@ This diagram gives an overview of the PRE system which the pre-portal connects t
 
       BiRel(judicialUser, Portal, "")
       BiRel(adminUser, Portal, "")
-      BiRel(adminUser, PowerApps, "Via MS Teams")
+      BiRel(adminUser, PowerApps, "")
       BiRel(professionalUser, Portal, "")
       BiRel(PowerApps, PowerFlows, "")
-      BiRel(Portal, PowerFlows, "")
+      Rel(Portal, PowerFlows, "")
       Rel(Portal, ams, "")
       Rel(Portal, api, "")
       BiRel(PowerFlows, Dataverse, "")
