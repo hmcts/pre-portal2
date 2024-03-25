@@ -1,5 +1,76 @@
 # pre-portal
 
+# Pre-Recorded Evidence Portal
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=pre-portal&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=pre-portal) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=pre-portal&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=pre-portal) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=pre-portal&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=pre-portal) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=pre-portal&metric=coverage)](https://sonarcloud.io/summary/new_code?id=pre-portal)
+
+## Purpose
+
+This code repository contains the source code for the Pre-Recorded Evidence Portal.
+
+The Portal provides a secure interface for professional and judicial users to login, browse and watch recordings which have been shared with them.
+
+This diagram gives an overview of the PRE system which the pre-portal connects to in its current state (not yet live).
+
+```mermaid
+    C4Context
+      title System Context diagram for Pre-Recorded Evidence
+
+      Person(adminUser, "Admin User", "")
+      Person(judicialUser, "Judicial User", "")
+      Person(professionalUser, "Professional User", "")
+
+
+      System_Boundary(PowerPlatform, "Power Platform") {
+        System(PowerApps, "Power Apps Forms", "")
+        System(PowerFlows, "Power Flows", "")
+        SystemDb(Dataverse, "Dataverse", "")
+      }
+
+      Enterprise_Boundary(a0, "SDS Azure Tenant") {
+        System(Portal, "Portal", "")
+
+        System(function, "pre-functions", "Function apps to control Azure Media Services")
+
+        System_Boundary(api, "API") {
+            System(api, "pre-api")
+            SystemDb(db, "API db")
+        }
+
+        System_Boundary(media, "Media") {
+            System(ams, "Azure Media Services")
+            SystemDb(blob, "Azure Blob Storage")
+        }
+
+      }
+
+      BiRel(judicialUser, Portal, "")
+      BiRel(adminUser, Portal, "")
+      BiRel(adminUser, PowerApps, "Via MS Teams")
+      BiRel(professionalUser, Portal, "")
+      BiRel(PowerApps, PowerFlows, "")
+      BiRel(Portal, PowerFlows, "")
+      Rel(Portal, ams, "")
+      Rel(Portal, api, "")
+      BiRel(PowerFlows, Dataverse, "")
+      Rel(PowerApps, api, "")
+      Rel(PowerFlows, api, "")
+      Rel(PowerFlows, function, "")
+      Rel(api, db, "")
+      Rel(ams, blob, "")
+      Rel(function, ams, "")
+      UpdateElementStyle(Portal,  $bgColor="green", $borderColor="black")
+      UpdateElementStyle(PowerPlatform)
+      UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="1")
+```
+
+## Related Repositories
+
+- [PRE Power Platform Frontend](https://github.com/hmcts/pre-power-platform)
+- [PRE Shared Infrastructure](https://github.com/hmcts/pre-shared-infrastructure)
+- [PRE Function Apps](https://github.com/hmcts/pre-functions)
+- [PRE API](https://github.com/hmcts/pre-api)
+
 ## Getting Started
 
 ### Prerequisites
