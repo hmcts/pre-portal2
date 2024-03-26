@@ -73,6 +73,16 @@ export class PreClient {
     return response.data as UserProfile;
   }
 
+  public async getActiveUserByEmail(email: string): Promise<UserProfile> {
+    const userProfile = await this.getUserByEmail(email);
+    if (!userProfile.portal_access || userProfile.portal_access.length === 0) {
+      throw new Error('User does not have access to the portal: ' + email);
+    } else if (userProfile.portal_access[0].status === AccessStatus.INACTIVE) {
+      throw new Error('User is not active: ' + email);
+    }
+    return userProfile;
+  }
+
   public async getRecordings(
     xUserId: string,
     request: SearchRecordingsRequest

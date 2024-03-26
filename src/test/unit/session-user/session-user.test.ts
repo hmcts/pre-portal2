@@ -7,7 +7,10 @@ import { mockeduser } from '../test-helper';
 jest.mock('../../../main/services/pre-api/pre-client', () => ({
   PreClient: jest.fn().mockImplementation(() => ({
     constructor: () => {},
-    getUserByEmail: jest.fn().mockImplementation((s: string) => {
+    getActiveUserByEmail: jest.fn().mockImplementation((email: string) => {
+      if (email === 'inactive@user.com') {
+        return Promise.reject(new Error('User is not active: ' + email));
+      }
       return Promise.resolve(mockeduser as UserProfile);
     }),
   })),
@@ -72,5 +75,20 @@ describe('Session Users', () => {
     };
     const user = SessionUser.getLoggedInUserProfile(req);
     expect(user).toBe(mockeduser);
+  });
+
+  test('getLoggedInUserProfile inactive', async () => {
+    const req = createRequest();
+    const email = 'inactive@user.com';
+    const userProfile = {...mockeduser};
+    userProfile.user.email = email;
+    req['__session'] = {
+      userProfile
+    };
+    const t = async () => {
+      await SessionUser.getLoggedInUserPortalId(req);
+    };
+    // ensure we don't swallow pre api errors here
+    await expect(t).rejects.toThrow('User is not active: ' + email);
   });
 });
