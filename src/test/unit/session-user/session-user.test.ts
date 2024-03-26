@@ -80,10 +80,10 @@ describe('Session Users', () => {
   test('getLoggedInUserProfile inactive', async () => {
     const req = createRequest();
     const email = 'inactive@user.com';
-    const userProfile = {...mockeduser};
+    const userProfile = { ...mockeduser };
     userProfile.user.email = email;
     req['__session'] = {
-      userProfile
+      userProfile,
     };
     const t = async () => {
       await SessionUser.getLoggedInUserPortalId(req);

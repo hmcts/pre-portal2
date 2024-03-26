@@ -179,19 +179,21 @@ describe('PreClient', () => {
     };
     await expect(t).rejects.toThrow('User has not been invited to the portal');
   });
-  test("getActiveUserByEmail inactive", async () => {
+  test('getActiveUserByEmail inactive', async () => {
     const t = async () => {
       await preClient.getActiveUserByEmail('getActiveUserByEmail@inactive.com');
     };
     await expect(t).rejects.toThrow('User is not active: getActiveUserByEmail@inactive.com');
   });
-  test("getActiveUserByEmail no portal_access", async () => {
+  test('getActiveUserByEmail no portal_access', async () => {
     const t = async () => {
       await preClient.getActiveUserByEmail('getActiveUserByEmail@noportal_access.com');
     };
-    await expect(t).rejects.toThrow('User does not have access to the portal: getActiveUserByEmail@noportal_access.com');
+    await expect(t).rejects.toThrow(
+      'User does not have access to the portal: getActiveUserByEmail@noportal_access.com'
+    );
   });
-  test("getActiveUserByEmail ok", async () => {
+  test('getActiveUserByEmail ok', async () => {
     const userProfile = await preClient.getActiveUserByEmail('getActiveUserByEmail@ok.com');
     expect(userProfile).toBeTruthy();
   });
