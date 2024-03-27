@@ -23,7 +23,8 @@
           or 'nonce mismatch' in message
           or 'User has not been invited to the portal' == message
           or 'User does not have access to the portal' in message
-          or 'Request failed with status code 404' == message%}
+          or 'Request failed with status code 404' == message
+          or 'User has no invites with status [INVITATION SENT]' in message %}
           You can
           <a class="govuk-link" href="/logout">sign in again</a>.
         {% else %}
