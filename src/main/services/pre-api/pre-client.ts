@@ -26,7 +26,9 @@ export class PreClient {
     if (!userProfile.portal_access || userProfile.portal_access.length === 0) {
       const invitedUser = await this.isInvitedUser(email);
       if (!invitedUser) {
-        throw new Error('User has no invites with status [INVITATION_SENT]: ' + email);
+        throw new Error(
+          'User access is not available at this time. Please confirm with support if access is expected.'
+        );
       }
       try {
         await this.redeemInvitedUser(email);

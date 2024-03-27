@@ -170,7 +170,9 @@ describe('PreClient', () => {
     try {
       await preClient.getUserByClaimEmail('noportal_access@testy.com');
     } catch (e) {
-      expect(e.message).toEqual('User has no invites with status [INVITATION_SENT]: noportal_access@testy.com');
+      expect(e.message).toEqual(
+        'User access is not available at this time. Please confirm with support if access is expected.'
+      );
     }
   });
   test("User doesn't exist in the API", async () => {
