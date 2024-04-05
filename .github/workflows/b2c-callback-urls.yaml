@@ -14,6 +14,8 @@ jobs:
   update_urls:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
       - name: Azure login
         uses: azure/login@v2
         with:
@@ -24,7 +26,7 @@ jobs:
           tenant_id=${{ secrets.B2C_TENANT_ID }}
           app_id=${{ secrets.B2C_CLIENT_ID }}
           pr_ids=$(gh pr list --json number --repo $GITHUB_REPOSITORY | jq -r '.[].number')
-          echo "$pr_ids"
+          echo "PR IDs: $pr_ids"
 
           # for pr_number in $pr_ids
           # do
