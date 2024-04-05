@@ -38,3 +38,4 @@ jobs:
           # done
         env:
           REPO: ${{ github.event.repository.name }}
+          GH_TOKEN: ${{ github.token }}
