@@ -25,19 +25,19 @@ jobs:
       - run: |
           tenant_id=${{ secrets.B2C_TENANT_ID }}
           app_id=${{ secrets.B2C_CLIENT_ID }}
-          pr_ids=$(gh pr list --json number --repo $GITHUB_REPOSITORY | jq -r '.[].number')
+          pr_ids=($(gh pr list --json number | jq -r '.[].number'))
 
-          echo "PR IDs:/n $pr_ids"
-
-          # https://localhost:4551/callback
-          # https://pre-portal-staging.staging.platform.hmcts.net/callback
-          # https://pre-portal.staging.platform.hmcts.net/callback
+          echo "PR IDs: $pr_ids"
 
           for pr_number in $pr_ids
           do
-          redirect_uri="https://pre-portal-pr-${pr_number}.dev.platform.hmcts.net/callback"
-          az ad app update --id $app_id --web-redirect-uris $redirect_uri
+          redirect_uri+="https://pre-portal-pr-${pr_number}.dev.platform.hmcts.net/callback "
           done
+
+          az ad app update --id $app_id --web-redirect-uris $redirect_uri \
+          https://localhost:4551/callback \
+          https://pre-portal-staging.staging.platform.hmcts.net/callback \
+          https://pre-portal.staging.platform.hmcts.net/callback
         env:
           REPO: ${{ github.event.repository.name }}
           GH_TOKEN: ${{ github.token }}
