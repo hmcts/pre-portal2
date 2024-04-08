@@ -29,7 +29,7 @@ jobs:
 
           echo "PR IDs: $pr_ids"
 
-          for pr_number in $pr_ids
+          for pr_number in "${pr_ids[@]}"
           do
           redirect_uri+="https://pre-portal-pr-${pr_number}.dev.platform.hmcts.net/callback "
           done
