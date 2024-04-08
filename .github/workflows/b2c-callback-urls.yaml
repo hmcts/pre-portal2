@@ -36,7 +36,7 @@ jobs:
           for pr_number in $pr_ids
           do
           az ad app update --id $app_id --web-redirect-uris \
-          https://pre-portal-pr-${pr_id}.dev.platform.hmcts.net/callback
+          https://pre-portal-pr-${pr_number}.dev.platform.hmcts.net/callback
           done
         env:
           REPO: ${{ github.event.repository.name }}
