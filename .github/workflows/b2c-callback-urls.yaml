@@ -3,8 +3,6 @@ on:
   schedule:
     # Daily at 6PM Mon-Fri UTC
     - cron: '0 18 * * 1-5'
-  pull_request:
-    branches: ['master']
 
 permissions:
   id-token: write
