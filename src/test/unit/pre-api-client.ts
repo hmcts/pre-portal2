@@ -51,6 +51,34 @@ describe('PreClient', () => {
         },
       });
     }
+    if (url === '/users/by-email/' + encodeURIComponent('getActiveUserByEmail@inactive.com')) {
+      const inactiveUser = { ...mockeduser };
+      // @ts-ignore
+      inactiveUser.portal_access[0].status = AccessStatus.INACTIVE;
+      return Promise.resolve({
+        status: 200,
+        data: inactiveUser,
+      });
+    }
+    if (url === '/users/by-email/' + encodeURIComponent('getActiveUserByEmail@noportal_access.com')) {
+      const noPortalUser = { ...mockeduser };
+      // @ts-ignore
+      delete noPortalUser.portal_access;
+      return Promise.resolve({
+        status: 200,
+        data: noPortalUser,
+      });
+    }
+    if (url === '/users/by-email/' + encodeURIComponent('getActiveUserByEmail@ok.com')) {
+      const activeUser = { ...mockeduser };
+      // @ts-ignore
+      activeUser.portal_access[0].status = AccessStatus.ACTIVE;
+      return Promise.resolve({
+        status: 200,
+        data: activeUser,
+      });
+    }
+
     if (url === `/recordings/${mockRecordingId}`) {
       return Promise.resolve({
         status: 200,
@@ -142,7 +170,9 @@ describe('PreClient', () => {
     try {
       await preClient.getUserByClaimEmail('noportal_access@testy.com');
     } catch (e) {
-      expect(e.message).toEqual('User has no invites with status [INVITATION_SENT]: noportal_access@testy.com');
+      expect(e.message).toEqual(
+        'User access is not available at this time. Please confirm with support if access is expected.'
+      );
     }
   });
   test("User doesn't exist in the API", async () => {
@@ -150,5 +180,23 @@ describe('PreClient', () => {
       await preClient.getUserByClaimEmail('noapi@testy.com');
     };
     await expect(t).rejects.toThrow('User has not been invited to the portal');
+  });
+  test('getActiveUserByEmail inactive', async () => {
+    const t = async () => {
+      await preClient.getActiveUserByEmail('getActiveUserByEmail@inactive.com');
+    };
+    await expect(t).rejects.toThrow('User is not active: getActiveUserByEmail@inactive.com');
+  });
+  test('getActiveUserByEmail no portal_access', async () => {
+    const t = async () => {
+      await preClient.getActiveUserByEmail('getActiveUserByEmail@noportal_access.com');
+    };
+    await expect(t).rejects.toThrow(
+      'User does not have access to the portal: getActiveUserByEmail@noportal_access.com'
+    );
+  });
+  test('getActiveUserByEmail ok', async () => {
+    const userProfile = await preClient.getActiveUserByEmail('getActiveUserByEmail@ok.com');
+    expect(userProfile).toBeTruthy();
   });
 });

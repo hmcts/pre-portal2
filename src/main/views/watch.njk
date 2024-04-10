@@ -183,6 +183,10 @@
     loadingGif.style.visibility = "hidden";
     playButton.style.visibility = "visible";
     hideVideo.style.visibility = "visible";
+    playButton.focus();
+    playButton.onclick = function () {
+      document.querySelector(".vjs-tech").focus();
+    };
   }).catch(function (error) {
     console.error("Error:", error);
     loadingGif.style.visibility = "hidden";
