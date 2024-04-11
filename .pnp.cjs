@@ -128,7 +128,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=289587"],\
             ["webpack", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.91.0"],\
             ["webpack-cli", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.1.4"],\
-            ["webpack-dev-middleware", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.1"],\
+            ["webpack-dev-middleware", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.2.1"],\
             ["webpack-node-externals", "npm:3.0.0"]\
           ],\
           "linkType": "SOFT"\
@@ -16466,7 +16466,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=289587"],\
             ["webpack", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.91.0"],\
             ["webpack-cli", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.1.4"],\
-            ["webpack-dev-middleware", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.1"],\
+            ["webpack-dev-middleware", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.2.1"],\
             ["webpack-node-externals", "npm:3.0.0"]\
           ],\
           "linkType": "SOFT"\
@@ -19844,17 +19844,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["webpack-dev-middleware", [\
-        ["npm:7.1.1", {\
-          "packageLocation": "./.yarn/cache/webpack-dev-middleware-npm-7.1.1-fd7d3b4fbb-54b748ba35.zip/node_modules/webpack-dev-middleware/",\
+        ["npm:7.2.1", {\
+          "packageLocation": "./.yarn/cache/webpack-dev-middleware-npm-7.2.1-34c9167f4e-bb8c75f7ce.zip/node_modules/webpack-dev-middleware/",\
           "packageDependencies": [\
-            ["webpack-dev-middleware", "npm:7.1.1"]\
+            ["webpack-dev-middleware", "npm:7.2.1"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.1", {\
-          "packageLocation": "./.yarn/__virtual__/webpack-dev-middleware-virtual-268e8316b5/0/cache/webpack-dev-middleware-npm-7.1.1-fd7d3b4fbb-54b748ba35.zip/node_modules/webpack-dev-middleware/",\
+        ["virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.2.1", {\
+          "packageLocation": "./.yarn/__virtual__/webpack-dev-middleware-virtual-9f45d11f07/0/cache/webpack-dev-middleware-npm-7.2.1-34c9167f4e-bb8c75f7ce.zip/node_modules/webpack-dev-middleware/",\
           "packageDependencies": [\
-            ["webpack-dev-middleware", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.1"],\
+            ["webpack-dev-middleware", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.2.1"],\
             ["@types/webpack", null],\
             ["colorette", "npm:2.0.20"],\
             ["memfs", "npm:4.8.0"],\
