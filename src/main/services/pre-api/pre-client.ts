@@ -16,15 +16,11 @@ export class PreClient {
 
   public async putAudit(xUserId: string, request: PutAuditRequest): Promise<AxiosResponse | undefined> {
     try {
-      return await axios.put(
-        '/audit/' + request.id,
-        request,
-        {
-          headers: {
-            'X-User-Id': xUserId,
-          }
-        }
-      );
+      return await axios.put('/audit/' + request.id, request, {
+        headers: {
+          'X-User-Id': xUserId,
+        },
+      });
     } catch (e) {
       this.logger.error(e.message);
     }

@@ -20,8 +20,8 @@ describe('PreClient', () => {
   mockedAxios.put.mockImplementation((url: string, data: object, config: object) => {
     if (url.startsWith('/audit/')) {
       return Promise.resolve({
-        status: 201
-      })
+        status: 201,
+      });
     }
   });
 
@@ -218,7 +218,7 @@ describe('PreClient', () => {
       source: 'PORTAL',
       audit_details: {
         recordingId: mockRecordingId,
-      }
+      },
     } as PutAuditRequest;
     // @ts-ignore
     const res = await preClient.putAudit(mockXUserId, req);

@@ -132,15 +132,13 @@ export function mockGetRecordings(recordings?: Recording[], page: number = 0) {
 }
 
 export const mockPutAudit = () => {
-  jest
-    .spyOn(PreClient.prototype, 'putAudit')
-    .mockImplementation(async (xUserId: string, request: PutAuditRequest) => {
-      return Promise.resolve({
-        status: 201,
-        statusText: 'CREATED',
-      } as AxiosResponse)
-    });
-}
+  jest.spyOn(PreClient.prototype, 'putAudit').mockImplementation(async (xUserId: string, request: PutAuditRequest) => {
+    return Promise.resolve({
+      status: 201,
+      statusText: 'CREATED',
+    } as AxiosResponse);
+  });
+};
 
 export function mockGetRecordingPlaybackData(data?: RecordingPlaybackData | null) {
   if (data !== undefined) {

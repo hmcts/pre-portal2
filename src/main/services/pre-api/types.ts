@@ -67,13 +67,13 @@ export interface Pagination {
 
 export interface PutAuditRequest {
   id: string;
-  category: string,
-  activity: string,
+  category: string;
+  activity: string;
   functional_area: string;
   source: string;
   table_name?: string;
   table_record_id?: string;
   audit_details: {
     recordingId?: string;
-  }
+  };
 }

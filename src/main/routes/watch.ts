@@ -48,10 +48,7 @@ export default function (app: Application): void {
       const client = new PreClient();
       const userPortalId = await SessionUser.getLoggedInUserPortalId(req);
 
-      const recordingPlaybackData = await client.getRecordingPlaybackData(
-        userPortalId,
-        req.params.id
-      );
+      const recordingPlaybackData = await client.getRecordingPlaybackData(userPortalId, req.params.id);
 
       if (recordingPlaybackData === null) {
         res.status(404);
@@ -59,19 +56,16 @@ export default function (app: Application): void {
         return;
       }
 
-      await client.putAudit(
-        userPortalId,
-        {
-          id: uuid(),
-          functional_area: 'Video Player',
-          category: 'Recording',
-          activity: 'Play',
-          source: 'PORTAL',
-          audit_details: {
-            recordingId: req.params.id,
-          }
-        }
-      );
+      await client.putAudit(userPortalId, {
+        id: uuid(),
+        functional_area: 'Video Player',
+        category: 'Recording',
+        activity: 'Play',
+        source: 'PORTAL',
+        audit_details: {
+          recordingId: req.params.id,
+        },
+      });
 
       res.json(recordingPlaybackData);
     } catch (e) {
