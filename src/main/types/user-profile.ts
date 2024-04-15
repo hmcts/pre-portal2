@@ -13,7 +13,7 @@ export interface UserProfile {
             regions: [
               {
                 name: string;
-              }
+              },
             ];
             rooms: [];
           };
@@ -28,11 +28,11 @@ export interface UserProfile {
                   {
                     id: string;
                     name: string;
-                  }
+                  },
                 ]
               | [];
           };
-        }
+        },
       ]
     | [];
 
@@ -45,7 +45,7 @@ export interface UserProfile {
           last_access: string | null;
           registered_at: string | null;
           status: AccessStatus;
-        }
+        },
       ]
     | [];
 
