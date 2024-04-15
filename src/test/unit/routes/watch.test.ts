@@ -1,6 +1,6 @@
 /* eslint-disable jest/expect-expect */
 import { Nunjucks } from '../../../main/modules/nunjucks';
-import { mockGetRecording, mockGetRecordingPlaybackData, reset } from '../../mock-api';
+import { mockGetRecording, mockGetRecordingPlaybackData, mockPutAudit, reset } from '../../mock-api';
 import { beforeAll, describe } from '@jest/globals';
 import { expect } from 'chai';
 import { PreClient } from '../../../main/services/pre-api/pre-client';
@@ -99,6 +99,7 @@ describe('Watch page success', () => {
     test('should return 200 when getRecording and getRecordingPlaybackData succeed', async () => {
       mockGetRecording();
       mockGetRecordingPlaybackData();
+      mockPutAudit();
       await request(app)
         .get('/watch/12345678-1234-1234-1234-1234567890ab')
         .expect(res => expect(res.status).to.equal(200));

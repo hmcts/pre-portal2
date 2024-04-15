@@ -1,5 +1,12 @@
-import { Pagination, Recording, RecordingPlaybackData, SearchRecordingsRequest } from '../main/services/pre-api/types';
+import {
+  Pagination,
+  PutAuditRequest,
+  Recording,
+  RecordingPlaybackData,
+  SearchRecordingsRequest,
+} from '../main/services/pre-api/types';
 import { PreClient } from '../main/services/pre-api/pre-client';
+import { AxiosResponse } from 'axios';
 
 export const mockRecordings: Recording[] = [
   {
@@ -121,6 +128,17 @@ export function mockGetRecordings(recordings?: Recording[], page: number = 0) {
     .spyOn(PreClient.prototype, 'getRecordings')
     .mockImplementation(async (xUserId: string, req: SearchRecordingsRequest) => {
       return Promise.resolve({ recordings: mockRecordings, pagination: mockPagination });
+    });
+}
+
+export const mockPutAudit = () => {
+  jest
+    .spyOn(PreClient.prototype, 'putAudit')
+    .mockImplementation(async (xUserId: string, request: PutAuditRequest) => {
+      return Promise.resolve({
+        status: 201,
+        statusText: 'CREATED',
+      } as AxiosResponse)
     });
 }
 
