@@ -225,4 +225,26 @@ describe('PreClient', () => {
     expect(res).toBeTruthy();
     expect(res?.status).toBe(201);
   });
+  test('putAudit error', async () => {
+    mockedAxios.put.mockRejectedValue(new Error('Axios Put Error'));
+    const req = {
+      id: '12345678-1234-1234-1234-1234567890ab',
+      functional_area: 'Video Player',
+      category: 'Recording',
+      activity: 'Play',
+      source: 'PORTAL',
+      audit_details: {
+        recordingId: mockRecordingId,
+      },
+    } as PutAuditRequest;
+    let error: { message: any } | undefined;
+    try{
+      await expect(await preClient.putAudit(mockXUserId, req)).rejects.toThrow("Axios Put Error");
+    }
+    catch (e) {
+      error = e;
+    }
+    expect(error).toBeTruthy();
+    expect(error?.message).toEqual('Axios Put Error');
+  });
 });
