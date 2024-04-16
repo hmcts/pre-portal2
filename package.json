@@ -75,7 +75,8 @@
     "ts-node": "10.9.2",
     "tsconfig-paths": "4.2.0",
     "typed-rest-client": "^1.8.9",
-    "typescript": "5.4.5"
+    "typescript": "5.4.5",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@babel/core": "7.24.4",
@@ -87,6 +88,7 @@
     "@types/compression": "^1.7.2",
     "@types/jest": "^29.5.12",
     "@types/mini-css-extract-plugin": "2.5.1",
+    "@types/uuid": "^9.0.8",
     "@typescript-eslint/eslint-plugin": "7.7.0",
     "@typescript-eslint/parser": "7.7.0",
     "axios-debug-log": "1.0.0",

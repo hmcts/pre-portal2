@@ -1,6 +1,6 @@
 import { mockedPaginatedRecordings, mockRecordings, mockXUserId } from '../mock-api';
 import { PreClient } from '../../main/services/pre-api/pre-client';
-import { SearchRecordingsRequest } from '../../main/services/pre-api/types';
+import { PutAuditRequest, SearchRecordingsRequest } from '../../main/services/pre-api/types';
 import { describe } from '@jest/globals';
 import axios from 'axios';
 import { UserProfile } from '../../main/types/user-profile';
@@ -15,6 +15,16 @@ jest.mock('axios');
 /* eslint-disable jest/expect-expect */
 describe('PreClient', () => {
   const mockedAxios = axios as jest.Mocked<typeof axios>;
+
+  // @ts-ignore
+  mockedAxios.put.mockImplementation((url: string, data: object, config: object) => {
+    if (url.startsWith('/audit/')) {
+      return Promise.resolve({
+        status: 201,
+      });
+    }
+  });
+
   // @ts-ignore
   mockedAxios.get.mockImplementation((url: string, config: object) => {
     // @ts-ignore
@@ -198,5 +208,42 @@ describe('PreClient', () => {
   test('getActiveUserByEmail ok', async () => {
     const userProfile = await preClient.getActiveUserByEmail('getActiveUserByEmail@ok.com');
     expect(userProfile).toBeTruthy();
+  });
+  test('putAudit created', async () => {
+    const req = {
+      id: '12345678-1234-1234-1234-1234567890ab',
+      functional_area: 'Video Player',
+      category: 'Recording',
+      activity: 'Play',
+      source: 'PORTAL',
+      audit_details: {
+        recordingId: mockRecordingId,
+      },
+    } as PutAuditRequest;
+    // @ts-ignore
+    const res = await preClient.putAudit(mockXUserId, req);
+    expect(res).toBeTruthy();
+    expect(res?.status).toBe(201);
+  });
+  test('putAudit error', async () => {
+    mockedAxios.put.mockRejectedValue(new Error('Axios Put Error'));
+    const req = {
+      id: '12345678-1234-1234-1234-1234567890ab',
+      functional_area: 'Video Player',
+      category: 'Recording',
+      activity: 'Play',
+      source: 'PORTAL',
+      audit_details: {
+        recordingId: mockRecordingId,
+      },
+    } as PutAuditRequest;
+    let error: { message: any } | undefined;
+    try {
+      await expect(await preClient.putAudit(mockXUserId, req)).rejects.toThrow('Axios Put Error');
+    } catch (e) {
+      error = e;
+    }
+    expect(error).toBeTruthy();
+    expect(error?.message).toEqual('Axios Put Error');
   });
 });

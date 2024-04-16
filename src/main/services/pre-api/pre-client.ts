@@ -1,10 +1,10 @@
 import { AccessStatus } from '../../types/access-status';
 import { UserProfile } from '../../types/user-profile';
 
-import { Pagination, Recording, RecordingPlaybackData, SearchRecordingsRequest } from './types';
+import { Pagination, PutAuditRequest, Recording, RecordingPlaybackData, SearchRecordingsRequest } from './types';
 
 import { Logger } from '@hmcts/nodejs-logging';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import config from 'config';
 
 export class PreClient {
@@ -12,6 +12,19 @@ export class PreClient {
 
   public async healthCheck(): Promise<void> {
     await axios.get('/health');
+  }
+
+  public async putAudit(xUserId: string, request: PutAuditRequest): Promise<AxiosResponse> {
+    try {
+      return await axios.put('/audit/' + request.id, request, {
+        headers: {
+          'X-User-Id': xUserId,
+        },
+      });
+    } catch (e) {
+      this.logger.error(e.message);
+      throw e;
+    }
   }
 
   public async getUserByClaimEmail(email: string): Promise<UserProfile> {
