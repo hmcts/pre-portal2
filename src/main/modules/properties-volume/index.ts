@@ -52,11 +52,6 @@ export class PropertiesVolume {
     } else {
       this.logger.info('Loading properties from .env file');
       require('dotenv').config();
-      set(
-        config,
-        'appInsights.instrumentationKey',
-        process.env.APPINSIGHTS_INSTRUMENTATIONKEY ?? 'appInsights.instrumentationKey'
-      );
       set(config, 'pre.apiKey.primary', process.env.APIM_SUB_PORTAL_PRIMARY_KEY ?? 'pre.apiKey.primary');
       set(config, 'pre.apiKey.secondary', process.env.APIM_SUB_PORTAL_SECONDARY_KEY ?? 'pre.apiKey.secondary');
       set(config, 'ams.flowKey', process.env.PP_AUTHORIZATION);
