@@ -238,10 +238,9 @@ describe('PreClient', () => {
       },
     } as PutAuditRequest;
     let error: { message: any } | undefined;
-    try{
-      await expect(await preClient.putAudit(mockXUserId, req)).rejects.toThrow("Axios Put Error");
-    }
-    catch (e) {
+    try {
+      await expect(await preClient.putAudit(mockXUserId, req)).rejects.toThrow('Axios Put Error');
+    } catch (e) {
       error = e;
     }
     expect(error).toBeTruthy();
