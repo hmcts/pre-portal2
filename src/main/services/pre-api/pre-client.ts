@@ -14,7 +14,7 @@ export class PreClient {
     await axios.get('/health');
   }
 
-  public async putAudit(xUserId: string, request: PutAuditRequest): Promise<AxiosResponse | undefined> {
+  public async putAudit(xUserId: string, request: PutAuditRequest): Promise<AxiosResponse> {
     try {
       return await axios.put('/audit/' + request.id, request, {
         headers: {
@@ -23,6 +23,7 @@ export class PreClient {
       });
     } catch (e) {
       this.logger.error(e.message);
+      throw e;
     }
   }
 
