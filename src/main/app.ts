@@ -51,7 +51,7 @@ if (process.env.PORTAL_AUTH_DISABLED !== '1') {
   logger.info('Enabling Auth. Env: ' + env);
   new Auth().enableFor(app);
 } else {
-  logger.warn('Disabling Auth to to PORTAL_AUTH_DISABLED === ' + process.env.PORTAL_AUTH_DISABLED);
+  logger.warn('Disabling Auth PORTAL_AUTH_DISABLED === ' + process.env.PORTAL_AUTH_DISABLED);
 }
 
 app.use((req, res, next) => {
