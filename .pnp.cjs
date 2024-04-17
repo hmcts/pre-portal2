@@ -102,7 +102,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint", "npm:0.8.19"],\
             ["lint-staged", "npm:15.2.2"],\
             ["lodash", "npm:4.17.21"],\
-            ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.8.1"],\
+            ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.9.0"],\
             ["nock", "npm:13.5.4"],\
             ["node-mocks-http", "npm:1.14.1"],\
             ["nodemon", "npm:3.1.0"],\
@@ -14654,10 +14654,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.8.1", {\
-          "packageLocation": "./.yarn/__virtual__/mini-css-extract-plugin-virtual-3498fbaa71/0/cache/mini-css-extract-plugin-npm-2.8.1-5f239540c1-209f15a18c.zip/node_modules/mini-css-extract-plugin/",\
+        ["npm:2.9.0", {\
+          "packageLocation": "./.yarn/cache/mini-css-extract-plugin-npm-2.9.0-e9682fccac-ae192c67ba.zip/node_modules/mini-css-extract-plugin/",\
           "packageDependencies": [\
-            ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.8.1"],\
+            ["mini-css-extract-plugin", "npm:2.9.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.9.0", {\
+          "packageLocation": "./.yarn/__virtual__/mini-css-extract-plugin-virtual-88337cd8a2/0/cache/mini-css-extract-plugin-npm-2.9.0-e9682fccac-ae192c67ba.zip/node_modules/mini-css-extract-plugin/",\
+          "packageDependencies": [\
+            ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.9.0"],\
             ["@types/webpack", null],\
             ["schema-utils", "npm:4.2.0"],\
             ["tapable", "npm:2.2.1"],\
@@ -16414,7 +16421,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint", "npm:0.8.19"],\
             ["lint-staged", "npm:15.2.2"],\
             ["lodash", "npm:4.17.21"],\
-            ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.8.1"],\
+            ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.9.0"],\
             ["nock", "npm:13.5.4"],\
             ["node-mocks-http", "npm:1.14.1"],\
             ["nodemon", "npm:3.1.0"],\
