@@ -24,5 +24,14 @@ Then('I am on the {string} page', (path: string) => {
 Then('I sign in as the test user', () => {
   I.fillField('Email Address', config.b2c.testLogin.email as string);
   I.fillField('Password', config.b2c.testLogin.password as string);
-  I.click('Sign in');
+  I.click("Sign in");
+
+  // handle dodgy B2C login where bounces back to login form 1 time...sometimes.
+  I.grabCurrentUrl().then((url) => {
+    if (url.includes('/authorize')) {
+      I.fillField('Email Address', config.b2c.testLogin.email as string);
+      I.fillField('Password', config.b2c.testLogin.password as string);
+      I.click("Sign in");
+    }
+  });
 });
