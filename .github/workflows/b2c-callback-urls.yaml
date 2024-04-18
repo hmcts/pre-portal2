@@ -33,7 +33,7 @@ jobs:
           # Extra padding for new PRs created in the next 24 hours
           start=$((pr_ids[1] + 1))
           end=$((start + 50))
-          for pr_number in {$start..$end}
+          for pr_number in $(seq $start $end)
           do
           redirect_uri+="https://pre-portal-pr-${pr_number}.dev.platform.hmcts.net/callback "
           done
