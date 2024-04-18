@@ -44,7 +44,7 @@ jobs:
 
           echo "${redirect_uri[@]}"
 
-          az ad app update --id $app_id --web-redirect-uris ${redirect_uri[@]}
+          az ad app update --id $app_id --web-redirect-uris "${redirect_uri[@]}"
 
         env:
           REPO: ${{ github.event.repository.name }}
