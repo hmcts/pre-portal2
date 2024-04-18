@@ -21,7 +21,7 @@
     "test:smoke": "NODE_TLS_REJECT_UNAUTHORIZED=0 jest -c jest.smoke.config.js",
     "test:functional": "yarn playwright install && ALLOW_CONFIG_MUTATIONS=true NODE_TLS_REJECT_UNAUTHORIZED=0 codeceptjs run --config ./codecept.conf.js --steps --grep \"@flaky\" --invert",
     "cichecks": "yarn build && yarn rebuild puppeteer && yarn lint && yarn test && yarn test:routes && yarn test:a11y",
-    "prepare": "husky install",
+    "prepare": "husky",
     "prettier": "prettier --write ."
   },
   "dependencies": {
