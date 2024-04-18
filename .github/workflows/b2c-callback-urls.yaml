@@ -42,7 +42,10 @@ jobs:
           redirect_uri+=("https://pre-portal-pr-${pr_number}.dev.platform.hmcts.net/callback")
           done
 
-          echo "${redirect_uri[@]}"
+          for uri in "${redirect_uri[@]}"
+          do
+            echo $uri
+          done
 
           az ad app update --id $app_id --web-redirect-uris "${redirect_uri[@]}"
 
