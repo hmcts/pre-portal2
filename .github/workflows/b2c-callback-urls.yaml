@@ -1,5 +1,7 @@
 name: Update B2C Callback URLs
+
 on:
+  workflow_dispatch:
   schedule:
     # Daily at 6PM Mon-Fri UTC
     - cron: '0 18 * * 1-5'
