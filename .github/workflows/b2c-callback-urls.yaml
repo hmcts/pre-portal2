@@ -35,7 +35,7 @@ jobs:
           done
 
           # Extra padding for new PRs created in the next 24 hours
-          start=$((pr_ids[1] + 1))
+          start=$((pr_ids[0] + 1))
           end=$((start + 50))
           for pr_number in $(seq $start $end)
           do
