@@ -90,7 +90,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["express-openid-connect", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.17.1"],\
             ["express-session", "npm:1.18.0"],\
             ["glob", "npm:10.3.12"],\
-            ["govuk-frontend", "npm:5.1.0"],\
+            ["govuk-frontend", "npm:5.2.0"],\
             ["helmet", "npm:7.1.0"],\
             ["html-webpack-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.6.0"],\
             ["husky", "npm:9.0.11"],\
@@ -10915,10 +10915,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["govuk-frontend", [\
-        ["npm:5.1.0", {\
-          "packageLocation": "./.yarn/cache/govuk-frontend-npm-5.1.0-6932aa0d93-8bc32fa2f2.zip/node_modules/govuk-frontend/",\
+        ["npm:5.2.0", {\
+          "packageLocation": "./.yarn/cache/govuk-frontend-npm-5.2.0-c3b1d7d8c2-aabf67174a.zip/node_modules/govuk-frontend/",\
           "packageDependencies": [\
-            ["govuk-frontend", "npm:5.1.0"]\
+            ["govuk-frontend", "npm:5.2.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -15375,7 +15375,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["express-openid-connect", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.17.1"],\
             ["express-session", "npm:1.18.0"],\
             ["glob", "npm:10.3.12"],\
-            ["govuk-frontend", "npm:5.1.0"],\
+            ["govuk-frontend", "npm:5.2.0"],\
             ["helmet", "npm:7.1.0"],\
             ["html-webpack-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.6.0"],\
             ["husky", "npm:9.0.11"],\
