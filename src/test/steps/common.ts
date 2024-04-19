@@ -25,4 +25,32 @@ Then('I sign in as the test user', () => {
   I.fillField('Email Address', config.b2c.testLogin.email as string);
   I.fillField('Password', config.b2c.testLogin.password as string);
   I.click('Sign in');
+
+  // handle dodgy B2C login where bounces back to login form 1 time...sometimes.
+  I.grabCurrentUrl().then(url => {
+    if (url.includes('/authorize')) {
+      I.fillField('Email Address', config.b2c.testLogin.email as string);
+      I.fillField('Password', config.b2c.testLogin.password as string);
+      I.click('Sign in');
+    }
+  });
+});
+
+Then('I see the link {string}', (text: string) => {
+  I.seeElement(locate('a').withText(text));
+});
+
+Then('I sign in as an unknown user', () => {
+  I.fillField('Email Address', config.b2c.testLogin.email as string);
+  I.fillField('Password', 'this is not the password');
+  I.click('Sign in');
+
+  // handle dodgy B2C login where bounces back to login form 1 time...sometimes.
+  I.grabCurrentUrl().then(url => {
+    if (url.includes('/authorize')) {
+      I.fillField('Email Address', config.b2c.testLogin.email as string);
+      I.fillField('Password', 'this is not the password');
+      I.click('Sign in');
+    }
+  });
 });

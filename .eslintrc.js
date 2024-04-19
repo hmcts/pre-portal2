@@ -1,18 +1,17 @@
 module.exports = {
   root: true,
-  ignorePatterns: ['src/main/views/govuk/**'],
   env: { browser: true, es6: true, node: true },
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'import', 'jest'],
+  plugins: ['@typescript-eslint', 'prettier', 'import', 'jest'],
   extends: [
     'eslint:recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
     'plugin:jest/recommended',
+    'plugin:prettier/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier',
   ],
   parserOptions: {
     ecmaVersion: 2018,
@@ -23,7 +22,7 @@ module.exports = {
   rules: {
     '@typescript-eslint/array-type': 'error',
     '@typescript-eslint/explicit-module-boundary-types': 'error',
-    '@typescript-eslint/no-explicit-any': 'warn',
+    '@typescript-eslint/no-explicit-any': 'error',
     '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/no-unused-vars': [
       'error',
@@ -47,7 +46,6 @@ module.exports = {
       },
     ],
     'jest/prefer-to-have-length': 'error',
-    'jest/valid-expect': 'off',
     'linebreak-style': ['error', 'unix'],
     'no-console': 'warn',
     'no-prototype-builtins': 'off',
