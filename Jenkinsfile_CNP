@@ -25,6 +25,11 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
 
 def yarnBuilder = new uk.gov.hmcts.contino.YarnBuilder(this)
 
+after('functionalTest:dev') {
+  env.TEST_URL = "https:///pre-portal-pr-${CHANGE_ID}.dev.platform.hmcts.net/"
+  yarnBuilder.yarn('test:pa11y')
+}
+
 withPipeline(type, product, component) {
   disableLegacyDeployment()
   syncBranchesWithMaster(['perftest', 'ithc', 'demo'])
