@@ -1,4 +1,4 @@
-import puppeteer, { Browser } from 'puppeteer';
+import puppeteer, { Browser, Page } from 'puppeteer';
 import { config } from '../config';
 
 const pa11y = require('pa11y');
@@ -27,6 +27,16 @@ function expectNoErrors(messages: PallyIssue[]): void {
   }
 }
 
+async function signIn(browser: Browser): Promise<Page> {
+  const page = await browser.newPage();
+  await page.goto(config.TEST_URL as string);
+  await page.waitForSelector('#signInName', { visible: true, timeout: 0 });
+  await page.type('#signInName', process.env.B2C_TEST_LOGIN_EMAIL as string);
+  await page.type('#password', process.env.B2C_TEST_LOGIN_PASSWORD as string);
+  await page.click('#next');
+  return page;
+}
+
 jest.setTimeout(10000);
 describe('Accessibility', () => {
   let browser: Browser;
@@ -39,7 +49,11 @@ describe('Accessibility', () => {
     if (browser) {
       await browser.close();
     }
-    browser = await puppeteer.launch({ ignoreHTTPSErrors: true });
+    browser = await puppeteer.launch({
+      ignoreHTTPSErrors: true,
+      headless: false,
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    });
   };
 
   const signedOutUrls = ['/terms-and-conditions', '/accessibility-statement', '/cookies', '/not-found', '/'];
@@ -62,16 +76,10 @@ describe('Accessibility', () => {
     });
   });
 
+  const testUrl = config.TEST_URL as string;
+
   test('/browse page', async () => {
-    console.log(config.TEST_URL);
-    const testUrl = config.TEST_URL as string;
-    const page = await browser.newPage();
-    await page.goto(testUrl);
-    await page.waitForSelector('#signInName', { visible: true, timeout: 0 });
-    await page.type('#signInName', process.env.B2C_TEST_LOGIN_EMAIL as string);
-    await page.type('#password', process.env.B2C_TEST_LOGIN_PASSWORD as string);
-    await page.click('#next');
-    // const cookies = await page.cookies(testUrl);
+    const page = await signIn(browser);
     await page.close();
 
     const result: Pa11yResult = await pa11y(testUrl + '/browse', {
@@ -80,23 +88,20 @@ describe('Accessibility', () => {
     });
     expect(result.issues).toEqual(expect.any(Array));
     expectNoErrors(result.issues);
+  });
 
-    // const browsePage = await browser.newPage();
-    // await browsePage.goto(testUrl);
-    // await browsePage.waitForSelector('a[href^=/watch/]', { visible: true, timeout: 0 });
-    // await browsePage.click('a[href^=/watch/]');
-    // const watchUrl = browsePage.url();
-    // await browsePage.close();
-    //
-    // const watchResult: Pa11yResult = await pa11y(watchUrl, {
-    //   browser: browser,
-    //   screenCapture: `functional-output/pa11y/watch.png`
-    // });
-    // expect(watchResult.issues).toEqual(expect.any(Array));
-    // expectNoErrors(watchResult.issues);
+  test('/watch/x page', async () => {
+    const page = await signIn(browser);
+    await page.waitForSelector('a[href^="/watch/"]', { visible: true, timeout: 0 });
+    await page.click('a[href^="/watch/"]');
+    const watchUrl = page.url();
+    await page.close();
+
+    const watchResult: Pa11yResult = await pa11y(watchUrl, {
+      browser: browser,
+      screenCapture: `functional-output/pa11y/watch.png`,
+    });
+    expect(watchResult.issues).toEqual(expect.any(Array));
+    expectNoErrors(watchResult.issues);
   }, 30000);
 });
-
-// testing accessibility of the home page
-// testAccessibility('/browse');
-// testAccessibility('/watch/something');
