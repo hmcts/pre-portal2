@@ -23,7 +23,7 @@ jest.mock('../../../main/services/session-user/session-user', () => {
       }),
       getLoggedInUserProfile: jest.fn().mockImplementation((req: Express.Request) => {
         return mockeduser;
-      })
+      }),
     },
   };
 });
