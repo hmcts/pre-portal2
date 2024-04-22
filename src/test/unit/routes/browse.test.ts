@@ -82,7 +82,7 @@ describe('Browse route', () => {
     const response = await request(app).get('/browse?page=1');
     expect(response.status).equal(200);
     const text = response.text.replace(/\s+/g, ' ').trim();
-    expect(text).contain('<span class="govuk-pagination__link-title">Previous');
+    expect(text).contain('<span class="govuk-pagination__link-title"> Previous');
   });
 
   test('pagination should have a next link', async () => {
@@ -99,7 +99,7 @@ describe('Browse route', () => {
     const response = await request(app).get('/browse?page=0');
     expect(response.status).equal(200);
     const text = response.text.replace(/\s+/g, ' ').trim();
-    expect(text).contain('<span class="govuk-pagination__link-title">Next');
+    expect(text).contain('<span class="govuk-pagination__link-title"> Next');
   });
 
   test('pagination should have a filler ellipsis when more than 2 pages from the start', async () => {
@@ -116,7 +116,7 @@ describe('Browse route', () => {
     const response = await request(app).get('/browse?page=4');
     expect(response.status).equal(200);
     const text = response.text.replace(/\s+/g, ' ').trim();
-    expect(text).contain('<li class="govuk-pagination__item govuk-pagination__item--ellipses">&ctdot;</li>');
+    expect(text).contain('<li class="govuk-pagination__item govuk-pagination__item--ellipses"> &ctdot; </li>');
   });
 
   test('pagination should have a filler ellipsis when more than 2 pages from the end', async () => {
@@ -133,7 +133,7 @@ describe('Browse route', () => {
     const response = await request(app).get('/browse?page=0');
     expect(response.status).equal(200);
     const text = response.text.replace(/\s+/g, ' ').trim();
-    expect(text).contain('<li class="govuk-pagination__item govuk-pagination__item--ellipses">&ctdot;</li>');
+    expect(text).contain('<li class="govuk-pagination__item govuk-pagination__item--ellipses"> &ctdot; </li>');
   });
 
   test('pagination should show 2 pages either side of the current page', async () => {
@@ -151,7 +151,7 @@ describe('Browse route', () => {
     const text = response.text.replace(/\s+/g, ' ').trim();
     expect(response.status).equal(200);
     expect(text).contain('> 1 <');
-    expect(text).contain('<li class="govuk-pagination__item govuk-pagination__item--ellipses">&ctdot;</li>');
+    expect(text).contain('<li class="govuk-pagination__item govuk-pagination__item--ellipses"> &ctdot; </li>');
     expect(text).contain('> 3 <');
     expect(text).contain('> 4 <');
     expect(text).contain('> 5 <');
@@ -178,7 +178,7 @@ describe('Browse route', () => {
     expect(text).contain('> 2 <');
     expect(text).contain('> 3 <');
     expect(text).contain('> 4 <');
-    expect(text).not.contain('<li class="govuk-pagination__item govuk-pagination__item--ellipses">&ctdot;</li>');
+    expect(text).not.contain('<li class="govuk-pagination__item govuk-pagination__item--ellipses"> &ctdot; </li>');
   });
 
   test('heading should contain current page, max page and number of recordings', async () => {
