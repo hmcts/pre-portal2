@@ -30,7 +30,7 @@ withPipeline(type, product, component) {
   syncBranchesWithMaster(['perftest', 'ithc', 'demo'])
   enableSlackNotifications('#pre-builds')
   loadVaultSecrets(secrets)
-  
+
   before('functionalTest:dev') {
     env.TEST_URL = "https:///pre-portal-pr-${CHANGE_ID}.dev.platform.hmcts.net/"
     yarnBuilder.yarn('test:pa11y')

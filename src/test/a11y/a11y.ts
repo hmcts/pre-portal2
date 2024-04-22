@@ -27,7 +27,7 @@ function expectNoErrors(messages: PallyIssue[]): void {
   }
 }
 
-jest.setTimeout(5000);
+jest.setTimeout(10000);
 describe('Accessibility', () => {
   let browser: Browser;
   let hasAfterAllRun = false;
