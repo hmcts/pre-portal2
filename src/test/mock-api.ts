@@ -16,6 +16,7 @@ export const mockRecordings: Recording[] = [
     filename: 'filename',
     duration: 'duration',
     editInstructions: 'editInstructions',
+    caseId: '12345678-1234-1234-1234-1234567890ab',
     captureSession: {
       id: '',
       bookingId: '',
@@ -43,6 +44,7 @@ export const mockRecordings: Recording[] = [
     filename: 'filename',
     duration: 'duration',
     editInstructions: 'editInstructions',
+    caseId: '12345678-1234-1234-1234-1234567890ac',
     captureSession: {
       id: '',
       bookingId: '',

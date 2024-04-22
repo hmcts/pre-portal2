@@ -37,6 +37,7 @@ export interface Recording {
   captureSession: CaptureSession;
   deletedAt: string;
   createdAt: string;
+  caseId: string;
   caseReference: string;
   isTestCase: boolean;
   participants: Participant[];
@@ -73,7 +74,5 @@ export interface PutAuditRequest {
   source: string;
   table_name?: string;
   table_record_id?: string;
-  audit_details: {
-    recordingId?: string;
-  };
+  audit_details: { [key: string]: string };
 }
