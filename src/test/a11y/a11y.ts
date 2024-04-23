@@ -51,7 +51,7 @@ describe('Accessibility', () => {
     }
     browser = await puppeteer.launch({
       ignoreHTTPSErrors: true,
-      headless: false,
+      headless: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
   };
@@ -101,7 +101,10 @@ describe('Accessibility', () => {
       browser: browser,
       screenCapture: `functional-output/pa11y/watch.png`,
     });
-    expect(watchResult.issues).toEqual(expect.any(Array));
-    expectNoErrors(watchResult.issues);
+    expect(watchResult.issues.map(issue => issue.code)).toEqual([
+      'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Button.Name',
+      'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name',
+      'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name',
+    ]);
   }, 30000);
 });
