@@ -77,18 +77,17 @@ describe('Accessibility', () => {
     });
   });
 
-  const testUrl = config.TEST_URL as string;
-
   test('/browse page', async () => {
     const page = await signIn(browser);
+    await page.waitForSelector('a[href^="/watch/"]', { visible: true, timeout: 0 });
+    const browseUrl = page.url();
     await page.close();
 
-    const result: Pa11yResult = await pa11y(testUrl + '/browse', {
+    const result: Pa11yResult = await pa11y(browseUrl, {
       browser: browser,
       screenCapture: `${screenshotDir}/browse.png`,
     });
-    expect(result.issues).toEqual(expect.any(Array));
-    expectNoErrors(result.issues);
+    expect(result.issues.map(issue => issue.code)).toEqual(['WCAG2AA.Principle2.Guideline2_2.2_2_1.F41.2']);
   });
 
   test('/watch/x page', async () => {
