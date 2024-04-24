@@ -38,6 +38,7 @@ async function signIn(browser: Browser): Promise<Page> {
 }
 
 jest.setTimeout(10000);
+const screenshotDir = `${__dirname}/../../../functional-output/pa11y`;
 describe('Accessibility', () => {
   let browser: Browser;
   let hasAfterAllRun = false;
@@ -68,7 +69,7 @@ describe('Accessibility', () => {
   describe.each(signedOutUrls)('Signed out page %s', url => {
     test('should have no accessibility errors', async () => {
       const result: Pa11yResult = await pa11y(config.TEST_URL + url, {
-        screenCapture: `functional-output/pa11y/${url}.png`,
+        screenCapture: `${screenshotDir}/${url}.png`,
         browser: browser,
       });
       expect(result.issues).toEqual(expect.any(Array));
@@ -84,7 +85,7 @@ describe('Accessibility', () => {
 
     const result: Pa11yResult = await pa11y(testUrl + '/browse', {
       browser: browser,
-      screenCapture: `functional-output/pa11y/browse.png`,
+      screenCapture: `${screenshotDir}/browse.png`,
     });
     expect(result.issues).toEqual(expect.any(Array));
     expectNoErrors(result.issues);
@@ -99,7 +100,7 @@ describe('Accessibility', () => {
 
     const watchResult: Pa11yResult = await pa11y(watchUrl, {
       browser: browser,
-      screenCapture: `functional-output/pa11y/watch.png`,
+      screenCapture: `${screenshotDir}/watch.png`,
     });
     expect(watchResult.issues.map(issue => issue.code)).toEqual([
       'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Button.Name',
