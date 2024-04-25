@@ -77,10 +77,12 @@ describe('Accessibility', () => {
     });
   });
 
-  test('/browse page', async () => {
+  test('/browse and watch pages', async () => {
     const page = await signIn(browser);
     await page.waitForSelector('a[href^="/watch/"]', { visible: true, timeout: 0 });
     const browseUrl = page.url();
+    await page.click('a[href^="/watch/"]');
+    const watchUrl = page.url();
     await page.close();
 
     const result: Pa11yResult = await pa11y(browseUrl, {
@@ -88,14 +90,6 @@ describe('Accessibility', () => {
       screenCapture: `${screenshotDir}/browse.png`,
     });
     expect(result.issues.map(issue => issue.code)).toEqual(['WCAG2AA.Principle2.Guideline2_2.2_2_1.F41.2']);
-  });
-
-  test('/watch/x page', async () => {
-    const page = await signIn(browser);
-    await page.waitForSelector('a[href^="/watch/"]', { visible: true, timeout: 0 });
-    await page.click('a[href^="/watch/"]');
-    const watchUrl = page.url();
-    await page.close();
 
     const watchResult: Pa11yResult = await pa11y(watchUrl, {
       browser: browser,
