@@ -108,7 +108,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["node-mocks-http", "npm:1.14.1"],\
             ["nodemon", "npm:3.1.0"],\
             ["nunjucks", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.2.4"],\
-            ["pa11y", "npm:6.0.0"],\
+            ["pa11y", "npm:6.2.3"],\
             ["playwright", "npm:1.18.1"],\
             ["prettier", "npm:3.2.5"],\
             ["redis", "npm:4.6.13"],\
@@ -6446,10 +6446,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["axe-core", [\
-        ["npm:4.9.0", {\
-          "packageLocation": "./.yarn/cache/axe-core-npm-4.9.0-031208ac41-cabaa07586.zip/node_modules/axe-core/",\
+        ["npm:4.2.4", {\
+          "packageLocation": "./.yarn/cache/axe-core-npm-4.2.4-267004c244-bb0e107600.zip/node_modules/axe-core/",\
           "packageDependencies": [\
-            ["axe-core", "npm:4.9.0"]\
+            ["axe-core", "npm:4.2.4"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -7727,10 +7727,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:6.2.1", {\
-          "packageLocation": "./.yarn/cache/commander-npm-6.2.1-d5b635f237-d7090410c0.zip/node_modules/commander/",\
+        ["npm:8.0.0", {\
+          "packageLocation": "./.yarn/cache/commander-npm-8.0.0-25c55b70e8-4b65218847.zip/node_modules/commander/",\
           "packageDependencies": [\
-            ["commander", "npm:6.2.1"]\
+            ["commander", "npm:8.0.0"]\
           ],\
           "linkType": "HARD"\
         }],\
@@ -14126,6 +14126,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["mustache", [\
+        ["npm:4.2.0", {\
+          "packageLocation": "./.yarn/cache/mustache-npm-4.2.0-1fe3d6d77a-928fcb63e3.zip/node_modules/mustache/",\
+          "packageDependencies": [\
+            ["mustache", "npm:4.2.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["mute-stream", [\
         ["npm:0.0.5", {\
           "packageLocation": "./.yarn/cache/mute-stream-npm-0.0.5-f7894af4d1-679c91ed82.zip/node_modules/mute-stream/",\
@@ -14819,40 +14828,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["pa11y", [\
-        ["npm:6.0.0", {\
-          "packageLocation": "./.yarn/cache/pa11y-npm-6.0.0-daf39705b8-2586c372fa.zip/node_modules/pa11y/",\
+        ["npm:6.2.3", {\
+          "packageLocation": "./.yarn/cache/pa11y-npm-6.2.3-bc0b35c721-08748bc666.zip/node_modules/pa11y/",\
           "packageDependencies": [\
-            ["pa11y", "npm:6.0.0"],\
+            ["pa11y", "npm:6.2.3"],\
+            ["axe-core", "npm:4.2.4"],\
             ["bfj", "npm:7.0.2"],\
-            ["commander", "npm:6.2.1"],\
+            ["commander", "npm:8.0.0"],\
             ["envinfo", "npm:7.8.1"],\
+            ["html_codesniffer", "npm:2.5.1"],\
             ["kleur", "npm:4.1.5"],\
+            ["mustache", "npm:4.2.0"],\
             ["node.extend", "npm:2.0.3"],\
             ["p-timeout", "npm:4.1.0"],\
-            ["pa11y-runner-axe", "npm:2.0.1"],\
-            ["pa11y-runner-htmlcs", "npm:2.0.1"],\
             ["puppeteer", "npm:9.1.1"],\
             ["semver", "npm:7.6.0"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["pa11y-runner-axe", [\
-        ["npm:2.0.1", {\
-          "packageLocation": "./.yarn/cache/pa11y-runner-axe-npm-2.0.1-6eb08ce32c-4bbb2cb7ad.zip/node_modules/pa11y-runner-axe/",\
-          "packageDependencies": [\
-            ["pa11y-runner-axe", "npm:2.0.1"],\
-            ["axe-core", "npm:4.9.0"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["pa11y-runner-htmlcs", [\
-        ["npm:2.0.1", {\
-          "packageLocation": "./.yarn/cache/pa11y-runner-htmlcs-npm-2.0.1-8e1b885b8e-a8e754f8ba.zip/node_modules/pa11y-runner-htmlcs/",\
-          "packageDependencies": [\
-            ["pa11y-runner-htmlcs", "npm:2.0.1"],\
-            ["html_codesniffer", "npm:2.5.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -15393,7 +15383,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["node-mocks-http", "npm:1.14.1"],\
             ["nodemon", "npm:3.1.0"],\
             ["nunjucks", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.2.4"],\
-            ["pa11y", "npm:6.0.0"],\
+            ["pa11y", "npm:6.2.3"],\
             ["playwright", "npm:1.18.1"],\
             ["prettier", "npm:3.2.5"],\
             ["redis", "npm:4.6.13"],\
