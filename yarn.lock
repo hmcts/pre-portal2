@@ -4271,10 +4271,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axe-core@npm:^4.0.2":
-  version: 4.9.0
-  resolution: "axe-core@npm:4.9.0"
-  checksum: cabaa07586a92510f4befc742744b548c30033dfda99dd439c21d736f51913d52022c8836180084b13f2098f06a01c716dc42d8e91599c43c9db25905ba5403f
+"axe-core@npm:~4.2.1":
+  version: 4.2.4
+  resolution: "axe-core@npm:4.2.4"
+  checksum: bb0e1076005ad876af8f09dc878a7d6a468e97d2816e27920994669394cb52e8821f35c6cabb62010ad8d84ab15d169fa64b77671bf1e6db61a655585f1b2a05
   languageName: node
   linkType: hard
 
@@ -5310,10 +5310,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:~6.2.1":
-  version: 6.2.1
-  resolution: "commander@npm:6.2.1"
-  checksum: d7090410c0de6bc5c67d3ca41c41760d6d268f3c799e530aafb73b7437d1826bbf0d2a3edac33f8b57cc9887b4a986dce307fa5557e109be40eadb7c43b21742
+"commander@npm:~8.0.0":
+  version: 8.0.0
+  resolution: "commander@npm:8.0.0"
+  checksum: 4b652188473fbc5cbacc5a95c53ed854278cb28a94bd6743c2013c00c11433fa60bdf41835b7e4fb3751ca6c8836dc9c09a68b587736dbd59a72a47a91fd5cd0
   languageName: node
   linkType: hard
 
@@ -8268,7 +8268,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html_codesniffer@npm:^2.5.1":
+"html_codesniffer@npm:~2.5.1":
   version: 2.5.1
   resolution: "html_codesniffer@npm:2.5.1"
   checksum: f93fcda96a3145af5e5f0da71df4e5236f8078ee0c4d3236a48d780faf31c030d7e3297f9e1982198d2d45054f20ff8de56d97f72d2dd56c9f5eb8f45dd05c8a
@@ -10891,6 +10891,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mustache@npm:~4.2.0":
+  version: 4.2.0
+  resolution: "mustache@npm:4.2.0"
+  bin:
+    mustache: bin/mustache
+  checksum: 928fcb63e3aa44a562bfe9b59ba202cccbe40a46da50be6f0dd831b495be1dd7e38ca4657f0ecab2c1a89dc7bccba0885eab7ee7c1b215830da765758c7e0506
+  languageName: node
+  linkType: hard
+
 "mute-stream@npm:0.0.5":
   version: 0.0.5
   resolution: "mute-stream@npm:0.0.5"
@@ -11515,41 +11524,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pa11y-runner-axe@npm:~2.0.0":
-  version: 2.0.1
-  resolution: "pa11y-runner-axe@npm:2.0.1"
+"pa11y@npm:6.2.3":
+  version: 6.2.3
+  resolution: "pa11y@npm:6.2.3"
   dependencies:
-    axe-core: ^4.0.2
-  checksum: 4bbb2cb7ad48c7420128e8903401c50b33a912c4cf059584d24e8807d76bff91876ee3ee4e4dac360353be2775f4e738803d63814245e24836a36d4d0da3ecfc
-  languageName: node
-  linkType: hard
-
-"pa11y-runner-htmlcs@npm:~2.0.0":
-  version: 2.0.1
-  resolution: "pa11y-runner-htmlcs@npm:2.0.1"
-  dependencies:
-    html_codesniffer: ^2.5.1
-  checksum: a8e754f8bacf02c137bce401b84729900f49b65e8881dc642661ff6bed894fbde7206a424f58ad5dd17be34a0afc2592f4f3543904c7392ff7f0ac0365653306
-  languageName: node
-  linkType: hard
-
-"pa11y@npm:6.0.0":
-  version: 6.0.0
-  resolution: "pa11y@npm:6.0.0"
-  dependencies:
+    axe-core: ~4.2.1
     bfj: ~7.0.2
-    commander: ~6.2.1
+    commander: ~8.0.0
     envinfo: ~7.8.1
+    html_codesniffer: ~2.5.1
     kleur: ~4.1.4
+    mustache: ~4.2.0
     node.extend: ~2.0.2
     p-timeout: ~4.1.0
-    pa11y-runner-axe: ~2.0.0
-    pa11y-runner-htmlcs: ~2.0.0
     puppeteer: ~9.1.1
     semver: ~7.3.5
   bin:
     pa11y: bin/pa11y.js
-  checksum: 2586c372fa36df1592391062c728f90262d84ba543b0969a5d37baed4f1bb80b6b3bb9e9572e3d8ba6e01f99be9f31e1f94322bfff3c2f95818aa49142b62d0c
+  checksum: 08748bc666f11841afcf4a5550f1c3d1b74d282605c536afdb503803d7b11e817cb3d9c85df214294c397664081d2866506194f4e4f15575419925478cf83c7b
   languageName: node
   linkType: hard
 
@@ -11998,7 +11990,7 @@ __metadata:
     node-mocks-http: 1.14.1
     nodemon: 3.1.0
     nunjucks: 3.2.4
-    pa11y: 6.0.0
+    pa11y: 6.2.3
     playwright: 1.18
     prettier: 3.2.5
     redis: ^4.6.13
