@@ -1935,13 +1935,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hmcts/info-provider@npm:1.1.0":
-  version: 1.1.0
-  resolution: "@hmcts/info-provider@npm:1.1.0"
+"@hmcts/info-provider@npm:1.2.1":
+  version: 1.2.1
+  resolution: "@hmcts/info-provider@npm:1.2.1"
   dependencies:
-    express: ^4.18.2
+    express: ^4.19.2
     js-yaml: ^4.1.0
-  checksum: e1ddca0e051c20943502e62e88d3fe612d117eb0e20b0eece3c3216832352d746bca2bbd370a23af9789771cb7ad60ee2456a8e92364e1022374c1c6ed4fe75e
+  checksum: ec2f55f05691f4501846a584c8fe55a614f5213692e5e350e09537a75a4876dd78d684cb229ea0304bdb8298eeacbd0a89e1c6701491e4771a95b71fd42c980a
   languageName: node
   linkType: hard
 
@@ -5461,17 +5461,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cookie@npm:0.5.0, cookie@npm:^0.5.0":
-  version: 0.5.0
-  resolution: "cookie@npm:0.5.0"
-  checksum: 1f4bd2ca5765f8c9689a7e8954183f5332139eb72b6ff783d8947032ec1fdf43109852c178e21a953a30c0dd42257828185be01b49d1eb1a67fd054ca588a180
-  languageName: node
-  linkType: hard
-
 "cookie@npm:0.6.0":
   version: 0.6.0
   resolution: "cookie@npm:0.6.0"
   checksum: f56a7d32a07db5458e79c726b77e3c2eff655c36792f2b6c58d351fb5f61531e5b1ab7f46987150136e366c65213cbe31729e02a3eaed630c3bf7334635fb410
+  languageName: node
+  linkType: hard
+
+"cookie@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "cookie@npm:0.5.0"
+  checksum: 1f4bd2ca5765f8c9689a7e8954183f5332139eb72b6ff783d8947032ec1fdf43109852c178e21a953a30c0dd42257828185be01b49d1eb1a67fd054ca588a180
   languageName: node
   linkType: hard
 
@@ -7050,7 +7050,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"express@npm:4.19.2":
+"express@npm:4.19.2, express@npm:^4.19.2":
   version: 4.19.2
   resolution: "express@npm:4.19.2"
   dependencies:
@@ -7086,45 +7086,6 @@ __metadata:
     utils-merge: 1.0.1
     vary: ~1.1.2
   checksum: 212dbd6c2c222a96a61bc927639c95970a53b06257080bb9e2838adb3bffdb966856551fdad1ab5dd654a217c35db94f987d0aa88d48fb04d306340f5f34dca5
-  languageName: node
-  linkType: hard
-
-"express@npm:^4.18.2":
-  version: 4.18.3
-  resolution: "express@npm:4.18.3"
-  dependencies:
-    accepts: ~1.3.8
-    array-flatten: 1.1.1
-    body-parser: 1.20.2
-    content-disposition: 0.5.4
-    content-type: ~1.0.4
-    cookie: 0.5.0
-    cookie-signature: 1.0.6
-    debug: 2.6.9
-    depd: 2.0.0
-    encodeurl: ~1.0.2
-    escape-html: ~1.0.3
-    etag: ~1.8.1
-    finalhandler: 1.2.0
-    fresh: 0.5.2
-    http-errors: 2.0.0
-    merge-descriptors: 1.0.1
-    methods: ~1.1.2
-    on-finished: 2.4.1
-    parseurl: ~1.3.3
-    path-to-regexp: 0.1.7
-    proxy-addr: ~2.0.7
-    qs: 6.11.0
-    range-parser: ~1.2.1
-    safe-buffer: 5.2.1
-    send: 0.18.0
-    serve-static: 1.15.0
-    setprototypeof: 1.2.0
-    statuses: 2.0.1
-    type-is: ~1.6.18
-    utils-merge: 1.0.1
-    vary: ~1.1.2
-  checksum: 3d7fc8762a81dee0adf0b604f11627db2af082c5f2234e78a4aa8134f22c51f96c6282063f2f8b87f5dbc70679a3087caccb93b6107e324c6feb3a70960a5864
   languageName: node
   linkType: hard
 
@@ -11904,7 +11865,7 @@ __metadata:
     "@codeceptjs/allure-legacy": ^1.0.2
     "@codeceptjs/configure": 1.0.1
     "@hmcts/cookie-manager": ^1.0.0
-    "@hmcts/info-provider": 1.1.0
+    "@hmcts/info-provider": 1.2.1
     "@hmcts/nodejs-healthcheck": 1.8.5
     "@hmcts/nodejs-logging": 4.0.4
     "@hmcts/properties-volume": 1.1.0
