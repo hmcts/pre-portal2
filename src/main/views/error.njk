@@ -27,6 +27,8 @@
           or 'User access is not available at this time. Please confirm with support if access is expected.' == message %}
           You can
           <a class="govuk-link" href="/logout">sign in again</a>.
+        {% if status == 403 %}
+          You do not have access to this resource. If you believe you should have access, please contact your administrator.
         {% else %}
           You can
           <a class="govuk-link" href="/">browse from the homepage</a><br />
