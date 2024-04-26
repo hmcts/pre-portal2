@@ -38,7 +38,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@hmcts/nodejs-healthcheck", "npm:1.8.5"],\
             ["@hmcts/nodejs-logging", "npm:4.0.4"],\
             ["@hmcts/properties-volume", "npm:1.1.0"],\
-            ["@jest/globals", "npm:29.3.1"],\
+            ["@jest/globals", "npm:29.7.0"],\
             ["@types/body-parser", "npm:1.19.5"],\
             ["@types/chai-as-promised", "npm:7.1.8"],\
             ["@types/compression", "npm:1.7.5"],\
@@ -97,7 +97,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:29.7.0"],\
             ["jest-html-reporter", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.10.2"],\
             ["jest-junit", "npm:16.0.0"],\
-            ["jest-mock", "npm:29.3.1"],\
+            ["jest-mock", "npm:29.7.0"],\
             ["jose", "npm:5.2.4"],\
             ["jquery", "npm:3.7.1"],\
             ["lint", "npm:0.8.19"],\
@@ -3739,17 +3739,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@jest/globals", [\
-        ["npm:29.3.1", {\
-          "packageLocation": "./.yarn/cache/@jest-globals-npm-29.3.1-8cd2f1156d-4d2b9458aa.zip/node_modules/@jest/globals/",\
-          "packageDependencies": [\
-            ["@jest/globals", "npm:29.3.1"],\
-            ["@jest/environment", "npm:29.7.0"],\
-            ["@jest/expect", "npm:29.7.0"],\
-            ["@jest/types", "npm:29.6.3"],\
-            ["jest-mock", "npm:29.7.0"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:29.7.0", {\
           "packageLocation": "./.yarn/cache/@jest-globals-npm-29.7.0-06f2bd411e-97dbb94591.zip/node_modules/@jest/globals/",\
           "packageDependencies": [\
@@ -12511,16 +12500,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["jest-mock", [\
-        ["npm:29.3.1", {\
-          "packageLocation": "./.yarn/cache/jest-mock-npm-29.3.1-45d1cf0a4c-9098852cb2.zip/node_modules/jest-mock/",\
-          "packageDependencies": [\
-            ["jest-mock", "npm:29.3.1"],\
-            ["@jest/types", "npm:29.6.3"],\
-            ["@types/node", "npm:20.12.7"],\
-            ["jest-util", "npm:29.7.0"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:29.7.0", {\
           "packageLocation": "./.yarn/cache/jest-mock-npm-29.7.0-22c4769d06-81ba9b6868.zip/node_modules/jest-mock/",\
           "packageDependencies": [\
@@ -15323,7 +15302,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@hmcts/nodejs-healthcheck", "npm:1.8.5"],\
             ["@hmcts/nodejs-logging", "npm:4.0.4"],\
             ["@hmcts/properties-volume", "npm:1.1.0"],\
-            ["@jest/globals", "npm:29.3.1"],\
+            ["@jest/globals", "npm:29.7.0"],\
             ["@types/body-parser", "npm:1.19.5"],\
             ["@types/chai-as-promised", "npm:7.1.8"],\
             ["@types/compression", "npm:1.7.5"],\
@@ -15382,7 +15361,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:29.7.0"],\
             ["jest-html-reporter", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.10.2"],\
             ["jest-junit", "npm:16.0.0"],\
-            ["jest-mock", "npm:29.3.1"],\
+            ["jest-mock", "npm:29.7.0"],\
             ["jose", "npm:5.2.4"],\
             ["jquery", "npm:3.7.1"],\
             ["lint", "npm:0.8.19"],\
