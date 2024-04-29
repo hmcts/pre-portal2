@@ -14,43 +14,43 @@ export interface SearchRecordingsRequest {
 
 export interface CaptureSession {
   id: string;
-  bookingId: string;
+  booking_id: string;
   origin: string;
-  ingestAddress: string;
-  liveOutputUrl: string;
-  startedAt: string;
-  startedByUserId: string;
-  finishedAt: string;
-  finishedByUserId: string;
+  ingest_address: string;
+  live_output_url: string;
+  started_at: string;
+  started_by_user_id: string;
+  finished_at: string;
+  finished_by_user_id: string;
   status: string;
-  deletedAt: string;
-  courtName: string;
+  deleted_at: string;
+  court_name: string;
 }
 
 export interface Recording {
   id: string;
-  parentRecordingId: string;
+  parent_recording_id: string;
   version: number;
   filename: string;
   duration: string;
-  editInstructions: string;
-  captureSession: CaptureSession;
-  deletedAt: string;
-  createdAt: string;
-  caseId: string;
-  caseReference: string;
-  isTestCase: boolean;
+  edit_instructions: string;
+  capture_session: CaptureSession;
+  deleted_at: string;
+  created_at: string;
+  case_id: string;
+  case_reference: string;
+  is_test_case: boolean;
   participants: Participant[];
 }
 
 export interface Participant {
   id: string;
-  participantType: string;
-  firstName: string;
-  lastName: string;
-  deletedAt: string;
-  createdAt: string;
-  modifiedAt: string;
+  participant_type: string;
+  first_name: string;
+  last_name: string;
+  deleted_at: string;
+  created_at: string;
+  modified_at: string;
 }
 
 export interface RecordingPlaybackData {

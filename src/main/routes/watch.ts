@@ -38,9 +38,9 @@ export default function (app: Application): void {
         source: 'PORTAL',
         audit_details: {
           recordingId: recording.id,
-          caseReference: recording.caseReference,
-          caseId: recording.caseId,
-          courtName: recording.captureSession.courtName,
+          caseReference: recording.case_reference,
+          caseId: recording.case_id,
+          courtName: recording.capture_session.court_name,
           description: 'Recording accessed by User ' + userProfile.user.email,
           email: userProfile.user.email,
         },
