@@ -46,7 +46,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/csurf", "npm:1.11.5"],\
             ["@types/es6-promisify", "npm:6.0.4"],\
             ["@types/express", "npm:4.17.21"],\
-            ["@types/express-session", "npm:1.17.10"],\
+            ["@types/express-session", "npm:1.18.0"],\
             ["@types/glob", "npm:8.1.0"],\
             ["@types/jest", "npm:29.5.12"],\
             ["@types/lodash", "npm:4.17.0"],\
@@ -4338,14 +4338,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/express-session", [\
-        ["npm:1.17.10", {\
-          "packageLocation": "./.yarn/cache/@types-express-session-npm-1.17.10-d5548b0cf3-2fb63b53e1.zip/node_modules/@types/express-session/",\
-          "packageDependencies": [\
-            ["@types/express-session", "npm:1.17.10"],\
-            ["@types/express", "npm:4.17.21"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:1.18.0", {\
           "packageLocation": "./.yarn/cache/@types-express-session-npm-1.18.0-49a4a823b1-f624bc956d.zip/node_modules/@types/express-session/",\
           "packageDependencies": [\
@@ -7519,7 +7511,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/__virtual__/connect-redis-virtual-be6c993974/0/cache/connect-redis-npm-7.1.1-e1ca4e05df-ac91ee818d.zip/node_modules/connect-redis/",\
           "packageDependencies": [\
             ["connect-redis", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.1"],\
-            ["@types/express-session", "npm:1.17.10"],\
+            ["@types/express-session", "npm:1.18.0"],\
             ["express-session", "npm:1.18.0"]\
           ],\
           "packagePeers": [\
@@ -14903,7 +14895,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/csurf", "npm:1.11.5"],\
             ["@types/es6-promisify", "npm:6.0.4"],\
             ["@types/express", "npm:4.17.21"],\
-            ["@types/express-session", "npm:1.17.10"],\
+            ["@types/express-session", "npm:1.18.0"],\
             ["@types/glob", "npm:8.1.0"],\
             ["@types/jest", "npm:29.5.12"],\
             ["@types/lodash", "npm:4.17.0"],\
