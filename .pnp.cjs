@@ -33,7 +33,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-env", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.24.4"],\
             ["@codeceptjs/configure", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.0.1"],\
             ["@hmcts/cookie-manager", "npm:1.0.0"],\
-            ["@hmcts/info-provider", "npm:1.2.0"],\
+            ["@hmcts/info-provider", "npm:1.2.1"],\
             ["@hmcts/nodejs-healthcheck", "npm:1.8.5"],\
             ["@hmcts/nodejs-logging", "npm:4.0.4"],\
             ["@hmcts/properties-volume", "npm:1.1.0"],\
@@ -3125,10 +3125,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@hmcts/info-provider", [\
-        ["npm:1.2.0", {\
-          "packageLocation": "./.yarn/cache/@hmcts-info-provider-npm-1.2.0-2eee54911c-19aa393ffb.zip/node_modules/@hmcts/info-provider/",\
+        ["npm:1.2.1", {\
+          "packageLocation": "./.yarn/cache/@hmcts-info-provider-npm-1.2.1-0c905c3d08-ec2f55f056.zip/node_modules/@hmcts/info-provider/",\
           "packageDependencies": [\
-            ["@hmcts/info-provider", "npm:1.2.0"],\
+            ["@hmcts/info-provider", "npm:1.2.1"],\
             ["express", "npm:4.19.2"],\
             ["js-yaml", "npm:4.1.0"]\
           ],\
@@ -14890,7 +14890,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-env", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.24.4"],\
             ["@codeceptjs/configure", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.0.1"],\
             ["@hmcts/cookie-manager", "npm:1.0.0"],\
-            ["@hmcts/info-provider", "npm:1.2.0"],\
+            ["@hmcts/info-provider", "npm:1.2.1"],\
             ["@hmcts/nodejs-healthcheck", "npm:1.8.5"],\
             ["@hmcts/nodejs-logging", "npm:4.0.4"],\
             ["@hmcts/properties-volume", "npm:1.1.0"],\
