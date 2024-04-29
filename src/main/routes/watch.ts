@@ -18,8 +18,10 @@ export default function (app: Application): void {
     }
 
     try {
-      const client = new PreClient();
+      const userPortalId = await SessionUser.getLoggedInUserPortalId(req);
+      const userProfile = SessionUser.getLoggedInUserProfile(req);
 
+      const client = new PreClient();
       const recording = await client.getRecording(await SessionUser.getLoggedInUserPortalId(req), req.params.id);
 
       if (recording === null) {
@@ -27,6 +29,22 @@ export default function (app: Application): void {
         res.render('not-found');
         return;
       }
+
+      await client.putAudit(userPortalId, {
+        id: uuid(),
+        functional_area: 'Video Player',
+        category: 'Recording',
+        activity: 'Play',
+        source: 'PORTAL',
+        audit_details: {
+          recordingId: recording.id,
+          caseReference: recording.case_reference,
+          caseId: recording.case_id,
+          courtName: recording.capture_session.court_name,
+          description: 'Recording accessed by User ' + userProfile.user.email,
+          email: userProfile.user.email,
+        },
+      });
 
       const recordingPlaybackDataUrl = `/watch/${req.params.id}/playback`;
 
@@ -55,17 +73,6 @@ export default function (app: Application): void {
         res.json({ message: 'Not found' });
         return;
       }
-
-      await client.putAudit(userPortalId, {
-        id: uuid(),
-        functional_area: 'Video Player',
-        category: 'Recording',
-        activity: 'Play',
-        source: 'PORTAL',
-        audit_details: {
-          recordingId: req.params.id,
-        },
-      });
 
       res.json(recordingPlaybackData);
     } catch (e) {
