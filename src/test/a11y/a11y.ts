@@ -1,54 +1,21 @@
-import { app } from '../../main/app';
-
-import request from 'supertest';
-import { afterAll } from '@jest/globals';
-import { mock, reset } from '../mock-api';
+import puppeteer, { Browser, Page } from 'puppeteer';
+import { config } from '../config';
 
 const pa11y = require('pa11y');
 
-const appServers: any[] = [];
-function server() {
-  const server = app.listen();
-  appServers.push(server);
-  return server;
-}
-
-class Pa11yResult {
+interface Pa11yResult {
   documentTitle: string;
   pageUrl: string;
   issues: PallyIssue[];
-
-  constructor(documentTitle: string, pageUrl: string, issues: PallyIssue[]) {
-    this.documentTitle = documentTitle;
-    this.pageUrl = pageUrl;
-    this.issues = issues;
-  }
 }
 
-class PallyIssue {
+interface PallyIssue {
   code: string;
   context: string;
   message: string;
   selector: string;
   type: string;
   typeCode: number;
-
-  constructor(code: string, context: string, message: string, selector: string, type: string, typeCode: number) {
-    this.code = code;
-    this.context = context;
-    this.message = message;
-    this.selector = selector;
-    this.type = type;
-    this.typeCode = typeCode;
-  }
-}
-
-function runPally(url: string): Promise<Pa11yResult> {
-  return pa11y(url, {
-    hideElements: '.govuk-footer__licence-logo, .govuk-header__logotype-crown',
-    // Ignoring NoSuchID due to how Angular app links between pages: Links say they are linking to '/browse' when they actually link to '/#/browse' which is not listed as a route.
-    ignore: ['WCAG2AA.Principle2.Guideline2_4.2_4_1.G1,G123,G124.NoSuchID'],
-  });
 }
 
 function expectNoErrors(messages: PallyIssue[]): void {
@@ -60,41 +27,79 @@ function expectNoErrors(messages: PallyIssue[]): void {
   }
 }
 
-function testAccessibility(url: string): void {
-  describe(`Page ${url}`, () => {
+async function signIn(browser: Browser): Promise<Page> {
+  const page = await browser.newPage();
+  await page.goto(config.TEST_URL as string);
+  await page.waitForSelector('#signInName', { visible: true, timeout: 0 });
+  await page.type('#signInName', process.env.B2C_TEST_LOGIN_EMAIL as string);
+  await page.type('#password', process.env.B2C_TEST_LOGIN_PASSWORD as string);
+  await page.click('#next');
+  return page;
+}
+
+jest.setTimeout(10000);
+const screenshotDir = `${__dirname}/../../../functional-output/pa11y`;
+describe('Accessibility', () => {
+  let browser: Browser;
+  let hasAfterAllRun = false;
+
+  const setup = async () => {
+    if (hasAfterAllRun) {
+      return;
+    }
+    if (browser) {
+      await browser.close();
+    }
+    browser = await puppeteer.launch({
+      ignoreHTTPSErrors: true,
+      headless: true,
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    });
+  };
+
+  const signedOutUrls = ['/terms-and-conditions', '/accessibility-statement', '/cookies', '/not-found', '/'];
+
+  beforeAll(setup);
+
+  afterAll(async () => {
+    hasAfterAllRun = true;
+    await browser.close();
+  });
+
+  describe.each(signedOutUrls)('Signed out page %s', url => {
     test('should have no accessibility errors', async () => {
-      // await ensurePageCallWillSucceed(url);
-      const result = await runPally(await request(server()).get(url).url);
+      const result: Pa11yResult = await pa11y(config.TEST_URL + url, {
+        screenCapture: `${screenshotDir}/${url}.png`,
+        browser: browser,
+      });
       expect(result.issues).toEqual(expect.any(Array));
       expectNoErrors(result.issues);
     });
   });
-}
 
-jest.mock('express-openid-connect', () => {
-  return {
-    requiresAuth: jest.fn().mockImplementation(() => {
-      return (req: any, res: any, next: any) => {
-        next();
-      };
-    }),
-  };
-});
+  test('/browse and watch pages', async () => {
+    const page = await signIn(browser);
+    await page.waitForSelector('a[href^="/watch/"]', { visible: true, timeout: 0 });
+    const browseUrl = page.url();
+    await page.click('a[href^="/watch/"]');
+    const watchUrl = page.url();
+    await page.close();
 
-jest.setTimeout(30000);
-mock();
+    const result: Pa11yResult = await pa11y(browseUrl, {
+      browser: browser,
+      screenCapture: `${screenshotDir}/browse.png`,
+      waitUntil: 'domcontentloaded',
+    });
+    expect(result.issues.map(issue => issue.code)).toEqual(['WCAG2AA.Principle2.Guideline2_2.2_2_1.F41.2']);
 
-describe('Accessibility', () => {
-  afterAll(async () => {
-    appServers.forEach(server => server.close());
-    reset();
-  });
-  // testing accessibility of the home page
-  testAccessibility('/terms-and-conditions');
-  testAccessibility('/accessibility-statement');
-  testAccessibility('/sign-in');
-  testAccessibility('/browse');
-  testAccessibility('/not-found');
-  testAccessibility('/watch/something');
-  testAccessibility('/cookies');
+    const watchResult: Pa11yResult = await pa11y(watchUrl, {
+      browser: browser,
+      screenCapture: `${screenshotDir}/watch.png`,
+    });
+    expect(watchResult.issues.map(issue => issue.code)).toEqual([
+      'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Button.Name',
+      'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name',
+      'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name',
+    ]);
+  }, 30000);
 });
