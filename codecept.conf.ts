@@ -10,10 +10,6 @@ export const config: CodeceptJS.MainConfig = {
   helpers: testConfig.helpers,
   tests: './*_test.{js,ts}',
   plugins: {
-    allure: {
-      enabled: true,
-      require: '@codeceptjs/allure-legacy',
-    },
     pauseOnFail: {
       enabled: !testConfig.TestHeadlessBrowser,
     },
