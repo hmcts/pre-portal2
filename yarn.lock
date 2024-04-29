@@ -2613,7 +2613,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/cookiejar@npm:*, @types/cookiejar@npm:^2.1.5":
+"@types/cookiejar@npm:^2.1.5":
   version: 2.1.5
   resolution: "@types/cookiejar@npm:2.1.5"
   checksum: 04d5990e87b6387532d15a87d9ec9b2eb783039291193863751dcfd7fc723a3b3aa30ce4c06b03975cba58632e933772f1ff031af23eaa3ac7f94e71afa6e073
@@ -2810,7 +2810,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/methods@npm:*, @types/methods@npm:^1.1.4":
+"@types/methods@npm:^1.1.4":
   version: 1.1.4
   resolution: "@types/methods@npm:1.1.4"
   checksum: ad2a7178486f2fd167750f3eb920ab032a947ff2e26f55c86670a6038632d790b46f52e5b6ead5823f1e53fc68028f1e9ddd15cfead7903e04517c88debd72b1
@@ -2963,7 +2963,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/superagent@npm:*":
+"@types/superagent@npm:^8.1.0":
   version: 8.1.6
   resolution: "@types/superagent@npm:8.1.6"
   dependencies:
@@ -2974,14 +2974,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/supertest@npm:6.0.0":
-  version: 6.0.0
-  resolution: "@types/supertest@npm:6.0.0"
+"@types/supertest@npm:6.0.2":
+  version: 6.0.2
+  resolution: "@types/supertest@npm:6.0.2"
   dependencies:
-    "@types/cookiejar": "*"
-    "@types/methods": "*"
-    "@types/superagent": "*"
-  checksum: 696419d6d1fbb4638e063471d0ce8c2e6c68c2e09fce40713933fcdf8bfc5c0d803b287c7c5e8ec5ab58b6078e498ec34099ae6461dfd70b481832086dc0a1d8
+    "@types/methods": ^1.1.4
+    "@types/superagent": ^8.1.0
+  checksum: 1eafa472665757a6fd984439d11f388ae0480c6d243a6884066c474c4e0357de5373316488da503b1690c3163e075ca8c64c0c4853b3bb7deb09e05d1b64e556
   languageName: node
   linkType: hard
 
@@ -11679,7 +11678,7 @@ __metadata:
     "@types/require-directory": 2.1.6
     "@types/serve-favicon": 2.5.7
     "@types/session-file-store": 1.2.5
-    "@types/supertest": 6.0.0
+    "@types/supertest": 6.0.2
     "@types/uuid": 9.0.8
     "@typescript-eslint/eslint-plugin": 7.7.1
     "@typescript-eslint/parser": 7.7.1
