@@ -72,16 +72,22 @@ app.use((req, res) => {
 });
 
 // error handler
-app.use((err: HTTPError, req: express.Request, res: express.Response, next: express.NextFunction) => {
+app.use((err, req: express.Request, res: express.Response, next: express.NextFunction) => {
   logger.error(err.message);
-  logger.error(JSON.stringify(err));
+  logger.error(JSON.stringify(err)  );
 
   if (err.message.includes('checks.state') || err.message.includes('nonce mismatch') || err.message.includes('403')) {
     res.redirect('/');
     return;
   }
 
-  res.status(err.status || 500);
-  res.render('error', { status: err.status || 500, message: err.message });
+  if (err.message.includes('terms and conditions')) {
+    res.redirect('/accept-terms-and-conditions');
+    return;
+  }
+
+  const statusCode = err instanceof HTTPError ? err.status : 500;
+  res.status(statusCode);
+  res.render('error', { status: statusCode, message: err.message });
   next();
 });

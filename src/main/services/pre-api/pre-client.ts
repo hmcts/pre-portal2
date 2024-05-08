@@ -94,6 +94,8 @@ export class PreClient {
       throw new Error('User does not have access to the portal: ' + email);
     } else if (userProfile.portal_access[0].status === AccessStatus.INACTIVE) {
       throw new Error('User is not active: ' + email);
+    } else if (!userProfile.portal_access[0].terms_accepted_at) {
+      throw new Error('User has not accepted the terms and conditions: ' + email);
     }
     return userProfile;
   }
@@ -187,6 +189,21 @@ export class PreClient {
         return null;
       }
 
+      this.logger.error(e);
+      throw e;
+    }
+  }
+
+  public async acceptTermsAndConditions(xUserId: string): Promise<UserProfile> {
+    try {
+      const response = await axios.put(``, {
+        headers: {
+          'X-User-Id': xUserId,
+        },
+      });
+
+      return response.data as UserProfile;
+    } catch (e) {
       this.logger.error(e);
       throw e;
     }

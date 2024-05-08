@@ -44,6 +44,7 @@ export interface UserProfile {
           invited_at: string;
           last_access: string | null;
           registered_at: string | null;
+          terms_accepted_at: string | null;
           status: AccessStatus;
         },
       ]
