@@ -1,11 +1,11 @@
 import * as path from 'path';
 
-import { HTTPError } from './HttpError';
 import { AppInsights } from './modules/appinsights';
 import { Auth } from './modules/auth';
 import { Helmet } from './modules/helmet';
 import { Nunjucks } from './modules/nunjucks';
 import { PropertiesVolume } from './modules/properties-volume';
+import { ForbiddenError, HTTPError, TermsNotAcceptedError, UnauthorizedError } from './types/errors';
 
 import axios from 'axios';
 import * as bodyParser from 'body-parser';
@@ -72,22 +72,20 @@ app.use((req, res) => {
 });
 
 // error handler
-app.use((err, req: express.Request, res: express.Response, next: express.NextFunction) => {
+app.use((err: HTTPError, req: express.Request, res: express.Response, next: express.NextFunction) => {
   logger.error(err.message);
-  logger.error(JSON.stringify(err)  );
 
-  if (err.message.includes('checks.state') || err.message.includes('nonce mismatch') || err.message.includes('403')) {
-    res.redirect('/');
-    return;
-  }
-
-  if (err.message.includes('terms and conditions')) {
+  if (err instanceof TermsNotAcceptedError) {
     res.redirect('/accept-terms-and-conditions');
     return;
   }
 
-  const statusCode = err instanceof HTTPError ? err.status : 500;
-  res.status(statusCode);
-  res.render('error', { status: statusCode, message: err.message });
+  if (err instanceof UnauthorizedError || err instanceof ForbiddenError) {
+    res.redirect('/');
+    return;
+  }
+
+  res.status(err.status);
+  res.render('error', { status: err.status, message: err.message });
   next();
 });

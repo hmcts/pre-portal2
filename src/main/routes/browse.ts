@@ -6,8 +6,7 @@ import { Application } from 'express';
 import { requiresAuth } from 'express-openid-connect';
 
 export default function (app: Application): void {
-
-  app.get('/browse', requiresAuth(), async (req, res) => {
+  app.get('/browse', requiresAuth(), async (req, res, next) => {
     try {
       const client = new PreClient();
 
@@ -109,7 +108,7 @@ export default function (app: Application): void {
         user: SessionUser.getLoggedInUserProfile(req).user,
       });
     } catch (e) {
-      throw e;
+      next(e);
     }
   });
 }

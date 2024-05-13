@@ -1,4 +1,5 @@
 import { AccessStatus } from '../../types/access-status';
+import { TermsNotAcceptedError } from '../../types/errors';
 import { UserProfile } from '../../types/user-profile';
 
 import { Pagination, PutAuditRequest, Recording, RecordingPlaybackData, SearchRecordingsRequest } from './types';
@@ -95,7 +96,12 @@ export class PreClient {
     } else if (userProfile.portal_access[0].status === AccessStatus.INACTIVE) {
       throw new Error('User is not active: ' + email);
     } else if (!userProfile.portal_access[0].terms_accepted_at) {
-      throw new Error('User has not accepted the terms and conditions: ' + email);
+      throw new TermsNotAcceptedError(email);
+    } else if (
+      new Date(userProfile.portal_access[0].terms_accepted_at).getTime() <
+      new Date().getTime() - 365 * 24 * 60 * 60 * 1000 // 1 year
+    ) {
+      throw new TermsNotAcceptedError(email);
     }
     return userProfile;
   }
@@ -196,7 +202,7 @@ export class PreClient {
 
   public async acceptTermsAndConditions(xUserId: string): Promise<UserProfile> {
     try {
-      const response = await axios.put(``, {
+      const response = await axios.post('/users/acceptPortalTerms', {
         headers: {
           'X-User-Id': xUserId,
         },
