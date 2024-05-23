@@ -23,6 +23,7 @@ export class PreClient {
       });
     } catch (e) {
       this.logger.error(e.message);
+      this.logger.error('test message');
       throw e;
     }
   }
