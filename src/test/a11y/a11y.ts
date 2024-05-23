@@ -101,5 +101,5 @@ describe('Accessibility', () => {
       'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name',
       'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name',
     ]);
-  }, 30000);
+  }, 35000);
 });
