@@ -11,18 +11,18 @@ export class PropertiesVolume {
     set(config, 'pre.portalUrl', process.env.PORTAL_URL ?? 'https://localhost:4551');
     set(config, 'pre.apiUrl', process.env.PRE_API_URL ?? 'https://localhost:4550');
     set(config, 'session.redis.host', process.env.REDIS_HOST ?? '');
-    set(config, 'b2c.appClientId', process.env.B2C_APP_CLIENT_ID ?? 'c8deb898-d595-4fb2-8ba5-52fffa8db064');
+    set(config, 'b2c.appClientId', process.env.B2C_APP_CLIENT_ID ?? 'd20a7462-f222-46b8-a363-d2e30eb274eb');
     set(
       config,
       'b2c.baseUrl',
       process.env.B2C_BASE_URL ??
-        'https://hmctsdevextid.b2clogin.com/hmctsdevextid.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_SIGNUP_SIGNIN'
+        'https://hmctsstgextid.b2clogin.com/hmctsstgextid.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_SIGNUP_SIGNIN'
     );
     set(
       config,
       'b2c.endSessionEndpoint',
       process.env.B2C_END_SESSION_ENDPOINT ??
-        'https://hmctsdevextid.b2clogin.com/hmctsdevextid.onmicrosoft.com/b2c_1a_signup_signin/oauth2/v2.0/logout'
+        'https://hmctsstgextid.b2clogin.com/hmctsstgextid.onmicrosoft.com/b2c_1a_signup_signin/oauth2/v2.0/logout'
     );
     set(
       config,

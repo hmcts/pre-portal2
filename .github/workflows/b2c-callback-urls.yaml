@@ -19,12 +19,12 @@ jobs:
       - name: Azure login
         uses: azure/login@v2
         with:
-          creds: ${{ secrets.B2C_DEV_CREDENTIALS }}
+          creds: ${{ secrets.B2C_STG_CREDENTIALS }}
           allow-no-subscriptions: true
 
       - run: |
-          tenant_id=${{ secrets.B2C_TENANT_ID }}
-          app_id=${{ secrets.B2C_CLIENT_ID }}
+          tenant_id=${{ secrets.B2C_STG_TENANT_ID }}
+          app_id=${{ secrets.B2C_STG_CLIENT_ID }}
           pr_ids=($(gh pr list --json number | jq -r '.[].number'))
 
           redirect_uri=("https://localhost:4551/callback" "https://pre-portal-staging.staging.platform.hmcts.net/callback" "https://pre-portal.staging.platform.hmcts.net/callback")

@@ -68,7 +68,7 @@ describe('Accessibility', () => {
 
   describe.each(signedOutUrls)('Signed out page %s', url => {
     test('should have no accessibility errors', async () => {
-      const result: Pa11yResult = await pa11y(config.TEST_URL + url, {
+      const result: Pa11yResult = await pa11y(config.TEST_URL + url.replace('//', '/'), {
         screenCapture: `${screenshotDir}/${url}.png`,
         browser: browser,
       });
