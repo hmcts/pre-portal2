@@ -1,4 +1,5 @@
 import { AccessStatus } from '../../types/access-status';
+import { User } from '../../types/user';
 import { UserProfile } from '../../types/user-profile';
 
 import { Pagination, PutAuditRequest, Recording, RecordingPlaybackData, SearchRecordingsRequest } from './types';
@@ -86,6 +87,51 @@ export class PreClient {
   public async getUserByEmail(email: string): Promise<UserProfile> {
     const response = await axios.get('/users/by-email/' + encodeURIComponent(email));
     return response.data as UserProfile;
+  }
+
+  private createUserFromUserProfile(profile: UserProfile): User {
+    return {
+      app_access: profile.app_access.map(access => ({
+        active: access.active,
+        court_id: access.court.id,
+        id: access.id,
+        last_active: access.last_access,
+        role_id: access.role.id,
+        user_id: profile.user.id,
+      })),
+      email: profile.user.email,
+      first_name: profile.user.first_name,
+      id: profile.user.id,
+      last_name: profile.user.last_name,
+      organisation: profile.user.organisation,
+      phone_number: profile.user.phone_number,
+      portal_access: profile.portal_access.map(access => ({
+        id: access.id,
+        invited_at: access.invited_at,
+        last_access: access.last_access,
+        registered_at: access.registered_at,
+        status: access.status,
+      })),
+    } as User;
+  }
+
+  public async updateUser(from: string, to: string, xUserId: string): Promise<boolean> {
+    try {
+      const userByEmail = await this.getUserByEmail(from);
+      this.logger.info('User found: ' + from + ' id: ' + userByEmail.user.id);
+      const fullUser = this.createUserFromUserProfile(userByEmail);
+      fullUser.email = to;
+      // this.logger.info('Updating user: ' + JSON.stringify(fullUser));
+      await axios.put('/users/' + fullUser.id, fullUser, {
+        headers: {
+          'X-User-Id': xUserId,
+        },
+      });
+      return true;
+    } catch (e) {
+      this.logger.error(e.message);
+      return false;
+    }
   }
 
   public async getActiveUserByEmail(email: string): Promise<UserProfile> {
