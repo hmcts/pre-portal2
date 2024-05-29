@@ -4,6 +4,8 @@
 
 {% block head %}
   {% include "webpack/css.njk" %}
+  <script type="text/javascript" src="/assets/js/mkplayer.js"></script>
+  <link rel="stylesheet" href="/assets/css/mkplayer-ui.css">
 {% endblock %}
 
 {% block beforeContent %}
@@ -46,12 +48,7 @@
   </div>
 
   <div id="videoWrapper" class="govuk-!-margin-bottom-2 video-wrapper">
-    <div id="loadingGif" class="loading-gif">
-      <img
-        src="https://amp.azure.net/libs/amp/2.3.11/skins/amp-default/assets/icons/buffering-rainbow.gif"
-        alt="Loading"
-      />
-    </div>
+    <div id="video-container"></div>
   </div>
 
   <div class="govuk-warning-text">
@@ -139,4 +136,26 @@
         </dd>
     </div>
   </dl>
+  <script type="text/javascript" crossorigin="anonymous" data-testid="recording-video-script">
+    const videoContainer = document.getElementById("video-container");
+
+    const playerConfig = {
+        key: "d0167b1c-9767-4287-9ddc-e0fa09d31e02",
+        ui: true,
+        playback: {
+            muted: false,
+            autoplay: false
+        }
+    };
+
+    let player = new mkplayer.MKPlayer(videoContainer, playerConfig);
+
+    const sourceConfig = {
+      title: "Test",
+      description: "Test",
+      hls: "https://mkplayer.azureedge.net/$web/streams/slate/hls/index.m3u8"
+    };
+
+    player.load(sourceConfig);
+  </script>
 {% endblock %}
