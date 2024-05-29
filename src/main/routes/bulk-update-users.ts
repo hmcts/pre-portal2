@@ -8,13 +8,14 @@ import * as path from "path";
 import csvParser from 'csv-parser';
 
 export default function (app: Application): void {
-  app.get('/bulk-update-users', () => {
+  app.get('/bulk-update-users', (req, res) => {
     const logger = Logger.getLogger('bulk-update-users');
     const client = new PreClient();
     // const xUserId = 'da940fcc-380d-4209-b385-31a76311975a';
     // const usersToUpdate = [{ from: 'from@somewhere.com', to: 'somwhere@else.net' }];
     const csvFilePath = path.resolve('__dirname', '');
     const usersToUpdate: { from: string; to: string }[] = [];
+    const isDryRun = req.query.dryRun === 'true';
 
     fs.createReadStream(csvFilePath)
       .pipe(csvParser())
@@ -29,18 +30,24 @@ export default function (app: Application): void {
             logger.info(`Fetching user_id for user ${user.from}`);
             const userProfile = await client.getUserByEmail(user.from);
             const xUserId = userProfile.user.id;
-
-            logger.info(`Updating user ${user.from} to ${user.to}`);
-            if (await client.updateUser(user.from, user.to, xUserId)) {
-              logger.info(`User ${user.from} successfully updated to ${user.to}`);
+            
+            if (isDryRun){
+              logger.info(`[Dry Run] Would update user ${user.from} to ${user.to} with user_id ${xUserId}`);
             } else {
-              logger.warn(`User ${user.from} failed to update to ${user.to}`);
+              logger.info(`Updating user ${user.from} to ${user.to}`);
+              if (await client.updateUser(user.from, user.to, xUserId)) {
+                logger.info(`User ${user.from} successfully updated to ${user.to}`);
+              
+              } else {
+                logger.warn(`User ${user.from} failed to update to ${user.to}`);
+              }
             }
           } catch (e) {
             logger.error(e.message());
             logger.warn(`User ${user.from} failed to update to ${user.to}`);
           }
         });
+        res.send('Bulk update users process completed');
       })
   });
 }
