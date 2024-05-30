@@ -11,7 +11,7 @@ export default function (app: Application): void {
   app.get('/bulk-update-users', async(req, res) => {
     const logger = Logger.getLogger('bulk-update-users');
     const client = new PreClient();
-    const csvFilePath = path.resolve('__dirname', '');
+    const csvFilePath = path.resolve('data','dummyData.csv');
     const usersToUpdate: { from: string; to: string }[] = [];
     const isDryRun = req.query.dryRun === 'true';
 
@@ -19,7 +19,7 @@ export default function (app: Application): void {
       await processCsvFile(csvFilePath, usersToUpdate, logger, client, isDryRun)
       res.send('Bulk update users process completed');
     } catch (e) {
-      logger.error(e.message());
+      logger.error(e.message);
     }
   });
 }
@@ -49,6 +49,11 @@ async function processCsvFile(
       logger.info(`Fetching user_id for user ${user.from}`);
       const userProfile = await client.getUserByEmail(user.from);
       const xUserId = userProfile.user.id;
+
+      if (!xUserId) {
+        logger.warn(`User ${user.from} not found. Skipping update.`);
+        continue; 
+      }
       
       if (isDryRun){
         logger.info(`[Dry Run] Would update user ${user.from} to ${user.to} for user_id ${xUserId}`);
@@ -56,20 +61,22 @@ async function processCsvFile(
       } 
 
       logger.info(`Updating user ${user.from} to ${user.to}`);
-      if (!(await client.updateUser(user.from, user.to, xUserId))) {
+      if (await client.updateUser(user.from, user.to, xUserId)) {
+        logger.info(`User ${user.from} successfully updated to ${user.to}`);
+
+        if (await client.resetUserPortalAccessForReinvite(user.to, xUserId)) {
+          logger.info(`User ${user.to} portal access successfully reset`);
+        } else {
+          logger.warn(`Failed to reset portal access for user ${user.to}`);
+        }
+
+      } else {
         logger.warn(`User ${user.from} failed to update to ${user.to}`);
         continue
       }
 
-      logger.info(`User ${user.from} successfully updated to ${user.to}`);
-      if (await client.resetUserPortalAccessForReinvite(user.to, xUserId)) {
-        logger.info(`User ${user.to} portal access successfully reset`);
-      } else {
-        logger.warn(`Failed to reset portal access for user ${user.to}`);
-      }
-      
     } catch (e) {
-      logger.error(e.message());
+      logger.error(e.message);
       logger.warn(`User ${user.from} failed to update to ${user.to}`);
     };
   };
