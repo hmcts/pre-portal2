@@ -134,6 +134,38 @@ export class PreClient {
     }
   }
 
+  public async resetUserPortalAccessForReinvite(email: string, xUserId: string): Promise<boolean> {
+    try {
+      const userProfile = await this.getUserByEmail(email);
+      this.logger.info('User found: ' + email + ' id: ' + userProfile.user.id);
+
+      if (!userProfile.portal_access || userProfile.portal_access.length === 0) {
+        throw new Error(`No portal access found for user: ${email}`);
+      }
+
+      userProfile.portal_access = [
+        {
+          ...userProfile.portal_access[0],
+          status: AccessStatus.INVITATION_SENT,
+          registered_at: null,
+          invited_at: new Date().toISOString(),
+        },
+      ];
+
+      await axios.put('/users/' + userProfile.user.id, userProfile, {
+        headers: {
+          'X-User-Id': xUserId,
+        },
+      });
+
+      return true;
+    } catch (e) {
+      this.logger.error(e.message);
+      return false;
+    }
+  }
+
+
   public async getActiveUserByEmail(email: string): Promise<UserProfile> {
     const userProfile = await this.getUserByEmail(email);
     if (!userProfile.portal_access || userProfile.portal_access.length === 0) {

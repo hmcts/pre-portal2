@@ -11,8 +11,6 @@ export default function (app: Application): void {
   app.get('/bulk-update-users', async(req, res) => {
     const logger = Logger.getLogger('bulk-update-users');
     const client = new PreClient();
-    // const xUserId = 'da940fcc-380d-4209-b385-31a76311975a';
-    // const usersToUpdate = [{ from: 'from@somewhere.com', to: 'somwhere@else.net' }];
     const csvFilePath = path.resolve('__dirname', '');
     const usersToUpdate: { from: string; to: string }[] = [];
     const isDryRun = req.query.dryRun === 'true';
@@ -46,7 +44,7 @@ async function processCsvFile(
 
   logger.info('CSV file successfully processed');
 
-  usersToUpdate.forEach(async user => {
+  for (const user of usersToUpdate) {
     try {
       logger.info(`Fetching user_id for user ${user.from}`);
       const userProfile = await client.getUserByEmail(user.from);
@@ -54,17 +52,25 @@ async function processCsvFile(
       
       if (isDryRun){
         logger.info(`[Dry Run] Would update user ${user.from} to ${user.to} for user_id ${xUserId}`);
-      } else {
-        logger.info(`Updating user ${user.from} to ${user.to}`);
-        if (await client.updateUser(user.from, user.to, xUserId)) {
-          logger.info(`User ${user.from} successfully updated to ${user.to}`);
-        } else {
-          logger.warn(`User ${user.from} failed to update to ${user.to}`);
-        }
+        continue
+      } 
+
+      logger.info(`Updating user ${user.from} to ${user.to}`);
+      if (!(await client.updateUser(user.from, user.to, xUserId))) {
+        logger.warn(`User ${user.from} failed to update to ${user.to}`);
+        continue
       }
+
+      logger.info(`User ${user.from} successfully updated to ${user.to}`);
+      if (await client.resetUserPortalAccessForReinvite(user.to, xUserId)) {
+        logger.info(`User ${user.to} portal access successfully reset`);
+      } else {
+        logger.warn(`Failed to reset portal access for user ${user.to}`);
+      }
+      
     } catch (e) {
       logger.error(e.message());
       logger.warn(`User ${user.from} failed to update to ${user.to}`);
     };
-  });
+  };
 };
