@@ -121,7 +121,7 @@ export class PreClient {
       this.logger.info('User found: ' + from + ' id: ' + userByEmail.user.id);
       const fullUser = this.createUserFromUserProfile(userByEmail);
       fullUser.email = to;
-      // this.logger.info('Updating user: ' + JSON.stringify(fullUser));
+      this.logger.info('Updating user: ' + JSON.stringify(fullUser));
       await axios.put('/users/' + fullUser.id, fullUser, {
         headers: {
           'X-User-Id': xUserId,

@@ -58,15 +58,6 @@ async function processCsvFile(
 
   for (const user of usersToUpdate) {
     try {
-      // logger.info(`Fetching user_id for user ${user.from}`);
-      // const userProfile = await client.getUserByEmail(user.from);
-      // const xUserId = userProfile.user.id;
-
-      // if (!xUserId) {
-      //   logger.warn(`User ${user.from} not found. Skipping update.`);
-      //   results.push({ ...user, status: 'Not Found' });
-      //   continue; 
-      // }
       
       if (isDryRun){
         logger.info(`[Dry Run] Would update user ${user.from} to ${user.to} for user_id ${xUserId}`);
@@ -93,7 +84,6 @@ async function processCsvFile(
 
     } catch (e) {
       logger.error(e.message);
-      // logger.error(`Stack trace: ${e.stack}`);
       logger.warn(`User ${user.from} failed to update to ${user.to}`);
       results.push({ ...user, status: `Error ${e}` });
     };
