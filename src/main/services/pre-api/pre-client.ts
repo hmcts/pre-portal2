@@ -85,8 +85,8 @@ export class PreClient {
   }
 
   public async getUserByEmail(email: string): Promise<UserProfile> {
-    const response = await axios.get('/users/by-email/' + encodeURIComponent(email));
-    return response.data as UserProfile;
+      const response = await axios.get('/users/by-email/' + encodeURIComponent(email));
+      return response.data as UserProfile;
   }
 
   private createUserFromUserProfile(profile: UserProfile): User {
