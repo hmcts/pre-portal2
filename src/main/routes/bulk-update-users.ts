@@ -59,9 +59,8 @@ async function processCsvFile(
   for (const user of usersToUpdate) {
     try {
       const userProfile = await client.getUserByEmail(user.from);
-      logger.info('USERPROFILE: ', userProfile)
       if (!userProfile) {
-        logger.warn(`User profile not found foryar ${user.from}`);
+        logger.warn(`User profile not found for user:  ${user.from}`);
         results.push({ firstName: '', lastName: '', ...user, status: 'Profile Not Found' });
         continue;
       }
@@ -78,7 +77,11 @@ async function processCsvFile(
         logger.info(`User ${user.from} successfully updated to ${user.to}`);
         results.push({firstName: first_name, lastName:last_name, ...user,  status: 'Updated' });
 
-        if (await cl src/main/routes/bulk-update-users.ts
+        if (await client.resetUserPortalAccessForReinvite(user.to, xUserId)) {
+          logger.info(`User ${user.to} portal access successfully reset`);
+        } else {
+          logger.warn(`Failed to reset portal access for user ${user.to}`);
+        }
 
       } else {
         logger.warn(`User ${user.from} failed to update to ${user.to}`);
