@@ -85,8 +85,8 @@ export class PreClient {
   }
 
   public async getUserByEmail(email: string): Promise<UserProfile> {
-    const response = await axios.get('/users/by-email/' + encodeURIComponent(email));
-    return response.data as UserProfile;
+      const response = await axios.get('/users/by-email/' + encodeURIComponent(email));
+      return response.data as UserProfile;
   }
 
   private createUserFromUserProfile(profile: UserProfile): User {
@@ -121,7 +121,7 @@ export class PreClient {
       this.logger.info('User found: ' + from + ' id: ' + userByEmail.user.id);
       const fullUser = this.createUserFromUserProfile(userByEmail);
       fullUser.email = to;
-      // this.logger.info('Updating user: ' + JSON.stringify(fullUser));
+      this.logger.info('Updating user: ' + JSON.stringify(fullUser));
       await axios.put('/users/' + fullUser.id, fullUser, {
         headers: {
           'X-User-Id': xUserId,
@@ -133,6 +133,38 @@ export class PreClient {
       return false;
     }
   }
+
+  public async resetUserPortalAccessForReinvite(email: string, xUserId: string): Promise<boolean> {
+    try {
+      const userProfile = await this.getUserByEmail(email);
+      this.logger.info('User found: ' + email + ' id: ' + userProfile.user.id);
+
+      if (!userProfile.portal_access || userProfile.portal_access.length === 0) {
+        throw new Error(`No portal access found for user: ${email}`);
+      }
+
+      userProfile.portal_access = [
+        {
+          ...userProfile.portal_access[0],
+          status: AccessStatus.INVITATION_SENT,
+          registered_at: null,
+          invited_at: new Date().toISOString(),
+        },
+      ];
+
+      await axios.put('/users/' + userProfile.user.id, userProfile, {
+        headers: {
+          'X-User-Id': xUserId,
+        },
+      });
+
+      return true;
+    } catch (e) {
+      this.logger.error(e.message);
+      return false;
+    }
+  }
+
 
   public async getActiveUserByEmail(email: string): Promise<UserProfile> {
     const userProfile = await this.getUserByEmail(email);
