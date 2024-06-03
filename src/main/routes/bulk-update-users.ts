@@ -17,7 +17,7 @@ export default function (app: Application): void {
     const xUserId = '0cec8880-f44f-4d14-a0a6-6bee2cb9add6' // valid app_access id
     const usersToUpdate: { from: string; to: string }[] = [];
     const isDryRun = req.query.dryRun === 'true';
-    const results: { from: string; to: string; status: string }[] = [];
+    const results: {firstName: string, lastName: string, from: string; to: string; status: string }[] = [];
 
     try{
       await processCsvFile(csvFilePath, xUserId, usersToUpdate, logger, client, isDryRun, results)
@@ -42,7 +42,7 @@ async function processCsvFile(
   logger: any,
   client: PreClient,
   isDryRun: boolean,
-  results: {from: string, to: string, status: string}[],
+  results: {firstName: string, lastName: string, from: string, to: string, status: string}[],
 ): Promise<void>{
   await new Promise((resolve, reject)=>{
     fs.createReadStream(csvFilePath)
@@ -58,34 +58,39 @@ async function processCsvFile(
 
   for (const user of usersToUpdate) {
     try {
-      
+      const userProfile = await client.getUserByEmail(user.from);
+      logger.info('USERPROFILE: ', userProfile)
+      if (!userProfile) {
+        logger.warn(`User profile not found foryar ${user.from}`);
+        results.push({ firstName: '', lastName: '', ...user, status: 'Profile Not Found' });
+        continue;
+      }
+      const { first_name, last_name } = userProfile.user;
+
       if (isDryRun){
         logger.info(`[Dry Run] Would update user ${user.from} to ${user.to} for user_id ${xUserId}`);
-        results.push({ ...user, status: 'Dry Run' });
+        results.push({ firstName: first_name, lastName:last_name, ...user, status: 'Dry Run' });
         continue
       } 
 
       logger.info(`Updating user ${user.from} to ${user.to}`);
       if (await client.updateUser(user.from, user.to, xUserId)) {
         logger.info(`User ${user.from} successfully updated to ${user.to}`);
-        results.push({ ...user, status: 'Updated' });
+        results.push({firstName: first_name, lastName:last_name, ...user,  status: 'Updated' });
 
-        if (await client.resetUserPortalAccessForReinvite(user.to, xUserId)) {
-          logger.info(`User ${user.to} portal access successfully reset`);
-        } else {
-          logger.warn(`Failed to reset portal access for user ${user.to}`);
-        }
+        if (await cl src/main/routes/bulk-update-users.ts
 
       } else {
         logger.warn(`User ${user.from} failed to update to ${user.to}`);
-        results.push({ ...user, status: 'Update Failed' });
+        results.push({ firstName: first_name, lastName:last_name,...user, status: 'Update Failed' });
         continue
       }
 
     } catch (e) {
       logger.error(e.message);
+      logger.error('CSVfunc: ',e.data)
       logger.warn(`User ${user.from} failed to update to ${user.to}`);
-      results.push({ ...user, status: `Error ${e}` });
+      results.push({ firstName: '', lastName:'', ...user, status: `Error ${e}` });
     };
   };
 };
@@ -94,6 +99,8 @@ async function writeResultsToCsv(results: { from: string, to: string, status: st
   const csvWriter = createCsvWriter({
     path: path.resolve('data', fileName),
     header: [
+      { id: 'firstName', title: 'First Name' },
+      { id: 'lastName', title: 'Last Name' },
       { id: 'from', title: 'From' },
       { id: 'to', title: 'To' },
       { id: 'status', title: 'Status' }
