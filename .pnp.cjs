@@ -79,6 +79,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-webpack-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:12.0.2"],\
             ["css-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.1"],\
             ["csurf", "npm:1.11.0"],\
+            ["csv-parser", "npm:3.0.0"],\
+            ["csv-writer", "npm:1.6.0"],\
             ["debug", "virtual:d9a5f00bfc11d56fd0d391c83d70ceade45ea6b20139b488c916c2225b2c904e8c8722786b03dfb6d06fef38f31a649a4fbdf210a93be455090758ff610f2afb#npm:4.3.4"],\
             ["dotenv", "npm:16.4.5"],\
             ["eslint", "npm:8.57.0"],\
@@ -8205,6 +8207,25 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["csv-parser", [\
+        ["npm:3.0.0", {\
+          "packageLocation": "./.yarn/cache/csv-parser-npm-3.0.0-b80672e147-adc9d67d9f.zip/node_modules/csv-parser/",\
+          "packageDependencies": [\
+            ["csv-parser", "npm:3.0.0"],\
+            ["minimist", "npm:1.2.8"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["csv-writer", [\
+        ["npm:1.6.0", {\
+          "packageLocation": "./.yarn/cache/csv-writer-npm-1.6.0-c64e586af4-2e62cb46f0.zip/node_modules/csv-writer/",\
+          "packageDependencies": [\
+            ["csv-writer", "npm:1.6.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["cucumber-expressions", [\
         ["npm:6.6.2", {\
           "packageLocation": "./.yarn/cache/cucumber-expressions-npm-6.6.2-da84c47b14-0ae52e6384.zip/node_modules/cucumber-expressions/",\
@@ -15286,6 +15307,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-webpack-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:12.0.2"],\
             ["css-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.1"],\
             ["csurf", "npm:1.11.0"],\
+            ["csv-parser", "npm:3.0.0"],\
+            ["csv-writer", "npm:1.6.0"],\
             ["debug", "virtual:d9a5f00bfc11d56fd0d391c83d70ceade45ea6b20139b488c916c2225b2c904e8c8722786b03dfb6d06fef38f31a649a4fbdf210a93be455090758ff610f2afb#npm:4.3.4"],\
             ["dotenv", "npm:16.4.5"],\
             ["eslint", "npm:8.57.0"],\
