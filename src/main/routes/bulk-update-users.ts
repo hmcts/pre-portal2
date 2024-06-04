@@ -27,7 +27,7 @@ export default function (app: Application): void {
     const logger = Logger.getLogger('bulk-update-users');
     const client = new PreClient();
     const csvFilePath = path.resolve('data', 'dummyData.csv');
-    const xUserId = '0cec8880-f44f-4d14-a0a6-6bee2cb9add6'; // valid app_access id
+    const xUserId = 'd340c8f2-b733-4b49-82f5-5708b7a03711'; // valid app_access id
     const usersToUpdate: { from: string; to: string }[] = [];
     const isDryRun = req.query.dryRun === 'true';
 
@@ -106,12 +106,13 @@ async function processCsvFile(
       }
 
       logger.info(`Updating user ${user.from} to ${user.to}`);
+      logger.info(JSON.stringify(fullUser));
       fullUser.email = user.to;
       let portalAccessUpdated = false;
       if (
         fullUser.portal_access &&
         fullUser.portal_access[0] &&
-        fullUser.portal_access[0].status === AccessStatus.INACTIVE
+        fullUser.portal_access[0].status !== AccessStatus.INACTIVE
       ) {
         fullUser.portal_access[0].invited_at = new Date().toISOString();
         fullUser.portal_access[0].registered_at = '';
@@ -138,6 +139,7 @@ async function processCsvFile(
 
       if (!portalAccessUpdated) {
         logger.info(`Not re-inviting user ${user.from} to portal as they are currently not active`);
+        logger.info(JSON.stringify(fullUser));
         results.push({
           firstName: first_name,
           lastName: last_name,
@@ -206,8 +208,9 @@ async function writeResultsToCsv(results: UpdateUserResult[], fileName: string):
       { id: 'fromEmail', title: 'From' },
       { id: 'toEmail', title: 'To' },
       { id: 'status', title: 'Status' },
-      { id: 'emailUpdatedAndPortalAccessReset', title: 'Email Updated And Portal Access Reset' },
-      { id: 'newInvitationSent', title: 'New Invitation Created' },
+      { id: 'emailUpdated', title: 'Email Updated' },
+      { id: 'portalAccessReset', title: 'Portal Access Reset' },
+      { id: 'newInvitationCreated', title: 'New Invitation Created' },
     ],
   });
 

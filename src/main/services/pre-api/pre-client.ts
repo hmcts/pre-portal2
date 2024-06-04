@@ -99,13 +99,40 @@ export class PreClient {
   }
 
   public async updateUser(user: User, xUserId: string): Promise<boolean> {
-    this.logger.info('Updating user: ' + JSON.stringify(user));
-    await axios.put('/users/' + user.id, user, {
+    const updateUser = this.createUpdateUserFromUser(user);
+    this.logger.info('Updating user: ' + JSON.stringify(updateUser));
+    await axios.put('/users/' + user.id, updateUser, {
       headers: {
         'X-User-Id': xUserId,
       },
     });
     return true;
+  }
+
+  private createUpdateUserFromUser(profile: User): User {
+    return {
+      app_access: profile.app_access.map(access => ({
+        active: access.active,
+        court_id: access.court.id,
+        id: access.id,
+        last_active: access.last_access,
+        role_id: access.role.id,
+        user_id: profile.id,
+      })),
+      email: profile.email,
+      first_name: profile.first_name,
+      id: profile.id,
+      last_name: profile.last_name,
+      organisation: profile.organisation,
+      phone_number: profile.phone_number,
+      portal_access: profile.portal_access.map(access => ({
+        id: access.id,
+        invited_at: access.invited_at,
+        last_access: access.last_access,
+        registered_at: access.registered_at,
+        status: access.status,
+      })),
+    } as User;
   }
 
   public async sendInvite(userProfile: UserProfile, xUserId: string): Promise<boolean> {
