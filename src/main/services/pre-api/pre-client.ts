@@ -85,86 +85,49 @@ export class PreClient {
   }
 
   public async getUserByEmail(email: string): Promise<UserProfile> {
-      const response = await axios.get('/users/by-email/' + encodeURIComponent(email));
-      return response.data as UserProfile;
+    const response = await axios.get('/users/by-email/' + encodeURIComponent(email));
+    return response.data as UserProfile;
   }
 
-  private createUserFromUserProfile(profile: UserProfile): User {
-    return {
-      app_access: profile.app_access.map(access => ({
-        active: access.active,
-        court_id: access.court.id,
-        id: access.id,
-        last_active: access.last_access,
-        role_id: access.role.id,
-        user_id: profile.user.id,
-      })),
-      email: profile.user.email,
-      first_name: profile.user.first_name,
-      id: profile.user.id,
-      last_name: profile.user.last_name,
-      organisation: profile.user.organisation,
-      phone_number: profile.user.phone_number,
-      portal_access: profile.portal_access.map(access => ({
-        id: access.id,
-        invited_at: access.invited_at,
-        last_access: access.last_access,
-        registered_at: access.registered_at,
-        status: access.status,
-      })),
-    } as User;
+  public async getUserById(id: string, xUserId: string): Promise<User> {
+    const response = await axios.get('/users/' + id, {
+      headers: {
+        'X-User-Id': xUserId,
+      },
+    });
+    return response.data as User;
   }
 
-  public async updateUser(from: string, to: string, xUserId: string): Promise<boolean> {
-    try {
-      const userByEmail = await this.getUserByEmail(from);
-      this.logger.info('User found: ' + from + ' id: ' + userByEmail.user.id);
-      const fullUser = this.createUserFromUserProfile(userByEmail);
-      fullUser.email = to;
-      this.logger.info('Updating user: ' + JSON.stringify(fullUser));
-      await axios.put('/users/' + fullUser.id, fullUser, {
+  public async updateUser(user: User, xUserId: string): Promise<boolean> {
+    this.logger.info('Updating user: ' + JSON.stringify(user));
+    await axios.put('/users/' + user.id, user, {
+      headers: {
+        'X-User-Id': xUserId,
+      },
+    });
+    return true;
+  }
+
+  public async sendInvite(userProfile: UserProfile, xUserId: string): Promise<boolean> {
+    await axios.put(
+      '/invites/' + userProfile.user.id,
+      {
+        email: userProfile.user.email,
+        first_name: userProfile.user.first_name,
+        last_name: userProfile.user.last_name,
+        organisation: userProfile.user.organisation,
+        phone: userProfile.user.phone_number,
+        user_id: userProfile.user.id,
+      },
+      {
         headers: {
           'X-User-Id': xUserId,
         },
-      });
-      return true;
-    } catch (e) {
-      this.logger.error(e.message);
-      return false;
-    }
-  }
-
-  public async resetUserPortalAccessForReinvite(email: string, xUserId: string): Promise<boolean> {
-    try {
-      const userProfile = await this.getUserByEmail(email);
-      this.logger.info('User found: ' + email + ' id: ' + userProfile.user.id);
-
-      if (!userProfile.portal_access || userProfile.portal_access.length === 0) {
-        throw new Error(`No portal access found for user: ${email}`);
       }
+    );
 
-      userProfile.portal_access = [
-        {
-          ...userProfile.portal_access[0],
-          status: AccessStatus.INVITATION_SENT,
-          registered_at: null,
-          invited_at: new Date().toISOString(),
-        },
-      ];
-
-      await axios.put('/users/' + userProfile.user.id, userProfile, {
-        headers: {
-          'X-User-Id': xUserId,
-        },
-      });
-
-      return true;
-    } catch (e) {
-      this.logger.error(e.message);
-      return false;
-    }
+    return true;
   }
-
 
   public async getActiveUserByEmail(email: string): Promise<UserProfile> {
     const userProfile = await this.getUserByEmail(email);
