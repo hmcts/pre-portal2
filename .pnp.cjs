@@ -395,7 +395,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@azure/logger", "npm:1.1.2"],\
             ["@opentelemetry/api", "npm:1.8.0"],\
             ["@opentelemetry/core", "virtual:1dd4d8bebf496333420f554162cb425b1049ae4ffca452c6e271586e19d5735fa9d18d8cc868fbc93d522aac322641bf9b128ea8b19b63c447aa9c92921151d3#npm:1.24.0"],\
-            ["@opentelemetry/instrumentation", "virtual:1dd4d8bebf496333420f554162cb425b1049ae4ffca452c6e271586e19d5735fa9d18d8cc868fbc93d522aac322641bf9b128ea8b19b63c447aa9c92921151d3#npm:0.51.0"],\
+            ["@opentelemetry/instrumentation", "virtual:1dd4d8bebf496333420f554162cb425b1049ae4ffca452c6e271586e19d5735fa9d18d8cc868fbc93d522aac322641bf9b128ea8b19b63c447aa9c92921151d3#npm:0.52.0"],\
             ["tslib", "npm:2.6.2"]\
           ],\
           "linkType": "HARD"\
@@ -4123,10 +4123,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@opentelemetry/api-logs", [\
-        ["npm:0.51.0", {\
-          "packageLocation": "./.yarn/cache/@opentelemetry-api-logs-npm-0.51.0-d32536d04c-3cf11263ee.zip/node_modules/@opentelemetry/api-logs/",\
+        ["npm:0.52.0", {\
+          "packageLocation": "./.yarn/cache/@opentelemetry-api-logs-npm-0.52.0-9fc7f35515-502f60fd3a.zip/node_modules/@opentelemetry/api-logs/",\
           "packageDependencies": [\
-            ["@opentelemetry/api-logs", "npm:0.51.0"],\
+            ["@opentelemetry/api-logs", "npm:0.52.0"],\
             ["@opentelemetry/api", "npm:1.8.0"]\
           ],\
           "linkType": "HARD"\
@@ -4156,22 +4156,22 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@opentelemetry/instrumentation", [\
-        ["npm:0.51.0", {\
-          "packageLocation": "./.yarn/cache/@opentelemetry-instrumentation-npm-0.51.0-d4f8602118-26bb3499c4.zip/node_modules/@opentelemetry/instrumentation/",\
+        ["npm:0.52.0", {\
+          "packageLocation": "./.yarn/cache/@opentelemetry-instrumentation-npm-0.52.0-3469f49e15-671e02c19f.zip/node_modules/@opentelemetry/instrumentation/",\
           "packageDependencies": [\
-            ["@opentelemetry/instrumentation", "npm:0.51.0"]\
+            ["@opentelemetry/instrumentation", "npm:0.52.0"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:1dd4d8bebf496333420f554162cb425b1049ae4ffca452c6e271586e19d5735fa9d18d8cc868fbc93d522aac322641bf9b128ea8b19b63c447aa9c92921151d3#npm:0.51.0", {\
-          "packageLocation": "./.yarn/__virtual__/@opentelemetry-instrumentation-virtual-e911958537/0/cache/@opentelemetry-instrumentation-npm-0.51.0-d4f8602118-26bb3499c4.zip/node_modules/@opentelemetry/instrumentation/",\
+        ["virtual:1dd4d8bebf496333420f554162cb425b1049ae4ffca452c6e271586e19d5735fa9d18d8cc868fbc93d522aac322641bf9b128ea8b19b63c447aa9c92921151d3#npm:0.52.0", {\
+          "packageLocation": "./.yarn/__virtual__/@opentelemetry-instrumentation-virtual-ff7aef7de7/0/cache/@opentelemetry-instrumentation-npm-0.52.0-3469f49e15-671e02c19f.zip/node_modules/@opentelemetry/instrumentation/",\
           "packageDependencies": [\
-            ["@opentelemetry/instrumentation", "virtual:1dd4d8bebf496333420f554162cb425b1049ae4ffca452c6e271586e19d5735fa9d18d8cc868fbc93d522aac322641bf9b128ea8b19b63c447aa9c92921151d3#npm:0.51.0"],\
+            ["@opentelemetry/instrumentation", "virtual:1dd4d8bebf496333420f554162cb425b1049ae4ffca452c6e271586e19d5735fa9d18d8cc868fbc93d522aac322641bf9b128ea8b19b63c447aa9c92921151d3#npm:0.52.0"],\
             ["@opentelemetry/api", "npm:1.8.0"],\
-            ["@opentelemetry/api-logs", "npm:0.51.0"],\
+            ["@opentelemetry/api-logs", "npm:0.52.0"],\
             ["@types/opentelemetry__api", null],\
             ["@types/shimmer", "npm:1.0.5"],\
-            ["import-in-the-middle", "npm:1.7.1"],\
+            ["import-in-the-middle", "npm:1.8.0"],\
             ["require-in-the-middle", "npm:7.3.0"],\
             ["semver", "npm:7.6.0"],\
             ["shimmer", "npm:1.2.1"]\
@@ -5794,10 +5794,32 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:813ba4eb30fed4a86f4d789736d5422cc0e35dc30e649b722e1894f78fd6f94807be300aef45353c9c40f09999c181c81a46059757f567c72e73ac1b2a23ef40#npm:1.9.0", {\
-          "packageLocation": "./.yarn/__virtual__/acorn-import-assertions-virtual-9e11108576/0/cache/acorn-import-assertions-npm-1.9.0-22f56507c7-944fb2659d.zip/node_modules/acorn-import-assertions/",\
+        ["virtual:05e2155c903868c610e2f4acec505dead54a142ae691de0129fc5816b1934f06ebed7e51bbb099af2aa98ddc24ab3dc1fd23247ca728154a513feb97e8eee21e#npm:1.9.0", {\
+          "packageLocation": "./.yarn/__virtual__/acorn-import-assertions-virtual-cd6ade2af7/0/cache/acorn-import-assertions-npm-1.9.0-22f56507c7-944fb2659d.zip/node_modules/acorn-import-assertions/",\
           "packageDependencies": [\
-            ["acorn-import-assertions", "virtual:813ba4eb30fed4a86f4d789736d5422cc0e35dc30e649b722e1894f78fd6f94807be300aef45353c9c40f09999c181c81a46059757f567c72e73ac1b2a23ef40#npm:1.9.0"],\
+            ["acorn-import-assertions", "virtual:05e2155c903868c610e2f4acec505dead54a142ae691de0129fc5816b1934f06ebed7e51bbb099af2aa98ddc24ab3dc1fd23247ca728154a513feb97e8eee21e#npm:1.9.0"],\
+            ["@types/acorn", null],\
+            ["acorn", "npm:8.11.3"]\
+          ],\
+          "packagePeers": [\
+            "@types/acorn",\
+            "acorn"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["acorn-import-attributes", [\
+        ["npm:1.9.5", {\
+          "packageLocation": "./.yarn/cache/acorn-import-attributes-npm-1.9.5-d1e666eb35-1c0c49b6a2.zip/node_modules/acorn-import-attributes/",\
+          "packageDependencies": [\
+            ["acorn-import-attributes", "npm:1.9.5"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:41c4121df9527b60c08ae3518c082299a9b041d54c53e9f10b5328625f75c02f96d12890a677efef82ef01d5069774f08cab3494f73a3587c50ca60870113874#npm:1.9.5", {\
+          "packageLocation": "./.yarn/__virtual__/acorn-import-attributes-virtual-17767d5938/0/cache/acorn-import-attributes-npm-1.9.5-d1e666eb35-1c0c49b6a2.zip/node_modules/acorn-import-attributes/",\
+          "packageDependencies": [\
+            ["acorn-import-attributes", "virtual:41c4121df9527b60c08ae3518c082299a9b041d54c53e9f10b5328625f75c02f96d12890a677efef82ef01d5069774f08cab3494f73a3587c50ca60870113874#npm:1.9.5"],\
             ["@types/acorn", null],\
             ["acorn", "npm:8.11.3"]\
           ],\
@@ -11460,12 +11482,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["import-in-the-middle", [\
-        ["npm:1.7.1", {\
-          "packageLocation": "./.yarn/cache/import-in-the-middle-npm-1.7.1-813ba4eb30-37cc8c75fb.zip/node_modules/import-in-the-middle/",\
+        ["npm:1.8.0", {\
+          "packageLocation": "./.yarn/cache/import-in-the-middle-npm-1.8.0-41c4121df9-244058fcda.zip/node_modules/import-in-the-middle/",\
           "packageDependencies": [\
-            ["import-in-the-middle", "npm:1.7.1"],\
+            ["import-in-the-middle", "npm:1.8.0"],\
             ["acorn", "npm:8.11.3"],\
-            ["acorn-import-assertions", "virtual:813ba4eb30fed4a86f4d789736d5422cc0e35dc30e649b722e1894f78fd6f94807be300aef45353c9c40f09999c181c81a46059757f567c72e73ac1b2a23ef40#npm:1.9.0"],\
+            ["acorn-import-attributes", "virtual:41c4121df9527b60c08ae3518c082299a9b041d54c53e9f10b5328625f75c02f96d12890a677efef82ef01d5069774f08cab3494f73a3587c50ca60870113874#npm:1.9.5"],\
             ["cjs-module-lexer", "npm:1.2.3"],\
             ["module-details-from-path", "npm:1.0.3"]\
           ],\
@@ -18302,7 +18324,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@webassemblyjs/wasm-edit", "npm:1.12.1"],\
             ["@webassemblyjs/wasm-parser", "npm:1.12.1"],\
             ["acorn", "npm:8.11.3"],\
-            ["acorn-import-assertions", "virtual:813ba4eb30fed4a86f4d789736d5422cc0e35dc30e649b722e1894f78fd6f94807be300aef45353c9c40f09999c181c81a46059757f567c72e73ac1b2a23ef40#npm:1.9.0"],\
+            ["acorn-import-assertions", "virtual:05e2155c903868c610e2f4acec505dead54a142ae691de0129fc5816b1934f06ebed7e51bbb099af2aa98ddc24ab3dc1fd23247ca728154a513feb97e8eee21e#npm:1.9.0"],\
             ["browserslist", "npm:4.23.0"],\
             ["chrome-trace-event", "npm:1.0.3"],\
             ["enhanced-resolve", "npm:5.16.0"],\
