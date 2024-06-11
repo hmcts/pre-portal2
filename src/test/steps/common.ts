@@ -40,6 +40,27 @@ Then('I see the link {string}', (text: string) => {
   I.seeElement(locate('a').withText(text));
 });
 
+Then('I click the link {string}', (text: string) => {
+  I.click(locate('a').withText(text));
+});
+
+Then('I validate email for test user', () => {
+  I.fillField('Email Address', config.b2c.testLogin.email as string);
+  I.click('Send verification code');  
+  I.fillField('Verification code', '123456')
+  I.click('Verify code')
+});
+
+Then('I create new password for user', async()=>{
+  I.fillField('Password', 'P@ssw0rd!!');
+  I.fillField('Confirm Password', 'P@ssw0rd!!');
+  const checkboxExists = await I.grabNumberOfVisibleElements({ css: 'input[type="checkbox"]' });
+  if (checkboxExists > 0) {
+    I.checkOption({ css: 'input[type="checkbox"]' });
+  }
+  I.click('Create'); 
+})
+
 Then('I sign in as an unknown user', () => {
   I.fillField('Email Address', config.b2c.testLogin.email as string);
   I.fillField('Password', 'this is not the password');
