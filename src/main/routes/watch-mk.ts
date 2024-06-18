@@ -11,8 +11,7 @@ function validateId(id: string): boolean {
 }
 
 export default function (app: Application): void {
-  const enableMkWatchPage = config.get('pre.enableMkWatchPage') as boolean;
-  if (!enableMkWatchPage) {
+  if (config.get('pre.enableMkWatchPage')?.toString().toLowerCase() !== 'true') {
     return;
   }
 
