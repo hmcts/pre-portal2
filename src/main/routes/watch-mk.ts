@@ -1,6 +1,7 @@
 import { PreClient } from '../services/pre-api/pre-client';
 import { SessionUser } from '../services/session-user/session-user';
 
+import config from 'config';
 import { Application } from 'express';
 import { requiresAuth } from 'express-openid-connect';
 import { v4 as uuid } from 'uuid';
@@ -10,6 +11,11 @@ function validateId(id: string): boolean {
 }
 
 export default function (app: Application): void {
+  const enableMkWatchPage = config.get('pre.enableMkWatchPage') as boolean;
+  if (!enableMkWatchPage) {
+    return;
+  }
+
   app.get('/watch-mk/:id', requiresAuth(), async (req, res) => {
     if (!validateId(req.params.id)) {
       res.status(404);
