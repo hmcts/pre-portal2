@@ -51,7 +51,7 @@ export default function (app: Application): void {
         },
       });
 
-      const recordingPlaybackDataUrl = `/watch/${req.params.id}/playback`;
+      const recordingPlaybackDataUrl = `/watch-mk/${req.params.id}/playback`;
 
       res.render('watch-mk', { recording, recordingPlaybackDataUrl });
     } catch (e) {
@@ -71,7 +71,7 @@ export default function (app: Application): void {
       const client = new PreClient();
       const userPortalId = await SessionUser.getLoggedInUserPortalId(req);
 
-      const recordingPlaybackData = await client.getRecordingPlaybackData(userPortalId, req.params.id);
+      const recordingPlaybackData = await client.getRecordingPlaybackDataMk(userPortalId, req.params.id);
 
       if (recordingPlaybackData === null) {
         res.status(404);

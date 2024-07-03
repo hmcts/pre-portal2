@@ -138,6 +138,7 @@
   </dl>
   <script type="text/javascript" crossorigin="anonymous" data-testid="recording-video-script">
     const videoContainer = document.getElementById("video-container");
+    var videoError = document.getElementById("videoError");
 
     const playerConfig = {
         key: "d0167b1c-9767-4287-9ddc-e0fa09d31e02",
@@ -150,12 +151,26 @@
 
     let player = new mkplayer.MKPlayer(videoContainer, playerConfig);
 
-    const sourceConfig = {
-      title: "Test",
-      description: "Test",
-      hls: "https://mkplayer.azureedge.net/$web/streams/slate/hls/index.m3u8"
-    };
+    fetch("{{ recordingPlaybackDataUrl }}", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    }).then(function (response) {
+      if (!response.ok) {
+        throw new Error(response);
+      }
 
-    player.load(sourceConfig);
+      return response.json();
+    }).then(function (data) {
+      const sourceConfig = {
+        hls: data.hlsUrl,
+      };
+
+      player.load(sourceConfig);
+    }).catch(function (error) {
+      console.error("Error:", error);
+      videoError.style.display = "block";
+    });
   </script>
 {% endblock %}
