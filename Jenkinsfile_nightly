@@ -2,7 +2,11 @@
 
 properties([
 // H allow predefined but random minute see https://en.wikipedia.org/wiki/Cron#Non-standard_characters
-pipelineTriggers([cron('H 07 * * 1-5')])
+pipelineTriggers([cron('H 07 * * 1-5')]),
+parameters([
+    string(name: 'ENVIRONMENT', defaultValue: 'stg', description: 'Environment to test'),
+    string(name: 'TEST_URL', defaultValue: 'https://pre-portal.staging.platform.hmcts.net', description: 'The URL you want to run tests against'),
+  ])
 ])
 
 @Library("Infrastructure")
@@ -11,6 +15,38 @@ def type = "nodejs"
 def product = "pre"
 def component = "portal"
 
+def secrets = [
+"pre-hmctskv-${params.ENVIRONMENT}":
+    [
+      secret('b2c-test-login-email', 'B2C_TEST_LOGIN_EMAIL'),
+      secret('b2c-test-login-password', 'B2C_TEST_LOGIN_PASSWORD')
+    ]
+]
+
+static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
+  [ $class: 'AzureKeyVaultSecret',
+    secretType: 'Secret',
+    name: secretName,
+    version: '',
+    envVariable: envVar
+  ]
+}
+
 withNightlyPipeline(type, product, component) {
+    loadVaultSecrets(secrets)
+    enableCrossBrowserTest()
+
+     afterAlways('crossBrowserTest') {
+      publishHTML target: [
+        allowMissing         : true,
+        alwaysLinkToLastBuild: true,
+        keepAll              : true,
+        reportDir            : "functional-output/cross-browser/allure",
+        reportFiles          : "index.html",
+        reportName           : "Cross Browser Test Report PRE-Portal"
+      ]
+
+      steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'functional-output/cross-browser/reports/**/*'
+     }
 
 }

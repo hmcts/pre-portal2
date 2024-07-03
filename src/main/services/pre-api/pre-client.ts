@@ -144,7 +144,8 @@ export class PreClient {
 
       return response.data as Recording;
     } catch (e) {
-      if (e.response?.status === 404) {
+      // handle 403 and 404 the same so we don't expose the existence of recordings
+      if (e.response?.status === 404 || e.response?.status === 403) {
         return null;
       }
 

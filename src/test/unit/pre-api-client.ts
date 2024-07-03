@@ -10,6 +10,8 @@ import { AccessStatus } from '../../main/types/access-status';
 
 const preClient = new PreClient();
 const mockRecordingId = '12345678-1234-1234-1234-1234567890ab';
+const mockRecordingMissingId = '4f37c46f-142d-42df-953f-0b7ca3f87995';
+const mockRecordingNoPermsId = '4f37c46f-142d-42df-953f-0b7ca3f87996';
 jest.mock('axios');
 
 /* eslint-disable jest/expect-expect */
@@ -95,6 +97,20 @@ describe('PreClient', () => {
         data: mockRecordings.find(r => r.id === mockRecordingId),
       });
     }
+    if (url === `/recordings/${mockRecordingMissingId}`) {
+      return Promise.reject({
+        response: {
+          status: 404,
+        },
+      });
+    }
+    if (url === `/recordings/${mockRecordingNoPermsId}`) {
+      return Promise.reject({
+        response: {
+          status: 403,
+        },
+      });
+    }
     if (url === '/recordings') {
       if (config['headers']['X-User-Id'] === mockXUserId) {
         return Promise.resolve({
@@ -132,6 +148,15 @@ describe('PreClient', () => {
   mockedAxios.create.mockImplementation(() => mockedAxios);
 
   const otherXUserId = 'a114f40e-bdba-432d-b53f-37169ee5bf90';
+
+  test('get recording missing', async () => {
+    const recording = await preClient.getRecording(mockXUserId, mockRecordingMissingId);
+    expect(recording).toBeNull();
+  });
+  test('get recording no permissions', async () => {
+    const recording = await preClient.getRecording(mockXUserId, mockRecordingNoPermsId);
+    expect(recording).toBeNull();
+  });
 
   test('get recording', async () => {
     const recording = await preClient.getRecording(mockXUserId, mockRecordingId);
