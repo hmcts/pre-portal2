@@ -5,8 +5,11 @@ import { beforeAll, describe } from '@jest/globals';
 import { expect } from 'chai';
 import { PreClient } from '../../../main/services/pre-api/pre-client';
 import { mockUser } from '../test-helper';
+import config from 'config';
+import { set } from 'lodash';
 
 mockUser();
+set(config, 'pre.enableMkWatchPage', 'true');
 
 describe('Watch page failure', () => {
   beforeAll(() => {
@@ -57,7 +60,7 @@ describe('Watch page failure', () => {
     });
     test('should return 500 when getRecordingPlaybackData fails', async () => {
       jest
-        .spyOn(PreClient.prototype, 'getRecordingPlaybackData')
+        .spyOn(PreClient.prototype, 'getRecordingPlaybackDataMk')
         .mockImplementation(async (xUserId: string, id: string) => {
           throw new Error('Error');
         });
