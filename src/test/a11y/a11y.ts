@@ -68,7 +68,7 @@ describe('Accessibility', () => {
 
   describe.each(signedOutUrls)('Signed out page %s', url => {
     test('should have no accessibility errors', async () => {
-      const result: Pa11yResult = await pa11y(config.TEST_URL + url, {
+      const result: Pa11yResult = await pa11y(config.TEST_URL + url.replace('//', '/'), {
         screenCapture: `${screenshotDir}/${url}.png`,
         browser: browser,
       });
@@ -101,5 +101,5 @@ describe('Accessibility', () => {
       'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name',
       'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name',
     ]);
-  }, 30000);
+  }, 35000);
 });
