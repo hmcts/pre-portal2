@@ -10,7 +10,7 @@
       "secondary": ""
     },
     "portalUrl": "https://localhost:4551",
-    "enableMkWatchPage": false
+    "enableMkWatchPage": true
   },
   "ams": {
     "azureMediaServices": "",
