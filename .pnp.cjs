@@ -73,7 +73,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["chokidar", "npm:3.6.0"],\
             ["codeceptjs", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.3.6"],\
             ["compression", "npm:1.7.4"],\
-            ["config", "npm:3.3.11"],\
+            ["config", "npm:3.3.12"],\
             ["connect-redis", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.1"],\
             ["cookie-parser", "npm:1.4.6"],\
             ["copy-webpack-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:12.0.2"],\
@@ -9240,10 +9240,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["config", [\
-        ["npm:3.3.11", {\
-          "packageLocation": "./.yarn/cache/config-npm-3.3.11-a270a6a709-84d783978c.zip/node_modules/config/",\
+        ["npm:3.3.12", {\
+          "packageLocation": "./.yarn/cache/config-npm-3.3.12-ad44bb207f-db1b7718ff.zip/node_modules/config/",\
           "packageDependencies": [\
-            ["config", "npm:3.3.11"],\
+            ["config", "npm:3.3.12"],\
             ["json5", "npm:2.2.3"]\
           ],\
           "linkType": "HARD"\
@@ -16873,7 +16873,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["chokidar", "npm:3.6.0"],\
             ["codeceptjs", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.3.6"],\
             ["compression", "npm:1.7.4"],\
-            ["config", "npm:3.3.11"],\
+            ["config", "npm:3.3.12"],\
             ["connect-redis", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.1"],\
             ["cookie-parser", "npm:1.4.6"],\
             ["copy-webpack-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:12.0.2"],\
