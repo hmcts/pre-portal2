@@ -149,11 +149,25 @@ export function mockGetRecordingPlaybackData(data?: RecordingPlaybackData | null
       .mockImplementation(async (xUserId: string, id: string) => {
         return Promise.resolve(data);
       });
+    jest
+      .spyOn(PreClient.prototype, 'getRecordingPlaybackDataMk')
+      .mockImplementation(async (xUserId: string, id: string) => {
+        return Promise.resolve(data);
+      });
     return;
   }
 
   jest
     .spyOn(PreClient.prototype, 'getRecordingPlaybackData')
+    .mockImplementation(async (xUserId: string, id: string) => {
+      return Promise.resolve({
+        src: 'src',
+        type: 'type',
+        protectionInfo: [],
+      } as RecordingPlaybackData);
+    });
+  jest
+    .spyOn(PreClient.prototype, 'getRecordingPlaybackDataMk')
     .mockImplementation(async (xUserId: string, id: string) => {
       return Promise.resolve({
         src: 'src',

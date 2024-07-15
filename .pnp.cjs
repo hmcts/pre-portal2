@@ -39,6 +39,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@hmcts/nodejs-logging", "npm:4.0.4"],\
             ["@hmcts/properties-volume", "npm:1.1.0"],\
             ["@jest/globals", "npm:29.7.0"],\
+            ["@mediakind/mkplayer", "npm:1.12.0"],\
             ["@types/body-parser", "npm:1.19.5"],\
             ["@types/chai-as-promised", "npm:7.1.8"],\
             ["@types/compression", "npm:1.7.5"],\
@@ -4305,6 +4306,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@mediakind/mkplayer", [\
+        ["npm:1.12.0", {\
+          "packageLocation": "./.yarn/cache/@mediakind-mkplayer-npm-1.12.0-550e605f4a-95ec94dd33.zip/node_modules/@mediakind/mkplayer/",\
+          "packageDependencies": [\
+            ["@mediakind/mkplayer", "npm:1.12.0"],\
+            ["bitmovin-player", "npm:8.159.0"],\
+            ["bitmovin-player-ui", "npm:3.67.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@microsoft/applicationinsights-web-snippet", [\
         ["npm:1.1.2", {\
           "packageLocation": "./.yarn/cache/@microsoft-applicationinsights-web-snippet-npm-1.1.2-ba30aeca10-229bfb6edc.zip/node_modules/@microsoft/applicationinsights-web-snippet/",\
@@ -8234,6 +8246,24 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/binary-extensions-npm-2.3.0-bd3f20d865-bcad01494e.zip/node_modules/binary-extensions/",\
           "packageDependencies": [\
             ["binary-extensions", "npm:2.3.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["bitmovin-player", [\
+        ["npm:8.159.0", {\
+          "packageLocation": "./.yarn/cache/bitmovin-player-npm-8.159.0-a234e43ace-21a537caef.zip/node_modules/bitmovin-player/",\
+          "packageDependencies": [\
+            ["bitmovin-player", "npm:8.159.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["bitmovin-player-ui", [\
+        ["npm:3.67.0", {\
+          "packageLocation": "./.yarn/cache/bitmovin-player-ui-npm-3.67.0-a47f48277c-5a2e2f39fc.zip/node_modules/bitmovin-player-ui/",\
+          "packageDependencies": [\
+            ["bitmovin-player-ui", "npm:3.67.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -16831,6 +16861,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@hmcts/nodejs-logging", "npm:4.0.4"],\
             ["@hmcts/properties-volume", "npm:1.1.0"],\
             ["@jest/globals", "npm:29.7.0"],\
+            ["@mediakind/mkplayer", "npm:1.12.0"],\
             ["@types/body-parser", "npm:1.19.5"],\
             ["@types/chai-as-promised", "npm:7.1.8"],\
             ["@types/compression", "npm:1.7.5"],\
