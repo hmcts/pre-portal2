@@ -39,7 +39,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@hmcts/nodejs-logging", "npm:4.0.4"],\
             ["@hmcts/properties-volume", "npm:1.1.0"],\
             ["@jest/globals", "npm:29.7.0"],\
-            ["@mediakind/mkplayer", "npm:1.10.1"],\
+            ["@mediakind/mkplayer", "npm:1.12.0"],\
             ["@types/body-parser", "npm:1.19.5"],\
             ["@types/chai-as-promised", "npm:7.1.8"],\
             ["@types/compression", "npm:1.7.5"],\
@@ -4307,12 +4307,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@mediakind/mkplayer", [\
-        ["npm:1.10.1", {\
-          "packageLocation": "./.yarn/cache/@mediakind-mkplayer-npm-1.10.1-e02a355414-019f0b21a6.zip/node_modules/@mediakind/mkplayer/",\
+        ["npm:1.12.0", {\
+          "packageLocation": "./.yarn/cache/@mediakind-mkplayer-npm-1.12.0-550e605f4a-95ec94dd33.zip/node_modules/@mediakind/mkplayer/",\
           "packageDependencies": [\
-            ["@mediakind/mkplayer", "npm:1.10.1"],\
+            ["@mediakind/mkplayer", "npm:1.12.0"],\
             ["bitmovin-player", "npm:8.159.0"],\
-            ["bitmovin-player-ui", "npm:3.62.0"]\
+            ["bitmovin-player-ui", "npm:3.67.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -8268,10 +8268,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["bitmovin-player-ui", [\
-        ["npm:3.62.0", {\
-          "packageLocation": "./.yarn/cache/bitmovin-player-ui-npm-3.62.0-eeae7311a2-9d49ba1d9f.zip/node_modules/bitmovin-player-ui/",\
+        ["npm:3.67.0", {\
+          "packageLocation": "./.yarn/cache/bitmovin-player-ui-npm-3.67.0-a47f48277c-5a2e2f39fc.zip/node_modules/bitmovin-player-ui/",\
           "packageDependencies": [\
-            ["bitmovin-player-ui", "npm:3.62.0"]\
+            ["bitmovin-player-ui", "npm:3.67.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -16869,7 +16869,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@hmcts/nodejs-logging", "npm:4.0.4"],\
             ["@hmcts/properties-volume", "npm:1.1.0"],\
             ["@jest/globals", "npm:29.7.0"],\
-            ["@mediakind/mkplayer", "npm:1.10.1"],\
+            ["@mediakind/mkplayer", "npm:1.12.0"],\
             ["@types/body-parser", "npm:1.19.5"],\
             ["@types/chai-as-promised", "npm:7.1.8"],\
             ["@types/compression", "npm:1.7.5"],\
