@@ -52,7 +52,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:29.5.12"],\
             ["@types/lodash", "npm:4.17.6"],\
             ["@types/mini-css-extract-plugin", "npm:2.5.1"],\
-            ["@types/mocha", "npm:10.0.6"],\
+            ["@types/mocha", "npm:10.0.7"],\
             ["@types/node", "npm:20.12.7"],\
             ["@types/nunjucks", "npm:3.2.6"],\
             ["@types/require-directory", "npm:2.1.6"],\
@@ -6246,10 +6246,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/mocha", [\
-        ["npm:10.0.6", {\
-          "packageLocation": "./.yarn/cache/@types-mocha-npm-10.0.6-a687c1962c-f7c836cf6c.zip/node_modules/@types/mocha/",\
+        ["npm:10.0.7", {\
+          "packageLocation": "./.yarn/cache/@types-mocha-npm-10.0.7-4c49cc0a40-5e411ed8aa.zip/node_modules/@types/mocha/",\
           "packageDependencies": [\
-            ["@types/mocha", "npm:10.0.6"]\
+            ["@types/mocha", "npm:10.0.7"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -16852,7 +16852,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:29.5.12"],\
             ["@types/lodash", "npm:4.17.6"],\
             ["@types/mini-css-extract-plugin", "npm:2.5.1"],\
-            ["@types/mocha", "npm:10.0.6"],\
+            ["@types/mocha", "npm:10.0.7"],\
             ["@types/node", "npm:20.12.7"],\
             ["@types/nunjucks", "npm:3.2.6"],\
             ["@types/require-directory", "npm:2.1.6"],\
