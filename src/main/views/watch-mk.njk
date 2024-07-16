@@ -162,7 +162,7 @@
     const videoContainer = document.getElementById("video-container");
     const volumeSlider = document.getElementById("volumeSlider");
     var videoError = document.getElementById("videoError");
-    
+
     const playerConfig = {
         key: "d0167b1c-9767-4287-9ddc-e0fa09d31e02",
         ui: true,
@@ -179,18 +179,33 @@
       }
     };
 
-    const sourceConfig = {
-      title: "Test",
-      description: "Test",
-      hls: "https://mkplayer.azureedge.net/$web/streams/slate/hls/index.m3u8"
-    };
 
     let player;
 
     function initializePlayer() {
-      player = new mkplayer.MKPlayer(videoContainer, playerConfig);
-      player.load(sourceConfig);
       console.log('Initialising player...');
+      player = new mkplayer.MKPlayer(videoContainer, playerConfig);
+      fetch("{{ recordingPlaybackDataUrl }}", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        }).then(function (response) {
+          if (!response.ok) {
+            throw new Error(response);
+          }
+
+          return response.json();
+        }).then(function (data) {
+          const sourceConfig = {
+            hls: data.hlsUrl,
+          };
+
+          player.load(sourceConfig);
+        }).catch(function (error) {
+          console.error("Error:", error);
+          videoError.style.display = "block";
+      });
     }
 
     function setupEventListeners() {
@@ -200,7 +215,7 @@
 
       volumeSlider.addEventListener('input', adjustVolume);
     }
-    
+
     function onSourceLoaded() {
       console.log('Player loaded');
       const initialVolume = volumeSlider.value / 100;
