@@ -116,7 +116,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["puppeteer", "npm:22.7.1"],\
             ["redis", "npm:4.6.13"],\
             ["require-directory", "npm:2.1.1"],\
-            ["sass", "npm:1.77.7"],\
+            ["sass", "npm:1.77.8"],\
             ["sass-lint", "npm:1.13.1"],\
             ["sass-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:14.2.1"],\
             ["serve-favicon", "npm:2.5.0"],\
@@ -16993,7 +16993,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["puppeteer", "npm:22.7.1"],\
             ["redis", "npm:4.6.13"],\
             ["require-directory", "npm:2.1.1"],\
-            ["sass", "npm:1.77.7"],\
+            ["sass", "npm:1.77.8"],\
             ["sass-lint", "npm:1.13.1"],\
             ["sass-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:14.2.1"],\
             ["serve-favicon", "npm:2.5.0"],\
@@ -18020,10 +18020,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["sass", [\
-        ["npm:1.77.7", {\
-          "packageLocation": "./.yarn/cache/sass-npm-1.77.7-251982e629-64c98cbeb2.zip/node_modules/sass/",\
+        ["npm:1.77.8", {\
+          "packageLocation": "./.yarn/cache/sass-npm-1.77.8-d0ad322666-6b5dce17fa.zip/node_modules/sass/",\
           "packageDependencies": [\
-            ["sass", "npm:1.77.7"],\
+            ["sass", "npm:1.77.8"],\
             ["chokidar", "npm:3.6.0"],\
             ["immutable", "npm:4.3.5"],\
             ["source-map-js", "npm:1.2.0"]\
@@ -18074,7 +18074,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/webpack", null],\
             ["neo-async", "npm:2.6.2"],\
             ["node-sass", null],\
-            ["sass", "npm:1.77.7"],\
+            ["sass", "npm:1.77.8"],\
             ["sass-embedded", null],\
             ["webpack", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.91.0"]\
           ],\
