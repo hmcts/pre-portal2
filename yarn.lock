@@ -10648,9 +10648,9 @@ __metadata:
   linkType: hard
 
 "jose@npm:^5.2.2":
-  version: 5.2.4
-  resolution: "jose@npm:5.2.4"
-  checksum: 81e1f4494f406debd14392975327f0daa8b88ff09c83f2fe94754dcd7cfdefdb1adf785b2ec7481751927e609d342581cd41cb444628ef62fca423facebcd280
+  version: 5.6.3
+  resolution: "jose@npm:5.6.3"
+  checksum: c8722ba820b2d149728c0a80dec5d17029b1bcf68fa93eddcd348ec1eaca75588a4379b760fbf90197fb6f6fb115ce2565846c82e5335e5e542fd14248297831
   languageName: node
   linkType: hard
 
