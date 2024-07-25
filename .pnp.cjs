@@ -37,7 +37,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@hmcts/info-provider", "npm:1.2.1"],\
             ["@hmcts/nodejs-healthcheck", "npm:1.8.5"],\
             ["@hmcts/nodejs-logging", "npm:4.0.4"],\
-            ["@hmcts/properties-volume", "npm:1.1.0"],\
+            ["@hmcts/properties-volume", "npm:1.2.0"],\
             ["@jest/globals", "npm:29.7.0"],\
             ["@mediakind/mkplayer", "npm:1.12.1"],\
             ["@types/body-parser", "npm:1.19.5"],\
@@ -305,27 +305,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@azure/identity", [\
-        ["npm:4.1.0", {\
-          "packageLocation": "./.yarn/cache/@azure-identity-npm-4.1.0-88fd527768-ff46494c7a.zip/node_modules/@azure/identity/",\
-          "packageDependencies": [\
-            ["@azure/identity", "npm:4.1.0"],\
-            ["@azure/abort-controller", "npm:1.1.0"],\
-            ["@azure/core-auth", "npm:1.7.2"],\
-            ["@azure/core-client", "npm:1.9.2"],\
-            ["@azure/core-rest-pipeline", "npm:1.15.2"],\
-            ["@azure/core-tracing", "npm:1.1.2"],\
-            ["@azure/core-util", "npm:1.9.0"],\
-            ["@azure/logger", "npm:1.1.2"],\
-            ["@azure/msal-browser", "npm:3.13.0"],\
-            ["@azure/msal-node", "npm:2.7.0"],\
-            ["events", "npm:3.3.0"],\
-            ["jws", "npm:4.0.0"],\
-            ["open", "npm:8.4.2"],\
-            ["stoppable", "npm:1.1.0"],\
-            ["tslib", "npm:2.6.2"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:4.3.0", {\
           "packageLocation": "./.yarn/cache/@azure-identity-npm-4.3.0-e85334d38f-7f4256b39c.zip/node_modules/@azure/identity/",\
           "packageDependencies": [\
@@ -470,16 +449,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@azure/msal-node", "npm:2.10.0"],\
             ["@azure/msal-common", "npm:14.13.0"],\
-            ["jsonwebtoken", "npm:9.0.2"],\
-            ["uuid", "npm:8.3.2"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
-        ["npm:2.7.0", {\
-          "packageLocation": "./.yarn/cache/@azure-msal-node-npm-2.7.0-0ea209190a-e83d02790c.zip/node_modules/@azure/msal-node/",\
-          "packageDependencies": [\
-            ["@azure/msal-node", "npm:2.7.0"],\
-            ["@azure/msal-common", "npm:14.9.0"],\
             ["jsonwebtoken", "npm:9.0.2"],\
             ["uuid", "npm:8.3.2"]\
           ],\
@@ -3904,11 +3873,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@hmcts/properties-volume", [\
-        ["npm:1.1.0", {\
-          "packageLocation": "./.yarn/cache/@hmcts-properties-volume-npm-1.1.0-8ae26f1ed8-7091f3e852.zip/node_modules/@hmcts/properties-volume/",\
+        ["npm:1.2.0", {\
+          "packageLocation": "./.yarn/cache/@hmcts-properties-volume-npm-1.2.0-3245eeab8f-b64cc191d7.zip/node_modules/@hmcts/properties-volume/",\
           "packageDependencies": [\
-            ["@hmcts/properties-volume", "npm:1.1.0"],\
-            ["@azure/identity", "npm:4.1.0"],\
+            ["@hmcts/properties-volume", "npm:1.2.0"],\
+            ["@azure/identity", "npm:4.3.0"],\
             ["@azure/keyvault-secrets", "npm:4.8.0"],\
             ["@hmcts/nodejs-logging", "npm:4.0.4"],\
             ["js-yaml", "npm:4.1.0"],\
@@ -17009,7 +16978,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@hmcts/info-provider", "npm:1.2.1"],\
             ["@hmcts/nodejs-healthcheck", "npm:1.8.5"],\
             ["@hmcts/nodejs-logging", "npm:4.0.4"],\
-            ["@hmcts/properties-volume", "npm:1.1.0"],\
+            ["@hmcts/properties-volume", "npm:1.2.0"],\
             ["@jest/globals", "npm:29.7.0"],\
             ["@mediakind/mkplayer", "npm:1.12.1"],\
             ["@types/body-parser", "npm:1.19.5"],\
