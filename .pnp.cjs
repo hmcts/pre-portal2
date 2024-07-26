@@ -69,7 +69,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["axios-debug-log", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.0.0"],\
             ["babel-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:9.1.3"],\
             ["body-parser", "npm:1.20.2"],\
-            ["chai", "npm:4.4.1"],\
+            ["chai", "npm:4.5.0"],\
             ["chai-as-promised", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.2"],\
             ["chokidar", "npm:3.6.0"],\
             ["codeceptjs", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.3.6"],\
@@ -8613,6 +8613,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["type-detect", "npm:4.0.8"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:4.5.0", {\
+          "packageLocation": "./.yarn/cache/chai-npm-4.5.0-428447e206-70e5a8418a.zip/node_modules/chai/",\
+          "packageDependencies": [\
+            ["chai", "npm:4.5.0"],\
+            ["assertion-error", "npm:1.1.0"],\
+            ["check-error", "npm:1.0.3"],\
+            ["deep-eql", "npm:4.1.3"],\
+            ["get-func-name", "npm:2.0.2"],\
+            ["loupe", "npm:2.3.7"],\
+            ["pathval", "npm:1.1.1"],\
+            ["type-detect", "npm:4.1.0"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["chai-as-promised", [\
@@ -8628,7 +8642,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["chai-as-promised", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.2"],\
             ["@types/chai", null],\
-            ["chai", "npm:4.4.1"],\
+            ["chai", "npm:4.5.0"],\
             ["check-error", "npm:1.0.3"]\
           ],\
           "packagePeers": [\
@@ -16997,7 +17011,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["axios-debug-log", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.0.0"],\
             ["babel-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:9.1.3"],\
             ["body-parser", "npm:1.20.2"],\
-            ["chai", "npm:4.4.1"],\
+            ["chai", "npm:4.5.0"],\
             ["chai-as-promised", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.2"],\
             ["chokidar", "npm:3.6.0"],\
             ["codeceptjs", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.3.6"],\
@@ -19540,6 +19554,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/type-detect-npm-4.0.8-8d8127b901-62b5628bff.zip/node_modules/type-detect/",\
           "packageDependencies": [\
             ["type-detect", "npm:4.0.8"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:4.1.0", {\
+          "packageLocation": "./.yarn/cache/type-detect-npm-4.1.0-171d011a73-3b32f873cd.zip/node_modules/type-detect/",\
+          "packageDependencies": [\
+            ["type-detect", "npm:4.1.0"]\
           ],\
           "linkType": "HARD"\
         }]\
