@@ -164,7 +164,7 @@
       return response.json();
     }).then(function (data) {
       const sourceConfig = {
-        hls: data.hlsUrl,
+        hls: data.hls_url,
       };
 
       player.load(sourceConfig);

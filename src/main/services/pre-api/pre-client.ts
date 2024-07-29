@@ -149,7 +149,7 @@ export class PreClient {
         return null;
       }
 
-      this.logger.error(e);
+      // this.logger.error(e);
       throw e;
     }
   }
@@ -195,11 +195,16 @@ export class PreClient {
 
   public async getRecordingPlaybackDataMk(xUserId: string, id: string): Promise<Recording | null> {
     try {
-      const response = await axios.get(`/media-service/vod?recordingId=${id}&userId=${xUserId}&mediaService=mk`, {
-        headers: {
-          'X-User-Id': xUserId,
-        },
-      });
+      const response = await axios.get(
+        `/media-service/vod?recordingId=${id}&userId=${xUserId}&mediaService=MediaKind`,
+        {
+          headers: {
+            'X-User-Id': xUserId,
+          },
+        }
+      );
+
+      this.logger.info(response.data);
 
       return response.data as Recording;
     } catch (e) {

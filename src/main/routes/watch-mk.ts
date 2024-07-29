@@ -1,7 +1,7 @@
 import { PreClient } from '../services/pre-api/pre-client';
 import { SessionUser } from '../services/session-user/session-user';
 
-import config from 'config';
+import { Logger } from '@hmcts/nodejs-logging';
 import { Application } from 'express';
 import { requiresAuth } from 'express-openid-connect';
 import { v4 as uuid } from 'uuid';
@@ -14,6 +14,8 @@ export default function (app: Application): void {
   if (config.get('pre.enableMkWatchPage')?.toString().toLowerCase() !== 'true') {
     return;
   }
+
+  const logger = Logger.getLogger('watch-mk');
 
   app.get('/watch-mk/:id', requiresAuth(), async (req, res) => {
     if (!validateId(req.params.id)) {
@@ -33,6 +35,8 @@ export default function (app: Application): void {
         res.status(404);
         res.render('not-found');
         return;
+      } else {
+        logger.info(`Recording ${recording.id} accessed by User ${userProfile.user.email}`);
       }
 
       await client.putAudit(userPortalId, {
