@@ -165,6 +165,14 @@
     }).then(function (data) {
       const sourceConfig = {
         hls: data.hls_url,
+        drm: {
+          clearkey: {
+            LA_URL: 'HLS_AES',
+            headers: {
+              Authorization: 'Bearer=' + data.token || '',
+            },
+          },
+        }
       };
 
       player.load(sourceConfig);
