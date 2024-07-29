@@ -84,8 +84,8 @@
   },
   "devDependencies": {
     "@babel/core": "7.24.9",
-    "@babel/eslint-parser": "7.24.8",
-    "@babel/preset-env": "7.24.8",
+    "@babel/eslint-parser": "7.25.1",
+    "@babel/preset-env": "7.25.0",
     "@codeceptjs/allure-legacy": "^1.0.2",
     "@codeceptjs/configure": "1.0.1",
     "@jest/globals": "29.7.0",
