@@ -80,7 +80,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-webpack-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:12.0.2"],\
             ["css-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.2"],\
             ["csurf", "npm:1.11.0"],\
-            ["debug", "virtual:2a9020303307277ea2efb643610811b096b41955eaf11bd6f4ce8abc69846f242e6a4fd607d644856ea55da38fe0dd83c4518b2c1d29229ba137bffab5c01a96#npm:4.3.5"],\
+            ["debug", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:4.3.6"],\
             ["dotenv", "npm:16.4.5"],\
             ["eslint", "npm:8.57.0"],\
             ["eslint-config-prettier", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:9.1.0"],\
@@ -9778,6 +9778,27 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
+        ["npm:4.3.6", {\
+          "packageLocation": "./.yarn/cache/debug-npm-4.3.6-ecb233d831-1630b748de.zip/node_modules/debug/",\
+          "packageDependencies": [\
+            ["debug", "npm:4.3.6"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:4.3.6", {\
+          "packageLocation": "./.yarn/__virtual__/debug-virtual-b769b116c0/0/cache/debug-npm-4.3.6-ecb233d831-1630b748de.zip/node_modules/debug/",\
+          "packageDependencies": [\
+            ["debug", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:4.3.6"],\
+            ["@types/supports-color", null],\
+            ["ms", "npm:2.1.2"],\
+            ["supports-color", null]\
+          ],\
+          "packagePeers": [\
+            "@types/supports-color",\
+            "supports-color"\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["virtual:2a426afc4b2eef43db12a540d29c2b5476640459bfcd5c24f86bb401cf8cce97e63bd81794d206a5643057e7f662643afd5ce3dfc4d4bfd8e706006c6309c5fa#npm:3.2.7", {\
           "packageLocation": "./.yarn/__virtual__/debug-virtual-d2345003b7/0/cache/debug-npm-3.2.7-754e818c7a-b3d8c59407.zip/node_modules/debug/",\
           "packageDependencies": [\
@@ -17022,7 +17043,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["copy-webpack-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:12.0.2"],\
             ["css-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.2"],\
             ["csurf", "npm:1.11.0"],\
-            ["debug", "virtual:2a9020303307277ea2efb643610811b096b41955eaf11bd6f4ce8abc69846f242e6a4fd607d644856ea55da38fe0dd83c4518b2c1d29229ba137bffab5c01a96#npm:4.3.5"],\
+            ["debug", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:4.3.6"],\
             ["dotenv", "npm:16.4.5"],\
             ["eslint", "npm:8.57.0"],\
             ["eslint-config-prettier", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:9.1.0"],\
