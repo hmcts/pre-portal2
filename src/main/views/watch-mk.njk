@@ -165,9 +165,9 @@
     }).then(async function (data) {
       // wait for the url to be available
       let hlsAvailable = false;
-      let retries = 15;
+      let retries = 20;
       do {
-        await new Promise(r => setTimeout(r, 2000)); // sleep for 1 second
+        await new Promise(r => setTimeout(r, 1500)); // sleep for 1.5 second
         const headResult = await fetch(data.hls_url, {
           method: "HEAD"
         });
