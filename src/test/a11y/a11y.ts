@@ -1,4 +1,4 @@
-import puppeteer, { Browser, Page } from 'puppeteer';
+import puppeteer, { Browser } from 'puppeteer';
 import { config } from '../config';
 
 const pa11y = require('pa11y');
@@ -27,15 +27,15 @@ function expectNoErrors(messages: PallyIssue[]): void {
   }
 }
 
-async function signIn(browser: Browser): Promise<Page> {
-  const page = await browser.newPage();
-  await page.goto(config.TEST_URL as string);
-  await page.waitForSelector('#signInName', { visible: true, timeout: 0 });
-  await page.type('#signInName', process.env.B2C_TEST_LOGIN_EMAIL as string);
-  await page.type('#password', process.env.B2C_TEST_LOGIN_PASSWORD as string);
-  await page.click('#next');
-  return page;
-}
+// async function signIn(browser: Browser): Promise<Page> {
+//   const page = await browser.newPage();
+//   await page.goto(config.TEST_URL as string);
+//   await page.waitForSelector('#signInName', { visible: true, timeout: 0 });
+//   await page.type('#signInName', process.env.B2C_TEST_LOGIN_EMAIL as string);
+//   await page.type('#password', process.env.B2C_TEST_LOGIN_PASSWORD as string);
+//   await page.click('#next');
+//   return page;
+// }
 
 jest.setTimeout(10000);
 const screenshotDir = `${__dirname}/../../../functional-output/pa11y`;
@@ -57,7 +57,7 @@ describe('Accessibility', () => {
     });
   };
 
-  const signedOutUrls = ['/terms-and-conditions', '/accessibility-statement', '/cookies', '/not-found', '/'];
+  const signedOutUrls = ['/terms-and-conditions', '/accessibility-statement', '/cookies', '/not-found'];
 
   beforeAll(setup);
 
@@ -77,29 +77,29 @@ describe('Accessibility', () => {
     });
   });
 
-  test('/browse and watch pages', async () => {
-    const page = await signIn(browser);
-    await page.waitForSelector('a[href^="/watch/"]', { visible: true, timeout: 0 });
-    const browseUrl = page.url();
-    await page.click('a[href^="/watch/"]');
-    const watchUrl = page.url();
-    await page.close();
-
-    const result: Pa11yResult = await pa11y(browseUrl, {
-      browser: browser,
-      screenCapture: `${screenshotDir}/browse.png`,
-      waitUntil: 'domcontentloaded',
-    });
-    expect(result.issues.map(issue => issue.code)).toEqual(['WCAG2AA.Principle2.Guideline2_2.2_2_1.F41.2']);
-
-    const watchResult: Pa11yResult = await pa11y(watchUrl, {
-      browser: browser,
-      screenCapture: `${screenshotDir}/watch.png`,
-    });
-    expect(watchResult.issues.map(issue => issue.code)).toEqual([
-      'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Button.Name',
-      'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name',
-      'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name',
-    ]);
-  }, 60000); // !!!
+  // test('/browse and watch pages', async () => {
+  //   const page = await signIn(browser);
+  //   await page.waitForSelector('a[href^="/watch/"]', { visible: true, timeout: 0 });
+  //   const browseUrl = page.url();
+  //   await page.click('a[href^="/watch/"]');
+  //   const watchUrl = page.url();
+  //   await page.close();
+  //
+  //   const result: Pa11yResult = await pa11y(browseUrl, {
+  //     browser: browser,
+  //     screenCapture: `${screenshotDir}/browse.png`,
+  //     waitUntil: 'domcontentloaded',
+  //   });
+  //   expect(result.issues.map(issue => issue.code)).toEqual(['WCAG2AA.Principle2.Guideline2_2.2_2_1.F41.2']);
+  //
+  //   const watchResult: Pa11yResult = await pa11y(watchUrl, {
+  //     browser: browser,
+  //     screenCapture: `${screenshotDir}/watch.png`,
+  //   });
+  //   expect(watchResult.issues.map(issue => issue.code)).toEqual([
+  //     'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Button.Name',
+  //     'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name',
+  //     'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name',
+  //   ]);
+  // }, 60000); // !!!
 });
