@@ -172,7 +172,6 @@
           method: "HEAD"
         });
         hlsAvailable = headResult.status === 200;
-        console.log(headResult);
         retries--;
       } while (hlsAvailable === false && retries > 0);
       const sourceConfig = {
