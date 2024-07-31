@@ -162,9 +162,28 @@
       }
 
       return response.json();
-    }).then(function (data) {
+    }).then(async function (data) {
+      // wait for the url to be available
+      let hlsAvailable = false;
+      let retries = 20;
+      do {
+        await new Promise(r => setTimeout(r, 1500)); // sleep for 1.5 second
+        const headResult = await fetch(data.hls_url, {
+          method: "HEAD"
+        });
+        hlsAvailable = headResult.status === 200;
+        retries--;
+      } while (hlsAvailable === false && retries > 0);
       const sourceConfig = {
-        hls: data.hlsUrl,
+        hls: data.hls_url,
+        drm: {
+          clearkey: {
+            LA_URL: 'HLS_AES',
+            headers: {
+              Authorization: 'Bearer=' + data.token || '',
+            },
+          },
+        }
       };
 
       player.load(sourceConfig);

@@ -149,7 +149,6 @@ export class PreClient {
         return null;
       }
 
-      this.logger.error(e);
       throw e;
     }
   }
@@ -195,7 +194,7 @@ export class PreClient {
 
   public async getRecordingPlaybackDataMk(xUserId: string, id: string): Promise<Recording | null> {
     try {
-      const response = await axios.get(`/media-service/vod?recordingId=${id}&userId=${xUserId}&mediaService=mk`, {
+      const response = await axios.get(`/media-service/vod?recordingId=${id}&mediaService=MediaKind`, {
         headers: {
           'X-User-Id': xUserId,
         },

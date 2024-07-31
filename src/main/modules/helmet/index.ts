@@ -21,6 +21,8 @@ export class Helmet {
     const dynatraceDomain = '*.dynatrace.com';
     const mkPlayer = 'https://mkplayer.azureedge.net';
     const bitmovinLicensing = 'https://licensing.bitmovin.com';
+    const mkStreaming = '*.uksouth.streaming.mediakind.com';
+    const mkLicense = 'ottapp-appgw-amp.prodc.mkio.tv3cloud.com';
 
     // include default helmet functions
     const scriptSrc = [self, googleAnalyticsDomain, "'unsafe-inline'", azureMediaPlayer, dynatraceDomain];
@@ -46,6 +48,8 @@ export class Helmet {
               dynatraceDomain,
               mkPlayer,
               bitmovinLicensing,
+              mkStreaming,
+              mkLicense,
             ],
             defaultSrc: ["'none'"],
             fontSrc: [self, azureMediaPlayer, 'data:'],
