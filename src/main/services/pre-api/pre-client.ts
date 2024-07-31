@@ -194,14 +194,11 @@ export class PreClient {
 
   public async getRecordingPlaybackDataMk(xUserId: string, id: string): Promise<Recording | null> {
     try {
-      const response = await axios.get(
-        `/media-service/vod?recordingId=${id}&userId=${xUserId}&mediaService=MediaKind`,
-        {
-          headers: {
-            'X-User-Id': xUserId,
-          },
-        }
-      );
+      const response = await axios.get(`/media-service/vod?recordingId=${id}&mediaService=MediaKind`, {
+        headers: {
+          'X-User-Id': xUserId,
+        },
+      });
 
       return response.data as Recording;
     } catch (e) {

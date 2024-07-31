@@ -132,20 +132,20 @@ describe('PreClient', () => {
         },
       });
     }
-    if (url === '/media-service/vod?recordingId=123&userId=456&mediaService=MediaKind') {
+    if (url === '/media-service/vod?recordingId=123&mediaService=MediaKind') {
       return Promise.resolve({
         status: 200,
         data: mockRecordings[0],
       });
     }
-    if (url === '/media-service/vod?recordingId=101112&userId=456&mediaService=MediaKind') {
+    if (url === '/media-service/vod?recordingId=101112&mediaService=MediaKind') {
       return Promise.reject({
         response: {
           status: 404,
         },
       });
     }
-    if (url === '/media-service/vod?recordingId=789&userId=456&mediaService=MediaKind') {
+    if (url === '/media-service/vod?recordingId=789&mediaService=MediaKind') {
       return Promise.reject(new Error('dunno'));
     }
   });
