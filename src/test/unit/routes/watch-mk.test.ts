@@ -18,7 +18,7 @@ describe('Watch page failure', () => {
     new Nunjucks(false).enableFor(app);
     const request = require('supertest');
 
-    const watch = require('../../../main/routes/watch').default;
+    const watch = require('../../../main/routes/watch-mk').default;
     watch(app);
 
     test('should return 404 when getRecording returns null', async () => {
@@ -50,6 +50,7 @@ describe('Watch page failure', () => {
     test('should return 500 when getRecording fails', async () => {
       jest.spyOn(PreClient.prototype, 'getRecording').mockImplementation(async (xUserId: string, id: string) => {
         throw new Error('Error');
+        console.log('Error');
       });
       await request(app)
         .get('/watch/12345678-1234-1234-1234-1234567890ab')
@@ -78,7 +79,7 @@ describe('Watch page success', () => {
     new Nunjucks(false).enableFor(app);
     const request = require('supertest');
 
-    const watch = require('../../../main/routes/watch').default;
+    const watch = require('../../../main/routes/watch-mk').default;
     watch(app);
 
     test('should return 200 when getRecording and getRecordingPlaybackData succeed', async () => {
