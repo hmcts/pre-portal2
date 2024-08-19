@@ -9,7 +9,6 @@ import config from 'config';
 import { set } from 'lodash';
 
 mockUser();
-set(config, 'pre.enableMkWatchPage', 'true');
 
 describe('Watch page failure', () => {
   beforeAll(() => {

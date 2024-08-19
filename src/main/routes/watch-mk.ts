@@ -2,7 +2,6 @@ import { PreClient } from '../services/pre-api/pre-client';
 import { SessionUser } from '../services/session-user/session-user';
 
 import { Logger } from '@hmcts/nodejs-logging';
-import config from 'config';
 import { Application } from 'express';
 import { requiresAuth } from 'express-openid-connect';
 import { v4 as uuid } from 'uuid';
@@ -12,10 +11,6 @@ function validateId(id: string): boolean {
 }
 
 export default function (app: Application): void {
-  if (config.get('pre.enableMkWatchPage')?.toString().toLowerCase() !== 'true') {
-    return;
-  }
-
   const logger = Logger.getLogger('watch-mk');
 
   app.get('/watch/:id', requiresAuth(), async (req, res) => {
