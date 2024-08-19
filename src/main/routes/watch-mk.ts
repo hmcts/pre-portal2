@@ -18,7 +18,7 @@ export default function (app: Application): void {
 
   const logger = Logger.getLogger('watch-mk');
 
-  app.get('/watch-mk/:id', requiresAuth(), async (req, res) => {
+  app.get('/watch/:id', requiresAuth(), async (req, res) => {
     if (!validateId(req.params.id)) {
       res.status(404);
       res.render('not-found');
@@ -56,7 +56,7 @@ export default function (app: Application): void {
         },
       });
 
-      const recordingPlaybackDataUrl = `/watch-mk/${req.params.id}/playback`;
+      const recordingPlaybackDataUrl = `/watch/${req.params.id}/playback`;
 
       res.render('watch-mk', { recording, recordingPlaybackDataUrl });
     } catch (e) {
@@ -65,7 +65,7 @@ export default function (app: Application): void {
     }
   });
 
-  app.get('/watch-mk/:id/playback', requiresAuth(), async (req, res) => {
+  app.get('/watch/:id/playback', requiresAuth(), async (req, res) => {
     if (!validateId(req.params.id)) {
       res.status(404);
       res.json({ message: 'Not found' });

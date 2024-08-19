@@ -10,6 +10,8 @@ function validateId(id: string): boolean {
 }
 
 export default function (app: Application): void {
+  return;
+
   app.get('/watch/:id', requiresAuth(), async (req, res) => {
     if (!validateId(req.params.id)) {
       res.status(404);
