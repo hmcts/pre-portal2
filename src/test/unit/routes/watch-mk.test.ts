@@ -5,8 +5,6 @@ import { beforeAll, describe } from '@jest/globals';
 import { expect } from 'chai';
 import { PreClient } from '../../../main/services/pre-api/pre-client';
 import { mockUser } from '../test-helper';
-import config from 'config';
-import { set } from 'lodash';
 
 mockUser();
 
