@@ -34,11 +34,15 @@ export class PropertiesVolume {
       'ams.azureMediaServicesKeyDelivery',
       process.env.AMS_AZURE_MEDIA_SERVICES_KEY_DELIVERY ?? 'https://preamstest.keydelivery.uksouth.media.azure.net'
     );
+    set(config, 'pre.enableMkWatchPage', process.env.ENABLE_MK_WATCH_PAGE ?? 'false');
 
     if (server.locals.ENV === 'production') {
       this.logger.info('Loading properties from mounted KV');
       propertiesVolume.addTo(config);
-      this.setSecret('secrets.pre-hmctskv.AppInsightsInstrumentationKey', 'appInsights.instrumentationKey');
+      this.setSecret(
+        'secrets.pre-hmctskv.app-insights-connection-string',
+        'appInsights.app-insights-connection-string'
+      );
       this.setSecret('secrets.pre-hmctskv.redis6-access-key', 'session.redis.key');
       this.setSecret('secrets.pre-hmctskv.session-secret', 'session.secret');
       this.setSecret('secrets.pre-hmctskv.apim-sub-portal-primary-key', 'pre.apiKey.primary');
