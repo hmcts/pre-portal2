@@ -6,7 +6,7 @@ import healthcheck from '@hmcts/nodejs-healthcheck';
 import { Logger } from '@hmcts/nodejs-logging';
 import { Application } from 'express';
 
-export default async function (app: Application): void {
+export default async function (app: Application): Promise<void> {
   // const redis = app.locals.redisClient
   //   ? healthcheck.raw(() => app.locals.redisClient.ping().then(healthcheck.up).catch(healthcheck.down))
   //   : null;
