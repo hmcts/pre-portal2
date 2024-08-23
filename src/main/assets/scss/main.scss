@@ -19,9 +19,9 @@
 }
 
 .loading-box {
-  width: 100%;
   aspect-ratio: 16/9;
   border: 4px solid $govuk-input-border-colour;
+  width: 100%;
 }
 
 .loading-box img {
@@ -29,9 +29,9 @@
 }
 
 .loading-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
 }
