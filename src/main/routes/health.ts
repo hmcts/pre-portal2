@@ -6,13 +6,14 @@ import healthcheck from '@hmcts/nodejs-healthcheck';
 import { Logger } from '@hmcts/nodejs-logging';
 import { Application } from 'express';
 
-export default function (app: Application): void {
+export default async function (app: Application): void {
   // const redis = app.locals.redisClient
   //   ? healthcheck.raw(() => app.locals.redisClient.ping().then(healthcheck.up).catch(healthcheck.down))
   //   : null;
   if (app.locals.redisClient) {
     const logger = Logger.getLogger('health');
-    logger.info('redis ping result: ' + app.locals.redisClient.ping());
+    const result = await app.locals.redisClient.ping();
+    logger.info('redis ping result: ' + result);
   }
 
   healthcheck.addTo(app, {
