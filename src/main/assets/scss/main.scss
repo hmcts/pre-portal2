@@ -17,3 +17,21 @@
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
+.loading-box {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border: 4px solid $govuk-input-border-colour;
+}
+
+.loading-box img {
+  width: 100px;
+}
+
+.loading-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
