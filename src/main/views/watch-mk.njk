@@ -47,7 +47,13 @@
     </div>
   </div>
 
-  <div id="videoWrapper" class="govuk-!-margin-bottom-2 video-wrapper">
+  <div id="loading" class="govuk-!-margin-bottom-2 loading-box" style="display: block;">
+    <div class="loading-container">
+      <img src="/assets/images/loading-spinner.gif" alt="Loading" />
+    </div>
+  </div>
+
+  <div id="videoWrapper" class="govuk-!-margin-bottom-2 video-wrapper" style="display: none;">
     <div id="video-container"></div>
   </div>
 
@@ -192,9 +198,12 @@
       };
 
       player.load(sourceConfig);
+      document.getElementById("loading").style.display = "none";
+      document.getElementById("videoWrapper").style.display = "block";
     }).catch(function (error) {
       console.error("Error:", error);
       videoError.style.display = "block";
+      document.getElementById("loading").style.display = "none";
     });
   </script>
 {% endblock %}
