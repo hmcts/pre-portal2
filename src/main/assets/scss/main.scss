@@ -1,5 +1,10 @@
 @import 'govuk-frontend';
 
+$black: #000;
+$white: #fff;
+$light-grey: #939393;
+$dark-grey: #414141;
+
 .video-wrapper {
   border: 4px solid $govuk-input-border-colour;
   margin-bottom: 30px;
@@ -41,8 +46,10 @@
   height: 100%;
   width: 100%;
 
-  .vjs-load-progress div {
-    background-color: #939393;
+  .vjs-load-progress {
+    div {
+      background-color: $light-grey;
+    }
   }
 
   .vjs-time-control {
@@ -50,25 +57,27 @@
   }
 
   .vjs-big-play-button {
-    border: 3px solid #ffffff;
+    border: 3px solid $white;
     border-radius: 0%;
   }
 }
 
 .vjs-control-bar {
-  background-color: #000000;
+  background-color: $black;
 }
 
 .vjs-volume-vertical {
-  background-color: #000000;
+  background-color: $black;
 }
 
 .vjs-slider {
-  background-color: #414141;
+  background-color: $dark-grey;
 }
 
-.vjs-play-progress .vjs-time-tooltip {
-  display: none;
+.vjs-play-progress {
+  .vjs-time-tooltip {
+    display: none;
+  }
 }
 
 .vjs-texttrack-settings {
