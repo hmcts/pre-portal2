@@ -3990,12 +3990,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chai-as-promised@npm:7.1.8":
-  version: 7.1.8
-  resolution: "@types/chai-as-promised@npm:7.1.8"
+"@types/chai-as-promised@npm:8.0.0":
+  version: 8.0.0
+  resolution: "@types/chai-as-promised@npm:8.0.0"
   dependencies:
     "@types/chai": "*"
-  checksum: f0e5eab451b91bc1e289ed89519faf6591932e8a28d2ec9bbe95826eb73d28fe43713633e0c18706f3baa560a7d97e7c7c20dc53ce639e5d75bac46b2a50bf21
+  checksum: 9d837b314c7ad7d8d67676905d20b9f293295aa58e3250b5fc7fe9e5598b547b9bbc40396744c2db0bd943ee6eb67dcdbf953baed9e2dc1904438208334fab2a
   languageName: node
   linkType: hard
 
@@ -13450,7 +13450,7 @@ __metadata:
     "@jest/globals": 29.7.0
     "@mediakind/mkplayer": ^1.10.1
     "@types/body-parser": 1.19.5
-    "@types/chai-as-promised": 7.1.8
+    "@types/chai-as-promised": 8.0.0
     "@types/compression": 1.7.5
     "@types/config": 3.3.4
     "@types/cookie-parser": 1.4.7

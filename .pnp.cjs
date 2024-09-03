@@ -41,7 +41,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@jest/globals", "npm:29.7.0"],\
             ["@mediakind/mkplayer", "npm:1.14.0"],\
             ["@types/body-parser", "npm:1.19.5"],\
-            ["@types/chai-as-promised", "npm:7.1.8"],\
+            ["@types/chai-as-promised", "npm:8.0.0"],\
             ["@types/compression", "npm:1.7.5"],\
             ["@types/config", "npm:3.3.4"],\
             ["@types/cookie-parser", "npm:1.4.7"],\
@@ -6358,10 +6358,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/chai-as-promised", [\
-        ["npm:7.1.8", {\
-          "packageLocation": "./.yarn/cache/@types-chai-as-promised-npm-7.1.8-7c01d80dfb-f0e5eab451.zip/node_modules/@types/chai-as-promised/",\
+        ["npm:8.0.0", {\
+          "packageLocation": "./.yarn/cache/@types-chai-as-promised-npm-8.0.0-c44809143e-9d837b314c.zip/node_modules/@types/chai-as-promised/",\
           "packageDependencies": [\
-            ["@types/chai-as-promised", "npm:7.1.8"],\
+            ["@types/chai-as-promised", "npm:8.0.0"],\
             ["@types/chai", "npm:4.3.14"]\
           ],\
           "linkType": "HARD"\
@@ -17452,7 +17452,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@jest/globals", "npm:29.7.0"],\
             ["@mediakind/mkplayer", "npm:1.14.0"],\
             ["@types/body-parser", "npm:1.19.5"],\
-            ["@types/chai-as-promised", "npm:7.1.8"],\
+            ["@types/chai-as-promised", "npm:8.0.0"],\
             ["@types/compression", "npm:1.7.5"],\
             ["@types/config", "npm:3.3.4"],\
             ["@types/cookie-parser", "npm:1.4.7"],\
