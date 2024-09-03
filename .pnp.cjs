@@ -100,7 +100,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-html-reporter", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.10.2"],\
             ["jest-junit", "npm:16.0.0"],\
             ["jest-mock", "npm:29.7.0"],\
-            ["jose", "npm:5.6.3"],\
+            ["jose", "npm:5.8.0"],\
             ["jquery", "npm:3.7.1"],\
             ["lint", "npm:0.8.19"],\
             ["lint-staged", "npm:15.2.10"],\
@@ -14715,10 +14715,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:5.6.3", {\
-          "packageLocation": "./.yarn/cache/jose-npm-5.6.3-5f0ff4eb49-c8722ba820.zip/node_modules/jose/",\
+        ["npm:5.8.0", {\
+          "packageLocation": "./.yarn/cache/jose-npm-5.8.0-af0023b804-bb9cd97ac6.zip/node_modules/jose/",\
           "packageDependencies": [\
-            ["jose", "npm:5.6.3"]\
+            ["jose", "npm:5.8.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -17511,7 +17511,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-html-reporter", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.10.2"],\
             ["jest-junit", "npm:16.0.0"],\
             ["jest-mock", "npm:29.7.0"],\
-            ["jose", "npm:5.6.3"],\
+            ["jose", "npm:5.8.0"],\
             ["jquery", "npm:3.7.1"],\
             ["lint", "npm:0.8.19"],\
             ["lint-staged", "npm:15.2.10"],\
