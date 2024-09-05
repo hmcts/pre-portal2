@@ -172,13 +172,18 @@
       // wait for the url to be available
       let hlsAvailable = false;
       let retries = 20;
+      let time = 3000;
       do {
-        await new Promise(r => setTimeout(r, 1500)); // sleep for 1.5 second
+        await new Promise(r => setTimeout(r, time)); // sleep for `time`ms
         const headResult = await fetch(data.hls_url, {
           method: "HEAD"
         });
         hlsAvailable = headResult.status === 200;
         retries--;
+        time -= 1000;
+        if (time < 1000) {
+          time = 500;
+        }
       } while (hlsAvailable === false && retries > 0);
       const sourceConfig = {
         hls: data.hls_url,
