@@ -91,7 +91,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["express-nunjucks", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.1.2"],\
             ["express-openid-connect", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.17.1"],\
             ["express-session", "npm:1.18.0"],\
-            ["glob", "npm:10.4.5"],\
+            ["glob", "npm:11.0.0"],\
             ["govuk-frontend", "npm:5.6.0"],\
             ["helmet", "npm:7.1.0"],\
             ["html-webpack-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.6.0"],\
@@ -12029,16 +12029,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:10.4.5", {\
-          "packageLocation": "./.yarn/cache/glob-npm-10.4.5-8c63175f05-0bc725de5e.zip/node_modules/glob/",\
+        ["npm:11.0.0", {\
+          "packageLocation": "./.yarn/cache/glob-npm-11.0.0-3be4126bf5-8a2dd914d5.zip/node_modules/glob/",\
           "packageDependencies": [\
-            ["glob", "npm:10.4.5"],\
+            ["glob", "npm:11.0.0"],\
             ["foreground-child", "npm:3.1.1"],\
-            ["jackspeak", "npm:3.4.3"],\
-            ["minimatch", "npm:9.0.4"],\
+            ["jackspeak", "npm:4.0.1"],\
+            ["minimatch", "npm:10.0.1"],\
             ["minipass", "npm:7.1.2"],\
             ["package-json-from-dist", "npm:1.0.0"],\
-            ["path-scurry", "npm:1.11.1"]\
+            ["path-scurry", "npm:2.0.0"]\
           ],\
           "linkType": "HARD"\
         }],\
@@ -13266,10 +13266,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:3.4.3", {\
-          "packageLocation": "./.yarn/cache/jackspeak-npm-3.4.3-546bfad080-be31027fc7.zip/node_modules/jackspeak/",\
+        ["npm:4.0.1", {\
+          "packageLocation": "./.yarn/cache/jackspeak-npm-4.0.1-47021b0734-7989d19edd.zip/node_modules/jackspeak/",\
           "packageDependencies": [\
-            ["jackspeak", "npm:3.4.3"],\
+            ["jackspeak", "npm:4.0.1"],\
             ["@isaacs/cliui", "npm:8.0.2"],\
             ["@pkgjs/parseargs", "npm:0.11.0"]\
           ],\
@@ -14560,6 +14560,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
+        ["npm:11.0.0", {\
+          "packageLocation": "./.yarn/cache/lru-cache-npm-11.0.0-92d560d9d6-c29385f936.zip/node_modules/lru-cache/",\
+          "packageDependencies": [\
+            ["lru-cache", "npm:11.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:5.1.1", {\
           "packageLocation": "./.yarn/cache/lru-cache-npm-5.1.1-f475882a51-c154ae1cbb.zip/node_modules/lru-cache/",\
           "packageDependencies": [\
@@ -14866,6 +14873,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["minimatch", [\
+        ["npm:10.0.1", {\
+          "packageLocation": "./.yarn/cache/minimatch-npm-10.0.1-eabcc0d3a0-f5b63c2f30.zip/node_modules/minimatch/",\
+          "packageDependencies": [\
+            ["minimatch", "npm:10.0.1"],\
+            ["brace-expansion", "npm:2.0.1"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:3.0.4", {\
           "packageLocation": "./.yarn/cache/minimatch-npm-3.0.4-6e76f51c23-66ac295f8a.zip/node_modules/minimatch/",\
           "packageDependencies": [\
@@ -15967,12 +15982,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:1.11.1", {\
-          "packageLocation": "./.yarn/cache/path-scurry-npm-1.11.1-aaf8c339af-890d5abcd5.zip/node_modules/path-scurry/",\
+        ["npm:2.0.0", {\
+          "packageLocation": "./.yarn/cache/path-scurry-npm-2.0.0-5a556e8161-9953ce3857.zip/node_modules/path-scurry/",\
           "packageDependencies": [\
-            ["path-scurry", "npm:1.11.1"],\
-            ["lru-cache", "npm:10.2.1"],\
-            ["minipass", "npm:7.0.4"]\
+            ["path-scurry", "npm:2.0.0"],\
+            ["lru-cache", "npm:11.0.0"],\
+            ["minipass", "npm:7.1.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -16433,7 +16448,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["express-nunjucks", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.1.2"],\
             ["express-openid-connect", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.17.1"],\
             ["express-session", "npm:1.18.0"],\
-            ["glob", "npm:10.4.5"],\
+            ["glob", "npm:11.0.0"],\
             ["govuk-frontend", "npm:5.6.0"],\
             ["helmet", "npm:7.1.0"],\
             ["html-webpack-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.6.0"],\
