@@ -86,6 +86,8 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
     "@codeceptjs/allure-legacy": "^1.0.2",
     "@codeceptjs/configure": "1.0.1",
     "@jest/globals": "29.7.0",
@@ -124,12 +126,14 @@
     "pa11y": "8.0.0",
     "playwright": "1.46",
     "prettier": "3.3.3",
+    "react": "^18.3.1",
+    "react-native": "^0.75.2",
     "sass": "1.78.0",
     "sass-loader": "16.0.1",
     "style-loader": "4.0.0",
     "ts-jest": "29.2.5",
     "ts-loader": "9.5.1",
-    "webpack": "5.94.0",
+    "webpack": "^5.94.0",
     "webpack-cli": "5.1.4",
     "webpack-dev-middleware": "7.4.2",
     "webpack-node-externals": "3.0.0"
