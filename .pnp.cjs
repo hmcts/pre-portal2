@@ -58,7 +58,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/serve-favicon", "npm:2.5.7"],\
             ["@types/session-file-store", "npm:1.2.5"],\
             ["@types/supertest", "npm:6.0.2"],\
-            ["@types/uuid", "npm:9.0.8"],\
+            ["@types/uuid", "npm:10.0.0"],\
             ["@typescript-eslint/eslint-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.18.0"],\
             ["@typescript-eslint/parser", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.18.0"],\
             ["allure-commandline", "npm:2.30.0"],\
@@ -128,7 +128,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["tsconfig-paths", "npm:4.2.0"],\
             ["typed-rest-client", "npm:2.0.2"],\
             ["typescript", "patch:typescript@npm%3A5.5.4#~builtin<compat/typescript>::version=5.5.4&hash=379a07"],\
-            ["uuid", "npm:9.0.1"],\
+            ["uuid", "npm:10.0.0"],\
             ["webpack", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.94.0"],\
             ["webpack-cli", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.1.4"],\
             ["webpack-dev-middleware", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.4.2"],\
@@ -8286,6 +8286,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/uuid", [\
+        ["npm:10.0.0", {\
+          "packageLocation": "./.yarn/cache/@types-uuid-npm-10.0.0-9ac1066765-e3958f8b0f.zip/node_modules/@types/uuid/",\
+          "packageDependencies": [\
+            ["@types/uuid", "npm:10.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:9.0.1", {\
           "packageLocation": "./.yarn/cache/@types-uuid-npm-9.0.1-b44e45eb8a-c472b8a77c.zip/node_modules/@types/uuid/",\
           "packageDependencies": [\
@@ -20019,7 +20026,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/serve-favicon", "npm:2.5.7"],\
             ["@types/session-file-store", "npm:1.2.5"],\
             ["@types/supertest", "npm:6.0.2"],\
-            ["@types/uuid", "npm:9.0.8"],\
+            ["@types/uuid", "npm:10.0.0"],\
             ["@typescript-eslint/eslint-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.18.0"],\
             ["@typescript-eslint/parser", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.18.0"],\
             ["allure-commandline", "npm:2.30.0"],\
@@ -20089,7 +20096,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["tsconfig-paths", "npm:4.2.0"],\
             ["typed-rest-client", "npm:2.0.2"],\
             ["typescript", "patch:typescript@npm%3A5.5.4#~builtin<compat/typescript>::version=5.5.4&hash=379a07"],\
-            ["uuid", "npm:9.0.1"],\
+            ["uuid", "npm:10.0.0"],\
             ["webpack", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.94.0"],\
             ["webpack-cli", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.1.4"],\
             ["webpack-dev-middleware", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.4.2"],\
@@ -23418,6 +23425,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["uuid", [\
+        ["npm:10.0.0", {\
+          "packageLocation": "./.yarn/cache/uuid-npm-10.0.0-4872b46ff8-4b81611ade.zip/node_modules/uuid/",\
+          "packageDependencies": [\
+            ["uuid", "npm:10.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:3.4.0", {\
           "packageLocation": "./.yarn/cache/uuid-npm-3.4.0-4fd8ef88ad-58de2feed6.zip/node_modules/uuid/",\
           "packageDependencies": [\

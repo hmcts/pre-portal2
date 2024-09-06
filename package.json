@@ -83,7 +83,7 @@
     "tsconfig-paths": "4.2.0",
     "typed-rest-client": "^2.0.0",
     "typescript": "5.5.4",
-    "uuid": "^9.0.1"
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
@@ -96,7 +96,7 @@
     "@types/mini-css-extract-plugin": "2.5.1",
     "@types/mocha": "10.0.7",
     "@types/supertest": "6.0.2",
-    "@types/uuid": "9.0.8",
+    "@types/uuid": "10.0.0",
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "@typescript-eslint/parser": "7.18.0",
     "allure-commandline": "^2.27.0",
