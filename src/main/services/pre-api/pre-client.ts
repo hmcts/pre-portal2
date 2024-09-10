@@ -195,6 +195,16 @@ export class PreClient {
     }
   }
 
+  public async getLatestTermsAndConditions(): Promise<string> {
+    try {
+      const response = await axios.get('/api/portal-terms-and-conditions/latest');
+      return response.data as string;
+    } catch (e) {
+      this.logger.error(e);
+      throw e;
+    }
+  }
+
   public async acceptTermsAndConditions(xUserId: string): Promise<UserProfile> {
     try {
       const response = await axios.post('/users/acceptPortalTerms', {
