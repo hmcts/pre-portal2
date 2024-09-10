@@ -132,6 +132,22 @@ describe('PreClient', () => {
         },
       });
     }
+    if (url === '/media-service/vod?recordingId=123&mediaService=MediaKind') {
+      return Promise.resolve({
+        status: 200,
+        data: mockRecordings[0],
+      });
+    }
+    if (url === '/media-service/vod?recordingId=101112&mediaService=MediaKind') {
+      return Promise.reject({
+        response: {
+          status: 404,
+        },
+      });
+    }
+    if (url === '/media-service/vod?recordingId=789&mediaService=MediaKind') {
+      return Promise.reject(new Error('dunno'));
+    }
   });
   mockedAxios.post.mockImplementation((url, data, _config) => {
     if (url === (config.get('ams.flowUrl') as string)) {
@@ -270,5 +286,23 @@ describe('PreClient', () => {
     }
     expect(error).toBeTruthy();
     expect(error?.message).toEqual('Axios Put Error');
+  });
+
+  test('getRecordingPlaybackDataMk success', async () => {
+    var result = await preClient.getRecordingPlaybackDataMk('456', '123');
+    expect(result).toBeTruthy();
+    expect(result?.id).toEqual(mockRecordings[0].id);
+  });
+
+  test('getRecordingPlaybackDataMk 404', async () => {
+    var result = await preClient.getRecordingPlaybackDataMk('456', '101112');
+    expect(result).toEqual(null);
+  });
+
+  test('getRecordingPlaybackDataMk exception', async () => {
+    const t = async () => {
+      await preClient.getRecordingPlaybackDataMk('456', '789');
+    };
+    await expect(t).rejects.toThrow('dunno');
   });
 });

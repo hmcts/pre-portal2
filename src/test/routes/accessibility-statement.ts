@@ -1,6 +1,5 @@
 import { app } from '../../main/app';
 
-import { expect } from 'chai';
 import request from 'supertest';
 
 /* eslint-disable jest/expect-expect */
@@ -10,8 +9,8 @@ describe('Accessibility Statement page', () => {
       await request(app)
         .get('/accessibility-statement')
         .expect(res => {
-          expect(res.status).to.equal(200);
-          expect(res.text).to.include('Accessibility statement');
+          expect(res.status).toBe(200);
+          expect(res.text).toContain('Accessibility statement');
         });
     });
   });

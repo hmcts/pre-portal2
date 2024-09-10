@@ -149,7 +149,6 @@ export class PreClient {
         return null;
       }
 
-      this.logger.error(e);
       throw e;
     }
   }
@@ -183,6 +182,25 @@ export class PreClient {
           },
         ],
       } as RecordingPlaybackData;
+    } catch (e) {
+      if (e.response?.status === 404) {
+        return null;
+      }
+
+      this.logger.error(e);
+      throw e;
+    }
+  }
+
+  public async getRecordingPlaybackDataMk(xUserId: string, id: string): Promise<Recording | null> {
+    try {
+      const response = await axios.get(`/media-service/vod?recordingId=${id}&mediaService=MediaKind`, {
+        headers: {
+          'X-User-Id': xUserId,
+        },
+      });
+
+      return response.data as Recording;
     } catch (e) {
       if (e.response?.status === 404) {
         return null;
