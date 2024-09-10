@@ -105,7 +105,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["mochawesome-merge", "npm:4.3.0"],\
             ["mochawesome-report-generator", "npm:6.2.0"],\
             ["nock", "npm:13.5.5"],\
-            ["node-mocks-http", "npm:1.15.1"],\
+            ["node-mocks-http", "npm:1.16.0"],\
             ["nodemon", "npm:3.1.4"],\
             ["nunjucks", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.2.4"],\
             ["pa11y", "npm:8.0.0"],\
@@ -17843,10 +17843,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["node-mocks-http", [\
-        ["npm:1.15.1", {\
-          "packageLocation": "./.yarn/cache/node-mocks-http-npm-1.15.1-65cc61bd4e-f6e64065ab.zip/node_modules/node-mocks-http/",\
+        ["npm:1.16.0", {\
+          "packageLocation": "./.yarn/cache/node-mocks-http-npm-1.16.0-ac20a6e58e-21ccf1ecaa.zip/node_modules/node-mocks-http/",\
           "packageDependencies": [\
-            ["node-mocks-http", "npm:1.15.1"],\
+            ["node-mocks-http", "npm:1.16.0"],\
             ["@types/express", "npm:4.17.21"],\
             ["@types/node", "npm:22.5.4"],\
             ["accepts", "npm:1.3.8"],\
@@ -19175,7 +19175,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["mochawesome-merge", "npm:4.3.0"],\
             ["mochawesome-report-generator", "npm:6.2.0"],\
             ["nock", "npm:13.5.5"],\
-            ["node-mocks-http", "npm:1.15.1"],\
+            ["node-mocks-http", "npm:1.16.0"],\
             ["nodemon", "npm:3.1.4"],\
             ["nunjucks", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.2.4"],\
             ["pa11y", "npm:8.0.0"],\
