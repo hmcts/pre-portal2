@@ -44,7 +44,7 @@ This diagram gives an overview of the PRE system which the pre-portal connects t
 
       }
 
-      Enterprise_Boundary(a1, "Media Kinda Azure Tenant",) {
+      Enterprise_Boundary(a1, "Media Kind Azure Tenant",) {
         System(mk, "Media Kind")
       }
 
