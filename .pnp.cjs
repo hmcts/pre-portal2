@@ -51,7 +51,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:29.5.13"],\
             ["@types/lodash", "npm:4.17.7"],\
             ["@types/mini-css-extract-plugin", "npm:2.5.1"],\
-            ["@types/mocha", "npm:10.0.7"],\
+            ["@types/mocha", "npm:10.0.8"],\
             ["@types/node", "npm:20.12.7"],\
             ["@types/nunjucks", "npm:3.2.6"],\
             ["@types/require-directory", "npm:2.1.6"],\
@@ -7098,10 +7098,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/mocha", [\
-        ["npm:10.0.7", {\
-          "packageLocation": "./.yarn/cache/@types-mocha-npm-10.0.7-4c49cc0a40-5e411ed8aa.zip/node_modules/@types/mocha/",\
+        ["npm:10.0.8", {\
+          "packageLocation": "./.yarn/cache/@types-mocha-npm-10.0.8-c2fd3d2664-d64faa9f1e.zip/node_modules/@types/mocha/",\
           "packageDependencies": [\
-            ["@types/mocha", "npm:10.0.7"]\
+            ["@types/mocha", "npm:10.0.8"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -17404,7 +17404,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/__virtual__/mochawesome-virtual-32d55e70b2/0/cache/mochawesome-npm-7.1.3-17afbbd4e0-87730026de.zip/node_modules/mochawesome/",\
           "packageDependencies": [\
             ["mochawesome", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.3"],\
-            ["@types/mocha", "npm:10.0.7"],\
+            ["@types/mocha", "npm:10.0.8"],\
             ["chalk", "npm:4.1.2"],\
             ["diff", "npm:5.2.0"],\
             ["json-stringify-safe", "npm:5.0.1"],\
@@ -19079,7 +19079,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/jest", "npm:29.5.13"],\
             ["@types/lodash", "npm:4.17.7"],\
             ["@types/mini-css-extract-plugin", "npm:2.5.1"],\
-            ["@types/mocha", "npm:10.0.7"],\
+            ["@types/mocha", "npm:10.0.8"],\
             ["@types/node", "npm:20.12.7"],\
             ["@types/nunjucks", "npm:3.2.6"],\
             ["@types/require-directory", "npm:2.1.6"],\
