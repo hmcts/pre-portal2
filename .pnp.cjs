@@ -66,7 +66,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["axios", "npm:1.7.7"],\
             ["axios-debug-log", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.0.0"],\
             ["body-parser", "npm:1.20.3"],\
-            ["chokidar", "npm:3.6.0"],\
+            ["chokidar", "npm:4.0.0"],\
             ["codeceptjs", "npm:3.6.5"],\
             ["compression", "npm:1.7.4"],\
             ["config", "npm:3.3.12"],\
@@ -9883,6 +9883,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["readdirp", "npm:3.6.0"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:4.0.0", {\
+          "packageLocation": "./.yarn/cache/chokidar-npm-4.0.0-39d260a09b-f528f5cf22.zip/node_modules/chokidar/",\
+          "packageDependencies": [\
+            ["chokidar", "npm:4.0.0"],\
+            ["readdirp", "npm:4.0.1"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["chownr", [\
@@ -17958,7 +17966,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/chokidar", null],\
             ["a-sync-waterfall", "npm:1.0.1"],\
             ["asap", "npm:2.0.6"],\
-            ["chokidar", "npm:3.6.0"],\
+            ["chokidar", "npm:4.0.0"],\
             ["commander", "npm:5.1.0"]\
           ],\
           "packagePeers": [\
@@ -19094,7 +19102,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["axios", "npm:1.7.7"],\
             ["axios-debug-log", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.0.0"],\
             ["body-parser", "npm:1.20.3"],\
-            ["chokidar", "npm:3.6.0"],\
+            ["chokidar", "npm:4.0.0"],\
             ["codeceptjs", "npm:3.6.5"],\
             ["compression", "npm:1.7.4"],\
             ["config", "npm:3.3.12"],\
@@ -19879,6 +19887,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["readdirp", "npm:3.6.0"],\
             ["picomatch", "npm:2.3.1"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:4.0.1", {\
+          "packageLocation": "./.yarn/cache/readdirp-npm-4.0.1-17b55c8032-b39747defe.zip/node_modules/readdirp/",\
+          "packageDependencies": [\
+            ["readdirp", "npm:4.0.1"]\
           ],\
           "linkType": "HARD"\
         }]\

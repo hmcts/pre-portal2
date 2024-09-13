@@ -101,7 +101,7 @@
     "@typescript-eslint/parser": "7.18.0",
     "allure-commandline": "^2.27.0",
     "axios-debug-log": "1.0.0",
-    "chokidar": "3.6.0",
+    "chokidar": "4.0.0",
     "codeceptjs": "3.6.5",
     "copy-webpack-plugin": "12.0.2",
     "css-loader": "7.1.2",
