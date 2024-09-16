@@ -65,6 +65,8 @@ export class PropertiesVolume {
       set(config, 'b2c.testLogin.password', process.env.B2C_TEST_LOGIN_PASSWORD);
       set(config, 'session.secret', process.env.SESSION_SECRET ?? 'superlongrandomstringthatshouldbebetterinprod');
     }
+
+    this.logger.info('Redis host: {}', process.env.REDIS_HOST);
   }
 
   private setSecret(fromPath: string, toPath: string): void {
