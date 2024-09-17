@@ -14,9 +14,6 @@
               Terms &amp; Conditions (including Acceptable Use) for the Pre-Recorded Evidence Service
             </label>
           </h1>
-          <div id="terms-text-hint" class="govuk-hint">
-            July 2022
-          </div>
           <textarea class="govuk-textarea" id="terms-text" name="termsText" rows="10" aria-describedby="terms-text-hint" readonly>
             {{ terms }}
           </textarea>
@@ -47,6 +44,8 @@
         <button type="submit" class="govuk-button" data-module="govuk-button">
           Continue
         </button>
+
+        <input type="hidden" name="termsId" value="{{ termsId }}">
       </form>
     </div>
     </div>

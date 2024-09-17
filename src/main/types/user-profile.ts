@@ -44,8 +44,6 @@ export interface UserProfile {
           invited_at: string;
           last_access: string | null;
           registered_at: string | null;
-          terms_accepted_at: string | null;
-          is_terms_accepted: boolean;
           status: AccessStatus;
         },
       ]
@@ -58,5 +56,6 @@ export interface UserProfile {
     email: string;
     phone_number: string | null;
     organisation: string | null;
+    termsAccepted: Map<string, boolean>;
   };
 }

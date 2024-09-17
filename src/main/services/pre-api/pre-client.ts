@@ -1,5 +1,6 @@
 import { AccessStatus } from '../../types/access-status';
 import { TermsNotAcceptedError } from '../../types/errors';
+import { Terms } from '../../types/terms';
 import { UserProfile } from '../../types/user-profile';
 
 import { Pagination, PutAuditRequest, Recording, RecordingPlaybackData, SearchRecordingsRequest } from './types';
@@ -95,7 +96,7 @@ export class PreClient {
       throw new Error('User does not have access to the portal: ' + email);
     } else if (userProfile.portal_access[0].status === AccessStatus.INACTIVE) {
       throw new Error('User is not active: ' + email);
-    } else if (!userProfile.portal_access[0].is_terms_accepted) {
+    } else if (!userProfile.user.termsAccepted || !userProfile.user.termsAccepted.get('PORTAL')) {
       throw new TermsNotAcceptedError(email);
     }
     return userProfile;
@@ -195,25 +196,27 @@ export class PreClient {
     }
   }
 
-  public async getLatestTermsAndConditions(): Promise<string> {
+  public async getLatestTermsAndConditions(): Promise<Terms> {
     try {
       const response = await axios.get('/api/portal-terms-and-conditions/latest');
-      return response.data as string;
+      return response.data as Terms;
     } catch (e) {
       this.logger.error(e);
       throw e;
     }
   }
 
-  public async acceptTermsAndConditions(xUserId: string): Promise<UserProfile> {
+  public async acceptTermsAndConditions(xUserId: string, termsId: string): Promise<void> {
     try {
-      const response = await axios.post('/users/acceptPortalTerms', {
+      const response = await axios.post(`/accept-terms-and-conditions/${termsId}`, {
         headers: {
           'X-User-Id': xUserId,
         },
       });
 
-      return response.data as UserProfile;
+      if (response.status !== 200) {
+        throw new Error('Failed to accept terms and conditions');
+      }
     } catch (e) {
       this.logger.error(e);
       throw e;
