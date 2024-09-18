@@ -106,7 +106,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["mochawesome-report-generator", "npm:6.2.0"],\
             ["nock", "npm:13.5.5"],\
             ["node-mocks-http", "npm:1.16.0"],\
-            ["nodemon", "npm:3.1.4"],\
+            ["nodemon", "npm:3.1.5"],\
             ["nunjucks", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.2.4"],\
             ["pa11y", "npm:8.0.0"],\
             ["playwright", "npm:1.47.1"],\
@@ -11101,20 +11101,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["virtual:33f4db03df5cb0a9b65cd83d4a160375f85a7e77735be4fe22ba0f32d7046e6ea2dc2852727ba6ed8ca64f8738f7114c71efc960773f2df5deb72715fe30d8b5#npm:4.3.7", {\
-          "packageLocation": "./.yarn/__virtual__/debug-virtual-d35fab66e4/0/cache/debug-npm-4.3.7-385645adf9-822d74e209.zip/node_modules/debug/",\
-          "packageDependencies": [\
-            ["debug", "virtual:33f4db03df5cb0a9b65cd83d4a160375f85a7e77735be4fe22ba0f32d7046e6ea2dc2852727ba6ed8ca64f8738f7114c71efc960773f2df5deb72715fe30d8b5#npm:4.3.7"],\
-            ["@types/supports-color", null],\
-            ["ms", "npm:2.1.3"],\
-            ["supports-color", "npm:5.5.0"]\
-          ],\
-          "packagePeers": [\
-            "@types/supports-color",\
-            "supports-color"\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["virtual:3df4130e67ffe446456c699f42210ea115af2aa5626d9c8d20daf15bce1935e3c45475c27e24f54024e0ff44a4544ed766edb3961e921e9b2f232bf4c5699d74#npm:3.1.0", {\
           "packageLocation": "./.yarn/__virtual__/debug-virtual-8d8df52f56/0/cache/debug-npm-3.1.0-9f0accb99b-0b52718ab9.zip/node_modules/debug/",\
           "packageDependencies": [\
@@ -11136,6 +11122,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/supports-color", null],\
             ["ms", "npm:2.1.2"],\
             ["supports-color", null]\
+          ],\
+          "packagePeers": [\
+            "@types/supports-color",\
+            "supports-color"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:ad4ddac5bc79890053a39bed63411a04e213b035a12d960d73c7f053e97940a60e8eb5111aea1651299ffed97baa5fd1e76bed2bae69d3c7428d73b1e438c38b#npm:4.3.7", {\
+          "packageLocation": "./.yarn/__virtual__/debug-virtual-818ca31958/0/cache/debug-npm-4.3.7-385645adf9-822d74e209.zip/node_modules/debug/",\
+          "packageDependencies": [\
+            ["debug", "virtual:ad4ddac5bc79890053a39bed63411a04e213b035a12d960d73c7f053e97940a60e8eb5111aea1651299ffed97baa5fd1e76bed2bae69d3c7428d73b1e438c38b#npm:4.3.7"],\
+            ["@types/supports-color", null],\
+            ["ms", "npm:2.1.3"],\
+            ["supports-color", "npm:5.5.0"]\
           ],\
           "packagePeers": [\
             "@types/supports-color",\
@@ -17837,12 +17837,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["nodemon", [\
-        ["npm:3.1.4", {\
-          "packageLocation": "./.yarn/unplugged/nodemon-npm-3.1.4-33f4db03df/node_modules/nodemon/",\
+        ["npm:3.1.5", {\
+          "packageLocation": "./.yarn/unplugged/nodemon-npm-3.1.5-ad4ddac5bc/node_modules/nodemon/",\
           "packageDependencies": [\
-            ["nodemon", "npm:3.1.4"],\
+            ["nodemon", "npm:3.1.5"],\
             ["chokidar", "npm:3.6.0"],\
-            ["debug", "virtual:33f4db03df5cb0a9b65cd83d4a160375f85a7e77735be4fe22ba0f32d7046e6ea2dc2852727ba6ed8ca64f8738f7114c71efc960773f2df5deb72715fe30d8b5#npm:4.3.7"],\
+            ["debug", "virtual:ad4ddac5bc79890053a39bed63411a04e213b035a12d960d73c7f053e97940a60e8eb5111aea1651299ffed97baa5fd1e76bed2bae69d3c7428d73b1e438c38b#npm:4.3.7"],\
             ["ignore-by-default", "npm:1.0.1"],\
             ["minimatch", "npm:3.1.2"],\
             ["pstree.remy", "npm:1.1.8"],\
@@ -19111,7 +19111,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["mochawesome-report-generator", "npm:6.2.0"],\
             ["nock", "npm:13.5.5"],\
             ["node-mocks-http", "npm:1.16.0"],\
-            ["nodemon", "npm:3.1.4"],\
+            ["nodemon", "npm:3.1.5"],\
             ["nunjucks", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.2.4"],\
             ["pa11y", "npm:8.0.0"],\
             ["playwright", "npm:1.47.1"],\
