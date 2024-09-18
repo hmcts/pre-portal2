@@ -6748,7 +6748,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chokidar@npm:4.0.0":
+"chokidar@npm:4.0.0, chokidar@npm:^4.0.0":
   version: 4.0.0
   resolution: "chokidar@npm:4.0.0"
   dependencies:
@@ -6757,7 +6757,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chokidar@npm:>=3.0.0 <4.0.0, chokidar@npm:^3.5.2, chokidar@npm:^3.5.3, chokidar@npm:^3.6.0":
+"chokidar@npm:^3.5.2, chokidar@npm:^3.5.3, chokidar@npm:^3.6.0":
   version: 3.6.0
   resolution: "chokidar@npm:3.6.0"
   dependencies:
@@ -14781,7 +14781,7 @@ __metadata:
     react-native: ^0.75.2
     redis: ^4.6.13
     require-directory: 2.1.1
-    sass: 1.78.0
+    sass: 1.79.1
     sass-loader: 16.0.1
     serve-favicon: 2.5.0
     session-file-store: ^1.5.0
@@ -15961,16 +15961,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.78.0":
-  version: 1.78.0
-  resolution: "sass@npm:1.78.0"
+"sass@npm:1.79.1":
+  version: 1.79.1
+  resolution: "sass@npm:1.79.1"
   dependencies:
-    chokidar: ">=3.0.0 <4.0.0"
+    chokidar: ^4.0.0
     immutable: ^4.0.0
     source-map-js: ">=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: ea856bd224c85d831a5800195750c2dd008d101771d071dbaca886c47fe4f131c30c328755d7a974ad944ba5b3aafa7a9f6010952da306436dcebddb41580e1c
+  checksum: df014f287055c750349b7461ed8477662c7f9c8999cc1b10eb9096ccd4a67f850511e8828ba8780515513741a932d01b1948bd33d40cdac1403a13b6718fa14c
   languageName: node
   linkType: hard
 
