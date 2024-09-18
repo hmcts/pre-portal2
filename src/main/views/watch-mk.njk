@@ -171,7 +171,7 @@
     }).then(async function (data) {
       // wait for the url to be available
       let hlsAvailable = false;
-      let retries = 20;
+      let retries = 120;
       let time = 3000;
       do {
         await new Promise(r => setTimeout(r, time)); // sleep for `time`ms
