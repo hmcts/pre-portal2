@@ -8,7 +8,7 @@
   "scripts": {
     "start": "NODE_ENV=production ts-node -r tsconfig-paths/register src/main/server.ts",
     "start:dev": "nodemon --config nodemon.json",
-    "lint": "tsc --noEmit -p tsconfig.eslint.json && eslint . --ext .js,.ts",
+    "lint": "tsc --noEmit -p tsconfig.eslint.json && eslint .",
     "lint:fix": "prettier --write . && eslint --fix .",
     "build": "yarn webpack --config webpack.config.js",
     "build:prod": "NODE_ENV=production yarn webpack --mode production --config webpack.config.js",
@@ -90,6 +90,7 @@
     "@babel/preset-env": "^7.25.4",
     "@codeceptjs/allure-legacy": "^1.0.2",
     "@codeceptjs/configure": "1.0.1",
+    "@eslint/compat": "^1.1.1",
     "@jest/globals": "29.7.0",
     "@types/compression": "1.7.5",
     "@types/jest": "29.5.13",
