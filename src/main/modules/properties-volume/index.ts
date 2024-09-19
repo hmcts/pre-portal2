@@ -27,12 +27,12 @@ export class PropertiesVolume {
     set(
       config,
       'ams.azureMediaServices',
-      process.env.AMS_AZURE_MEDIA_SERVICES ?? 'https://preamstest-ukso1.streaming.media.azure.net'
+      process.env.AMS_AZURE_MEDIA_SERVICES ?? 'https://preamsstg-ukso1.streaming.media.azure.net'
     );
     set(
       config,
       'ams.azureMediaServicesKeyDelivery',
-      process.env.AMS_AZURE_MEDIA_SERVICES_KEY_DELIVERY ?? 'https://preamstest.keydelivery.uksouth.media.azure.net'
+      process.env.AMS_AZURE_MEDIA_SERVICES_KEY_DELIVERY ?? 'https://preamsstg.keydelivery.uksouth.media.azure.net'
     );
     set(config, 'pre.enableMkWatchPage', process.env.ENABLE_MK_WATCH_PAGE ?? 'false');
 
@@ -65,6 +65,8 @@ export class PropertiesVolume {
       set(config, 'b2c.testLogin.password', process.env.B2C_TEST_LOGIN_PASSWORD);
       set(config, 'session.secret', process.env.SESSION_SECRET ?? 'superlongrandomstringthatshouldbebetterinprod');
     }
+
+    this.logger.info('Redis host: {}', process.env.REDIS_HOST);
   }
 
   private setSecret(fromPath: string, toPath: string): void {

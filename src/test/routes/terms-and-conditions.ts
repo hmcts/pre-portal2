@@ -1,6 +1,5 @@
 import { app } from '../../main/app';
 
-import { expect } from 'chai';
 import request from 'supertest';
 
 /* eslint-disable jest/expect-expect */
@@ -10,8 +9,8 @@ describe('Terms and Conditions page', () => {
       await request(app)
         .get('/terms-and-conditions')
         .expect(res => {
-          expect(res.status).to.equal(200);
-          expect(res.text).to.include('Terms &amp; Conditions');
+          expect(res.status).toBe(200);
+          expect(res.text).toContain('Terms &amp; Conditions');
         });
     });
   });
