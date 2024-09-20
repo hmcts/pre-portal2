@@ -34,7 +34,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@codeceptjs/configure", "virtual:3be9c99fb09831d56b48191ca70d8581f26f5c353d7e5239ff306fcae05ab00718cfa696542446ba1c52253c4408c82071683a1888658dcefd905422852eb2c8#npm:1.0.1"],\
             ["@eslint/compat", "npm:1.1.1"],\
             ["@hmcts/cookie-manager", "npm:1.0.0"],\
-            ["@hmcts/info-provider", "npm:1.2.1"],\
+            ["@hmcts/info-provider", "npm:1.2.2"],\
             ["@hmcts/nodejs-healthcheck", "npm:1.8.5"],\
             ["@hmcts/nodejs-logging", "npm:4.0.4"],\
             ["@hmcts/properties-volume", "npm:1.2.0"],\
@@ -3863,10 +3863,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@hmcts/info-provider", [\
-        ["npm:1.2.1", {\
-          "packageLocation": "./.yarn/cache/@hmcts-info-provider-npm-1.2.1-0c905c3d08-ec2f55f056.zip/node_modules/@hmcts/info-provider/",\
+        ["npm:1.2.2", {\
+          "packageLocation": "./.yarn/cache/@hmcts-info-provider-npm-1.2.2-a0b80fce74-2d9dc7bb58.zip/node_modules/@hmcts/info-provider/",\
           "packageDependencies": [\
-            ["@hmcts/info-provider", "npm:1.2.1"],\
+            ["@hmcts/info-provider", "npm:1.2.2"],\
             ["express", "npm:4.21.0"],\
             ["js-yaml", "npm:4.1.0"]\
           ],\
@@ -19053,7 +19053,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@codeceptjs/configure", "virtual:3be9c99fb09831d56b48191ca70d8581f26f5c353d7e5239ff306fcae05ab00718cfa696542446ba1c52253c4408c82071683a1888658dcefd905422852eb2c8#npm:1.0.1"],\
             ["@eslint/compat", "npm:1.1.1"],\
             ["@hmcts/cookie-manager", "npm:1.0.0"],\
-            ["@hmcts/info-provider", "npm:1.2.1"],\
+            ["@hmcts/info-provider", "npm:1.2.2"],\
             ["@hmcts/nodejs-healthcheck", "npm:1.8.5"],\
             ["@hmcts/nodejs-logging", "npm:4.0.4"],\
             ["@hmcts/properties-volume", "npm:1.2.0"],\
