@@ -17390,15 +17390,15 @@ __metadata:
   linkType: hard
 
 "typed-rest-client@npm:^2.0.0":
-  version: 2.0.2
-  resolution: "typed-rest-client@npm:2.0.2"
+  version: 2.1.0
+  resolution: "typed-rest-client@npm:2.1.0"
   dependencies:
     des.js: ^1.1.0
     js-md4: ^0.3.2
     qs: ^6.10.3
     tunnel: 0.0.6
     underscore: ^1.12.1
-  checksum: f1d9a0ffd5b7266f01df9ea4eb08b8da04793cf6902d82b3c6a46d1328cdefe80bb0cfc8f96afa645077c234ec218d8b16f642da35c1e2f1adf3d61a5904d8d1
+  checksum: 0877215291c11ee100620510cf0e25e1c594b8a73722d896fe4f032a18a477b285062627f5536af7695f79c28341af9ac0f192723a7d8d7b3a755925491406cb
   languageName: node
   linkType: hard
 

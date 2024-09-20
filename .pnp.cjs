@@ -127,7 +127,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ts-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:9.5.1"],\
             ["ts-node", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:10.9.2"],\
             ["tsconfig-paths", "npm:4.2.0"],\
-            ["typed-rest-client", "npm:2.0.2"],\
+            ["typed-rest-client", "npm:2.1.0"],\
             ["typescript", "patch:typescript@npm%3A5.5.4#~builtin<compat/typescript>::version=5.5.4&hash=379a07"],\
             ["uuid", "npm:10.0.0"],\
             ["webpack", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.94.0"],\
@@ -19146,7 +19146,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["ts-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:9.5.1"],\
             ["ts-node", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:10.9.2"],\
             ["tsconfig-paths", "npm:4.2.0"],\
-            ["typed-rest-client", "npm:2.0.2"],\
+            ["typed-rest-client", "npm:2.1.0"],\
             ["typescript", "patch:typescript@npm%3A5.5.4#~builtin<compat/typescript>::version=5.5.4&hash=379a07"],\
             ["uuid", "npm:10.0.0"],\
             ["webpack", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.94.0"],\
@@ -22141,10 +22141,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["typed-rest-client", [\
-        ["npm:2.0.2", {\
-          "packageLocation": "./.yarn/cache/typed-rest-client-npm-2.0.2-cdd519246e-f1d9a0ffd5.zip/node_modules/typed-rest-client/",\
+        ["npm:2.1.0", {\
+          "packageLocation": "./.yarn/cache/typed-rest-client-npm-2.1.0-9d77180df7-0877215291.zip/node_modules/typed-rest-client/",\
           "packageDependencies": [\
-            ["typed-rest-client", "npm:2.0.2"],\
+            ["typed-rest-client", "npm:2.1.0"],\
             ["des.js", "npm:1.1.0"],\
             ["js-md4", "npm:0.3.2"],\
             ["qs", "npm:6.13.0"],\
