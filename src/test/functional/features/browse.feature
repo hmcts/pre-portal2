@@ -1,4 +1,5 @@
 Feature: View Browse Page
+@CrossBrowser
     Scenario: The browse page should show a list of all the videos after signing in
       When I go to '/'
       Then the page should include 'Sign in'

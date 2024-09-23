@@ -148,11 +148,11 @@ export class PreClient {
 
       return response.data as Recording;
     } catch (e) {
-      if (e.response?.status === 404) {
+      // handle 403 and 404 the same so we don't expose the existence of recordings
+      if (e.response?.status === 404 || e.response?.status === 403) {
         return null;
       }
 
-      this.logger.error(e);
       throw e;
     }
   }
@@ -186,6 +186,25 @@ export class PreClient {
           },
         ],
       } as RecordingPlaybackData;
+    } catch (e) {
+      if (e.response?.status === 404) {
+        return null;
+      }
+
+      this.logger.error(e);
+      throw e;
+    }
+  }
+
+  public async getRecordingPlaybackDataMk(xUserId: string, id: string): Promise<Recording | null> {
+    try {
+      const response = await axios.get(`/media-service/vod?recordingId=${id}`, {
+        headers: {
+          'X-User-Id': xUserId,
+        },
+      });
+
+      return response.data as Recording;
     } catch (e) {
       if (e.response?.status === 404) {
         return null;

@@ -10,6 +10,8 @@ import { AccessStatus } from '../../main/types/access-status';
 
 const preClient = new PreClient();
 const mockRecordingId = '12345678-1234-1234-1234-1234567890ab';
+const mockRecordingMissingId = '4f37c46f-142d-42df-953f-0b7ca3f87995';
+const mockRecordingNoPermsId = '4f37c46f-142d-42df-953f-0b7ca3f87996';
 jest.mock('axios');
 
 /* eslint-disable jest/expect-expect */
@@ -95,6 +97,20 @@ describe('PreClient', () => {
         data: mockRecordings.find(r => r.id === mockRecordingId),
       });
     }
+    if (url === `/recordings/${mockRecordingMissingId}`) {
+      return Promise.reject({
+        response: {
+          status: 404,
+        },
+      });
+    }
+    if (url === `/recordings/${mockRecordingNoPermsId}`) {
+      return Promise.reject({
+        response: {
+          status: 403,
+        },
+      });
+    }
     if (url === '/recordings') {
       if (config['headers']['X-User-Id'] === mockXUserId) {
         return Promise.resolve({
@@ -116,6 +132,22 @@ describe('PreClient', () => {
         },
       });
     }
+    if (url === '/media-service/vod?recordingId=123') {
+      return Promise.resolve({
+        status: 200,
+        data: mockRecordings[0],
+      });
+    }
+    if (url === '/media-service/vod?recordingId=101112') {
+      return Promise.reject({
+        response: {
+          status: 404,
+        },
+      });
+    }
+    if (url === '/media-service/vod?recordingId=789') {
+      return Promise.reject(new Error('dunno'));
+    }
   });
   mockedAxios.post.mockImplementation((url, data, _config) => {
     if (url === (config.get('ams.flowUrl') as string)) {
@@ -132,6 +164,15 @@ describe('PreClient', () => {
   mockedAxios.create.mockImplementation(() => mockedAxios);
 
   const otherXUserId = 'a114f40e-bdba-432d-b53f-37169ee5bf90';
+
+  test('get recording missing', async () => {
+    const recording = await preClient.getRecording(mockXUserId, mockRecordingMissingId);
+    expect(recording).toBeNull();
+  });
+  test('get recording no permissions', async () => {
+    const recording = await preClient.getRecording(mockXUserId, mockRecordingNoPermsId);
+    expect(recording).toBeNull();
+  });
 
   test('get recording', async () => {
     const recording = await preClient.getRecording(mockXUserId, mockRecordingId);
@@ -245,5 +286,23 @@ describe('PreClient', () => {
     }
     expect(error).toBeTruthy();
     expect(error?.message).toEqual('Axios Put Error');
+  });
+
+  test('getRecordingPlaybackDataMk success', async () => {
+    var result = await preClient.getRecordingPlaybackDataMk('456', '123');
+    expect(result).toBeTruthy();
+    expect(result?.id).toEqual(mockRecordings[0].id);
+  });
+
+  test('getRecordingPlaybackDataMk 404', async () => {
+    var result = await preClient.getRecordingPlaybackDataMk('456', '101112');
+    expect(result).toEqual(null);
+  });
+
+  test('getRecordingPlaybackDataMk exception', async () => {
+    const t = async () => {
+      await preClient.getRecordingPlaybackDataMk('456', '789');
+    };
+    await expect(t).rejects.toThrow('dunno');
   });
 });

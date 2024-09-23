@@ -11,34 +11,38 @@ export class PropertiesVolume {
     set(config, 'pre.portalUrl', process.env.PORTAL_URL ?? 'https://localhost:4551');
     set(config, 'pre.apiUrl', process.env.PRE_API_URL ?? 'https://localhost:4550');
     set(config, 'session.redis.host', process.env.REDIS_HOST ?? '');
-    set(config, 'b2c.appClientId', process.env.B2C_APP_CLIENT_ID ?? 'c8deb898-d595-4fb2-8ba5-52fffa8db064');
+    set(config, 'b2c.appClientId', process.env.B2C_APP_CLIENT_ID ?? 'd20a7462-f222-46b8-a363-d2e30eb274eb');
     set(
       config,
       'b2c.baseUrl',
       process.env.B2C_BASE_URL ??
-        'https://hmctsdevextid.b2clogin.com/hmctsdevextid.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_SIGNUP_SIGNIN'
+        'https://hmctsstgextid.b2clogin.com/hmctsstgextid.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_SIGNUP_SIGNIN'
     );
     set(
       config,
       'b2c.endSessionEndpoint',
       process.env.B2C_END_SESSION_ENDPOINT ??
-        'https://hmctsdevextid.b2clogin.com/hmctsdevextid.onmicrosoft.com/b2c_1a_signup_signin/oauth2/v2.0/logout'
+        'https://hmctsstgextid.b2clogin.com/hmctsstgextid.onmicrosoft.com/b2c_1a_signup_signin/oauth2/v2.0/logout'
     );
     set(
       config,
       'ams.azureMediaServices',
-      process.env.AMS_AZURE_MEDIA_SERVICES ?? 'https://preamstest-ukso1.streaming.media.azure.net'
+      process.env.AMS_AZURE_MEDIA_SERVICES ?? 'https://preamsstg-ukso1.streaming.media.azure.net'
     );
     set(
       config,
       'ams.azureMediaServicesKeyDelivery',
-      process.env.AMS_AZURE_MEDIA_SERVICES_KEY_DELIVERY ?? 'https://preamstest.keydelivery.uksouth.media.azure.net'
+      process.env.AMS_AZURE_MEDIA_SERVICES_KEY_DELIVERY ?? 'https://preamsstg.keydelivery.uksouth.media.azure.net'
     );
+    set(config, 'pre.enableMkWatchPage', process.env.ENABLE_MK_WATCH_PAGE ?? 'false');
 
     if (server.locals.ENV === 'production') {
       this.logger.info('Loading properties from mounted KV');
       propertiesVolume.addTo(config);
-      this.setSecret('secrets.pre-hmctskv.AppInsightsInstrumentationKey', 'appInsights.instrumentationKey');
+      this.setSecret(
+        'secrets.pre-hmctskv.app-insights-connection-string',
+        'appInsights.app-insights-connection-string'
+      );
       this.setSecret('secrets.pre-hmctskv.redis6-access-key', 'session.redis.key');
       this.setSecret('secrets.pre-hmctskv.session-secret', 'session.secret');
       this.setSecret('secrets.pre-hmctskv.apim-sub-portal-primary-key', 'pre.apiKey.primary');
@@ -61,6 +65,8 @@ export class PropertiesVolume {
       set(config, 'b2c.testLogin.password', process.env.B2C_TEST_LOGIN_PASSWORD);
       set(config, 'session.secret', process.env.SESSION_SECRET ?? 'superlongrandomstringthatshouldbebetterinprod');
     }
+
+    this.logger.info('Redis host: {}', process.env.REDIS_HOST);
   }
 
   private setSecret(fromPath: string, toPath: string): void {
