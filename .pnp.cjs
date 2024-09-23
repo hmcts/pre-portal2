@@ -67,7 +67,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["axios", "npm:1.7.7"],\
             ["axios-debug-log", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.0.0"],\
             ["body-parser", "npm:1.20.3"],\
-            ["chokidar", "npm:4.0.0"],\
+            ["chokidar", "npm:4.0.1"],\
             ["codeceptjs", "npm:3.6.6"],\
             ["compression", "npm:1.7.4"],\
             ["config", "npm:3.3.12"],\
@@ -9966,6 +9966,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["readdirp", "npm:4.0.1"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:4.0.1", {\
+          "packageLocation": "./.yarn/cache/chokidar-npm-4.0.1-989df9ae3c-193da9786b.zip/node_modules/chokidar/",\
+          "packageDependencies": [\
+            ["chokidar", "npm:4.0.1"],\
+            ["readdirp", "npm:4.0.1"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["chownr", [\
@@ -17956,7 +17964,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/chokidar", null],\
             ["a-sync-waterfall", "npm:1.0.1"],\
             ["asap", "npm:2.0.6"],\
-            ["chokidar", "npm:4.0.0"],\
+            ["chokidar", "npm:4.0.1"],\
             ["commander", "npm:5.1.0"]\
           ],\
           "packagePeers": [\
@@ -19086,7 +19094,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["axios", "npm:1.7.7"],\
             ["axios-debug-log", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.0.0"],\
             ["body-parser", "npm:1.20.3"],\
-            ["chokidar", "npm:4.0.0"],\
+            ["chokidar", "npm:4.0.1"],\
             ["codeceptjs", "npm:3.6.6"],\
             ["compression", "npm:1.7.4"],\
             ["config", "npm:3.3.12"],\
