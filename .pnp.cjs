@@ -46,7 +46,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/cookie-parser", "npm:1.4.7"],\
             ["@types/csurf", "npm:1.11.5"],\
             ["@types/es6-promisify", "npm:6.0.4"],\
-            ["@types/express", "npm:4.17.21"],\
+            ["@types/express", "npm:5.0.0"],\
             ["@types/express-session", "npm:1.18.0"],\
             ["@types/glob", "npm:8.1.0"],\
             ["@types/jest", "npm:29.5.13"],\
@@ -7024,6 +7024,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/serve-static", "npm:1.15.7"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:5.0.0", {\
+          "packageLocation": "./.yarn/cache/@types-express-npm-5.0.0-a645691cd5-ef68d8e2b7.zip/node_modules/@types/express/",\
+          "packageDependencies": [\
+            ["@types/express", "npm:5.0.0"],\
+            ["@types/body-parser", "npm:1.19.5"],\
+            ["@types/express-serve-static-core", "npm:5.0.0"],\
+            ["@types/qs", "npm:6.9.16"],\
+            ["@types/serve-static", "npm:1.15.7"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@types/express-serve-static-core", [\
@@ -7031,6 +7042,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-express-serve-static-core-npm-4.19.5-6a71bb1fe8-72076c2f8d.zip/node_modules/@types/express-serve-static-core/",\
           "packageDependencies": [\
             ["@types/express-serve-static-core", "npm:4.19.5"],\
+            ["@types/node", "npm:22.5.5"],\
+            ["@types/qs", "npm:6.9.16"],\
+            ["@types/range-parser", "npm:1.2.7"],\
+            ["@types/send", "npm:0.17.4"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:5.0.0", {\
+          "packageLocation": "./.yarn/cache/@types-express-serve-static-core-npm-5.0.0-d89b918522-d4e2abfc96.zip/node_modules/@types/express-serve-static-core/",\
+          "packageDependencies": [\
+            ["@types/express-serve-static-core", "npm:5.0.0"],\
             ["@types/node", "npm:22.5.5"],\
             ["@types/qs", "npm:6.9.16"],\
             ["@types/range-parser", "npm:1.2.7"],\
@@ -12783,7 +12805,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/__virtual__/express-nunjucks-virtual-a17a5f2375/0/cache/express-nunjucks-npm-3.1.2-3e9cb7ed22-cccec33d26.zip/node_modules/express-nunjucks/",\
           "packageDependencies": [\
             ["express-nunjucks", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.1.2"],\
-            ["@types/express", "npm:4.17.21"],\
+            ["@types/express", "npm:5.0.0"],\
             ["@types/nunjucks", "npm:3.2.6"],\
             ["express", "npm:5.0.0"],\
             ["nunjucks", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.2.4"],\
@@ -12810,7 +12832,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/__virtual__/express-openid-connect-virtual-3b592ff98a/0/cache/express-openid-connect-npm-2.17.1-ab6b29f7f6-96c27f8e1a.zip/node_modules/express-openid-connect/",\
           "packageDependencies": [\
             ["express-openid-connect", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.17.1"],\
-            ["@types/express", "npm:4.17.21"],\
+            ["@types/express", "npm:5.0.0"],\
             ["base64url", "npm:3.0.1"],\
             ["clone", "npm:2.1.2"],\
             ["cookie", "npm:0.5.0"],\
@@ -19092,7 +19114,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/cookie-parser", "npm:1.4.7"],\
             ["@types/csurf", "npm:1.11.5"],\
             ["@types/es6-promisify", "npm:6.0.4"],\
-            ["@types/express", "npm:4.17.21"],\
+            ["@types/express", "npm:5.0.0"],\
             ["@types/express-session", "npm:1.18.0"],\
             ["@types/glob", "npm:8.1.0"],\
             ["@types/jest", "npm:29.5.13"],\
