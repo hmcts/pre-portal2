@@ -57,8 +57,9 @@ export default function (app: Application): void {
       });
 
       const recordingPlaybackDataUrl = `/watch-mk/${req.params.id}/playback`;
+      const mediaKindPlayerKey = config.get('pre.mediaKindPlayerKey');
 
-      res.render('watch-mk', { recording, recordingPlaybackDataUrl });
+      res.render('watch-mk', { recording, recordingPlaybackDataUrl, mediaKindPlayerKey });
     } catch (e) {
       res.status(500);
       res.render('error', { status: 500, message: e.message });
