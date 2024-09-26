@@ -3435,6 +3435,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@puppeteer/browsers@npm:2.4.0":
+  version: 2.4.0
+  resolution: "@puppeteer/browsers@npm:2.4.0"
+  dependencies:
+    debug: ^4.3.6
+    extract-zip: ^2.0.1
+    progress: ^2.0.3
+    proxy-agent: ^6.4.0
+    semver: ^7.6.3
+    tar-fs: ^3.0.6
+    unbzip2-stream: ^1.4.3
+    yargs: ^17.7.2
+  bin:
+    browsers: lib/cjs/main-cli.js
+  checksum: c5f9890f1bf355783574c00b42e8a9bf9e4788d0dce76cc4cd50fcf80b5e5f99ae2b4325edd5350d4fb289f7dfa89f67edf8bc2da9abd53eba1f815caae97beb
+  languageName: node
+  linkType: hard
+
 "@react-native-community/cli-clean@npm:12.3.7":
   version: 12.3.7
   resolution: "@react-native-community/cli-clean@npm:12.3.7"
@@ -6897,6 +6915,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chromium-bidi@npm:0.6.5":
+  version: 0.6.5
+  resolution: "chromium-bidi@npm:0.6.5"
+  dependencies:
+    mitt: 3.0.1
+    urlpattern-polyfill: 10.0.0
+    zod: 3.23.8
+  peerDependencies:
+    devtools-protocol: "*"
+  checksum: 7e240ef392998240885e42906e47bed60a1d3e3f7a9874543dfeda151e912ceab0b618a110b838b1b8544c353bd41cf0a7702e4cfa9c9b55b6519631e2f399a5
+  languageName: node
+  linkType: hard
+
 "chromium-edge-launcher@npm:^0.2.0":
   version: 0.2.0
   resolution: "chromium-edge-launcher@npm:0.2.0"
@@ -7793,7 +7824,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:4, debug@npm:4.3.7, debug@npm:^4, debug@npm:^4.0.0, debug@npm:^4.1.0, debug@npm:^4.1.1, debug@npm:^4.3.1, debug@npm:^4.3.2, debug@npm:^4.3.4, debug@npm:^4.3.5, debug@npm:^4.3.6, debug@npm:~4.3.6":
+"debug@npm:4, debug@npm:4.3.7, debug@npm:^4, debug@npm:^4.0.0, debug@npm:^4.1.0, debug@npm:^4.1.1, debug@npm:^4.3.1, debug@npm:^4.3.2, debug@npm:^4.3.4, debug@npm:^4.3.5, debug@npm:^4.3.6, debug@npm:^4.3.7, debug@npm:~4.3.6":
   version: 4.3.7
   resolution: "debug@npm:4.3.7"
   dependencies:
@@ -8102,6 +8133,13 @@ __metadata:
   version: 0.0.1312386
   resolution: "devtools-protocol@npm:0.0.1312386"
   checksum: c6f68bce3257a6f4c832d2063fddf23b76d45f5cdaace83786c24802e12eeead3613abb54e3422e6fa95cab431fdff65ba7caf3665f7f22676df06a206b49e45
+  languageName: node
+  linkType: hard
+
+"devtools-protocol@npm:0.0.1342118":
+  version: 0.0.1342118
+  resolution: "devtools-protocol@npm:0.0.1342118"
+  checksum: 081d2a03b9cc28dae31fa6bde3b96f999b3d28e382cbfc9646fec639e425d21abbf8d2118424292a7341a1afde024835bfdc35bf29e367e3a12ebdb75106c942
   languageName: node
   linkType: hard
 
@@ -14800,7 +14838,7 @@ __metadata:
     pa11y: 8.0.0
     playwright: 1.47
     prettier: 3.3.3
-    puppeteer: ^22.6.5
+    puppeteer: ^23.0.0
     react: ^18.3.1
     react-native: ^0.75.2
     redis: ^4.6.13
@@ -15106,6 +15144,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"puppeteer-core@npm:23.4.1":
+  version: 23.4.1
+  resolution: "puppeteer-core@npm:23.4.1"
+  dependencies:
+    "@puppeteer/browsers": 2.4.0
+    chromium-bidi: 0.6.5
+    debug: ^4.3.7
+    devtools-protocol: 0.0.1342118
+    typed-query-selector: ^2.12.0
+    ws: ^8.18.0
+  checksum: 1d3fd22db62a42c9b0bb7d9cc853ffd859884c97f3895dc4b6705f216ebe2d4f4e52b9fc564f47219f0bc9bffe3f0697e0e472ed1810d9adc46d11ed64d2a8bd
+  languageName: node
+  linkType: hard
+
 "puppeteer-core@npm:^21.11.0":
   version: 21.11.0
   resolution: "puppeteer-core@npm:21.11.0"
@@ -15120,7 +15172,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"puppeteer@npm:^22.3.0, puppeteer@npm:^22.6.5":
+"puppeteer@npm:^22.3.0":
   version: 22.15.0
   resolution: "puppeteer@npm:22.15.0"
   dependencies:
@@ -15131,6 +15183,22 @@ __metadata:
   bin:
     puppeteer: lib/esm/puppeteer/node/cli.js
   checksum: 64e9ff78fdd3d848a4404ec1abfd58df987c6fd216b78bc6144a616622c00375bae8cd06f6df8a313b6f2039c95526f4f3de47e907859a65c0b508261ce488f8
+  languageName: node
+  linkType: hard
+
+"puppeteer@npm:^23.0.0":
+  version: 23.4.1
+  resolution: "puppeteer@npm:23.4.1"
+  dependencies:
+    "@puppeteer/browsers": 2.4.0
+    chromium-bidi: 0.6.5
+    cosmiconfig: ^9.0.0
+    devtools-protocol: 0.0.1342118
+    puppeteer-core: 23.4.1
+    typed-query-selector: ^2.12.0
+  bin:
+    puppeteer: lib/cjs/puppeteer/node/cli.js
+  checksum: fec807e20dc27ac24e56e553c3fac1a965ccf384bff6f712b08ed8b034788339b3c30bcba842e423382b58235d255b084f9db0f4d18e1e23e0308ba7fe68518f
   languageName: node
   linkType: hard
 
@@ -17436,6 +17504,13 @@ __metadata:
     is-typed-array: ^1.1.13
     possible-typed-array-names: ^1.0.0
   checksum: f0315e5b8f0168c29d390ff410ad13e4d511c78e6006df4a104576844812ee447fcc32daab1f3a76c9ef4f64eff808e134528b5b2439de335586b392e9750e5c
+  languageName: node
+  linkType: hard
+
+"typed-query-selector@npm:^2.12.0":
+  version: 2.12.0
+  resolution: "typed-query-selector@npm:2.12.0"
+  checksum: c4652f2eec16112d69e0da30c2effab3f03d1710f9559da1e1209bbfc9a20990d5de4ba97890c11f9d17d85c8ae3310953a86c198166599d4c36abc63664f169
   languageName: node
   linkType: hard
 
