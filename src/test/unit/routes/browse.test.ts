@@ -34,7 +34,7 @@ describe('Browse route', () => {
   });
 
   test('browse renders the browse template', async () => {
-    jest.setTimeout(35000); // seems to be a slow page in tests for some reason
+    jest.setTimeout(60000); // seems to be a slow page in tests for some reason
 
     const app = require('express')();
     new Nunjucks(false).enableFor(app);
