@@ -35,7 +35,6 @@ export class PropertiesVolume {
       process.env.AMS_AZURE_MEDIA_SERVICES_KEY_DELIVERY ?? 'https://preamsstg.keydelivery.uksouth.media.azure.net'
     );
     set(config, 'pre.enableMkWatchPage', process.env.ENABLE_MK_WATCH_PAGE ?? 'false');
-    set(config, 'pre.mediaKindPlayerKey', process.env.MEDIA_KIND_PLAYER_KEY ?? 'mediaKindPlayerKey');
 
     if (server.locals.ENV === 'production') {
       this.logger.info('Loading properties from mounted KV');
@@ -66,6 +65,7 @@ export class PropertiesVolume {
       set(config, 'b2c.testLogin.email', process.env.B2C_TEST_LOGIN_EMAIL);
       set(config, 'b2c.testLogin.password', process.env.B2C_TEST_LOGIN_PASSWORD);
       set(config, 'session.secret', process.env.SESSION_SECRET ?? 'superlongrandomstringthatshouldbebetterinprod');
+      set(config, 'pre.mediaKindPlayerKey', process.env.MEDIA_KIND_PLAYER_KEY ?? 'mediaKindPlayerKey');
     }
 
     this.logger.info('Redis host: {}', process.env.REDIS_HOST);
