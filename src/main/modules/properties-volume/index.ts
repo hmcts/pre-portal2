@@ -35,6 +35,7 @@ export class PropertiesVolume {
       process.env.AMS_AZURE_MEDIA_SERVICES_KEY_DELIVERY ?? 'https://preamsstg.keydelivery.uksouth.media.azure.net'
     );
     set(config, 'pre.enableMkWatchPage', process.env.ENABLE_MK_WATCH_PAGE ?? 'false');
+    set(config, 'pre.useMkOnWatchPage', process.env.USE_MK_ON_WATCH_PAGE ?? 'false');
     set(config, 'pre.mediaKindPlayerKey', process.env.MEDIA_KIND_PLAYER_KEY ?? 'mediaKindPlayerKey');
 
     if (server.locals.ENV === 'production') {
