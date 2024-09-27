@@ -11,7 +11,8 @@
       "secondary": ""
     },
     "portalUrl": "https://localhost:4551",
-    "enableMkWatchPage": false
+    "enableMkWatchPage": false,
+    "mediaKindPlayerKey": ""
   },
   "ams": {
     "azureMediaServices": "",
