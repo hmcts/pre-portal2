@@ -36,9 +36,8 @@ export default function (app: Application): void {
         res.status(404);
         res.render('not-found');
         return;
-      } else {
-        logger.info(`Recording ${recording.id} accessed by User ${userProfile.user.email}`);
       }
+      logger.info(`Recording ${recording.id} accessed by User ${userProfile.user.email}`);
 
       await client.putAudit(userPortalId, {
         id: uuid(),
