@@ -117,7 +117,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-native", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:0.75.3"],\
             ["redis", "npm:4.7.0"],\
             ["require-directory", "npm:2.1.1"],\
-            ["sass", "npm:1.79.3"],\
+            ["sass", "npm:1.79.4"],\
             ["sass-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:16.0.2"],\
             ["serve-favicon", "npm:2.5.0"],\
             ["session-file-store", "npm:1.5.0"],\
@@ -19185,7 +19185,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-native", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:0.75.3"],\
             ["redis", "npm:4.7.0"],\
             ["require-directory", "npm:2.1.1"],\
-            ["sass", "npm:1.79.3"],\
+            ["sass", "npm:1.79.4"],\
             ["sass-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:16.0.2"],\
             ["serve-favicon", "npm:2.5.0"],\
             ["session-file-store", "npm:1.5.0"],\
@@ -20458,10 +20458,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["sass", [\
-        ["npm:1.79.3", {\
-          "packageLocation": "./.yarn/cache/sass-npm-1.79.3-2f182844db-ad7cc538dc.zip/node_modules/sass/",\
+        ["npm:1.79.4", {\
+          "packageLocation": "./.yarn/cache/sass-npm-1.79.4-fa344ddaab-c6da564289.zip/node_modules/sass/",\
           "packageDependencies": [\
-            ["sass", "npm:1.79.3"],\
+            ["sass", "npm:1.79.4"],\
             ["chokidar", "npm:4.0.0"],\
             ["immutable", "npm:4.3.7"],\
             ["source-map-js", "npm:1.2.1"]\
@@ -20489,7 +20489,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/webpack", null],\
             ["neo-async", "npm:2.6.2"],\
             ["node-sass", null],\
-            ["sass", "npm:1.79.3"],\
+            ["sass", "npm:1.79.4"],\
             ["sass-embedded", null],\
             ["webpack", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.95.0"]\
           ],\
