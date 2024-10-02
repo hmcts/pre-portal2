@@ -3,7 +3,6 @@ import { PreClient } from '../../main/services/pre-api/pre-client';
 import { PutAuditRequest, SearchRecordingsRequest } from '../../main/services/pre-api/types';
 import { describe } from '@jest/globals';
 import axios from 'axios';
-import { UserProfile } from '../../main/types/user-profile';
 import config from 'config';
 import { mockeduser } from './test-helper';
 import { AccessStatus } from '../../main/types/access-status';
@@ -37,7 +36,7 @@ describe('PreClient', () => {
       });
     }
     if (url === '/users/by-email/' + encodeURIComponent('inactive@testy.com')) {
-      const inactiveUser = { ...mockeduser } as UserProfile;
+      const inactiveUser = { ...mockeduser };
       // @ts-ignore
       inactiveUser.portal_access[0].status = AccessStatus.INACTIVE;
       return Promise.resolve({
