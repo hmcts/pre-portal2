@@ -15,9 +15,8 @@ export default function (app: Application): void {
   const logger = Logger.getLogger('watch');
 
   const useMkOnWatchPage = config.get('pre.useMkOnWatchPage')?.toString().toLowerCase() === 'true';
-  
-  app.get('/watch/:id', requiresAuth(), async (req, res, next) => {
 
+  app.get('/watch/:id', requiresAuth(), async (req, res, next) => {
     if (!validateId(req.params.id)) {
       res.status(404);
       res.render('not-found');
