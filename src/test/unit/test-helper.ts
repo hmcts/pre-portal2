@@ -45,7 +45,7 @@ export const mockeduser = {
     phone_number: null,
     organisation: null,
     termsAccepted: {
-      PORTAL: true,
+      portal: true,
     },
   },
 };

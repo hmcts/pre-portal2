@@ -58,6 +58,6 @@ export interface UserProfile {
     organisation: string | null;
     termsAccepted: {
       [key: string]: boolean;
-    };
+    } | null;
   };
 }
