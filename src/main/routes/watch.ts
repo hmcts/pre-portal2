@@ -1,6 +1,8 @@
 import { PreClient } from '../services/pre-api/pre-client';
 import { SessionUser } from '../services/session-user/session-user';
 
+import { Logger } from '@hmcts/nodejs-logging';
+import config from 'config';
 import { Application } from 'express';
 import { requiresAuth } from 'express-openid-connect';
 import { v4 as uuid } from 'uuid';
@@ -10,7 +12,12 @@ function validateId(id: string): boolean {
 }
 
 export default function (app: Application): void {
+  const logger = Logger.getLogger('watch');
+
+  const useMkOnWatchPage = config.get('pre.useMkOnWatchPage')?.toString().toLowerCase() === 'true';
+  
   app.get('/watch/:id', requiresAuth(), async (req, res, next) => {
+
     if (!validateId(req.params.id)) {
       res.status(404);
       res.render('not-found');
@@ -29,6 +36,7 @@ export default function (app: Application): void {
         res.render('not-found');
         return;
       }
+      logger.info(`Recording ${recording.id} accessed by User ${userProfile.user.email}`);
 
       await client.putAudit(userPortalId, {
         id: uuid(),
@@ -47,8 +55,12 @@ export default function (app: Application): void {
       });
 
       const recordingPlaybackDataUrl = `/watch/${req.params.id}/playback`;
-
-      res.render('watch', { recording, recordingPlaybackDataUrl });
+      if (useMkOnWatchPage) {
+        const mediaKindPlayerKey = config.get('pre.mediaKindPlayerKey');
+        res.render('watch-mk', { recording, recordingPlaybackDataUrl, mediaKindPlayerKey });
+      } else {
+        res.render('watch', { recording, recordingPlaybackDataUrl });
+      }
     } catch (e) {
       next(e);
     }
@@ -65,7 +77,9 @@ export default function (app: Application): void {
       const client = new PreClient();
       const userPortalId = await SessionUser.getLoggedInUserPortalId(req);
 
-      const recordingPlaybackData = await client.getRecordingPlaybackData(userPortalId, req.params.id);
+      const recordingPlaybackData = useMkOnWatchPage
+        ? await client.getRecordingPlaybackDataMk(userPortalId, req.params.id)
+        : await client.getRecordingPlaybackData(userPortalId, req.params.id);
 
       if (recordingPlaybackData === null) {
         res.status(404);
