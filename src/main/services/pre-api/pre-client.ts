@@ -96,7 +96,7 @@ export class PreClient {
       throw new Error('User does not have access to the portal: ' + email);
     } else if (userProfile.portal_access[0].status === AccessStatus.INACTIVE) {
       throw new Error('User is not active: ' + email);
-    } else if (!userProfile.user.termsAccepted || !userProfile.user.termsAccepted['PORTAL']) {
+    } else if (!userProfile.user.terms_accepted || !userProfile.user.terms_accepted['PORTAL']) {
       throw new TermsNotAcceptedError(email);
     }
     return userProfile;

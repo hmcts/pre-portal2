@@ -44,7 +44,7 @@ export const mockeduser = {
     email: 'test@testy.com',
     phone_number: null,
     organisation: null,
-    termsAccepted: {
+    terms_accepted: {
       portal: true,
     },
   },

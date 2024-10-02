@@ -56,7 +56,7 @@ export interface UserProfile {
     email: string;
     phone_number: string | null;
     organisation: string | null;
-    termsAccepted: {
+    terms_accepted: {
       [key: string]: boolean;
     } | null;
   };
