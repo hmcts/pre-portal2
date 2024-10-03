@@ -328,7 +328,39 @@ describe('PreClient', () => {
     expect(result?.id).toEqual('12345678-1234-1234-1234-1234567890ab');
   });
 
+  test('getLatestTermsAndConditions error', async () => {
+    mockedAxios.get.mockRejectedValue(new Error('Axios Get Error'));
+    let error: { message: any } | undefined;
+    try {
+      await preClient.getLatestTermsAndConditions();
+    } catch (e) {
+      error = e;
+    }
+    expect(error).toBeTruthy();
+    expect(error?.message).toEqual('Axios Get Error');
+  });
+
+  test('acceptTermsAndConditions error', async () => {
+    mockedAxios.post.mockRejectedValue(new Error('Axios Post Error'));
+    let error: { message: any } | undefined;
+    try {
+      await preClient.acceptTermsAndConditions('456', '12345678-1234-1234-1234-1234567890ab');
+    } catch (e) {
+      error = e;
+    }
+    expect(error).toBeTruthy();
+    expect(error?.message).toEqual('Axios Post Error');
+  });
+
   test('acceptTermsAndConditions', async () => {
     await preClient.acceptTermsAndConditions('456', '12345678-1234-1234-1234-1234567890ab');
+  });
+
+  test('acceptTermsAndConditions response not 200', async () => {
+    mockedAxios.post.mockResolvedValue({ status: 500 });
+    const t = async () => {
+      await preClient.acceptTermsAndConditions('456', '12345678-1234-1234-1234-1234567890ab');
+    };
+    await expect(t).rejects.toThrow('Failed to accept terms and conditions');
   });
 });
