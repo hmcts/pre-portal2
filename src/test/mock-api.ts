@@ -153,6 +153,14 @@ export function mockGetLatestTermsAndConditions(data?: Terms | null) {
   }
 }
 
+export function mockAcceptTermsAndConditions() {
+  jest
+    .spyOn(PreClient.prototype, 'acceptTermsAndConditions')
+    .mockImplementation(async (xUserId: string, termsId: string) => {
+      return Promise.resolve();
+    });
+}
+
 export function mockGetRecordingPlaybackData(data?: RecordingPlaybackData | null) {
   if (data !== undefined) {
     jest
