@@ -147,6 +147,18 @@ describe('PreClient', () => {
     if (url === '/media-service/vod?recordingId=789') {
       return Promise.reject(new Error('dunno'));
     }
+    if (url === '/api/portal-terms-and-conditions/latest') {
+      return Promise.resolve({
+        status: 200,
+        data: {
+          id: '12345678-1234-1234-1234-1234567890ab',
+          type: 'portal',
+          html: 'Terms and conditions',
+          created_at: '2021-09-01T12:00:00Z',
+        },
+      });
+    }
+    throw new Error('Invalid URL: ' + url);
   });
   mockedAxios.post.mockImplementation((url, data, _config) => {
     if (url === (config.get('ams.flowUrl') as string)) {
@@ -156,6 +168,11 @@ describe('PreClient', () => {
           manifestpath: 'something',
           aestoken: 'something',
         },
+      });
+    }
+    if (url === '/accept-terms-and-conditions/12345678-1234-1234-1234-1234567890ab') {
+      return Promise.resolve({
+        status: 200,
       });
     }
     throw new Error('Invalid URL: ' + url);
@@ -303,5 +320,15 @@ describe('PreClient', () => {
       await preClient.getRecordingPlaybackDataMk('456', '789');
     };
     await expect(t).rejects.toThrow('dunno');
+  });
+
+  test('getLatestTermsAndConditions', async () => {
+    const result = await preClient.getLatestTermsAndConditions();
+    expect(result).toBeTruthy();
+    expect(result?.id).toEqual('12345678-1234-1234-1234-1234567890ab');
+  });
+
+  test('acceptTermsAndConditions', async () => {
+    await preClient.acceptTermsAndConditions('456', '12345678-1234-1234-1234-1234567890ab');
   });
 });
