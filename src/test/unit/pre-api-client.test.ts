@@ -340,6 +340,10 @@ describe('PreClient', () => {
     expect(error?.message).toEqual('Axios Get Error');
   });
 
+  test('acceptTermsAndConditions', async () => {
+    await preClient.acceptTermsAndConditions('456', '12345678-1234-1234-1234-1234567890ab');
+  });
+
   test('acceptTermsAndConditions error', async () => {
     mockedAxios.post.mockRejectedValue(new Error('Axios Post Error'));
     let error: { message: any } | undefined;
@@ -350,10 +354,6 @@ describe('PreClient', () => {
     }
     expect(error).toBeTruthy();
     expect(error?.message).toEqual('Axios Post Error');
-  });
-
-  test('acceptTermsAndConditions', async () => {
-    await preClient.acceptTermsAndConditions('456', '12345678-1234-1234-1234-1234567890ab');
   });
 
   test('acceptTermsAndConditions response not 200', async () => {
