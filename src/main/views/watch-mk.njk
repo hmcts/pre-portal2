@@ -17,18 +17,6 @@
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-    <div class="govuk-notification-banner__header">
-      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-        Note
-      </h2>
-    </div>
-    <div class="govuk-notification-banner__content">
-      <p class="govuk-notification-banner__heading">
-        This page is using the new MediaKind API and video player.
-      </p>
-    </div>
-  </div>
 
   <h1 class="govuk-heading-xl">Case Ref: {{ recording.case_reference }}</h1>
 
@@ -147,7 +135,7 @@
     var videoError = document.getElementById("videoError");
 
     const playerConfig = {
-        key: "d0167b1c-9767-4287-9ddc-e0fa09d31e02",
+        key: "{{ mediaKindPlayerKey }}",
         ui: true,
         playback: {
             muted: false,
