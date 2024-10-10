@@ -84,7 +84,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["express", "npm:5.0.1"],\
             ["express-nunjucks", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.1.2"],\
             ["express-openid-connect", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.17.1"],\
-            ["express-session", "npm:1.18.0"],\
+            ["express-session", "npm:1.18.1"],\
             ["glob", "npm:11.0.0"],\
             ["govuk-frontend", "npm:5.6.0"],\
             ["helmet", "npm:8.0.0"],\
@@ -11564,7 +11564,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["connect-redis", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.1"],\
             ["@types/express-session", "npm:1.18.0"],\
-            ["express-session", "npm:1.18.0"]\
+            ["express-session", "npm:1.18.1"]\
           ],\
           "packagePeers": [\
             "@types/express-session",\
@@ -13714,10 +13714,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["express-session", [\
-        ["npm:1.18.0", {\
-          "packageLocation": "./.yarn/cache/express-session-npm-1.18.0-a285922921-56e52e4f5e.zip/node_modules/express-session/",\
+        ["npm:1.18.1", {\
+          "packageLocation": "./.yarn/cache/express-session-npm-1.18.1-b1aa040a8f-e712cb3399.zip/node_modules/express-session/",\
           "packageDependencies": [\
-            ["express-session", "npm:1.18.0"],\
+            ["express-session", "npm:1.18.1"],\
             ["cookie", "npm:0.7.2"],\
             ["cookie-signature", "npm:1.0.7"],\
             ["debug", "virtual:37bf8baeca06414792610f5848734f065f68d217cce7beb4a1d9bd9569043400ad86bff10abd3b2d89dfce2ed86950a2198136a029541a9dc70fc2e5959a3763#npm:2.6.9"],\
@@ -19997,7 +19997,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["express", "npm:5.0.1"],\
             ["express-nunjucks", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.1.2"],\
             ["express-openid-connect", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.17.1"],\
-            ["express-session", "npm:1.18.0"],\
+            ["express-session", "npm:1.18.1"],\
             ["glob", "npm:11.0.0"],\
             ["govuk-frontend", "npm:5.6.0"],\
             ["helmet", "npm:8.0.0"],\
