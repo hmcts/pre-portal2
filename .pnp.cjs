@@ -11606,20 +11606,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["cookie", [\
-        ["npm:0.5.0", {\
-          "packageLocation": "./.yarn/cache/cookie-npm-0.5.0-e2d58a161a-1f4bd2ca57.zip/node_modules/cookie/",\
-          "packageDependencies": [\
-            ["cookie", "npm:0.5.0"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
-        ["npm:0.6.0", {\
-          "packageLocation": "./.yarn/cache/cookie-npm-0.6.0-362d6a2e45-f56a7d32a0.zip/node_modules/cookie/",\
-          "packageDependencies": [\
-            ["cookie", "npm:0.6.0"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:0.7.2", {\
           "packageLocation": "./.yarn/cache/cookie-npm-0.7.2-6ea9ee4231-9bf8555e33.zip/node_modules/cookie/",\
           "packageDependencies": [\
@@ -13622,7 +13608,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["body-parser", "npm:2.0.1"],\
             ["content-disposition", "npm:1.0.0"],\
             ["content-type", "npm:1.0.5"],\
-            ["cookie", "npm:0.6.0"],\
+            ["cookie", "npm:0.7.2"],\
             ["cookie-signature", "npm:1.2.1"],\
             ["debug", "virtual:648c5add00f66e096820af680f06928e6c313c036c8417f2ebc3879a840b30385118a78291cc354ecb45f080fa2dff36ed53dd3f32b47f20c64e987353049ffa#npm:4.3.6"],\
             ["depd", "npm:2.0.0"],\
@@ -13696,7 +13682,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/express", "npm:5.0.0"],\
             ["base64url", "npm:3.0.1"],\
             ["clone", "npm:2.1.2"],\
-            ["cookie", "npm:0.5.0"],\
+            ["cookie", "npm:0.7.2"],\
             ["debug", "virtual:0ca7b771fbda7ed3d254c2e1e404506aa1480055c4a8b31a28affad41d2151a687d8a05486480858e0838a72b5e8d0e6f885471f47f57eb9072df7e81b13c034#npm:4.3.7"],\
             ["express", "npm:5.0.0"],\
             ["futoin-hkdf", "npm:1.5.3"],\
@@ -13719,7 +13705,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/express-session-npm-1.18.0-a285922921-56e52e4f5e.zip/node_modules/express-session/",\
           "packageDependencies": [\
             ["express-session", "npm:1.18.0"],\
-            ["cookie", "npm:0.6.0"],\
+            ["cookie", "npm:0.7.2"],\
             ["cookie-signature", "npm:1.0.7"],\
             ["debug", "virtual:37bf8baeca06414792610f5848734f065f68d217cce7beb4a1d9bd9569043400ad86bff10abd3b2d89dfce2ed86950a2198136a029541a9dc70fc2e5959a3763#npm:2.6.9"],\
             ["depd", "npm:2.0.0"],\
