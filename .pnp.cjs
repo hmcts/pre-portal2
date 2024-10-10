@@ -72,7 +72,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["compression", "npm:1.7.4"],\
             ["config", "npm:3.3.12"],\
             ["connect-redis", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.1"],\
-            ["cookie-parser", "npm:1.4.6"],\
+            ["cookie-parser", "npm:1.4.7"],\
             ["copy-webpack-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:12.0.2"],\
             ["css-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.2"],\
             ["csurf", "npm:1.11.0"],\
@@ -11632,13 +11632,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:0.4.1", {\
-          "packageLocation": "./.yarn/cache/cookie-npm-0.4.1-cc5e2ebb42-bd7c47f5d9.zip/node_modules/cookie/",\
-          "packageDependencies": [\
-            ["cookie", "npm:0.4.1"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:0.5.0", {\
           "packageLocation": "./.yarn/cache/cookie-npm-0.5.0-e2d58a161a-1f4bd2ca57.zip/node_modules/cookie/",\
           "packageDependencies": [\
@@ -11652,14 +11645,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["cookie", "npm:0.6.0"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:0.7.2", {\
+          "packageLocation": "./.yarn/cache/cookie-npm-0.7.2-6ea9ee4231-9bf8555e33.zip/node_modules/cookie/",\
+          "packageDependencies": [\
+            ["cookie", "npm:0.7.2"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["cookie-parser", [\
-        ["npm:1.4.6", {\
-          "packageLocation": "./.yarn/cache/cookie-parser-npm-1.4.6-a68f84d02a-1e5a63aa82.zip/node_modules/cookie-parser/",\
+        ["npm:1.4.7", {\
+          "packageLocation": "./.yarn/cache/cookie-parser-npm-1.4.7-970a70a2fd-243fa13f21.zip/node_modules/cookie-parser/",\
           "packageDependencies": [\
-            ["cookie-parser", "npm:1.4.6"],\
-            ["cookie", "npm:0.4.1"],\
+            ["cookie-parser", "npm:1.4.7"],\
+            ["cookie", "npm:0.7.2"],\
             ["cookie-signature", "npm:1.0.6"]\
           ],\
           "linkType": "HARD"\
@@ -20097,7 +20097,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["compression", "npm:1.7.4"],\
             ["config", "npm:3.3.12"],\
             ["connect-redis", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.1"],\
-            ["cookie-parser", "npm:1.4.6"],\
+            ["cookie-parser", "npm:1.4.7"],\
             ["copy-webpack-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:12.0.2"],\
             ["css-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.2"],\
             ["csurf", "npm:1.11.0"],\
