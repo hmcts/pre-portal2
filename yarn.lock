@@ -3240,12 +3240,12 @@ __metadata:
   linkType: hard
 
 "@mediakind/mkplayer@npm:^1.10.1":
-  version: 1.15.0
-  resolution: "@mediakind/mkplayer@npm:1.15.0"
+  version: 1.16.0
+  resolution: "@mediakind/mkplayer@npm:1.16.0"
   dependencies:
-    bitmovin-player: 8.174.0
+    bitmovin-player: 8.177.0
     bitmovin-player-ui: ^3.52.0
-  checksum: 95c430da40d24399bd7e17d46779d58428c1919c04f7f29fc12636b63ca4c59927685c74051b6d5897a5317dceddc14fb6b2facb112330cd8a6e1f18f94d0cee
+  checksum: 2f851a69f2d20fc25a2fe4e7596b460bc1f9983dd759d36adfc31e93d7534781348e189426ed840a5eaa3349e53df4264b52a25cdf7d69216443e9e3971beb4c
   languageName: node
   linkType: hard
 
@@ -6988,10 +6988,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bitmovin-player@npm:8.174.0":
-  version: 8.174.0
-  resolution: "bitmovin-player@npm:8.174.0"
-  checksum: c60daaba2483e2bdb5973eee0b2b9133730371053ef081a576ebe2275c09b39feec36a5fae4ba0132413be5cc624fadf0e8f3e7264a989e84207f583a180c6f4
+"bitmovin-player@npm:8.177.0":
+  version: 8.177.0
+  resolution: "bitmovin-player@npm:8.177.0"
+  checksum: c6cd1af1867a2b7a0aa4d7a0989c3634925f2628e86f82b9c54cd0d4cd0b3f768c4c9a372a2084166bc3b7c76846dbb88b7761f234b58cbf35f52c967f9181df
   languageName: node
   linkType: hard
 
@@ -12408,9 +12408,9 @@ __metadata:
   linkType: hard
 
 "jose@npm:^5.2.2":
-  version: 5.9.3
-  resolution: "jose@npm:5.9.3"
-  checksum: d128f2b90daf76f14eb22a81528e4f1cd99aa73613ae9d7edad69479c0ae9c29d571108e21d6ac33c3892de7bea24c4a4b99b4eb63354ebe566683c719ee334e
+  version: 5.9.4
+  resolution: "jose@npm:5.9.4"
+  checksum: d1c3dd0fb6dbfb6c16e0904f4930b9df1abde784d137b0987777b7722798b39b4ab15e6aff7b768195018f1656618a368d04b758c318436ad482a2a7ae92db82
   languageName: node
   linkType: hard
 
@@ -15247,27 +15247,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.47.2":
-  version: 1.47.2
-  resolution: "playwright-core@npm:1.47.2"
+"playwright-core@npm:1.48.0":
+  version: 1.48.0
+  resolution: "playwright-core@npm:1.48.0"
   bin:
     playwright-core: cli.js
-  checksum: c06109a08dd672a92eb048ce7c9a1451ed701e62ff78f0d67c67ee6b06c88f0dc5422c2a7bb26e5fca05840e2adba154a25ca988e56f76c233affe61f42453a3
+  checksum: 8c6ecf1ca2484408e8a11bbb107cf4cb19621bbb85c5f4b29206df29ea13b4e6a008fb434df03e3411719c74e4f130a4ece05365fc1a2940e243725a10d04ad4
   languageName: node
   linkType: hard
 
-"playwright@npm:1.47":
-  version: 1.47.2
-  resolution: "playwright@npm:1.47.2"
+"playwright@npm:1.48":
+  version: 1.48.0
+  resolution: "playwright@npm:1.48.0"
   dependencies:
     fsevents: 2.3.2
-    playwright-core: 1.47.2
+    playwright-core: 1.48.0
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     playwright: cli.js
-  checksum: 41ec99d62c9d7282a3d0dd2444892a379be2f4c61e9045a0b1cfc5897796747d220df5af11c6a7515c56c82df02a1025a46a5da7abc17485b4e981e133588261
+  checksum: e19431f432b68fc08109382a0707e18d2034554f0857925d7d9b75b2277136cef2e756bd93e4228c26ece1446761641b398b0cc0e1c799db1b466a0953fda787
   languageName: node
   linkType: hard
 
@@ -15511,7 +15511,7 @@ __metadata:
     nodemon: 3.1.7
     nunjucks: 3.2.4
     pa11y: 8.0.0
-    playwright: 1.47
+    playwright: 1.48
     prettier: 3.3.3
     puppeteer: ^22.6.5
     react: ^18.3.1

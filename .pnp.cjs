@@ -39,7 +39,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@hmcts/nodejs-logging", "npm:4.0.4"],\
             ["@hmcts/properties-volume", "npm:1.2.0"],\
             ["@jest/globals", "npm:29.7.0"],\
-            ["@mediakind/mkplayer", "npm:1.15.0"],\
+            ["@mediakind/mkplayer", "npm:1.16.0"],\
             ["@types/body-parser", "npm:1.19.5"],\
             ["@types/compression", "npm:1.7.5"],\
             ["@types/config", "npm:3.3.5"],\
@@ -94,7 +94,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-html-reporter", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.10.2"],\
             ["jest-junit", "npm:16.0.0"],\
             ["jest-mock", "npm:29.7.0"],\
-            ["jose", "npm:5.9.3"],\
+            ["jose", "npm:5.9.4"],\
             ["jquery", "npm:3.7.1"],\
             ["lint-staged", "npm:15.2.10"],\
             ["lodash", "npm:4.17.21"],\
@@ -108,7 +108,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["nodemon", "npm:3.1.7"],\
             ["nunjucks", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.2.4"],\
             ["pa11y", "npm:8.0.0"],\
-            ["playwright", "npm:1.47.2"],\
+            ["playwright", "npm:1.48.0"],\
             ["prettier", "npm:3.3.3"],\
             ["puppeteer", "npm:22.15.0"],\
             ["react", "npm:18.3.1"],\
@@ -5386,11 +5386,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@mediakind/mkplayer", [\
-        ["npm:1.15.0", {\
-          "packageLocation": "./.yarn/cache/@mediakind-mkplayer-npm-1.15.0-695ca65122-95c430da40.zip/node_modules/@mediakind/mkplayer/",\
+        ["npm:1.16.0", {\
+          "packageLocation": "./.yarn/cache/@mediakind-mkplayer-npm-1.16.0-1295fe837c-2f851a69f2.zip/node_modules/@mediakind/mkplayer/",\
           "packageDependencies": [\
-            ["@mediakind/mkplayer", "npm:1.15.0"],\
-            ["bitmovin-player", "npm:8.174.0"],\
+            ["@mediakind/mkplayer", "npm:1.16.0"],\
+            ["bitmovin-player", "npm:8.177.0"],\
             ["bitmovin-player-ui", "npm:3.73.0"]\
           ],\
           "linkType": "HARD"\
@@ -10367,10 +10367,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["bitmovin-player", [\
-        ["npm:8.174.0", {\
-          "packageLocation": "./.yarn/cache/bitmovin-player-npm-8.174.0-775dd7aa99-c60daaba24.zip/node_modules/bitmovin-player/",\
+        ["npm:8.177.0", {\
+          "packageLocation": "./.yarn/cache/bitmovin-player-npm-8.177.0-bbc9c86c16-c6cd1af186.zip/node_modules/bitmovin-player/",\
           "packageDependencies": [\
-            ["bitmovin-player", "npm:8.174.0"]\
+            ["bitmovin-player", "npm:8.177.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -16711,10 +16711,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:5.9.3", {\
-          "packageLocation": "./.yarn/cache/jose-npm-5.9.3-c75201e404-d128f2b90d.zip/node_modules/jose/",\
+        ["npm:5.9.4", {\
+          "packageLocation": "./.yarn/cache/jose-npm-5.9.4-eb1e38a597-d1c3dd0fb6.zip/node_modules/jose/",\
           "packageDependencies": [\
-            ["jose", "npm:5.9.3"]\
+            ["jose", "npm:5.9.4"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -19881,21 +19881,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["playwright", [\
-        ["npm:1.47.2", {\
-          "packageLocation": "./.yarn/cache/playwright-npm-1.47.2-1c1ac76b93-41ec99d62c.zip/node_modules/playwright/",\
+        ["npm:1.48.0", {\
+          "packageLocation": "./.yarn/cache/playwright-npm-1.48.0-2f7cb58e78-e19431f432.zip/node_modules/playwright/",\
           "packageDependencies": [\
-            ["playwright", "npm:1.47.2"],\
+            ["playwright", "npm:1.48.0"],\
             ["fsevents", "patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"],\
-            ["playwright-core", "npm:1.47.2"]\
+            ["playwright-core", "npm:1.48.0"]\
           ],\
           "linkType": "HARD"\
         }]\
       ]],\
       ["playwright-core", [\
-        ["npm:1.47.2", {\
-          "packageLocation": "./.yarn/unplugged/playwright-core-npm-1.47.2-126f8f9846/node_modules/playwright-core/",\
+        ["npm:1.48.0", {\
+          "packageLocation": "./.yarn/unplugged/playwright-core-npm-1.48.0-c6f8407619/node_modules/playwright-core/",\
           "packageDependencies": [\
-            ["playwright-core", "npm:1.47.2"]\
+            ["playwright-core", "npm:1.48.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -20136,7 +20136,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@hmcts/nodejs-logging", "npm:4.0.4"],\
             ["@hmcts/properties-volume", "npm:1.2.0"],\
             ["@jest/globals", "npm:29.7.0"],\
-            ["@mediakind/mkplayer", "npm:1.15.0"],\
+            ["@mediakind/mkplayer", "npm:1.16.0"],\
             ["@types/body-parser", "npm:1.19.5"],\
             ["@types/compression", "npm:1.7.5"],\
             ["@types/config", "npm:3.3.5"],\
@@ -20191,7 +20191,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jest-html-reporter", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.10.2"],\
             ["jest-junit", "npm:16.0.0"],\
             ["jest-mock", "npm:29.7.0"],\
-            ["jose", "npm:5.9.3"],\
+            ["jose", "npm:5.9.4"],\
             ["jquery", "npm:3.7.1"],\
             ["lint-staged", "npm:15.2.10"],\
             ["lodash", "npm:4.17.21"],\
@@ -20205,7 +20205,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["nodemon", "npm:3.1.7"],\
             ["nunjucks", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.2.4"],\
             ["pa11y", "npm:8.0.0"],\
-            ["playwright", "npm:1.47.2"],\
+            ["playwright", "npm:1.48.0"],\
             ["prettier", "npm:3.3.3"],\
             ["puppeteer", "npm:22.15.0"],\
             ["react", "npm:18.3.1"],\
