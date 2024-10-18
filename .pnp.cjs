@@ -108,14 +108,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["nodemon", "npm:3.1.7"],\
             ["nunjucks", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.2.4"],\
             ["pa11y", "npm:8.0.0"],\
-            ["playwright", "npm:1.48.0"],\
+            ["playwright", "npm:1.48.1"],\
             ["prettier", "npm:3.3.3"],\
             ["puppeteer", "npm:22.15.0"],\
             ["react", "npm:18.3.1"],\
             ["react-native", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:0.75.4"],\
             ["redis", "npm:4.7.0"],\
             ["require-directory", "npm:2.1.1"],\
-            ["sass", "npm:1.79.5"],\
+            ["sass", "npm:1.80.2"],\
             ["sass-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:16.0.2"],\
             ["serve-favicon", "npm:2.5.0"],\
             ["session-file-store", "npm:1.5.0"],\
@@ -19881,21 +19881,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["playwright", [\
-        ["npm:1.48.0", {\
-          "packageLocation": "./.yarn/cache/playwright-npm-1.48.0-2f7cb58e78-e19431f432.zip/node_modules/playwright/",\
+        ["npm:1.48.1", {\
+          "packageLocation": "./.yarn/cache/playwright-npm-1.48.1-9015558d40-81ca13392a.zip/node_modules/playwright/",\
           "packageDependencies": [\
-            ["playwright", "npm:1.48.0"],\
+            ["playwright", "npm:1.48.1"],\
             ["fsevents", "patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"],\
-            ["playwright-core", "npm:1.48.0"]\
+            ["playwright-core", "npm:1.48.1"]\
           ],\
           "linkType": "HARD"\
         }]\
       ]],\
       ["playwright-core", [\
-        ["npm:1.48.0", {\
-          "packageLocation": "./.yarn/unplugged/playwright-core-npm-1.48.0-c6f8407619/node_modules/playwright-core/",\
+        ["npm:1.48.1", {\
+          "packageLocation": "./.yarn/unplugged/playwright-core-npm-1.48.1-219ce4bfd1/node_modules/playwright-core/",\
           "packageDependencies": [\
-            ["playwright-core", "npm:1.48.0"]\
+            ["playwright-core", "npm:1.48.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -20205,14 +20205,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["nodemon", "npm:3.1.7"],\
             ["nunjucks", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.2.4"],\
             ["pa11y", "npm:8.0.0"],\
-            ["playwright", "npm:1.48.0"],\
+            ["playwright", "npm:1.48.1"],\
             ["prettier", "npm:3.3.3"],\
             ["puppeteer", "npm:22.15.0"],\
             ["react", "npm:18.3.1"],\
             ["react-native", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:0.75.4"],\
             ["redis", "npm:4.7.0"],\
             ["require-directory", "npm:2.1.1"],\
-            ["sass", "npm:1.79.5"],\
+            ["sass", "npm:1.80.2"],\
             ["sass-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:16.0.2"],\
             ["serve-favicon", "npm:2.5.0"],\
             ["session-file-store", "npm:1.5.0"],\
@@ -21506,10 +21506,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["sass", [\
-        ["npm:1.79.5", {\
-          "packageLocation": "./.yarn/cache/sass-npm-1.79.5-9f4647a8cf-1c7fb299b5.zip/node_modules/sass/",\
+        ["npm:1.80.2", {\
+          "packageLocation": "./.yarn/cache/sass-npm-1.80.2-ed198d2fd2-a2dfb2ce4f.zip/node_modules/sass/",\
           "packageDependencies": [\
-            ["sass", "npm:1.79.5"],\
+            ["sass", "npm:1.80.2"],\
             ["@parcel/watcher", "npm:2.4.1"],\
             ["chokidar", "npm:4.0.0"],\
             ["immutable", "npm:4.3.7"],\
@@ -21538,7 +21538,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/webpack", null],\
             ["neo-async", "npm:2.6.2"],\
             ["node-sass", null],\
-            ["sass", "npm:1.79.5"],\
+            ["sass", "npm:1.80.2"],\
             ["sass-embedded", null],\
             ["webpack", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.95.0"]\
           ],\
