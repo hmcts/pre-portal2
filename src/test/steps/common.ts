@@ -16,6 +16,10 @@ Then('the page should include {string}', (text: string) => {
   I.waitForText(text);
 });
 
+Then('the page title should include {string}', (text: string) => {
+  I.seeInTitle(text);
+});
+
 Then('I am on the {string} page', (path: string) => {
   const url = new URL(path, config.TEST_URL);
   I.amOnPage(url.toString());
