@@ -38,8 +38,8 @@ export class BadRequestError extends HTTPError {
 }
 
 export class TermsNotAcceptedError extends ForbiddenError {
-  constructor(message: string = 'Terms and conditions not accepted') {
-    super(message);
+  constructor(email: string, message: string = 'Terms and conditions not accepted') {
+    super(`${message} by email ${email.substring(0, 5)}...`);
   }
 }
 

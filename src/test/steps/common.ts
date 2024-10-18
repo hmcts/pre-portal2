@@ -36,6 +36,14 @@ Then('I sign in as the test user', () => {
   });
 });
 
+Then('I accept the terms and conditions if I need to', async () => {
+  const url = await I.grabCurrentUrl();
+  if (url.includes('/accept-terms-and-conditions')) {
+    I.checkOption('#terms');
+    I.click('Continue');
+  }
+});
+
 Then('I see the link {string}', (text: string) => {
   I.seeElement(locate('a').withText(text));
 });

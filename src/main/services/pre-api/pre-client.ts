@@ -99,7 +99,7 @@ export class PreClient {
       throw new Error('User does not have access to the portal: ' + email);
     } else if (userProfile.portal_access[0].status === AccessStatus.INACTIVE) {
       throw new Error('User is not active: ' + email);
-    } else if (!userProfile.user.terms_accepted || !userProfile.user.terms_accepted['portal']) {
+    } else if (!userProfile.terms_accepted || !userProfile.terms_accepted['PORTAL']) {
       throw new TermsNotAcceptedError(email);
     }
     return userProfile;
@@ -220,7 +220,7 @@ export class PreClient {
 
   public async getLatestTermsAndConditions(): Promise<Terms> {
     try {
-      const response = await axios.get('/api/portal-terms-and-conditions/latest');
+      const response = await axios.get('/portal-terms-and-conditions/latest');
       return response.data as Terms;
     } catch (e) {
       this.logger.error(e.message);
@@ -229,19 +229,13 @@ export class PreClient {
   }
 
   public async acceptTermsAndConditions(xUserId: string, termsId: string): Promise<void> {
-    try {
-      const response = await axios.post(`/accept-terms-and-conditions/${termsId}`, {
-        headers: {
-          'X-User-Id': xUserId,
-        },
-      });
-
-      if (response.status !== 200) {
-        throw new Error('Failed to accept terms and conditions');
-      }
-    } catch (e) {
-      this.logger.error(e.message);
-      throw e;
+    const response = await axios.post(`/accept-terms-and-conditions/${termsId}`, null, {
+      headers: {
+        'X-User-Id': xUserId,
+      },
+    });
+    if (response.status.toString().substring(0, 1) !== '2') {
+      throw new Error('Failed to accept terms and conditions');
     }
   }
 }
