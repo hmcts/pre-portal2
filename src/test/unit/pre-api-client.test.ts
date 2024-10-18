@@ -147,7 +147,7 @@ describe('PreClient', () => {
     if (url === '/media-service/vod?recordingId=789') {
       return Promise.reject(new Error('dunno'));
     }
-    if (url === '/api/portal-terms-and-conditions/latest') {
+    if (url === '/portal-terms-and-conditions/latest') {
       return Promise.resolve({
         status: 200,
         data: {
