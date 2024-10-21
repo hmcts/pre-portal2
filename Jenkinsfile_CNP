@@ -9,6 +9,7 @@ def component = "portal"
 def secrets = [
   'pre-hmctskv-${env}':
     [
+      secret('clientid', 'CLIENTID'),
       secret('b2c-test-login-email', 'B2C_TEST_LOGIN_EMAIL'),
       secret('b2c-test-login-password', 'B2C_TEST_LOGIN_PASSWORD')
     ]
