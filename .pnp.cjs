@@ -49,7 +49,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/express-session", "npm:1.18.0"],\
             ["@types/glob", "npm:8.1.0"],\
             ["@types/jest", "npm:29.5.13"],\
-            ["@types/lodash", "npm:4.17.10"],\
+            ["@types/lodash", "npm:4.17.12"],\
             ["@types/mini-css-extract-plugin", "npm:2.5.1"],\
             ["@types/mocha", "npm:10.0.9"],\
             ["@types/node", "npm:20.12.7"],\
@@ -8272,10 +8272,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/lodash", [\
-        ["npm:4.17.10", {\
-          "packageLocation": "./.yarn/cache/@types-lodash-npm-4.17.10-033d752d27-4600f2f252.zip/node_modules/@types/lodash/",\
+        ["npm:4.17.12", {\
+          "packageLocation": "./.yarn/cache/@types-lodash-npm-4.17.12-30d8270280-7b564e4114.zip/node_modules/@types/lodash/",\
           "packageDependencies": [\
-            ["@types/lodash", "npm:4.17.10"]\
+            ["@types/lodash", "npm:4.17.12"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -20146,7 +20146,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/express-session", "npm:1.18.0"],\
             ["@types/glob", "npm:8.1.0"],\
             ["@types/jest", "npm:29.5.13"],\
-            ["@types/lodash", "npm:4.17.10"],\
+            ["@types/lodash", "npm:4.17.12"],\
             ["@types/mini-css-extract-plugin", "npm:2.5.1"],\
             ["@types/mocha", "npm:10.0.9"],\
             ["@types/node", "npm:20.12.7"],\
