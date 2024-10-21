@@ -1,11 +1,11 @@
 import * as path from 'path';
 
-import { HTTPError } from './HttpError';
 import { AppInsights } from './modules/appinsights';
 import { Auth } from './modules/auth';
 import { Helmet } from './modules/helmet';
 import { Nunjucks } from './modules/nunjucks';
 import { PropertiesVolume } from './modules/properties-volume';
+import { ForbiddenError, HTTPError, TermsNotAcceptedError, UnauthorizedError } from './types/errors';
 
 import axios from 'axios';
 import * as bodyParser from 'body-parser';
