@@ -74,14 +74,19 @@ app.use((req, res) => {
 // error handler
 app.use((err: HTTPError, req: express.Request, res: express.Response, next: express.NextFunction) => {
   logger.error(err.message);
-  logger.error(JSON.stringify(err));
 
-  if (err.message.includes('checks.state') || err.message.includes('nonce mismatch') || err.message.includes('403')) {
+  if (err instanceof TermsNotAcceptedError) {
+    console.log('got an instance of TermsNotAcceptedError');
+    res.redirect('/accept-terms-and-conditions');
+    return;
+  }
+
+  if (err instanceof UnauthorizedError || err instanceof ForbiddenError) {
     res.redirect('/');
     return;
   }
 
-  res.status(err.status || 500);
-  res.render('error', { status: err.status || 500, message: err.message });
+  res.status(err.status ?? 500);
+  res.render('error', { status: err.status, message: err.message });
   next();
 });
