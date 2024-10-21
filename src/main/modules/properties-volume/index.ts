@@ -3,7 +3,6 @@ import * as propertiesVolume from '@hmcts/properties-volume';
 import config from 'config';
 import { Application } from 'express';
 import { get, set } from 'lodash';
-import { app } from '../../app';
 
 export class PropertiesVolume {
   private logger = Logger.getLogger('properties-volume');
@@ -37,7 +36,6 @@ export class PropertiesVolume {
     );
     set(config, 'pre.enableMkWatchPage', process.env.ENABLE_MK_WATCH_PAGE ?? 'false');
     set(config, 'pre.useMkOnWatchPage', process.env.USE_MK_ON_WATCH_PAGE ?? 'false');
-    app.locals.dynatrace_jstag = process.env.DYNATRACE_JSTAG ?? 'false';
 
     if (server.locals.ENV === 'production') {
       this.logger.info('Loading properties from mounted KV');
@@ -57,6 +55,7 @@ export class PropertiesVolume {
       this.setSecret('secrets.pre-hmctskv.b2c-test-login-email', 'b2c.testLogin.email');
       this.setSecret('secrets.pre-hmctskv.b2c-test-login-password', 'b2c.testLogin.password');
       this.setSecret('secrets.pre-hmctskv.media-kind-player-key', 'pre.mediaKindPlayerKey');
+      server.locals.dynatrace_jstag = process.env.DYNATRACE_JSTAG ?? 'false';
     } else {
       this.logger.info('Loading properties from .env file');
       require('dotenv').config();
