@@ -49,7 +49,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/express-session", "npm:1.18.0"],\
             ["@types/glob", "npm:8.1.0"],\
             ["@types/jest", "npm:29.5.13"],\
-            ["@types/lodash", "npm:4.17.10"],\
+            ["@types/lodash", "npm:4.17.12"],\
             ["@types/mini-css-extract-plugin", "npm:2.5.1"],\
             ["@types/mocha", "npm:10.0.9"],\
             ["@types/node", "npm:20.12.7"],\
@@ -115,7 +115,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-native", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:0.75.4"],\
             ["redis", "npm:4.7.0"],\
             ["require-directory", "npm:2.1.1"],\
-            ["sass", "npm:1.80.2"],\
+            ["sass", "npm:1.80.3"],\
             ["sass-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:16.0.2"],\
             ["serve-favicon", "npm:2.5.0"],\
             ["session-file-store", "npm:1.5.0"],\
@@ -8272,10 +8272,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/lodash", [\
-        ["npm:4.17.10", {\
-          "packageLocation": "./.yarn/cache/@types-lodash-npm-4.17.10-033d752d27-4600f2f252.zip/node_modules/@types/lodash/",\
+        ["npm:4.17.12", {\
+          "packageLocation": "./.yarn/cache/@types-lodash-npm-4.17.12-30d8270280-7b564e4114.zip/node_modules/@types/lodash/",\
           "packageDependencies": [\
-            ["@types/lodash", "npm:4.17.10"]\
+            ["@types/lodash", "npm:4.17.12"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -20146,7 +20146,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/express-session", "npm:1.18.0"],\
             ["@types/glob", "npm:8.1.0"],\
             ["@types/jest", "npm:29.5.13"],\
-            ["@types/lodash", "npm:4.17.10"],\
+            ["@types/lodash", "npm:4.17.12"],\
             ["@types/mini-css-extract-plugin", "npm:2.5.1"],\
             ["@types/mocha", "npm:10.0.9"],\
             ["@types/node", "npm:20.12.7"],\
@@ -20212,7 +20212,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-native", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:0.75.4"],\
             ["redis", "npm:4.7.0"],\
             ["require-directory", "npm:2.1.1"],\
-            ["sass", "npm:1.80.2"],\
+            ["sass", "npm:1.80.3"],\
             ["sass-loader", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:16.0.2"],\
             ["serve-favicon", "npm:2.5.0"],\
             ["session-file-store", "npm:1.5.0"],\
@@ -21506,10 +21506,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["sass", [\
-        ["npm:1.80.2", {\
-          "packageLocation": "./.yarn/cache/sass-npm-1.80.2-ed198d2fd2-a2dfb2ce4f.zip/node_modules/sass/",\
+        ["npm:1.80.3", {\
+          "packageLocation": "./.yarn/cache/sass-npm-1.80.3-4465a3ce7e-37b24b7fad.zip/node_modules/sass/",\
           "packageDependencies": [\
-            ["sass", "npm:1.80.2"],\
+            ["sass", "npm:1.80.3"],\
             ["@parcel/watcher", "npm:2.4.1"],\
             ["chokidar", "npm:4.0.0"],\
             ["immutable", "npm:4.3.7"],\
@@ -21538,7 +21538,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/webpack", null],\
             ["neo-async", "npm:2.6.2"],\
             ["node-sass", null],\
-            ["sass", "npm:1.80.2"],\
+            ["sass", "npm:1.80.3"],\
             ["sass-embedded", null],\
             ["webpack", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.95.0"]\
           ],\
