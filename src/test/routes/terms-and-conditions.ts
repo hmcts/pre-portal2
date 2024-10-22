@@ -10,7 +10,7 @@ describe('Terms and Conditions page', () => {
         .get('/terms-and-conditions')
         .expect(res => {
           expect(res.status).toBe(200);
-          expect(res.text).toContain('Terms &amp; Conditions');
+          expect(res.text).toContain('Terms and Conditions');
         });
     });
   });
