@@ -55,6 +55,7 @@ export class PropertiesVolume {
       this.setSecret('secrets.pre-hmctskv.b2c-test-login-email', 'b2c.testLogin.email');
       this.setSecret('secrets.pre-hmctskv.b2c-test-login-password', 'b2c.testLogin.password');
       this.setSecret('secrets.pre-hmctskv.media-kind-player-key', 'pre.mediaKindPlayerKey');
+      server.locals.dynatrace_jstag = process.env.DYNATRACE_JSTAG ?? 'false';
     } else {
       this.logger.info('Loading properties from .env file');
       require('dotenv').config();

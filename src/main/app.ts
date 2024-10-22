@@ -76,6 +76,7 @@ app.use((err: HTTPError, req: express.Request, res: express.Response, next: expr
   logger.error(err.message);
 
   if (err instanceof TermsNotAcceptedError) {
+    console.log('got an instance of TermsNotAcceptedError');
     res.redirect('/accept-terms-and-conditions');
     return;
   }
@@ -85,7 +86,7 @@ app.use((err: HTTPError, req: express.Request, res: express.Response, next: expr
     return;
   }
 
-  res.status(err.status);
+  res.status(err.status ?? 500);
   res.render('error', { status: err.status, message: err.message });
   next();
 });

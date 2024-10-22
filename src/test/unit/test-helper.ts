@@ -38,6 +38,9 @@ export const mockeduser: UserProfile = {
       status: AccessStatus.INVITATION_SENT,
     },
   ],
+  terms_accepted: {
+    PORTAL: true,
+  },
   user: {
     id: '9ffcc9fb-db21-4d77-a983-c39b01141c6a',
     first_name: 'test',
