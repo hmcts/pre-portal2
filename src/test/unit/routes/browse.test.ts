@@ -201,9 +201,9 @@ describe('Browse route', () => {
 
 describe('convertIsoToDate', () => {
   test('should return the date in dd/mm/yyyy format for a valid ISO string', () => {
-    const isoString = "2024-10-23T12:45:00Z";
+    const isoString = '2024-10-23T12:45:00Z';
     const result = convertIsoToDate(isoString);
-    expect(result).toBe("23/10/2024");
+    expect(result).toBe('23/10/2024');
   });
 
   test('should return undefined when the input is undefined', () => {
@@ -217,8 +217,8 @@ describe('convertIsoToDate', () => {
   });
 
   test('should handle invalid date input gracefully', () => {
-    const isoString = "invalid-date";
+    const isoString = 'invalid-date';
     const result = convertIsoToDate(isoString);
-    expect(result).toBe("NaN/NaN/NaN"); // Date object returns NaN for invalid date
+    expect(result).toBe('NaN/NaN/NaN'); // Date object returns NaN for invalid date
   });
 });

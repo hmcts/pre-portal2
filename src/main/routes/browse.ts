@@ -16,7 +16,7 @@ export const convertIsoToDate = (isoString?: string): string | undefined => {
   const year = date.getFullYear();
 
   return `${day}/${month}/${year}`;
-}
+};
 
 export default function (app: Application): void {
   const logger = Logger.getLogger('browse');
@@ -54,7 +54,7 @@ export default function (app: Application): void {
         capture_session: {
           ...recording.capture_session,
           case_closed_at: convertIsoToDate(recording.capture_session.case_closed_at),
-        }
+        },
       }));
 
       const paginationLinks = {
