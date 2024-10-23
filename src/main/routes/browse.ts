@@ -6,6 +6,18 @@ import { Logger } from '@hmcts/nodejs-logging';
 import { Application } from 'express';
 import { requiresAuth } from 'express-openid-connect';
 
+export const convertIsoToDate = (isoString?: string): string | undefined => {
+  if (!isoString) {
+    return;
+  }
+  const date = new Date(isoString);
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+
+  return `${day}/${month}/${year}`;
+}
+
 export default function (app: Application): void {
   const logger = Logger.getLogger('browse');
 
@@ -36,6 +48,14 @@ export default function (app: Application): void {
       // Page starts at 0
       // Rolling window of 5 pages centered on the current page
       // The current page is 5 then 2 pages before and 2 pages after does not include the first+1 or last-1 pages so add in ellipsis
+
+      const updatedRecordings = recordings.map(recording => ({
+        ...recording,
+        capture_session: {
+          ...recording.capture_session,
+          case_closed_at: convertIsoToDate(recording.capture_session.case_closed_at),
+        }
+      }));
 
       const paginationLinks = {
         previous: {},
@@ -97,7 +117,7 @@ export default function (app: Application): void {
       }
 
       let title = 'Recordings';
-      if (recordings.length > 0) {
+      if (updatedRecordings.length > 0) {
         title = `Recordings ${pagination.currentPage * pagination.size + 1} to ${Math.min(
           (pagination.currentPage + 1) * pagination.size,
           pagination.totalElements
@@ -105,7 +125,7 @@ export default function (app: Application): void {
       }
 
       res.render('browse', {
-        recordings,
+        recordings: updatedRecordings,
         paginationLinks,
         title,
         user: SessionUser.getLoggedInUserProfile(req).user,
