@@ -91,7 +91,7 @@
     "@eslint/compat": "^1.1.1",
     "@jest/globals": "29.7.0",
     "@types/compression": "1.7.5",
-    "@types/jest": "29.5.14",
+    "@types/jest": "29.5.13",
     "@types/mini-css-extract-plugin": "2.5.1",
     "@types/mocha": "10.0.9",
     "@types/supertest": "6.0.2",
