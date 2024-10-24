@@ -219,6 +219,6 @@ describe('convertIsoToDate', () => {
   test('should handle invalid date input gracefully', () => {
     const isoString = 'invalid-date';
     const result = convertIsoToDate(isoString);
-    expect(result).toBe('NaN/NaN/NaN'); // Date object returns NaN for invalid date
+    expect(result).toBe('Invalid Date');
   });
 });
