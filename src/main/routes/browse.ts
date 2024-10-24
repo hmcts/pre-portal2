@@ -10,11 +10,11 @@ export const convertIsoToDate = (isoString?: string): string | undefined => {
   if (!isoString) {
     return;
   }
-  return new Date(isoString).toLocaleString("en-GB", {
-    timeZone: "Europe/London",
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
+  return new Date(isoString).toLocaleString('en-GB', {
+    timeZone: 'Europe/London',
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
   });
 };
 
