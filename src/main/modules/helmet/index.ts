@@ -55,7 +55,7 @@ export class Helmet {
             fontSrc: [self, azureMediaPlayer, 'data:'],
             imgSrc: [self, googleAnalyticsDomain, azureMediaPlayer, 'data:'],
             manifestSrc: [self],
-            mediaSrc: [self, 'blob:'],
+            mediaSrc: [self, 'blob:', mkStreaming],
             objectSrc: [self],
             scriptSrc,
             styleSrc: [self, "'unsafe-inline'", azureMediaPlayer],
