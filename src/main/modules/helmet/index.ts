@@ -50,6 +50,7 @@ export class Helmet {
               bitmovinLicensing,
               mkStreaming,
               mkLicense,
+              "data:",
             ],
             defaultSrc: ["'none'"],
             fontSrc: [self, azureMediaPlayer, 'data:'],
