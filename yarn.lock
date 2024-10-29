@@ -2677,14 +2677,14 @@ __metadata:
   linkType: hard
 
 "@eslint/compat@npm:^1.1.1":
-  version: 1.2.1
-  resolution: "@eslint/compat@npm:1.2.1"
+  version: 1.2.2
+  resolution: "@eslint/compat@npm:1.2.2"
   peerDependencies:
     eslint: ^9.10.0
   peerDependenciesMeta:
     eslint:
       optional: true
-  checksum: e20cb7307caab4017a9953f33bfdb09389bb6f84b5538d7aebdb5a95c21210335d12f5fec79d8c72455cca6f19e933808599f50f8ace3426ed509cc83f085f3a
+  checksum: 02708de14b32870f44b4fbb78d1bf9e7fb8741a3038bcaea91239a161a0884b676b4c9b5a2346a145d76981710427f5a2d56f65e5bc0579bd288286e88f43ee2
   languageName: node
   linkType: hard
 
