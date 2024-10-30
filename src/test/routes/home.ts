@@ -1,6 +1,5 @@
 import { app } from '../../main/app';
 
-import { expect } from 'chai';
 import request from 'supertest';
 
 /* eslint-disable jest/expect-expect */
@@ -10,8 +9,8 @@ describe('Home page', () => {
       await request(app)
         .get('/')
         .expect(res => {
-          expect(res.status).to.equal(302);
-          expect(res.header.location).to.include('browse');
+          expect(res.status).toBe(302);
+          expect(res.header.location).toContain('browse');
         });
     });
   });
