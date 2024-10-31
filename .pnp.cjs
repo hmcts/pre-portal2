@@ -61,7 +61,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/uuid", "npm:10.0.0"],\
             ["@typescript-eslint/eslint-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:8.12.2"],\
             ["@typescript-eslint/parser", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:8.12.2"],\
-            ["allure-commandline", "npm:2.31.0"],\
+            ["allure-commandline", "npm:2.32.0"],\
             ["applicationinsights", "npm:3.2.2"],\
             ["axios", "npm:1.7.7"],\
             ["axios-debug-log", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.0.0"],\
@@ -9663,10 +9663,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["allure-commandline", [\
-        ["npm:2.31.0", {\
-          "packageLocation": "./.yarn/unplugged/allure-commandline-npm-2.31.0-48913fd820/node_modules/allure-commandline/",\
+        ["npm:2.32.0", {\
+          "packageLocation": "./.yarn/unplugged/allure-commandline-npm-2.32.0-ef67c56977/node_modules/allure-commandline/",\
           "packageDependencies": [\
-            ["allure-commandline", "npm:2.31.0"]\
+            ["allure-commandline", "npm:2.32.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -20591,7 +20591,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/uuid", "npm:10.0.0"],\
             ["@typescript-eslint/eslint-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:8.12.2"],\
             ["@typescript-eslint/parser", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:8.12.2"],\
-            ["allure-commandline", "npm:2.31.0"],\
+            ["allure-commandline", "npm:2.32.0"],\
             ["applicationinsights", "npm:3.2.2"],\
             ["axios", "npm:1.7.7"],\
             ["axios-debug-log", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.0.0"],\
