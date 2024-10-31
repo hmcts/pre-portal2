@@ -99,7 +99,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:15.2.10"],\
             ["lodash", "npm:4.17.21"],\
             ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.9.1"],\
-            ["mocha", "npm:10.7.3"],\
+            ["mocha", "npm:10.8.2"],\
             ["mochawesome", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.3"],\
             ["mochawesome-merge", "npm:4.3.0"],\
             ["mochawesome-report-generator", "npm:6.2.0"],\
@@ -18877,6 +18877,33 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["yargs-unparser", "npm:2.0.0"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:10.8.2", {\
+          "packageLocation": "./.yarn/cache/mocha-npm-10.8.2-4295e5e50b-68cb519503.zip/node_modules/mocha/",\
+          "packageDependencies": [\
+            ["mocha", "npm:10.8.2"],\
+            ["ansi-colors", "npm:4.1.3"],\
+            ["browser-stdout", "npm:1.3.1"],\
+            ["chokidar", "npm:3.6.0"],\
+            ["debug", "virtual:245750f15c7a67617f34421f66e3ed44fd56cf1525bfb8ff08c5fe937c01fb60677e769626c4a3d77742f81c7255c3af4da81de7d2bb3d349242cd92efc96986#npm:4.3.7"],\
+            ["diff", "npm:5.2.0"],\
+            ["escape-string-regexp", "npm:4.0.0"],\
+            ["find-up", "npm:5.0.0"],\
+            ["glob", "npm:8.1.0"],\
+            ["he", "npm:1.2.0"],\
+            ["js-yaml", "npm:4.1.0"],\
+            ["log-symbols", "npm:4.1.0"],\
+            ["minimatch", "npm:5.1.6"],\
+            ["ms", "npm:2.1.3"],\
+            ["serialize-javascript", "npm:6.0.2"],\
+            ["strip-json-comments", "npm:3.1.1"],\
+            ["supports-color", "npm:8.1.1"],\
+            ["workerpool", "npm:6.5.1"],\
+            ["yargs", "npm:16.2.0"],\
+            ["yargs-parser", "npm:20.2.9"],\
+            ["yargs-unparser", "npm:2.0.0"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["mochawesome", [\
@@ -18899,7 +18926,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lodash.isfunction", "npm:3.0.9"],\
             ["lodash.isobject", "npm:3.0.2"],\
             ["lodash.isstring", "npm:4.0.1"],\
-            ["mocha", "npm:10.7.3"],\
+            ["mocha", "npm:10.8.2"],\
             ["mochawesome-report-generator", "npm:6.2.0"],\
             ["strip-ansi", "npm:6.0.1"],\
             ["uuid", "npm:8.3.2"]\
@@ -20629,7 +20656,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lint-staged", "npm:15.2.10"],\
             ["lodash", "npm:4.17.21"],\
             ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.9.1"],\
-            ["mocha", "npm:10.7.3"],\
+            ["mocha", "npm:10.8.2"],\
             ["mochawesome", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.3"],\
             ["mochawesome-merge", "npm:4.3.0"],\
             ["mochawesome-report-generator", "npm:6.2.0"],\
