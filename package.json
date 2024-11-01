@@ -118,7 +118,7 @@
     "jest-junit": "16.0.0",
     "jest-mock": "29.7.0",
     "lint-staged": "15.2.10",
-    "mini-css-extract-plugin": "2.9.1",
+    "mini-css-extract-plugin": "2.9.2",
     "nock": "13.5.5",
     "node-mocks-http": "1.16.1",
     "nodemon": "3.1.7",
