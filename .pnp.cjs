@@ -68,7 +68,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["body-parser", "npm:1.20.3"],\
             ["chokidar", "npm:4.0.1"],\
             ["codeceptjs", "npm:3.6.7"],\
-            ["compression", "npm:1.7.4"],\
+            ["compression", "npm:1.7.5"],\
             ["config", "npm:3.3.12"],\
             ["connect-redis", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.1"],\
             ["cookie-parser", "npm:1.4.7"],\
@@ -7307,7 +7307,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@react-native-community/cli-server-api", "npm:12.3.7"],\
             ["@react-native-community/cli-debugger-ui", "npm:12.3.7"],\
             ["@react-native-community/cli-tools", "npm:12.3.7"],\
-            ["compression", "npm:1.7.4"],\
+            ["compression", "npm:1.7.5"],\
             ["connect", "npm:3.7.0"],\
             ["errorhandler", "npm:1.5.1"],\
             ["nocache", "npm:3.0.4"],\
@@ -10899,13 +10899,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["bytes", [\
-        ["npm:3.0.0", {\
-          "packageLocation": "./.yarn/cache/bytes-npm-3.0.0-19be09472d-a2b386dd81.zip/node_modules/bytes/",\
-          "packageDependencies": [\
-            ["bytes", "npm:3.0.0"]\
-          ],\
-          "linkType": "HARD"\
-        }],\
         ["npm:3.1.2", {\
           "packageLocation": "./.yarn/cache/bytes-npm-3.1.2-28b8643004-e4bcd3948d.zip/node_modules/bytes/",\
           "packageDependencies": [\
@@ -11862,16 +11855,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["compression", [\
-        ["npm:1.7.4", {\
-          "packageLocation": "./.yarn/cache/compression-npm-1.7.4-e0cd6afa69-35c0f2eb1f.zip/node_modules/compression/",\
+        ["npm:1.7.5", {\
+          "packageLocation": "./.yarn/cache/compression-npm-1.7.5-346039c027-d624b55624.zip/node_modules/compression/",\
           "packageDependencies": [\
-            ["compression", "npm:1.7.4"],\
-            ["accepts", "npm:1.3.8"],\
-            ["bytes", "npm:3.0.0"],\
+            ["compression", "npm:1.7.5"],\
+            ["bytes", "npm:3.1.2"],\
             ["compressible", "npm:2.0.18"],\
             ["debug", "virtual:37bf8baeca06414792610f5848734f065f68d217cce7beb4a1d9bd9569043400ad86bff10abd3b2d89dfce2ed86950a2198136a029541a9dc70fc2e5959a3763#npm:2.6.9"],\
+            ["negotiator", "npm:0.6.4"],\
             ["on-headers", "npm:1.0.2"],\
-            ["safe-buffer", "npm:5.1.2"],\
+            ["safe-buffer", "npm:5.2.1"],\
             ["vary", "npm:1.1.2"]\
           ],\
           "linkType": "HARD"\
@@ -19153,6 +19146,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
+        ["npm:0.6.4", {\
+          "packageLocation": "./.yarn/cache/negotiator-npm-0.6.4-4a96086720-7ded10aa02.zip/node_modules/negotiator/",\
+          "packageDependencies": [\
+            ["negotiator", "npm:0.6.4"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
         ["npm:1.0.0", {\
           "packageLocation": "./.yarn/cache/negotiator-npm-1.0.0-47d727e27e-20ebfe79b2.zip/node_modules/negotiator/",\
           "packageDependencies": [\
@@ -20632,7 +20632,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["body-parser", "npm:1.20.3"],\
             ["chokidar", "npm:4.0.1"],\
             ["codeceptjs", "npm:3.6.7"],\
-            ["compression", "npm:1.7.4"],\
+            ["compression", "npm:1.7.5"],\
             ["config", "npm:3.3.12"],\
             ["connect-redis", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.1"],\
             ["cookie-parser", "npm:1.4.7"],\
