@@ -5,18 +5,17 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">Pre-Recorded Evidence (PRE) Service</h1>
-
       <form id="termsForm" action="/accept-terms-and-conditions" method="post">
         <div class="govuk-form-group">
           <h1 class="govuk-label-wrapper">
             <label class="govuk-label govuk-label--l" for="terms-text">
-              Terms &amp; Conditions (including Acceptable Use) for the Pre-Recorded Evidence Service
+              Terms &amp; Conditions
             </label>
           </h1>
-          <textarea class="govuk-textarea" id="terms-text" name="termsText" rows="10" aria-describedby="terms-text-hint" readonly>
-{{ terms }}
-          </textarea>
+
+          <div class="govuk-textarea terms-text terms-box" id="terms-text">
+            {{ terms|safe }}
+          </div>
         </div>
 
         <div class="govuk-form-group govuk-form-group--error">

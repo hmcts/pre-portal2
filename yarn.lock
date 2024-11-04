@@ -12480,6 +12480,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"marked@npm:^14.1.3":
+  version: 14.1.3
+  resolution: "marked@npm:14.1.3"
+  bin:
+    marked: bin/marked.js
+  checksum: 28a634460078f27dae0073ec77f801d1585a5ce8323726115083c6f5b8bcd6d52ac902cd6928d6b4957d26b721eaa1d0d3050ba1af2cb8695eb3835129ebf74f
+  languageName: node
+  linkType: hard
+
 "marky@npm:^1.2.2":
   version: 1.2.5
   resolution: "marky@npm:1.2.5"
@@ -14902,6 +14911,7 @@ __metadata:
     jquery: 3.7.1
     lint-staged: 15.2.10
     lodash: 4.17.21
+    marked: ^14.1.3
     mini-css-extract-plugin: 2.9.2
     mocha: ^10.7.3
     mochawesome: ^7.1.3
