@@ -97,8 +97,8 @@
     "@types/mocha": "10.0.9",
     "@types/supertest": "6.0.2",
     "@types/uuid": "10.0.0",
-    "@typescript-eslint/eslint-plugin": "8.12.2",
-    "@typescript-eslint/parser": "8.12.2",
+    "@typescript-eslint/eslint-plugin": "8.13.0",
+    "@typescript-eslint/parser": "8.13.0",
     "allure-commandline": "^2.27.0",
     "axios-debug-log": "1.0.0",
     "chokidar": "4.0.1",
@@ -109,7 +109,7 @@
     "eslint": "9.14.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.31.0",
-    "eslint-plugin-jest": "28.8.3",
+    "eslint-plugin-jest": "28.9.0",
     "eslint-plugin-prettier": "5.2.1",
     "govuk-frontend": "5.7.1",
     "html-webpack-plugin": "5.6.3",
@@ -139,7 +139,7 @@
     "webpack-node-externals": "3.0.0"
   },
   "resolutions": {
-    "@opentelemetry/instrumentation": "0.54.0",
+    "@opentelemetry/instrumentation": "0.54.1",
     "semver": "^7.5.2",
     "express": "5.0.1",
     "cookie": "0.7.2"
