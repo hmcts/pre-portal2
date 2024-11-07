@@ -5,6 +5,7 @@ import { SessionUser } from '../services/session-user/session-user';
 import { Logger } from '@hmcts/nodejs-logging';
 import { Application } from 'express';
 import { requiresAuth } from 'express-openid-connect';
+import config from 'config';
 
 export const convertIsoToDate = (isoString?: string): string | undefined => {
   if (!isoString) {
@@ -129,6 +130,7 @@ export default function (app: Application): void {
         paginationLinks,
         title,
         user: SessionUser.getLoggedInUserProfile(req).user,
+        enableCaseStateColumn: config.get('pre.enableCaseStateColumn') === 'true',
       });
     } catch (e) {
       res.status(500);
