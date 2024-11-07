@@ -14,7 +14,8 @@
     "enableMkWatchPage": false,
     "useMkOnWatchPage": false,
     "mediaKindPlayerKey": "",
-    "tsAndCsRedirectEnabled": false
+    "tsAndCsRedirectEnabled": false,
+    "enableCaseStateColumn": false
   },
   "ams": {
     "azureMediaServices": "",
