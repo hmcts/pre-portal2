@@ -13,7 +13,8 @@
     "portalUrl": "https://localhost:4551",
     "enableMkWatchPage": false,
     "useMkOnWatchPage": false,
-    "mediaKindPlayerKey": ""
+    "mediaKindPlayerKey": "",
+    "tsAndCsRedirectEnabled": false
   },
   "ams": {
     "azureMediaServices": "",

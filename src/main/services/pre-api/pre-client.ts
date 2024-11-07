@@ -100,7 +100,9 @@ export class PreClient {
     } else if (userProfile.portal_access[0].status === AccessStatus.INACTIVE) {
       throw new Error('User is not active: ' + email);
     } else if (!userProfile.terms_accepted || !userProfile.terms_accepted['PORTAL']) {
-      throw new TermsNotAcceptedError(email);
+      if (config.get('pre.tsAndCsRedirectEnabled') === 'true') {
+        throw new TermsNotAcceptedError(email);
+      }
     }
     return userProfile;
   }
