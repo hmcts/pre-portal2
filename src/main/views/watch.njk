@@ -122,7 +122,7 @@
           data-testid="summary-value-witness">
           {% for participant in recording.participants %}
             {% if participant.participant_type == "WITNESS" %}
-              {{ participant.first_name }} {{ participant.last_name }}<br />
+              {{ participant.first_name }}<br />
             {% endif %}
           {% endfor %}
         </dd>
