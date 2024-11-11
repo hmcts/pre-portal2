@@ -127,7 +127,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["tsconfig-paths", "npm:4.2.0"],\
             ["typed-rest-client", "npm:2.1.0"],\
             ["typescript", "patch:typescript@npm%3A5.5.4#~builtin<compat/typescript>::version=5.5.4&hash=379a07"],\
-            ["uuid", "npm:11.0.2"],\
+            ["uuid", "npm:11.0.3"],\
             ["webpack", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.96.1"],\
             ["webpack-cli", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.1.4"],\
             ["webpack-dev-middleware", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.4.2"],\
@@ -20733,7 +20733,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["tsconfig-paths", "npm:4.2.0"],\
             ["typed-rest-client", "npm:2.1.0"],\
             ["typescript", "patch:typescript@npm%3A5.5.4#~builtin<compat/typescript>::version=5.5.4&hash=379a07"],\
-            ["uuid", "npm:11.0.2"],\
+            ["uuid", "npm:11.0.3"],\
             ["webpack", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.96.1"],\
             ["webpack-cli", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:5.1.4"],\
             ["webpack-dev-middleware", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.4.2"],\
@@ -24059,10 +24059,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:11.0.2", {\
-          "packageLocation": "./.yarn/cache/uuid-npm-11.0.2-13e156cc62-9b322963db.zip/node_modules/uuid/",\
+        ["npm:11.0.3", {\
+          "packageLocation": "./.yarn/cache/uuid-npm-11.0.3-abcb5b16c0-646181c77e.zip/node_modules/uuid/",\
           "packageDependencies": [\
-            ["uuid", "npm:11.0.2"]\
+            ["uuid", "npm:11.0.3"]\
           ],\
           "linkType": "HARD"\
         }],\
