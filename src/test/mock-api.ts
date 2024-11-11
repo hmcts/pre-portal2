@@ -94,7 +94,7 @@ export const mockXUserId = 'a114f40e-bdba-432d-b53f-37169ee5bf99';
 export function mock() {
   mockGetRecording();
   mockGetRecordings();
-  mockGetRecordingPlaybackData();
+  mockGetRecordingPlaybackDataMk();
 }
 
 export function mockGetRecording(recording?: Recording | null) {
@@ -144,13 +144,8 @@ export const mockPutAudit = () => {
   });
 };
 
-export function mockGetRecordingPlaybackData(data?: RecordingPlaybackData | null) {
+export function mockGetRecordingPlaybackDataMk(data?: RecordingPlaybackData | null) {
   if (data !== undefined) {
-    jest
-      .spyOn(PreClient.prototype, 'getRecordingPlaybackData')
-      .mockImplementation(async (xUserId: string, id: string) => {
-        return Promise.resolve(data);
-      });
     jest
       .spyOn(PreClient.prototype, 'getRecordingPlaybackDataMk')
       .mockImplementation(async (xUserId: string, id: string) => {
@@ -159,15 +154,6 @@ export function mockGetRecordingPlaybackData(data?: RecordingPlaybackData | null
     return;
   }
 
-  jest
-    .spyOn(PreClient.prototype, 'getRecordingPlaybackData')
-    .mockImplementation(async (xUserId: string, id: string) => {
-      return Promise.resolve({
-        src: 'src',
-        type: 'type',
-        protectionInfo: [],
-      } as RecordingPlaybackData);
-    });
   jest
     .spyOn(PreClient.prototype, 'getRecordingPlaybackDataMk')
     .mockImplementation(async (xUserId: string, id: string) => {
@@ -182,5 +168,5 @@ export function mockGetRecordingPlaybackData(data?: RecordingPlaybackData | null
 export function reset() {
   jest.spyOn(PreClient.prototype, 'getRecording').mockRestore();
   jest.spyOn(PreClient.prototype, 'getRecordings').mockRestore();
-  jest.spyOn(PreClient.prototype, 'getRecordingPlaybackData').mockRestore();
+  jest.spyOn(PreClient.prototype, 'getRecordingPlaybackDataMk').mockRestore();
 }

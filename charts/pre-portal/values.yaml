@@ -11,8 +11,6 @@ nodejs:
         - app-insights-connection-string
         - apim-sub-portal-primary-key
         - apim-sub-portal-secondary-key
-        - pp-authorization
-        - ams-flow-url
         - pre-portal-sso
         - b2c-test-login-email
         - b2c-test-login-password

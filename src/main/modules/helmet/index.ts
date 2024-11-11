@@ -1,4 +1,3 @@
-import config from 'config';
 import * as express from 'express';
 import helmet from 'helmet';
 
@@ -16,8 +15,6 @@ export class Helmet {
   }
 
   public enableFor(app: express.Express): void {
-    const azureMediaServices = config.get('ams.azureMediaServices') as string;
-    const azureMediaServicesKeyDelivery = config.get('ams.azureMediaServicesKeyDelivery') as string;
     const dynatraceDomain = '*.dynatrace.com';
     const mkPlayer = 'https://mkplayer.azureedge.net';
     const bitmovinLicensing = 'https://licensing.bitmovin.com';
@@ -43,8 +40,6 @@ export class Helmet {
             connectSrc: [
               self,
               azureMediaPlayer,
-              azureMediaServices,
-              azureMediaServicesKeyDelivery,
               dynatraceDomain,
               mkPlayer,
               bitmovinLicensing,

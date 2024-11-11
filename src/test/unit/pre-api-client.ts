@@ -212,11 +212,6 @@ describe('PreClient', () => {
     };
     await expect(t).rejects.toThrow('User is not active: inactive@testy.com');
   });
-  test('get recording playback data', async () => {
-    const recording = await preClient.getRecordingPlaybackData(otherXUserId, mockRecordingId);
-    expect(recording).toBeTruthy();
-    expect(recording?.src).toBe('something');
-  });
   test("user doesn't have a portal_access object in their profile", async () => {
     try {
       await preClient.getUserByClaimEmail('noportal_access@testy.com');
