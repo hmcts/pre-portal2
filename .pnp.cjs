@@ -104,7 +104,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["mochawesome", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.3"],\
             ["mochawesome-merge", "npm:4.3.0"],\
             ["mochawesome-report-generator", "npm:6.2.0"],\
-            ["nock", "npm:13.5.5"],\
+            ["nock", "npm:13.5.6"],\
             ["node-mocks-http", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.16.1"],\
             ["nodemon", "npm:3.1.7"],\
             ["nunjucks", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.2.4"],\
@@ -18146,10 +18146,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["nock", [\
-        ["npm:13.5.5", {\
-          "packageLocation": "./.yarn/cache/nock-npm-13.5.5-ccb57f0a2f-91947b6839.zip/node_modules/nock/",\
+        ["npm:13.5.6", {\
+          "packageLocation": "./.yarn/cache/nock-npm-13.5.6-6fbafbb636-82d31ef7a4.zip/node_modules/nock/",\
           "packageDependencies": [\
-            ["nock", "npm:13.5.5"],\
+            ["nock", "npm:13.5.6"],\
             ["debug", "virtual:6230e12b1d7dee1735a865cef131ea49c043e7f202fd08b14ceb90686e406b76a07840fc9510f1069465ad9695242b42830fc7fea7b01648a261463b7848122f#npm:4.3.7"],\
             ["json-stringify-safe", "npm:5.0.1"],\
             ["propagate", "npm:2.0.1"]\
@@ -19614,7 +19614,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["mochawesome", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.3"],\
             ["mochawesome-merge", "npm:4.3.0"],\
             ["mochawesome-report-generator", "npm:6.2.0"],\
-            ["nock", "npm:13.5.5"],\
+            ["nock", "npm:13.5.6"],\
             ["node-mocks-http", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.16.1"],\
             ["nodemon", "npm:3.1.7"],\
             ["nunjucks", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:3.2.4"],\
