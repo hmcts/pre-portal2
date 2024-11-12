@@ -66,6 +66,7 @@
     "jose": "^5.2.2",
     "jquery": "3.7.1",
     "lodash": "4.17.21",
+    "marked": "^14.1.3",
     "mocha": "^10.7.3",
     "mochawesome": "^7.1.3",
     "mochawesome-merge": "^4.3.0",
