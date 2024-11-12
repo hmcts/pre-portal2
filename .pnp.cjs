@@ -98,7 +98,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jquery", "npm:3.7.1"],\
             ["lint-staged", "npm:15.2.10"],\
             ["lodash", "npm:4.17.21"],\
-            ["marked", "npm:14.1.4"],\
+            ["marked", "npm:15.0.0"],\
             ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.9.2"],\
             ["mocha", "npm:10.8.2"],\
             ["mochawesome", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.3"],\
@@ -16969,10 +16969,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["marked", [\
-        ["npm:14.1.4", {\
-          "packageLocation": "./.yarn/cache/marked-npm-14.1.4-dbc94c7053-6f2f7dd0ba.zip/node_modules/marked/",\
+        ["npm:15.0.0", {\
+          "packageLocation": "./.yarn/cache/marked-npm-15.0.0-f1f2309767-b647884bf5.zip/node_modules/marked/",\
           "packageDependencies": [\
-            ["marked", "npm:14.1.4"]\
+            ["marked", "npm:15.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -19683,7 +19683,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jquery", "npm:3.7.1"],\
             ["lint-staged", "npm:15.2.10"],\
             ["lodash", "npm:4.17.21"],\
-            ["marked", "npm:14.1.4"],\
+            ["marked", "npm:15.0.0"],\
             ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.9.2"],\
             ["mocha", "npm:10.8.2"],\
             ["mochawesome", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.3"],\
