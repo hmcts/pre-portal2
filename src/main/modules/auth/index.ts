@@ -69,6 +69,7 @@ export class Auth {
 
   private getSessionStore(app: Application, logger: Logger) {
     const redisHost = config.get('session.redis.host');
+    logger.info('Redis host: {}', redisHost);
     if (redisHost) {
       const client = new RedisService().getClient(
         config.get('session.redis.host'),
