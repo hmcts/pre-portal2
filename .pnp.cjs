@@ -32,7 +32,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-env", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.26.0"],\
             ["@codeceptjs/allure-legacy", "npm:1.0.2"],\
             ["@codeceptjs/configure", "virtual:08aa0d6350bdc3a5e31278e22afadb05be51f918559f88b53354dfd2a276bece4ce718cdc3686f257fe8c5b59321356af134e69e662e983ed85c989a0e25b7c7#npm:1.0.1"],\
-            ["@eslint/compat", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.2.2"],\
+            ["@eslint/compat", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.2.3"],\
             ["@hmcts/cookie-manager", "npm:1.0.0"],\
             ["@hmcts/info-provider", "npm:1.2.2"],\
             ["@hmcts/nodejs-healthcheck", "npm:1.8.5"],\
@@ -3897,17 +3897,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@eslint/compat", [\
-        ["npm:1.2.2", {\
-          "packageLocation": "./.yarn/cache/@eslint-compat-npm-1.2.2-37456f3e5d-02708de14b.zip/node_modules/@eslint/compat/",\
+        ["npm:1.2.3", {\
+          "packageLocation": "./.yarn/cache/@eslint-compat-npm-1.2.3-7769d8b02c-71b3280993.zip/node_modules/@eslint/compat/",\
           "packageDependencies": [\
-            ["@eslint/compat", "npm:1.2.2"]\
+            ["@eslint/compat", "npm:1.2.3"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.2.2", {\
-          "packageLocation": "./.yarn/__virtual__/@eslint-compat-virtual-e7164d661b/0/cache/@eslint-compat-npm-1.2.2-37456f3e5d-02708de14b.zip/node_modules/@eslint/compat/",\
+        ["virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.2.3", {\
+          "packageLocation": "./.yarn/__virtual__/@eslint-compat-virtual-84b3b2c6f2/0/cache/@eslint-compat-npm-1.2.3-7769d8b02c-71b3280993.zip/node_modules/@eslint/compat/",\
           "packageDependencies": [\
-            ["@eslint/compat", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.2.2"],\
+            ["@eslint/compat", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.2.3"],\
             ["@types/eslint", null],\
             ["eslint", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:9.14.0"]\
           ],\
@@ -19617,7 +19617,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/preset-env", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.26.0"],\
             ["@codeceptjs/allure-legacy", "npm:1.0.2"],\
             ["@codeceptjs/configure", "virtual:08aa0d6350bdc3a5e31278e22afadb05be51f918559f88b53354dfd2a276bece4ce718cdc3686f257fe8c5b59321356af134e69e662e983ed85c989a0e25b7c7#npm:1.0.1"],\
-            ["@eslint/compat", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.2.2"],\
+            ["@eslint/compat", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.2.3"],\
             ["@hmcts/cookie-manager", "npm:1.0.0"],\
             ["@hmcts/info-provider", "npm:1.2.2"],\
             ["@hmcts/nodejs-healthcheck", "npm:1.8.5"],\
