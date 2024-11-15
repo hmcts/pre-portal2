@@ -18,7 +18,7 @@ module "pre-portal-redis6" {
   business_area                 = "sds"
   public_network_access_enabled = false
   common_tags                   = var.common_tags
-  sku_name                      = var.sku_name
+  sku_name                      = Basic
   family                        = var.family
   capacity                      = var.capacity
 
