@@ -57,7 +57,7 @@ describe('Accessibility', () => {
     });
   };
 
-  const signedOutUrls = ['/terms-and-conditions', '/accessibility-statement', '/cookies', '/not-found', '/'];
+  const signedOutUrls = ['/accessibility-statement', '/cookies', '/not-found', '/'];
 
   beforeAll(setup);
 
@@ -77,12 +77,22 @@ describe('Accessibility', () => {
     });
   });
 
-  test('/browse and watch pages', async () => {
+  test('/browse, watch and terms pages', async () => {
     const page = await signIn(browser);
-    await page.waitForSelector('a[href^="/watch/"]', { visible: true, timeout: 0 });
+    await page.waitForSelector('a[href^="/watch/"],input#terms', { visible: true, timeout: 0 });
+
+    if (page.url().includes('/accept-terms-and-conditions')) {
+      await page.click('input#terms');
+      await page.click('button[type="submit"]');
+      await page.waitForSelector('a[href^="/watch/"]', { visible: true, timeout: 0 });
+    }
     const browseUrl = page.url();
     await page.click('a[href^="/watch/"]');
     const watchUrl = page.url();
+
+    await page.goto(config.TEST_URL + '/terms-and-conditions');
+
+    const termsUrl = page.url();
     await page.close();
 
     const result: Pa11yResult = await pa11y(browseUrl, {
@@ -101,5 +111,11 @@ describe('Accessibility', () => {
       'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name',
       'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name',
     ]);
-  }, 35000);
+
+    const termsResult: Pa11yResult = await pa11y(termsUrl, {
+      browser: browser,
+      screenCapture: `${screenshotDir}/terms.png`,
+    });
+    expect(termsResult.issues.map(issue => issue.code)).toEqual([]);
+  }, 65000);
 });

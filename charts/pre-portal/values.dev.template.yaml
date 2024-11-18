@@ -10,4 +10,5 @@ nodejs:
     B2C_BASE_URL: https://hmctsstgextid.b2clogin.com/hmctsstgextid.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1A_SIGNUP_SIGNIN
     B2C_END_SESSION_ENDPOINT: https://hmctsstgextid.b2clogin.com/hmctsstgextid.onmicrosoft.com/b2c_1a_signup_signin/oauth2/v2.0/logout
     ENABLE_MK_WATCH_PAGE: true
+    TS_AND_CS_REDIRECT_ENABLED: true
     ENABLE_CASE_STATE_COLUMN: true

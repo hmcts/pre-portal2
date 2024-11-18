@@ -35,3 +35,14 @@
   justify-content: center;
   width: 100%;
 }
+
+.terms-box {
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 15px;
+  font-size: 0.9em;
+}
+
+.terms-text ol ol {
+  list-style-type: lower-alpha;
+}
