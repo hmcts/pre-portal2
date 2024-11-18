@@ -65,7 +65,7 @@ Then('I sign in with an unknown user', () => {
   I.fillField('Email Address', 'email@hmcts.net');
   I.fillField('Password', 'this is a password');
   I.click('Sign in');
-})
+});
 
 Then('I sign in with the wrong password', () => {
   I.fillField('Email Address', config.b2c.testLogin.email as string);
