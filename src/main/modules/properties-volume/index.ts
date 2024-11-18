@@ -27,18 +27,25 @@ export class PropertiesVolume {
     set(
       config,
       'ams.azureMediaServices',
-      process.env.AMS_AZURE_MEDIA_SERVICES ?? 'https://preamstest-ukso1.streaming.media.azure.net'
+      process.env.AMS_AZURE_MEDIA_SERVICES ?? 'https://preamsstg-ukso1.streaming.media.azure.net'
     );
     set(
       config,
       'ams.azureMediaServicesKeyDelivery',
-      process.env.AMS_AZURE_MEDIA_SERVICES_KEY_DELIVERY ?? 'https://preamstest.keydelivery.uksouth.media.azure.net'
+      process.env.AMS_AZURE_MEDIA_SERVICES_KEY_DELIVERY ?? 'https://preamsstg.keydelivery.uksouth.media.azure.net'
     );
+    set(config, 'pre.enableMkWatchPage', process.env.ENABLE_MK_WATCH_PAGE ?? 'false');
+    set(config, 'pre.useMkOnWatchPage', process.env.USE_MK_ON_WATCH_PAGE ?? 'false');
+    set(config, 'pre.tsAndCsRedirectEnabled', process.env.TS_AND_CS_REDIRECT_ENABLED ?? 'false');
+    set(config, 'pre.enableCaseStateColumn', process.env.ENABLE_CASE_STATE_COLUMN ?? 'false');
 
     if (server.locals.ENV === 'production') {
       this.logger.info('Loading properties from mounted KV');
       propertiesVolume.addTo(config);
-      this.setSecret('secrets.pre-hmctskv.AppInsightsInstrumentationKey', 'appInsights.instrumentationKey');
+      this.setSecret(
+        'secrets.pre-hmctskv.app-insights-connection-string',
+        'appInsights.app-insights-connection-string'
+      );
       this.setSecret('secrets.pre-hmctskv.redis6-access-key', 'session.redis.key');
       this.setSecret('secrets.pre-hmctskv.session-secret', 'session.secret');
       this.setSecret('secrets.pre-hmctskv.apim-sub-portal-primary-key', 'pre.apiKey.primary');
@@ -49,6 +56,7 @@ export class PropertiesVolume {
       this.setSecret('secrets.pre-hmctskv.pre-portal-sso', 'b2c.appClientSecret');
       this.setSecret('secrets.pre-hmctskv.b2c-test-login-email', 'b2c.testLogin.email');
       this.setSecret('secrets.pre-hmctskv.b2c-test-login-password', 'b2c.testLogin.password');
+      this.setSecret('secrets.pre-hmctskv.media-kind-player-key', 'pre.mediaKindPlayerKey');
     } else {
       this.logger.info('Loading properties from .env file');
       require('dotenv').config();
@@ -60,7 +68,10 @@ export class PropertiesVolume {
       set(config, 'b2c.testLogin.email', process.env.B2C_TEST_LOGIN_EMAIL);
       set(config, 'b2c.testLogin.password', process.env.B2C_TEST_LOGIN_PASSWORD);
       set(config, 'session.secret', process.env.SESSION_SECRET ?? 'superlongrandomstringthatshouldbebetterinprod');
+      set(config, 'pre.mediaKindPlayerKey', process.env.MEDIA_KIND_PLAYER_KEY ?? 'mediaKindPlayerKey');
     }
+
+    this.logger.info('Redis host: {}', process.env.REDIS_HOST);
   }
 
   private setSecret(fromPath: string, toPath: string): void {

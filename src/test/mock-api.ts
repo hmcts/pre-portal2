@@ -7,6 +7,7 @@ import {
 } from '../main/services/pre-api/types';
 import { PreClient } from '../main/services/pre-api/pre-client';
 import { AxiosResponse } from 'axios';
+import { Terms } from '../main/types/terms';
 
 export const mockRecordings: Recording[] = [
   {
@@ -30,6 +31,7 @@ export const mockRecordings: Recording[] = [
       status: '',
       deleted_at: '',
       court_name: '',
+      case_state: 'PENDING_CLOSURE',
     },
     deleted_at: 'deletedAt',
     created_at: 'createdAt',
@@ -58,6 +60,7 @@ export const mockRecordings: Recording[] = [
       status: '',
       deleted_at: '',
       court_name: '',
+      case_state: 'OPEN',
     },
     deleted_at: 'deletedAt',
     created_at: 'createdAt',
@@ -142,10 +145,33 @@ export const mockPutAudit = () => {
   });
 };
 
+export function mockGetLatestTermsAndConditions(data?: Terms | null) {
+  if (data !== undefined) {
+    jest
+      .spyOn(PreClient.prototype, 'getLatestTermsAndConditions')
+      .mockImplementation(async (xUserId: string, id: string) => {
+        return Promise.resolve(data);
+      });
+  }
+}
+
+export function mockAcceptTermsAndConditions() {
+  jest
+    .spyOn(PreClient.prototype, 'acceptTermsAndConditions')
+    .mockImplementation(async (xUserId: string, termsId: string) => {
+      return Promise.resolve();
+    });
+}
+
 export function mockGetRecordingPlaybackData(data?: RecordingPlaybackData | null) {
   if (data !== undefined) {
     jest
       .spyOn(PreClient.prototype, 'getRecordingPlaybackData')
+      .mockImplementation(async (xUserId: string, id: string) => {
+        return Promise.resolve(data);
+      });
+    jest
+      .spyOn(PreClient.prototype, 'getRecordingPlaybackDataMk')
       .mockImplementation(async (xUserId: string, id: string) => {
         return Promise.resolve(data);
       });
@@ -154,6 +180,15 @@ export function mockGetRecordingPlaybackData(data?: RecordingPlaybackData | null
 
   jest
     .spyOn(PreClient.prototype, 'getRecordingPlaybackData')
+    .mockImplementation(async (xUserId: string, id: string) => {
+      return Promise.resolve({
+        src: 'src',
+        type: 'type',
+        protectionInfo: [],
+      } as RecordingPlaybackData);
+    });
+  jest
+    .spyOn(PreClient.prototype, 'getRecordingPlaybackDataMk')
     .mockImplementation(async (xUserId: string, id: string) => {
       return Promise.resolve({
         src: 'src',

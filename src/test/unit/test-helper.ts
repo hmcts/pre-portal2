@@ -1,6 +1,7 @@
 import { AccessStatus } from '../../main/types/access-status';
+import { UserProfile } from '../../main/types/user-profile';
 
-export const mockeduser = {
+export const mockeduser: UserProfile = {
   app_access: [
     {
       active: true,
@@ -37,6 +38,9 @@ export const mockeduser = {
       status: AccessStatus.INVITATION_SENT,
     },
   ],
+  terms_accepted: {
+    PORTAL: true,
+  },
   user: {
     id: '9ffcc9fb-db21-4d77-a983-c39b01141c6a',
     first_name: 'test',
@@ -44,5 +48,32 @@ export const mockeduser = {
     email: 'test@testy.com',
     phone_number: null,
     organisation: null,
+    terms_accepted: {
+      portal: true,
+    },
   },
 };
+
+export function mockUser() {
+  jest.mock('express-openid-connect', () => {
+    return {
+      requiresAuth: jest.fn().mockImplementation(() => {
+        return (req: any, res: any, next: any) => {
+          next();
+        };
+      }),
+    };
+  });
+  jest.mock('../../main/services/session-user/session-user', () => {
+    return {
+      SessionUser: {
+        getLoggedInUserPortalId: jest.fn().mockImplementation((req: Express.Request) => {
+          return '123';
+        }),
+        getLoggedInUserProfile: jest.fn().mockImplementation((req: Express.Request) => {
+          return mockeduser;
+        }),
+      },
+    };
+  });
+}

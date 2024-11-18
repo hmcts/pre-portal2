@@ -1,7 +1,8 @@
 {
   "useCSRFProtection": true,
   "appInsights": {
-    "instrumentationKey": false
+    "instrumentationKey": false,
+    "app-insights-connection-string": false
   },
   "pre": {
     "apiUrl": "",
@@ -9,7 +10,12 @@
       "primary": "",
       "secondary": ""
     },
-    "portalUrl": "https://localhost:4551"
+    "portalUrl": "https://localhost:4551",
+    "enableMkWatchPage": false,
+    "useMkOnWatchPage": false,
+    "mediaKindPlayerKey": "",
+    "tsAndCsRedirectEnabled": false,
+    "enableCaseStateColumn": false
   },
   "ams": {
     "azureMediaServices": "",

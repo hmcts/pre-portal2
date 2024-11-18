@@ -4,3 +4,8 @@ files:
   include: 'src/**/*.scss'
   ignore:
     - 'src/main/views/govuk/components/**'
+rules:
+  no-misspelled-properties:
+    - 1
+    - 'extra-properties':
+        - 'aspect-ratio'
