@@ -30,21 +30,18 @@ This diagram gives an overview of the PRE system which the pre-portal connects t
       Enterprise_Boundary(a0, "SDS Azure Tenant",) {
         System(Portal, "Portal", "User Authentication via Azure B2C")
 
-        System(function, "pre-functions", "Function apps to control Azure Media Services")
-
         System_Boundary(api, "API") {
             System(api, "pre-api", "System Authentication via Azure APIm.<br/>User Authorisation via X-User-Id header")
             SystemDb(db, "API db")
         }
 
         System_Boundary(media, "Media") {
-            System(ams, "Azure Media Services")
             SystemDb(blob, "Azure Blob Storage")
         }
 
       }
 
-      Enterprise_Boundary(a1, "Media Kind Azure Tenant",) {
+      Enterprise_Boundary(a1, "Media Kinda Azure Tenant",) {
         System(mk, "Media Kind")
       }
 
@@ -54,15 +51,11 @@ This diagram gives an overview of the PRE system which the pre-portal connects t
       BiRel(professionalUser, Portal, "")
       BiRel(PowerApps, PowerFlows, "")
       Rel(Portal, PowerFlows, "")
-      Rel(Portal, ams, "")
       Rel(Portal, api, "")
       BiRel(PowerFlows, Dataverse, "")
       Rel(PowerApps, api, "")
-      Rel(PowerFlows, api, "")
-      Rel(PowerFlows, function, "")
+      BiRel(PowerFlows, api, "")
       Rel(api, db, "")
-      Rel(ams, blob, "")
-      Rel(function, ams, "")
 
       Rel(Portal, mk, "")
       Rel(PowerApps, mk, "")
