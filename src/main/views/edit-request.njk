@@ -1,0 +1,163 @@
+{% extends "template.njk" %}
+
+{% block pageTitle %}Edit Recording {{ recording.id }} - PRE Portal{% endblock %}
+
+{% block head %}
+  {% include "webpack/css.njk" %}
+  <script type="text/javascript" src="/assets/js/mkplayer.js"></script>
+  <link rel="stylesheet" href="/assets/css/mkplayer-ui.css">
+{% endblock %}
+
+{% block beforeContent %}
+  {{
+    govukBackLink({
+      "href": "javascript:history.back()"
+    })
+  }}
+{% endblock %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-xl">Edits for case reference {{ recording.case_reference }}</h1>
+
+  <div id="videoError" class="govuk-error-summary" data-module="govuk-error-summary" style="display: none;">
+    <div role="alert">
+      <h2 class="govuk-error-summary__title">
+        There is a problem
+      </h2>
+      <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+          <li class="govuk-error-message">
+            The recording is not currently available
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="loading" class="govuk-!-margin-bottom-2 loading-box" style="display: block;">
+    <div class="loading-container">
+      <img src="/assets/images/loading-spinner.gif" alt="Loading" />
+    </div>
+  </div>
+
+  <div id="videoWrapper" class="govuk-!-margin-bottom-2 video-wrapper" style="display: none;">
+    <div id="video-container"></div>
+  </div>
+  <div style="text-align: right;">
+    <button type="button" class="govuk-button" data-module="govuk-button">Add Edit Reference</button>
+  </div>
+
+  <table class="govuk-table">
+    <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Start Time</th>
+      <th scope="col" class="govuk-table__header">End Time</th>
+      <th scope="col" class="govuk-table__header">Time Removed</th>
+      <th scope="col" class="govuk-table__header">Reason</th>
+      <th scope="col" class="govuk-table__header"></th>
+    </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+    {% if addReferenceEnabled %}
+      <tr class="govuk-table__row">
+        <form>
+          <td class="govuk-table__cell">
+            <input class="govuk-input govuk-input--width-10" id="start-time-input" name="startTime" type="text" placeholder="HH:MM:SS">
+          </td>
+          <td class="govuk-table__cell">
+            <input class="govuk-input govuk-input--width-10" id="end-time-input" name="endTime" type="text" placeholder="HH:MM:SS">
+          </td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">
+            <input class="govuk-input govuk-input--width-10" id="reason-input" name="reason" type="text" placeholder="Reason">
+          </td>
+          <td class="govuk-table__cell">
+            <a class="govuk-link" style="margin-right: 0.5rem"  href="#" onclick="submitEditReference()">Save<span class="govuk-visually-hidden"> edit reference</span></a>
+            <a class="govuk-link" href="#" onclick="cancelEditReference()">Cancel<span class="govuk-visually-hidden"> edit reference</span></a>
+          </td>
+        </form>
+      </tr>
+    {% endif %}
+    {% if not addReferenceEnabled || editReferences.length === 0 %}
+      {# todo #}
+    {% endif %}
+    </tbody>
+  </table>
+  <script type="text/javascript" crossorigin="anonymous" data-testid="recording-video-script">
+    const videoContainer = document.getElementById("video-container");
+    var videoError = document.getElementById("videoError");
+
+    const playerConfig = {
+        key: "{{ mediaKindPlayerKey }}",
+        ui: true,
+        playback: {
+            muted: false,
+            autoplay: false,
+            preferredTech: [{ player: 'html5', streaming: 'hls'}]
+        }
+    };
+
+    let player = new mkplayer.MKPlayer(videoContainer, playerConfig);
+
+    fetch("{{ recordingPlaybackDataUrl }}", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    }).then(function (response) {
+      if (!response.ok) {
+        throw new Error(response);
+      }
+
+      return response.json();
+    }).then(async function (data) {
+      // wait for the url to be available
+      let hlsAvailable = false;
+      let retries = 120;
+      let time = 3000;
+      do {
+        await new Promise(r => setTimeout(r, time)); // sleep for `time`ms
+        const headResult = await fetch(data.hls_url, {
+          method: "HEAD"
+        });
+        hlsAvailable = headResult.status === 200;
+        retries--;
+        time -= 1000;
+        if (time < 1000) {
+          time = 500;
+        }
+      } while (hlsAvailable === false && retries > 0);
+      const sourceConfig = {
+        hls: data.hls_url,
+        drm: {
+          clearkey: {
+            LA_URL: 'HLS_AES',
+            headers: {
+              Authorization: 'Bearer=' + data.token || '',
+            },
+          },
+        }
+      };
+
+      player.load(sourceConfig);
+      document.getElementById("loading").style.display = "none";
+      document.getElementById("videoWrapper").style.display = "block";
+    }).catch(function (error) {
+      console.error("Error:", error);
+      videoError.style.display = "block";
+      document.getElementById("loading").style.display = "none";
+    });
+  </script>
+  <script type="text/javascript" crossorigin="anonymous" data-testid="edit-reference-submit">
+      let addReferenceEnabled = false;
+      let editReferences = [];
+      const submitEditReference = () => {
+        console.log('submitButton clicked');
+      }
+
+      const cancelEditReference = () => {
+        console.log('cancelButton clicked');
+      }
+  </script>
+{% endblock %}
