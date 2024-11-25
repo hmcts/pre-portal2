@@ -70,6 +70,8 @@ export class PropertiesVolume {
       set(config, 'session.secret', process.env.SESSION_SECRET ?? 'superlongrandomstringthatshouldbebetterinprod');
       set(config, 'pre.mediaKindPlayerKey', process.env.MEDIA_KIND_PLAYER_KEY ?? 'mediaKindPlayerKey');
     }
+    // set the dynatrace tag to be available in templates if set
+    server.locals.dynatrace_jstag = process.env.DYNATRACE_JSTAG ?? '';
 
     this.logger.info('Redis host: {}', process.env.REDIS_HOST);
   }
