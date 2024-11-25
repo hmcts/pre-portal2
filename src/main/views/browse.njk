@@ -46,6 +46,10 @@
           {%  if enableCaseStateColumn == true %}
           <th scope="col" class="govuk-table__header">Status</th>
           {% endif %}
+          {% if enableAutomatedEditing == true %}
+          <th scope="col" class="govuk-table__header">Edit Status</th>
+          <th scope="col" class="govuk-table__header"></th>
+          {% endif %}
           <th scope="col" class="govuk-table__header"></th>
         </tr>
         </thead>
@@ -101,6 +105,35 @@
                   This will be unavailable after {{ recording.capture_session.case_closed_at }}
                 {% endif %}
               </td>
+              {% endif %}
+              {% if enableAutomatedEditing == true %}
+                <td class="govuk-table__cell">
+                  {% if recording.edit_status == "DRAFT" %}
+                    <strong class="govuk-tag govuk-tag--grey">
+                      Draft
+                    </strong>
+                  {% endif %}
+                  {% if recording.edit_status == "SUBMITTED" %}
+                    <strong class="govuk-tag govuk-tag--blue">
+                      Submitted
+                    </strong>
+                  {% endif %}
+                  {% if recording.edit_status == "REJECTED" %}
+                    <strong class="govuk-tag govuk-tag--red">
+                      Rejected
+                    </strong>
+                  {% endif %}
+                  {% if recording.edit_status in ["APPROVED", "PENDING", "PROCESSING", "COMPLETE", "ERROR"] %}
+                    <strong class="govuk-tag govuk-tag--green">
+                      Approved
+                    </strong>
+                  {% endif %}
+                </td>
+                <td class="govuk-table__cell">
+                  {% if recording.version == 1 %}
+                    <a class="govuk-link" href="/edit-request/{{ recording.id }}">Edit</a>
+                  {% endif %}
+                </td>
               {% endif %}
               <td class="govuk-table__cell">
                 <a class="govuk-link" href="/watch/{{ recording.id }}">Play</a>

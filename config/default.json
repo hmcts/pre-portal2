@@ -13,6 +13,7 @@
     "portalUrl": "https://localhost:4551",
     "enableMkWatchPage": false,
     "useMkOnWatchPage": false,
+    "enableAutomatedEditing": false,
     "mediaKindPlayerKey": "",
     "tsAndCsRedirectEnabled": false,
     "enableCaseStateColumn": false
