@@ -1,4 +1,5 @@
 import {
+  EditRequest,
   Pagination,
   PutAuditRequest,
   Recording,
@@ -90,6 +91,25 @@ export const mockedPaginatedRecordings = {
   },
 };
 
+export const mockedEditRequest = {
+  id: '12345678-1234-1234-1234-1234567890ac',
+  source_recording: mockRecordings[0],
+  status: 'DRAFT',
+  edit_instruction: {
+    requestedInstructions: [
+      {
+        start_of_cut: '00:00:00',
+        end_of_cut: '00:00:01',
+        reason: 'reason',
+      },
+      {
+        start_of_cut: '00:00:10',
+        end_of_cut: '00:00:11',
+      },
+    ],
+  }
+};
+
 export const mockXUserId = 'a114f40e-bdba-432d-b53f-37169ee5bf99';
 
 export function mock() {
@@ -108,6 +128,19 @@ export function mockGetRecording(recording?: Recording | null) {
 
   jest.spyOn(PreClient.prototype, 'getRecording').mockImplementation(async (xUserId: string, id: string) => {
     return Promise.resolve(mockRecordings.find(r => r.id === id) || null);
+  });
+}
+
+export function mockGetCurrentEditRequest(editRequests?: EditRequest[] | null) {
+  if (editRequests !== undefined) {
+    jest.spyOn(PreClient.prototype, 'getMostRecentEditRequests').mockImplementation(async (xUserId: string, sourceRecordingId: string) => {
+      return Promise.resolve(editRequests);
+    });
+    return;
+  }
+
+  jest.spyOn(PreClient.prototype, 'getMostRecentEditRequests').mockImplementation(async (xUserId: string, sourceRecordingId: string) => {
+    return Promise.resolve([mockedEditRequest]);
   });
 }
 
@@ -202,4 +235,5 @@ export function reset() {
   jest.spyOn(PreClient.prototype, 'getRecording').mockRestore();
   jest.spyOn(PreClient.prototype, 'getRecordings').mockRestore();
   jest.spyOn(PreClient.prototype, 'getRecordingPlaybackData').mockRestore();
+  jest.spyOn(PreClient.prototype, 'getMostRecentEditRequests').mockRestore();
 }

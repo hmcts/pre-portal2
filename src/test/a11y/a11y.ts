@@ -77,6 +77,27 @@ describe('Accessibility', () => {
     });
   });
 
+  test('/edit-request page', async () => {
+    const page = await signIn(browser);
+    await page.waitForSelector('a[href^="/edit-request/"]', { visible: true, timeout: 0 });
+
+    if (page.url().includes('/accept-terms-and-conditions')) {
+      await page.click('input#terms');
+      await page.click('button[type="submit"]');
+      await page.waitForSelector('a[href^="/watch/"]', { visible: true, timeout: 0 });
+    }
+    await page.click('a[href^="/edit-request/"]');
+    const editUrl = page.url();
+
+    const result: Pa11yResult = await pa11y(editUrl, {
+      browser,
+      screenCapture: `${screenshotDir}/edit-request.png`,
+      waitUntil: 'domcontentloaded',
+    });
+    expect(result.issues).toEqual(expect.any(Array));
+    expectNoErrors(result.issues);
+  }, 65000);
+
   test('/browse, watch and terms pages', async () => {
     const page = await signIn(browser);
     await page.waitForSelector('a[href^="/watch/"],input#terms', { visible: true, timeout: 0 });

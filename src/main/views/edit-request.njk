@@ -45,9 +45,9 @@
     <div id="video-container"></div>
   </div>
   <div style="text-align: right;">
-    <button type="button" class="govuk-button" data-module="govuk-button">Add Edit Reference</button>
+    <button type="button" class="govuk-button" data-module="govuk-button" onclick="newEditReference()">Add Edit Reference</button>
   </div>
-
+  <form for="edit" id="new-edit-reference-form">
   <table class="govuk-table">
     <thead class="govuk-table__head">
     <tr class="govuk-table__row">
@@ -56,34 +56,55 @@
       <th scope="col" class="govuk-table__header">Time Removed</th>
       <th scope="col" class="govuk-table__header">Reason</th>
       <th scope="col" class="govuk-table__header"></th>
+      <th scope="col" class="govuk-table__header"></th>
     </tr>
     </thead>
-    <tbody class="govuk-table__body">
-    {% if addReferenceEnabled %}
-      <tr class="govuk-table__row">
-        <form>
+    <tbody id="current-instructions" class="govuk-table__body">
+      <tr class="govuk-table__row" id="new-edit-reference-row" hidden>
           <td class="govuk-table__cell">
+            <label hidden for="start-time-input">Start Time</label>
             <input class="govuk-input govuk-input--width-10" id="start-time-input" name="startTime" type="text" placeholder="HH:MM:SS">
           </td>
           <td class="govuk-table__cell">
+            <label hidden for="end-time-input">End Time</label>
             <input class="govuk-input govuk-input--width-10" id="end-time-input" name="endTime" type="text" placeholder="HH:MM:SS">
           </td>
           <td class="govuk-table__cell"></td>
           <td class="govuk-table__cell">
+            <label hidden for="reason-input">Reason</label>
             <input class="govuk-input govuk-input--width-10" id="reason-input" name="reason" type="text" placeholder="Reason">
           </td>
-          <td class="govuk-table__cell">
-            <a class="govuk-link" style="margin-right: 0.5rem"  href="#" onclick="submitEditReference()">Save<span class="govuk-visually-hidden"> edit reference</span></a>
-            <a class="govuk-link" href="#" onclick="cancelEditReference()">Cancel<span class="govuk-visually-hidden"> edit reference</span></a>
+          <td class="govuk-table__cell" style="text-align: right;">
+            <a class="govuk-link--no-visited-state" style="margin-right: 0.5rem"  href="#new-edit-reference-row" onclick="submitEditReference()">Save<span class="govuk-visually-hidden"> edit reference</span></a>
           </td>
-        </form>
+          <td class="govuk-table__cell">
+            <a class="govuk-link--no-visited-state" href="#new-edit-reference-row" onclick="cancelEditReference()">Cancel<span class="govuk-visually-hidden"> edit reference</span></a>
+          </td>
+
+
       </tr>
-    {% endif %}
-    {% if not addReferenceEnabled || editReferences.length === 0 %}
-      {# todo #}
-    {% endif %}
+        {% for instruction in editRequest.edit_instructions %}
+        <tr id="instruction-{{ loop.index0 }}" class="govuk-table__row">
+          <td class="govuk-table__cell"> {{ instruction.start_of_cut }}</td>
+          <td class="govuk-table__cell"> {{ instruction.end_of_cut }}</td>
+          <td class="govuk-table__cell"> {{ instruction.difference }}</td>
+          <td class="govuk-table__cell"> {{ instruction.reason }}</td>
+          <td class="govuk-table__cell" style="text-align: right;">
+            <a class="govuk-link" style="margin-right: 0.5rem"  href="#" onclick="updateEditReference({{ loop.index0 }})">Update<span class="govuk-visually-hidden"> edit reference</span></a>
+          </td>
+          <td class="govuk-table__cell">
+            <a class="govuk-link" href="#" onclick="deleteEditReference({{ loop.index0 }})">Delete<span class="govuk-visually-hidden"> edit reference</span></a>
+          </td>
+        </tr>
+        {% endfor %}
     </tbody>
   </table>
+
+  <div style="text-align: right;">
+    <button type="submit" class="govuk-button" data-module="govuk-button" onclick="submitEditRequest()">Submit</button>
+  </div>
+  </form>
+
   <script type="text/javascript" crossorigin="anonymous" data-testid="recording-video-script">
     const videoContainer = document.getElementById("video-container");
     var videoError = document.getElementById("videoError");
@@ -149,15 +170,96 @@
       document.getElementById("loading").style.display = "none";
     });
   </script>
-  <script type="text/javascript" crossorigin="anonymous" data-testid="edit-reference-submit">
-      let addReferenceEnabled = false;
-      let editReferences = [];
-      const submitEditReference = () => {
-        console.log('submitButton clicked');
-      }
+  <script type="text/javascript" crossorigin="anonymous" data-testid="edit-reference">
+    let editRequest = JSON.parse("{{ editRequest | dump  }}".replace(/&quot;/g, '"'));
 
-      const cancelEditReference = () => {
-        console.log('cancelButton clicked');
-      }
+    const newEditReference = () => {
+      const row = document.getElementById('new-edit-reference-row');
+      row.hidden = false;
+    }
+
+    const submitEditReference = () => {
+      const form = document.getElementById('new-edit-reference-form');
+      const row = document.getElementById('new-edit-reference-row');
+      row.hidden = true;
+
+      fetch("{{ editRequestPostUrl }}", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...editRequest,
+          edit_instructions: [
+            ...editRequest.edit_instructions,
+            {
+              start_of_cut: document.getElementById('start-time-input').value,
+              end_of_cut: document.getElementById('end-time-input').value,
+              reason: document.getElementById('reason-input').value
+            }
+          ]
+        }),
+      }).then(async function(response) {
+        if (!response.ok) {
+          throw new Error(response);
+        }
+        refreshTable(await response.json());
+      });
+
+      form.reset();
+    }
+
+    const refreshTable = (content) => {
+      editRequest = content;
+      const currentInstructions = document.getElementById('current-instructions');
+      currentInstructions.innerHTML = `
+        <tr class="govuk-table__row" id="new-edit-reference-row" hidden>
+          <form id="new-edit-reference-form">
+            <td class="govuk-table__cell">
+              <input class="govuk-input govuk-input--width-10" id="start-time-input" name="startTime" type="text" placeholder="HH:MM:SS">
+            </td>
+            <td class="govuk-table__cell">
+              <input class="govuk-input govuk-input--width-10" id="end-time-input" name="endTime" type="text" placeholder="HH:MM:SS">
+            </td>
+            <td class="govuk-table__cell"></td>
+            <td class="govuk-table__cell">
+              <input class="govuk-input govuk-input--width-10" id="reason-input" name="reason" type="text" placeholder="Reason">
+            </td>
+            <td class="govuk-table__cell" style="text-align: right;">
+              <a class="govuk-link--no-visited-state" style="margin-right: 0.5rem"  href="#new-edit-reference-row" onclick="submitEditReference()">Save<span class="govuk-visually-hidden"> edit reference</span></a>
+            </td>
+            <td class="govuk-table__cell">
+              <a class="govuk-link--no-visited-state" href="#new-edit-reference-row" onclick="cancelEditReference()">Cancel<span class="govuk-visually-hidden"> edit reference</span></a>
+            </td>
+          </form>
+        </tr>` + content.edit_instructions.map((instruction, index) => {
+          return `<tr id="instruction-${ index }" class="govuk-table__row">
+            <td class="govuk-table__cell">${ instruction.start_of_cut }</td>
+            <td class="govuk-table__cell">${ instruction.end_of_cut }</td>
+            <td class="govuk-table__cell">${ instruction.difference }</td>
+            <td class="govuk-table__cell">${ instruction.reason }</td>
+            <td class="govuk-table__cell" style="text-align: right;">
+              <a class="govuk-link" style="margin-right: 0.5rem"  href="#" onclick="updateEditReference(${ index })">Update<span class="govuk-visually-hidden"> edit reference</span></a>
+            </td>
+            <td class="govuk-table__cell">
+              <a class="govuk-link" href="#" onclick="deleteEditReference(${ index })">Delete<span class="govuk-visually-hidden"> edit reference</span></a>
+            </td>
+          </tr>`;
+        }).join('');
+    }
+
+    const cancelEditReference = () => {
+      const row = document.getElementById('new-edit-reference-row');
+      const form = document.getElementById('new-edit-reference-form');
+      row.hidden = true;
+      form.reset();
+    }
+
+    const updateEditReference = (id) => {
+    }
+
+    const deleteEditReference = (id) => {}
+
+    const submitEditRequest = () => {}
   </script>
 {% endblock %}
