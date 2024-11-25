@@ -107,7 +107,7 @@ export const mockedEditRequest = {
         end_of_cut: '00:00:11',
       },
     ],
-  }
+  },
 };
 
 export const mockXUserId = 'a114f40e-bdba-432d-b53f-37169ee5bf99';
@@ -133,15 +133,19 @@ export function mockGetRecording(recording?: Recording | null) {
 
 export function mockGetCurrentEditRequest(editRequests?: EditRequest[] | null) {
   if (editRequests !== undefined) {
-    jest.spyOn(PreClient.prototype, 'getMostRecentEditRequests').mockImplementation(async (xUserId: string, sourceRecordingId: string) => {
-      return Promise.resolve(editRequests);
-    });
+    jest
+      .spyOn(PreClient.prototype, 'getMostRecentEditRequests')
+      .mockImplementation(async (xUserId: string, sourceRecordingId: string) => {
+        return Promise.resolve(editRequests);
+      });
     return;
   }
 
-  jest.spyOn(PreClient.prototype, 'getMostRecentEditRequests').mockImplementation(async (xUserId: string, sourceRecordingId: string) => {
-    return Promise.resolve([mockedEditRequest]);
-  });
+  jest
+    .spyOn(PreClient.prototype, 'getMostRecentEditRequests')
+    .mockImplementation(async (xUserId: string, sourceRecordingId: string) => {
+      return Promise.resolve([mockedEditRequest]);
+    });
 }
 
 export function mockGetRecordings(recordings?: Recording[], page: number = 0) {

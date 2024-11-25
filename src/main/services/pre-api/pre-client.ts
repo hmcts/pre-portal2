@@ -184,20 +184,18 @@ export class PreClient {
 
   public async getMostRecentEditRequests(xUserId: string, sourceRecordingId: string): Promise<EditRequest[] | null> {
     try {
-      const response = await axios.get('/edits',
-        {
-          headers: {
-            'X-User-Id': xUserId,
-          },
-          params: {
-            sourceRecordingId,
-            size: 1
-          }
-        });
+      const response = await axios.get('/edits', {
+        headers: {
+          'X-User-Id': xUserId,
+        },
+        params: {
+          sourceRecordingId,
+          size: 1,
+        },
+      });
       return response.data['page']['totalElements'] === 0
         ? []
         : (response.data['_embedded']['editRequestDTOList'] as EditRequest[]);
-
     } catch (e) {
       // handle 403 and 404 the same so we don't expose the existence of recordings
       if (e.response?.status === 404 || e.response?.status === 403) {

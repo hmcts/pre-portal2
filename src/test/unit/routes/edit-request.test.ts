@@ -29,29 +29,37 @@ describe('edit-request route', () => {
     watch(app);
 
     test('should return 500 when getCurrentEditRequest fails', async () => {
-      jest.spyOn(PreClient.prototype, 'getMostRecentEditRequests').mockImplementation(async (xUserId: string, sourceRecordingId: string) => {
-        throw new Error('Error');
-      });
+      jest
+        .spyOn(PreClient.prototype, 'getMostRecentEditRequests')
+        .mockImplementation(async (xUserId: string, sourceRecordingId: string) => {
+          throw new Error('Error');
+        });
       await request(app)
         .get('/edit-request/12345678-1234-1234-1234-1234567890ab')
         .expect(res => expect(res.status).toBe(500));
     });
 
     test('should return 500 when calculateTimeRemoved fails', async () => {
-      jest.spyOn(PreClient.prototype, 'getMostRecentEditRequests').mockImplementation(async (xUserId: string, sourceRecordingId: string) => {
-        return [{
-          id: '123',
-          status: 'DRAFT',
-          source_recording_id: '12345678-1234-1234-1234-1234567890ab',
-          edit_instruction: {
-            requestedInstructions: [{
-              start_of_cut: '00:00:00',
-              end_of_cut: '00:00:00',
-            }],
-          },
-          rejection_reason: '',
-        }];
-      });
+      jest
+        .spyOn(PreClient.prototype, 'getMostRecentEditRequests')
+        .mockImplementation(async (xUserId: string, sourceRecordingId: string) => {
+          return [
+            {
+              id: '123',
+              status: 'DRAFT',
+              source_recording_id: '12345678-1234-1234-1234-1234567890ab',
+              edit_instruction: {
+                requestedInstructions: [
+                  {
+                    start_of_cut: '00:00:00',
+                    end_of_cut: '00:00:00',
+                  },
+                ],
+              },
+              rejection_reason: '',
+            },
+          ];
+        });
       await request(app)
         .get('/edit-request/12345678-1234-1234-1234-1234567890ab')
         .expect(res => expect(res.status).toBe(500));
@@ -148,20 +156,26 @@ describe('edit-request route', () => {
       jest.spyOn(PreClient.prototype, 'putEditRequest').mockImplementation(async (xUserId: string, body: any) => {
         return;
       });
-      jest.spyOn(PreClient.prototype, 'getMostRecentEditRequests').mockImplementation(async (xUserId: string, sourceRecordingId: string) => {
-        return [{
-          id: '123',
-          status: 'DRAFT',
-          source_recording_id: '12345678-1234-1234-1234-1234567890ab',
-          edit_instruction: {
-            requestedInstructions: [{
-              start_of_cut: '00:00:00',
-              end_of_cut: '00:00:00',
-            }],
-          },
-          rejection_reason: '',
-        }];
-      });
+      jest
+        .spyOn(PreClient.prototype, 'getMostRecentEditRequests')
+        .mockImplementation(async (xUserId: string, sourceRecordingId: string) => {
+          return [
+            {
+              id: '123',
+              status: 'DRAFT',
+              source_recording_id: '12345678-1234-1234-1234-1234567890ab',
+              edit_instruction: {
+                requestedInstructions: [
+                  {
+                    start_of_cut: '00:00:00',
+                    end_of_cut: '00:00:00',
+                  },
+                ],
+              },
+              rejection_reason: '',
+            },
+          ];
+        });
       await request(app)
         .post('/edit-request/12345678-1234-1234-1234-1234567890ab')
         .send({})
