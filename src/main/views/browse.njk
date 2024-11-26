@@ -48,9 +48,11 @@
           {% endif %}
           {% if enableAutomatedEditing == true %}
           <th scope="col" class="govuk-table__header">Edit Status</th>
+          <th scope="col" class="govuk-table__header">Action</th>
           <th scope="col" class="govuk-table__header"></th>
+          {% else %}
+          <th scope="col" class="govuk-table__header">Action</th>
           {% endif %}
-          <th scope="col" class="govuk-table__header"></th>
         </tr>
         </thead>
         {% if recordings.length === 0 %}
@@ -136,7 +138,10 @@
                 </td>
               {% endif %}
               <td class="govuk-table__cell">
-                <a class="govuk-link" href="/watch/{{ recording.id }}">Play</a>
+                <a class="govuk-link" href="/watch/{{ recording.id }}">
+                Play
+                <span class="sr-only">video case ref {{ recording.case_reference}}</span>
+                </a>
               </td>
             </tr>
           {% endfor %}
