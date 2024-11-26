@@ -129,6 +129,7 @@ describe('edit-request route', () => {
 
   describe('on POST', () => {
     const app = require('express')();
+    app.use(require('body-parser').json());
     new Nunjucks(false).enableFor(app);
     const request = require('supertest');
 
@@ -138,7 +139,20 @@ describe('edit-request route', () => {
     test('should return 404 when id is invalid', async () => {
       await request(app)
         .post('/edit-request/invalid-id')
-        .send({})
+        .set('Content-Type', 'application/json')
+        .send(
+          JSON.stringify({
+            id: '12345678-1234-1234-1234-1234567890ab',
+            source_recording_id: '12345678-1234-1234-1234-1234567890ab',
+            status: 'DRAFT',
+            edit_instructions: [
+              {
+                start_of_cut: '00:00:00',
+                end_of_cut: '00:00:01',
+              },
+            ],
+          })
+        )
         .expect(res => expect(res.status).toBe(404));
     });
 
@@ -148,11 +162,25 @@ describe('edit-request route', () => {
       });
       await request(app)
         .post('/edit-request/12345678-1234-1234-1234-1234567890ab')
-        .send({})
+        .set('Content-Type', 'application/json')
+        .send(
+          JSON.stringify({
+            id: '12345678-1234-1234-1234-1234567890ab',
+            source_recording_id: '12345678-1234-1234-1234-1234567890ab',
+            status: 'DRAFT',
+            edit_instructions: [
+              {
+                start_of_cut: '00:00:00',
+                end_of_cut: '00:00:01',
+              },
+            ],
+          })
+        )
         .expect(res => expect(res.status).toBe(500));
     });
 
     test('should return 200 when putEditRequest succeeds', async () => {
+      mockGetRecording();
       jest.spyOn(PreClient.prototype, 'putEditRequest').mockImplementation(async (xUserId: string, body: any) => {
         return;
       });
@@ -178,8 +206,155 @@ describe('edit-request route', () => {
         });
       await request(app)
         .post('/edit-request/12345678-1234-1234-1234-1234567890ab')
-        .send({})
+        .set('Content-Type', 'application/json')
+        .send(
+          JSON.stringify({
+            id: '12345678-1234-1234-1234-1234567890ab',
+            source_recording_id: '12345678-1234-1234-1234-1234567890ab',
+            status: 'DRAFT',
+            edit_instructions: [
+              {
+                start_of_cut: '00:00:00',
+                end_of_cut: '00:00:01',
+              },
+            ],
+          })
+        )
         .expect(res => expect(res.status).toBe(200));
+    });
+
+    test('should return 400 when validation fails', async () => {
+      mockGetRecording();
+      jest.spyOn(PreClient.prototype, 'putEditRequest').mockImplementation(async (xUserId: string, body: any) => {
+        return;
+      });
+      jest
+        .spyOn(PreClient.prototype, 'getMostRecentEditRequests')
+        .mockImplementation(async (xUserId: string, sourceRecordingId: string) => {
+          return [
+            {
+              id: '123',
+              status: 'DRAFT',
+              source_recording_id: '12345678-1234-1234-1234-1234567890ab',
+              edit_instruction: {
+                requestedInstructions: [
+                  {
+                    start_of_cut: '00:00:00',
+                    end_of_cut: '00:00:00',
+                  },
+                ],
+              },
+              rejection_reason: '',
+            },
+          ];
+        });
+      await request(app)
+        .post('/edit-request/12345678-1234-1234-1234-1234567890ab')
+        .set('Content-Type', 'application/json')
+        .set('Accept', 'application/json')
+        .send(
+          JSON.stringify({
+            id: '12345678-1234-1234-1234-1234567890ab',
+            source_recording_id: '12345678-1234-1234-1234-1234567890ab',
+            status: 'DRAFT',
+            edit_instructions: [
+              {
+                start_of_cut: '00:00:00',
+                end_of_cut: '00:00:00',
+              },
+            ],
+          })
+        )
+        .expect(res => expect(res.status).toBe(400))
+        .expect(res =>
+          expect(res.body).toStrictEqual({
+            errors: {
+              endTime: 'End reference cannot be equal or less than the Start reference',
+            },
+          })
+        );
+    });
+  });
+
+  describe('validation for put', () => {
+    const { validateRequest } = require('../../../main/routes/edit-request');
+
+    test('should return an error when start_of_cut is empty', () => {
+      const duration = 'PT10S';
+      const instruction = {
+        start_of_cut: '',
+        end_of_cut: '00:00:01',
+      };
+      const errors = validateRequest(
+        { id: '', source_recording_id: '', status: '', edit_instructions: [instruction] },
+        duration
+      );
+      expect(errors).toEqual({ startTime: 'Please enter a valid time reference' });
+    });
+
+    test('should return an error when start_of_cut is not in HH:MM:SS format', () => {
+      const duration = 'PT10S';
+      const instruction = {
+        start_of_cut: '00:00:0t',
+        end_of_cut: '00:00:01',
+      };
+      const errors = validateRequest(
+        { id: '', source_recording_id: '', status: '', edit_instructions: [instruction] },
+        duration
+      );
+      expect(errors).toEqual({ startTime: 'The Start reference entered is not in the HH:MM:SS format' });
+    });
+
+    test('should return an error when end_of_cut is empty', () => {
+      const duration = 'PT10S';
+      const instruction = {
+        start_of_cut: '00:00:00',
+        end_of_cut: '',
+      };
+      const errors = validateRequest(
+        { id: '', source_recording_id: '', status: '', edit_instructions: [instruction] },
+        duration
+      );
+      expect(errors).toEqual({ endTime: 'Please enter a valid time reference' });
+    });
+
+    test('should return an error when end_of_cut is not in HH:MM:SS format', () => {
+      const duration = 'PT10S';
+      const instruction = {
+        start_of_cut: '00:00:00',
+        end_of_cut: '00:00:0t',
+      };
+      const errors = validateRequest(
+        { id: '', source_recording_id: '', status: '', edit_instructions: [instruction] },
+        duration
+      );
+      expect(errors).toEqual({ endTime: 'The End reference entered is not in the HH:MM:SS format' });
+    });
+
+    test('should return an error when end_of_cut is less than start_of_cut', () => {
+      const duration = 'PT10S';
+      const instruction = {
+        start_of_cut: '00:00:01',
+        end_of_cut: '00:00:00',
+      };
+      const errors = validateRequest(
+        { id: '', source_recording_id: '', status: '', edit_instructions: [instruction] },
+        duration
+      );
+      expect(errors).toEqual({ endTime: 'End reference cannot be equal or less than the Start reference' });
+    });
+
+    test('should return an error when end_of_cut is greater than the duration of the recording', () => {
+      const duration = 'PT10S';
+      const instruction = {
+        start_of_cut: '00:00:00',
+        end_of_cut: '00:00:11',
+      };
+      const errors = validateRequest(
+        { id: '', source_recording_id: '', status: '', edit_instructions: [instruction] },
+        duration
+      );
+      expect(errors).toEqual({ endTime: 'References cannot be greater than the duration of the recording' });
     });
   });
 });

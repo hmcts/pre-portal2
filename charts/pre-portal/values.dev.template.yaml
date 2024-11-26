@@ -15,4 +15,3 @@ nodejs:
     ENABLE_AUTOMATED_EDITING: true
     # Uncomment to enable dynatrace RUM in dev envs
     #DYNATRACE_JSTAG: https://js-cdn.dynatrace.com/jstag/17177a07246/bf24054dsx/636bef1033a59525_complete.js
-

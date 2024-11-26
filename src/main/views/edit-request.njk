@@ -61,27 +61,31 @@
     </thead>
     <tbody id="current-instructions" class="govuk-table__body">
       <tr class="govuk-table__row" id="new-edit-reference-row" hidden>
-          <td class="govuk-table__cell">
-            <label hidden for="start-time-input">Start Time</label>
+        <td class="govuk-table__cell" style="vertical-align: bottom;">
+          <label hidden for="start-time-input">Start Time</label>
+          <div id="start-form-group">
             <input class="govuk-input govuk-input--width-10" id="start-time-input" name="startTime" type="text" placeholder="HH:MM:SS">
-          </td>
-          <td class="govuk-table__cell">
-            <label hidden for="end-time-input">End Time</label>
+          </div>
+        </td>
+        <td class="govuk-table__cell" style="vertical-align: bottom;">
+          <label hidden for="end-time-input">End Time</label>
+          <div id="end-form-group">
             <input class="govuk-input govuk-input--width-10" id="end-time-input" name="endTime" type="text" placeholder="HH:MM:SS">
-          </td>
-          <td class="govuk-table__cell"></td>
-          <td class="govuk-table__cell">
-            <label hidden for="reason-input">Reason</label>
+          </div>
+        </td>
+        <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell" style="vertical-align: bottom;">
+          <label hidden for="reason-input">Reason</label>
+          <div id="reason-form-group">
             <input class="govuk-input govuk-input--width-10" id="reason-input" name="reason" type="text" placeholder="Reason">
-          </td>
-          <td class="govuk-table__cell" style="text-align: right;">
-            <a class="govuk-link--no-visited-state" style="margin-right: 0.5rem"  href="#new-edit-reference-row" onclick="submitEditReference()">Save<span class="govuk-visually-hidden"> edit reference</span></a>
-          </td>
-          <td class="govuk-table__cell">
-            <a class="govuk-link--no-visited-state" href="#new-edit-reference-row" onclick="cancelEditReference()">Cancel<span class="govuk-visually-hidden"> edit reference</span></a>
-          </td>
-
-
+          </div>
+        </td>
+        <td class="govuk-table__cell" style="text-align: right;">
+          <a class="govuk-link--no-visited-state" style="margin-right: 0.5rem"  href="#new-edit-reference-row" onclick="submitEditReference()">Save<span class="govuk-visually-hidden"> edit reference</span></a>
+        </td>
+        <td class="govuk-table__cell">
+          <a class="govuk-link--no-visited-state" href="#new-edit-reference-row" onclick="cancelEditReference()">Cancel<span class="govuk-visually-hidden"> edit reference</span></a>
+        </td>
       </tr>
         {% for instruction in editRequest.edit_instructions %}
         <tr id="instruction-{{ loop.index0 }}" class="govuk-table__row">
@@ -172,16 +176,59 @@
   </script>
   <script type="text/javascript" crossorigin="anonymous" data-testid="edit-reference">
     let editRequest = JSON.parse("{{ editRequest | dump  }}".replace(/&quot;/g, '"'));
+    let errors = { 'start-time': 'Start Time cannot be blank' };
 
     const newEditReference = () => {
       const row = document.getElementById('new-edit-reference-row');
       row.hidden = false;
     }
 
+    const showErrors = () => {
+      if (Object.keys(errors).length === 0) {
+        return;
+      }
+
+      const startFormGroup = document.getElementById('start-form-group');
+      const el = startFormGroup.querySelector('.govuk-error-message');
+      if (el) {
+        el.remove();
+      }
+      const endFormGroup = document.getElementById('end-form-group');
+      const el2 = endFormGroup.querySelector('.govuk-error-message');
+      if (el2) {
+        el2.remove();
+      }
+
+      if (errors['startTime']) {
+        startFormGroup.classList.add('govuk-form-group--error');
+        const startTimeInput = document.getElementById('start-time-input');
+        startTimeInput.classList.add('govuk-input--error');
+        startTimeInput.insertAdjacentHTML('beforebegin', `<p class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> ${ errors['startTime']}`);
+      } else {
+        startFormGroup.classList.remove('govuk-form-group--error');
+        const startTimeInput = document.getElementById('start-time-input');
+        startTimeInput.classList.remove('govuk-input--error');
+      }
+
+      if (errors['endTime']) {
+        endFormGroup.classList.add('govuk-form-group--error');
+        const endTimeInput = document.getElementById('end-time-input');
+        endTimeInput.classList.add('govuk-input--error');
+        endTimeInput.insertAdjacentHTML('beforebegin', `<p class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> ${ errors['endTime']}`);
+      } else {
+        endFormGroup.classList.remove('govuk-form-group--error');
+        const endTimeInput = document.getElementById('end-time-input');
+        endTimeInput.classList.remove('govuk-input--error');
+      }
+    }
+
     const submitEditReference = () => {
       const form = document.getElementById('new-edit-reference-form');
       const row = document.getElementById('new-edit-reference-row');
-      row.hidden = true;
+
+      errors = {};
 
       fetch("{{ editRequestPostUrl }}", {
         method: "POST",
@@ -199,14 +246,26 @@
             }
           ]
         }),
-      }).then(async function(response) {
+      }).then(async (response) => {
         if (!response.ok) {
+          const e = (await response.json())['errors'];
+          if (e) {
+            errors = e;
+            return;
+          }
           throw new Error(response);
         }
         refreshTable(await response.json());
+      }).catch(e => {
+        console.error("Error:", e);
+      }).then(() => {
+        if (Object.keys(errors).length > 0) {
+          showErrors();
+          return;
+        }
+        row.hidden = true;
+        form.reset();
       });
-
-      form.reset();
     }
 
     const refreshTable = (content) => {
@@ -214,24 +273,31 @@
       const currentInstructions = document.getElementById('current-instructions');
       currentInstructions.innerHTML = `
         <tr class="govuk-table__row" id="new-edit-reference-row" hidden>
-          <form id="new-edit-reference-form">
-            <td class="govuk-table__cell">
+          <td class="govuk-table__cell" style="vertical-align: bottom;">
+            <label hidden for="start-time-input">Start Time</label>
+            <div id="start-form-group">
               <input class="govuk-input govuk-input--width-10" id="start-time-input" name="startTime" type="text" placeholder="HH:MM:SS">
-            </td>
-            <td class="govuk-table__cell">
+            </div>
+          </td>
+          <td class="govuk-table__cell" style="vertical-align: bottom;">
+            <label hidden for="end-time-input">End Time</label>
+            <div id="end-form-group">
               <input class="govuk-input govuk-input--width-10" id="end-time-input" name="endTime" type="text" placeholder="HH:MM:SS">
-            </td>
-            <td class="govuk-table__cell"></td>
-            <td class="govuk-table__cell">
+            </div>
+          </td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell" style="vertical-align: bottom;">
+            <label hidden for="reason-input">Reason</label>
+            <div id="reason-form-group">
               <input class="govuk-input govuk-input--width-10" id="reason-input" name="reason" type="text" placeholder="Reason">
-            </td>
-            <td class="govuk-table__cell" style="text-align: right;">
-              <a class="govuk-link--no-visited-state" style="margin-right: 0.5rem"  href="#new-edit-reference-row" onclick="submitEditReference()">Save<span class="govuk-visually-hidden"> edit reference</span></a>
-            </td>
-            <td class="govuk-table__cell">
-              <a class="govuk-link--no-visited-state" href="#new-edit-reference-row" onclick="cancelEditReference()">Cancel<span class="govuk-visually-hidden"> edit reference</span></a>
-            </td>
-          </form>
+            </div>
+          </td>
+          <td class="govuk-table__cell" style="text-align: right;">
+            <a class="govuk-link--no-visited-state" style="margin-right: 0.5rem"  href="#new-edit-reference-row" onclick="submitEditReference()">Save<span class="govuk-visually-hidden"> edit reference</span></a>
+          </td>
+          <td class="govuk-table__cell">
+            <a class="govuk-link--no-visited-state" href="#new-edit-reference-row" onclick="cancelEditReference()">Cancel<span class="govuk-visually-hidden"> edit reference</span></a>
+          </td>
         </tr>` + content.edit_instructions.map((instruction, index) => {
           return `<tr id="instruction-${ index }" class="govuk-table__row">
             <td class="govuk-table__cell">${ instruction.start_of_cut }</td>
@@ -253,6 +319,8 @@
       const form = document.getElementById('new-edit-reference-form');
       row.hidden = true;
       form.reset();
+      errors = {};
+      refreshTable(editRequest);
     }
 
     const updateEditReference = (id) => {

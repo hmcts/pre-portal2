@@ -60,6 +60,58 @@ const getCurrentEditRequest = async (
   return editRequest;
 };
 
+const parseIsoDuration = (duration: string): number => {
+  const regex = /PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(?:\.\d+)?)S)?/;
+  const matches = duration.match(regex);
+
+  if (!matches) {
+    throw new Error('Invalid ISO 8601 duration format');
+  }
+
+  const hours = parseInt(matches[1] ?? 0, 10);
+  const minutes = parseInt(matches[2] ?? 0, 10);
+  const seconds = parseInt(matches[3] ?? 0);
+
+  return hours * 3600 + minutes * 60 + seconds;
+};
+
+const validateInstruction = (instruction: PutEditInstruction, duration: string): Object => {
+  const errors = {};
+
+  const [h1, m1, s1] = instruction.start_of_cut.split(':').map(Number);
+  const [h2, m2, s2] = instruction.end_of_cut.split(':').map(Number);
+  const startTotalSeconds = h1 * 3600 + m1 * 60 + s1;
+  const endTotalSeconds = h2 * 3600 + m2 * 60 + s2;
+
+  const durationInSeconds = parseIsoDuration(duration);
+
+  if (instruction.start_of_cut === '') {
+    errors['startTime'] = 'Please enter a valid time reference';
+  } else if (!instruction.start_of_cut.match('^([01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d$')) {
+    errors['startTime'] = 'The Start reference entered is not in the HH:MM:SS format';
+  }
+
+  if (instruction.end_of_cut === '') {
+    errors['endTime'] = 'Please enter a valid time reference';
+  } else if (!instruction.end_of_cut.match('^([01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d$')) {
+    errors['endTime'] = 'The End reference entered is not in the HH:MM:SS format';
+  } else if (startTotalSeconds >= endTotalSeconds) {
+    errors['endTime'] = 'End reference cannot be equal or less than the Start reference';
+  } else if (endTotalSeconds > durationInSeconds) {
+    errors['endTime'] = 'References cannot be greater than the duration of the recording';
+  }
+  return errors;
+};
+
+export const validateRequest = (editRequest: PutEditRequest, duration: string): Object | undefined => {
+  for (let instruction of editRequest.edit_instructions) {
+    const errors = validateInstruction(instruction, duration);
+    if (Object.keys(errors).length > 0) {
+      return errors;
+    }
+  }
+};
+
 export default (app: Application): void => {
   if (config.get('pre.enableAutomatedEditing')?.toString().toLowerCase() !== 'true') {
     return;
@@ -86,6 +138,7 @@ export default (app: Application): void => {
         res.render('not-found');
         return;
       }
+
       logger.info(`Recording ${recording.id} accessed by User ${userProfile.user.email}`);
 
       await client.putAudit(userPortalId, {
@@ -163,10 +216,26 @@ export default (app: Application): void => {
       const client = new PreClient();
       const userPortalId = await SessionUser.getLoggedInUserPortalId(req);
 
-      await client.putEditRequest(userPortalId, req.body);
+      const recording = await client.getRecording(userPortalId, req.params.id);
 
+      if (!recording) {
+        res.status(404);
+        res.render('not-found');
+        return;
+      }
+
+      const errors = validateRequest(req.body, recording.duration);
+
+      if (errors) {
+        res.status(400);
+        res.json({ errors });
+        return;
+      }
+
+      await client.putEditRequest(userPortalId, req.body);
       res.json(await getCurrentEditRequest(client, userPortalId, req.params.id));
     } catch (e) {
+      console.log(e);
       next(e);
     }
   });

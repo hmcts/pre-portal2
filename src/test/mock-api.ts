@@ -16,7 +16,7 @@ export const mockRecordings: Recording[] = [
     parent_recording_id: 'parentId',
     version: 1,
     filename: 'filename',
-    duration: 'duration',
+    duration: 'PT1H1M1S',
     edit_instructions: 'editInstructions',
     case_id: '12345678-1234-1234-1234-1234567890ab',
     capture_session: {
@@ -45,7 +45,7 @@ export const mockRecordings: Recording[] = [
     parent_recording_id: 'parentId',
     version: 1,
     filename: 'filename',
-    duration: 'duration',
+    duration: 'PT1H1M1S',
     edit_instructions: 'editInstructions',
     case_id: '12345678-1234-1234-1234-1234567890ac',
     capture_session: {
