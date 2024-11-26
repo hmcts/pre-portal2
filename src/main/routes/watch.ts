@@ -58,7 +58,11 @@ export default function (app: Application): void {
         const mediaKindPlayerKey = config.get('pre.mediaKindPlayerKey');
         res.render('watch-mk', { recording, recordingPlaybackDataUrl, mediaKindPlayerKey });
       } else {
-        res.render('watch', { recording, recordingPlaybackDataUrl });
+        res.render('watch', {
+          recording,
+          recordingPlaybackDataUrl,
+          removeWitnessLastName: config.get('pre.removeWitnessLastName') === 'true',
+        });
       }
     } catch (e) {
       res.status(500);

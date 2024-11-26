@@ -14,7 +14,8 @@
     "enableMkWatchPage": false,
     "useMkOnWatchPage": false,
     "mediaKindPlayerKey": "",
-    "enableCaseStateColumn": false
+    "enableCaseStateColumn": false,
+    "removeWitnessLastName": false
   },
   "ams": {
     "azureMediaServices": "",

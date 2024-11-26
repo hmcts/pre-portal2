@@ -7,3 +7,4 @@ nodejs:
     PORTAL_URL: https://pre-portal-staging.staging.platform.hmcts.net
     B2C_APP_CLIENT_ID: d20a7462-f222-46b8-a363-d2e30eb274eb
     ENABLE_CASE_STATE_COLUMN: true
+    REMOVE_WITNESS_LAST_NAME: true
