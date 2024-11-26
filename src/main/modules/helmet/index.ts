@@ -2,7 +2,6 @@ import * as express from 'express';
 import helmet from 'helmet';
 
 const googleAnalyticsDomain = '*.google-analytics.com';
-const azureMediaPlayer = 'https://amp.azure.net/libs/amp/2.3.11/';
 const self = "'self'";
 
 /**
@@ -22,7 +21,7 @@ export class Helmet {
     const mkLicense = 'ottapp-appgw-amp.prodc.mkio.tv3cloud.com';
 
     // include default helmet functions
-    const scriptSrc = [self, googleAnalyticsDomain, "'unsafe-inline'", azureMediaPlayer, dynatraceDomain];
+    const scriptSrc = [self, googleAnalyticsDomain, "'unsafe-inline'", dynatraceDomain];
     const scriptSrcAttr = [self, "'unsafe-inline'"];
 
     if (this.developmentMode) {
@@ -37,24 +36,15 @@ export class Helmet {
       helmet({
         contentSecurityPolicy: {
           directives: {
-            connectSrc: [
-              self,
-              azureMediaPlayer,
-              dynatraceDomain,
-              mkPlayer,
-              bitmovinLicensing,
-              mkStreaming,
-              mkLicense,
-              'data:',
-            ],
+            connectSrc: [self, dynatraceDomain, mkPlayer, bitmovinLicensing, mkStreaming, mkLicense, 'data:'],
             defaultSrc: ["'none'"],
-            fontSrc: [self, azureMediaPlayer, 'data:'],
-            imgSrc: [self, googleAnalyticsDomain, azureMediaPlayer, 'data:'],
+            fontSrc: [self, 'data:'],
+            imgSrc: [self, googleAnalyticsDomain, 'data:'],
             manifestSrc: [self],
             mediaSrc: [self, 'blob:', 'data:', mkLicense, mkStreaming],
             objectSrc: [self],
             scriptSrc,
-            styleSrc: [self, "'unsafe-inline'", azureMediaPlayer],
+            styleSrc: [self, "'unsafe-inline'"],
             scriptSrcAttr,
             workerSrc: [self, 'blob:'],
           },
