@@ -24,6 +24,7 @@ export class PropertiesVolume {
       process.env.B2C_END_SESSION_ENDPOINT ??
         'https://hmctsstgextid.b2clogin.com/hmctsstgextid.onmicrosoft.com/b2c_1a_signup_signin/oauth2/v2.0/logout'
     );
+    set(config, 'pre.tsAndCsRedirectEnabled', process.env.TS_AND_CS_REDIRECT_ENABLED ?? 'false');
     set(config, 'pre.enableCaseStateColumn', process.env.ENABLE_CASE_STATE_COLUMN ?? 'false');
 
     if (server.locals.ENV === 'production') {
