@@ -36,6 +36,7 @@ export class PropertiesVolume {
     );
     set(config, 'pre.enableMkWatchPage', process.env.ENABLE_MK_WATCH_PAGE ?? 'false');
     set(config, 'pre.useMkOnWatchPage', process.env.USE_MK_ON_WATCH_PAGE ?? 'false');
+    set(config, 'pre.tsAndCsRedirectEnabled', process.env.TS_AND_CS_REDIRECT_ENABLED ?? 'false');
     set(config, 'pre.enableCaseStateColumn', process.env.ENABLE_CASE_STATE_COLUMN ?? 'false');
     set(config, 'pre.removeWitnessLastName', process.env.REMOVE_WITNESS_LAST_NAME ?? 'false');
 
