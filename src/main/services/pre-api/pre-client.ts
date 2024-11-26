@@ -1,10 +1,13 @@
 import { AccessStatus } from '../../types/access-status';
+import { TermsNotAcceptedError } from '../../types/errors';
+import { Terms } from '../../types/terms';
 import { UserProfile } from '../../types/user-profile';
 
 import { Pagination, PutAuditRequest, Recording, SearchRecordingsRequest } from './types';
 
 import { Logger } from '@hmcts/nodejs-logging';
 import axios, { AxiosResponse } from 'axios';
+import config from 'config';
 
 export class PreClient {
   logger = Logger.getLogger('pre-client');
@@ -35,7 +38,10 @@ export class PreClient {
       throw new Error('User has not been invited to the portal');
     }
 
-    if (!userProfile.portal_access || userProfile.portal_access.length === 0) {
+    if (
+      !userProfile.portal_access ||
+      (Array.isArray(userProfile.portal_access) && userProfile.portal_access.length === 0)
+    ) {
       const invitedUser = await this.isInvitedUser(email);
       if (!invitedUser) {
         throw new Error(
@@ -93,6 +99,10 @@ export class PreClient {
       throw new Error('User does not have access to the portal: ' + email);
     } else if (userProfile.portal_access[0].status === AccessStatus.INACTIVE) {
       throw new Error('User is not active: ' + email);
+    } else if (!userProfile.terms_accepted || !userProfile.terms_accepted['PORTAL']) {
+      if (config.get('pre.tsAndCsRedirectEnabled') === 'true') {
+        throw new TermsNotAcceptedError(email);
+      }
     }
     return userProfile;
   }
@@ -166,8 +176,29 @@ export class PreClient {
         return null;
       }
 
-      this.logger.error(e);
+      this.logger.error(e.message);
       throw e;
+    }
+  }
+
+  public async getLatestTermsAndConditions(): Promise<Terms> {
+    try {
+      const response = await axios.get('/portal-terms-and-conditions/latest');
+      return response.data as Terms;
+    } catch (e) {
+      this.logger.error(e.message);
+      throw e;
+    }
+  }
+
+  public async acceptTermsAndConditions(xUserId: string, termsId: string): Promise<void> {
+    const response = await axios.post(`/accept-terms-and-conditions/${termsId}`, null, {
+      headers: {
+        'X-User-Id': xUserId,
+      },
+    });
+    if (response.status.toString().substring(0, 1) !== '2') {
+      throw new Error('Failed to accept terms and conditions');
     }
   }
 }

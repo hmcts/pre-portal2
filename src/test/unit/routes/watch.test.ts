@@ -1,6 +1,6 @@
 /* eslint-disable jest/expect-expect */
 import { Nunjucks } from '../../../main/modules/nunjucks';
-import { mockGetRecording, mockGetRecordingPlaybackDataMk, mockPutAudit, reset } from '../../mock-api';
+import { mockGetRecording, mockGetRecordingPlaybackData, mockPutAudit, reset } from '../../mock-api';
 import { beforeAll, describe } from '@jest/globals';
 
 import { PreClient } from '../../../main/services/pre-api/pre-client';
@@ -28,7 +28,7 @@ describe('Watch page failure', () => {
         .expect(res => expect(res.status).toBe(404));
     });
     test('should return 404 when getRecordingPlaybackDataMk returns null', async () => {
-      mockGetRecordingPlaybackDataMk(null);
+      mockGetRecordingPlaybackData(null);
       await request(app)
         .get('/watch/12345678-1234-1234-1234-1234567890ff/playback')
         .expect(res => expect(res.status).toBe(404));
@@ -41,7 +41,7 @@ describe('Watch page failure', () => {
         .expect(res => expect(res.status).toBe(404));
     });
     test('should return 404 when getRecordingPlaybackDataMk id is invalid', async () => {
-      mockGetRecordingPlaybackDataMk(null);
+      mockGetRecordingPlaybackData(null);
       await request(app)
         .get('/watch/something/playback')
         .expect(res => expect(res.status).toBe(404));
@@ -83,7 +83,7 @@ describe('Watch page success', () => {
 
     test('should return 200 when getRecording and getRecordingPlaybackDataMk succeed', async () => {
       mockGetRecording();
-      mockGetRecordingPlaybackDataMk();
+      mockGetRecordingPlaybackData();
       mockPutAudit();
       await request(app)
         .get('/watch/12345678-1234-1234-1234-1234567890ab')

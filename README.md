@@ -1,6 +1,6 @@
 # pre-portal
 
-# Pre-Recorded Evidence Portal
+# Pre-Recorded Evidence Portal.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=pre-portal&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=pre-portal) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=pre-portal&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=pre-portal) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=pre-portal&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=pre-portal) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=pre-portal&metric=coverage)](https://sonarcloud.io/summary/new_code?id=pre-portal)
 
@@ -30,15 +30,12 @@ This diagram gives an overview of the PRE system which the pre-portal connects t
       Enterprise_Boundary(a0, "SDS Azure Tenant",) {
         System(Portal, "Portal", "User Authentication via Azure B2C")
 
-        System(function, "pre-functions", "Function apps to control Azure Media Services")
-
         System_Boundary(api, "API") {
             System(api, "pre-api", "System Authentication via Azure APIm.<br/>User Authorisation via X-User-Id header")
             SystemDb(db, "API db")
         }
 
         System_Boundary(media, "Media") {
-            System(ams, "Azure Media Services")
             SystemDb(blob, "Azure Blob Storage")
         }
 
@@ -54,15 +51,11 @@ This diagram gives an overview of the PRE system which the pre-portal connects t
       BiRel(professionalUser, Portal, "")
       BiRel(PowerApps, PowerFlows, "")
       Rel(Portal, PowerFlows, "")
-      Rel(Portal, ams, "")
       Rel(Portal, api, "")
       BiRel(PowerFlows, Dataverse, "")
       Rel(PowerApps, api, "")
-      Rel(PowerFlows, api, "")
-      Rel(PowerFlows, function, "")
+      BiRel(PowerFlows, api, "")
       Rel(api, db, "")
-      Rel(ams, blob, "")
-      Rel(function, ams, "")
 
       Rel(Portal, mk, "")
       Rel(PowerApps, mk, "")
