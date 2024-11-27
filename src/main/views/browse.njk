@@ -46,7 +46,7 @@
           {%  if enableCaseStateColumn == true %}
           <th scope="col" class="govuk-table__header">Status</th>
           {% endif %}
-          <th scope="col" class="govuk-table__header"></th>
+          <th scope="col" class="govuk-table__header">Action</th>
         </tr>
         </thead>
         {% if recordings.length === 0 %}
@@ -103,7 +103,10 @@
               </td>
               {% endif %}
               <td class="govuk-table__cell">
-                <a class="govuk-link" href="/watch/{{ recording.id }}">Play</a>
+                <a class="govuk-link" href="/watch/{{ recording.id }}">
+                Play
+                <span class="sr-only">video case ref {{ recording.case_reference}}</span>
+                </a>
               </td>
             </tr>
           {% endfor %}

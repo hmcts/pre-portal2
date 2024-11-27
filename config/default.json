@@ -11,18 +11,10 @@
       "secondary": ""
     },
     "portalUrl": "https://localhost:4551",
-    "enableMkWatchPage": false,
-    "useMkOnWatchPage": false,
     "mediaKindPlayerKey": "",
     "tsAndCsRedirectEnabled": false,
     "enableCaseStateColumn": false,
     "removeWitnessLastName": false
-  },
-  "ams": {
-    "azureMediaServices": "",
-    "azureMediaServicesKeyDelivery": "",
-    "flowKey": "",
-    "flowUrl": ""
   },
   "session": {
     "redis": {
