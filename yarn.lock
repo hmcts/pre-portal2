@@ -4487,12 +4487,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/cookie-parser@npm:1.4.7":
-  version: 1.4.7
-  resolution: "@types/cookie-parser@npm:1.4.7"
-  dependencies:
+"@types/cookie-parser@npm:1.4.8":
+  version: 1.4.8
+  resolution: "@types/cookie-parser@npm:1.4.8"
+  peerDependencies:
     "@types/express": "*"
-  checksum: 7b87c59420598e686a57e240be6e0db53967c3c8814be9326bf86609ee2fc39c4b3b9f2263e1deba43526090121d1df88684b64c19f7b494a80a4437caf3d40b
+  checksum: b26ace5560adce1a746c059a75f18227ee3e3614a49c70dd29b8af204696079ced22eaa9d6cb084e3433ec433bff845cb47ffb890ae9af96a4aab2ff85e40da7
   languageName: node
   linkType: hard
 
@@ -4558,12 +4558,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/express-session@npm:*, @types/express-session@npm:1.18.0":
+"@types/express-session@npm:*":
   version: 1.18.0
   resolution: "@types/express-session@npm:1.18.0"
   dependencies:
     "@types/express": "*"
   checksum: f624bc956d223eda618dc3ee5908cfc91d5cf67252aa83e667c1260b96c2d2ac302407d57d2a57b29728a21bf521f09c6409da5e727509c01a2b50d7a012f0a1
+  languageName: node
+  linkType: hard
+
+"@types/express-session@npm:1.18.1":
+  version: 1.18.1
+  resolution: "@types/express-session@npm:1.18.1"
+  dependencies:
+    "@types/express": "*"
+  checksum: 380ddcbbc6a64686deafd4e2831c636d11a3252f051ebb4c49649abfab5ddf69c2b31e4ff97a2961cb02ef8c616feaa7ecaa4ad7b7f028c25d88fbfa437fb455
   languageName: node
   linkType: hard
 
@@ -6035,7 +6044,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:1.7.7, axios@npm:^1.6.0":
+"axios@npm:1.7.7":
   version: 1.7.7
   resolution: "axios@npm:1.7.7"
   dependencies:
@@ -6043,6 +6052,17 @@ __metadata:
     form-data: ^4.0.0
     proxy-from-env: ^1.1.0
   checksum: 882d4fe0ec694a07c7f5c1f68205eb6dc5a62aecdb632cc7a4a3d0985188ce3030e0b277e1a8260ac3f194d314ae342117660a151fabffdc5081ca0b5a8b47fe
+  languageName: node
+  linkType: hard
+
+"axios@npm:^1.6.0":
+  version: 1.7.8
+  resolution: "axios@npm:1.7.8"
+  dependencies:
+    follow-redirects: ^1.15.6
+    form-data: ^4.0.0
+    proxy-from-env: ^1.1.0
+  checksum: 3d21652faf8e29fb36c47517d2872bb5e2285127a24f5c53ce23082c4eac7f5a88de84dd49d4a1a83068e5301dcfd9067b41e5fbd00b0d20ab7b0a843559273d
   languageName: node
   linkType: hard
 
@@ -14988,10 +15008,10 @@ __metadata:
     "@types/body-parser": 1.19.5
     "@types/compression": 1.7.5
     "@types/config": 3.3.5
-    "@types/cookie-parser": 1.4.7
+    "@types/cookie-parser": 1.4.8
     "@types/es6-promisify": 6.0.4
     "@types/express": 5.0.0
-    "@types/express-session": 1.18.0
+    "@types/express-session": 1.18.1
     "@types/glob": 8.1.0
     "@types/jest": 29.5.14
     "@types/lodash": 4.17.13
@@ -15055,7 +15075,7 @@ __metadata:
     nunjucks: 3.2.4
     pa11y: 8.0.0
     playwright: 1.49
-    prettier: 3.3.3
+    prettier: 3.4.1
     puppeteer: ^22.6.5
     react: ^18.3.1
     react-native: ^0.76.0
@@ -15104,12 +15124,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:3.3.3":
-  version: 3.3.3
-  resolution: "prettier@npm:3.3.3"
+"prettier@npm:3.4.1":
+  version: 3.4.1
+  resolution: "prettier@npm:3.4.1"
   bin:
     prettier: bin/prettier.cjs
-  checksum: bc8604354805acfdde6106852d14b045bb20827ad76a5ffc2455b71a8257f94de93f17f14e463fe844808d2ccc87248364a5691488a3304f1031326e62d9276e
+  checksum: f83ae83e38ae38f42c0b174833f58f820ed6eb063abfc5aa6725e8f9c1d626b54b1cb9d595cace525f8d59de89e186285f6bbcb460dc644ea9d8a7823cc54aca
   languageName: node
   linkType: hard
 
