@@ -13,7 +13,8 @@
     "portalUrl": "https://localhost:4551",
     "mediaKindPlayerKey": "",
     "tsAndCsRedirectEnabled": false,
-    "enableCaseStateColumn": false
+    "enableCaseStateColumn": false,
+    "removeWitnessLastName": false
   },
   "session": {
     "redis": {

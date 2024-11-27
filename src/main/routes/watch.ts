@@ -53,7 +53,12 @@ export default function (app: Application): void {
 
       const recordingPlaybackDataUrl = `/watch/${req.params.id}/playback`;
       const mediaKindPlayerKey = config.get('pre.mediaKindPlayerKey');
-      res.render('watch', { recording, recordingPlaybackDataUrl, mediaKindPlayerKey });
+      res.render('watch', {
+        recording,
+        recordingPlaybackDataUrl,
+        mediaKindPlayerKey,
+        removeWitnessLastName: config.get('pre.removeWitnessLastName') === 'true',
+      });
     } catch (e) {
       next(e);
     }
