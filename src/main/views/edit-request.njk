@@ -81,7 +81,7 @@
           </div>
         </td>
         <td class="govuk-table__cell" style="text-align: right;">
-          <a class="govuk-link--no-visited-state" style="margin-right: 0.5rem"  href="#new-edit-reference-row" onclick="submitEditReference()">Save<span class="govuk-visually-hidden"> edit reference</span></a>
+          <a class="govuk-link--no-visited-state" style="margin-right: 0.5rem"  href="#new-edit-reference-row"  id="submit-button" onclick="submitEditReference()">Save<span class="govuk-visually-hidden"> edit reference</span></a>
         </td>
         <td class="govuk-table__cell">
           <a class="govuk-link--no-visited-state" href="#new-edit-reference-row" onclick="cancelEditReference()">Cancel<span class="govuk-visually-hidden"> edit reference</span></a>
@@ -94,10 +94,10 @@
           <td class="govuk-table__cell"> {{ instruction.difference }}</td>
           <td class="govuk-table__cell"> {{ instruction.reason }}</td>
           <td class="govuk-table__cell" style="text-align: right;">
-            <a class="govuk-link" style="margin-right: 0.5rem"  href="#" onclick="updateEditReference({{ loop.index0 }})">Update<span class="govuk-visually-hidden"> edit reference</span></a>
+            <a class="govuk-link" style="margin-right: 0.5rem"  href="#new-edit-reference-row" onclick="selectRow({{ loop.index0 }}, true)">Update<span class="govuk-visually-hidden"> edit reference</span></a>
           </td>
           <td class="govuk-table__cell">
-            <a class="govuk-link" href="#" onclick="deleteEditReference({{ loop.index0 }})">Delete<span class="govuk-visually-hidden"> edit reference</span></a>
+            <a class="govuk-link" href="#delete-reference-row" onclick="selectRow({{ loop.index0 }}, false)">Delete<span class="govuk-visually-hidden"> edit reference</span></a>
           </td>
         </tr>
         {% endfor %}
@@ -108,6 +108,26 @@
     <button type="submit" class="govuk-button" data-module="govuk-button" onclick="submitEditRequest()">Submit</button>
   </div>
   </form>
+
+  <style>
+    tr.delete-message-block {
+      & > td > div.delete-message-block {
+        border-left: 5px solid #d4351c;
+        padding-left: 15px;
+
+        & > p {
+          margin: 0;
+          color: #d4351c;
+        }
+      }
+
+      input:disabled {
+        border-color: #d4351c;
+        opacity: 1;
+        color: #00000080;
+      }
+    }
+  </style>
 
   <script type="text/javascript" crossorigin="anonymous" data-testid="recording-video-script">
     const videoContainer = document.getElementById("video-container");
@@ -177,6 +197,7 @@
   <script type="text/javascript" crossorigin="anonymous" data-testid="edit-reference">
     let editRequest = JSON.parse("{{ editRequest | dump  }}".replace(/&quot;/g, '"'));
     let errors = { 'start-time': 'Start Time cannot be blank' };
+    let selectedIndex;
 
     const newEditReference = () => {
       const row = document.getElementById('new-edit-reference-row');
@@ -224,7 +245,7 @@
       }
     }
 
-    const submitEditReference = () => {
+    const submitEditReference = (newEditRequest) => {
       const form = document.getElementById('new-edit-reference-form');
       const row = document.getElementById('new-edit-reference-row');
 
@@ -235,17 +256,20 @@
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          ...editRequest,
-          edit_instructions: [
-            ...editRequest.edit_instructions,
-            {
-              start_of_cut: document.getElementById('start-time-input').value,
-              end_of_cut: document.getElementById('end-time-input').value,
-              reason: document.getElementById('reason-input').value
-            }
-          ]
-        }),
+        body: JSON.stringify(
+          newEditRequest
+            ? newEditRequest
+            : {
+              ...editRequest,
+              edit_instructions: [
+                ...editRequest.edit_instructions,
+                {
+                  start_of_cut: document.getElementById('start-time-input').value,
+                  end_of_cut: document.getElementById('end-time-input').value,
+                  reason: document.getElementById('reason-input').value
+                }
+              ]
+            }),
       }).then(async (response) => {
         if (!response.ok) {
           const e = (await response.json())['errors'];
@@ -285,7 +309,7 @@
               <input class="govuk-input govuk-input--width-10" id="end-time-input" name="endTime" type="text" placeholder="HH:MM:SS">
             </div>
           </td>
-          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell" style="vertical-align: bottom;"></td>
           <td class="govuk-table__cell" style="vertical-align: bottom;">
             <label hidden for="reason-input">Reason</label>
             <div id="reason-form-group">
@@ -293,22 +317,25 @@
             </div>
           </td>
           <td class="govuk-table__cell" style="text-align: right;">
-            <a class="govuk-link--no-visited-state" style="margin-right: 0.5rem"  href="#new-edit-reference-row" onclick="submitEditReference()">Save<span class="govuk-visually-hidden"> edit reference</span></a>
+            <a class="govuk-link--no-visited-state" style="margin-right: 0.5rem"  href="#new-edit-reference-row" id="submit-button" onclick="submitEditReference()">Save<span class="govuk-visually-hidden"> edit reference</span></a>
           </td>
           <td class="govuk-table__cell">
             <a class="govuk-link--no-visited-state" href="#new-edit-reference-row" onclick="cancelEditReference()">Cancel<span class="govuk-visually-hidden"> edit reference</span></a>
           </td>
         </tr>` + content.edit_instructions.map((instruction, index) => {
+          if (index === selectedIndex) {
+            return '';
+          }
           return `<tr id="instruction-${ index }" class="govuk-table__row">
             <td class="govuk-table__cell">${ instruction.start_of_cut }</td>
             <td class="govuk-table__cell">${ instruction.end_of_cut }</td>
             <td class="govuk-table__cell">${ instruction.difference }</td>
             <td class="govuk-table__cell">${ instruction.reason }</td>
             <td class="govuk-table__cell" style="text-align: right;">
-              <a class="govuk-link" style="margin-right: 0.5rem"  href="#" onclick="updateEditReference(${ index })">Update<span class="govuk-visually-hidden"> edit reference</span></a>
+              <a class="govuk-link" style="margin-right: 0.5rem" href="#new-edit-reference-row" onclick="selectRow(${ index }, true)">Update<span class="govuk-visually-hidden"> edit reference</span></a>
             </td>
             <td class="govuk-table__cell">
-              <a class="govuk-link" href="#" onclick="deleteEditReference(${ index })">Delete<span class="govuk-visually-hidden"> edit reference</span></a>
+              <a class="govuk-link" href="#delete-reference-row" onclick="selectRow(${ index }, false)">Delete<span class="govuk-visually-hidden"> edit reference</span></a>
             </td>
           </tr>`;
         }).join('');
@@ -320,13 +347,91 @@
       row.hidden = true;
       form.reset();
       errors = {};
+      selectedIndex = undefined;
       refreshTable(editRequest);
     }
 
-    const updateEditReference = (id) => {
+    const selectRow = (id, isUpdate) => {
+      selectedIndex = id;
+      const row = document.getElementById('new-edit-reference-row');
+      const currentInstructions = document.getElementById('current-instructions');
+      if (isUpdate) {
+        // is update
+        row.hidden = false;
+        const submitButton = document.getElementById('submit-button');
+        submitButton.removeAttribute('onclick');
+        submitButton.addEventListener('click', _ => {
+          updateEditReference(id);
+        });
+        const startInput = document.getElementById('start-time-input');
+        startInput.value = editRequest.edit_instructions[selectedIndex].start_of_cut;
+        const endInput = document.getElementById('end-time-input');
+        endInput.value = editRequest.edit_instructions[selectedIndex].end_of_cut;
+        const reasonInput = document.getElementById('reason-input');
+        reasonInput.value = editRequest.edit_instructions[selectedIndex].reason;
+      } else {
+        const row = document.getElementById('new-edit-reference-row');
+        row.hidden = true;
+        // is delete
+        const display = `
+          <tr class="govuk-table__row delete-message-block" id="delete-reference-row">
+            <td class="govuk-table__cell" style="vertical-align: bottom;">
+              <div class="delete-message-block">
+                <p class="govuk-error-message">Please confirm to delete this edit reference</p>
+                <label hidden for="start-time-input">Start Time</label>
+                <div id="start-form-group">
+                  <input class="govuk-input govuk-input--width-10" id="start-time-input" name="startTime" type="text" placeholder="HH:MM:SS" disabled value="${ editRequest.edit_instructions[selectedIndex].start_of_cut }">
+                </div>
+              </div>
+            </td>
+            <td class="govuk-table__cell" style="vertical-align: bottom;">
+              <label hidden for="end-time-input">End Time</label>
+              <div id="end-form-group">
+                <input class="govuk-input govuk-input--width-10" id="end-time-input" name="endTime" type="text" placeholder="HH:MM:SS" disabled value="${ editRequest.edit_instructions[selectedIndex].end_of_cut }">
+              </div>
+            </td>
+            <td class="govuk-table__cell" style="vertical-align: bottom; opacity: 0.5;">${ editRequest.edit_instructions[selectedIndex].difference }</td>
+            <td class="govuk-table__cell" style="vertical-align: bottom;">
+              <label hidden for="reason-input">Reason</label>
+              <div id="reason-form-group">
+                <input class="govuk-input govuk-input--width-10" id="reason-input" name="reason" type="text" placeholder="Reason" disabled value="${ editRequest.edit_instructions[selectedIndex].reason }">
+              </div>
+            </td>
+            <td class="govuk-table__cell" style="text-align: right;">
+              <a class="govuk-link--no-visited-state" style="margin-right: 0.5rem"  href="#new-edit-reference-form" onclick="deleteEditReference(${selectedIndex})">Confirm<span class="govuk-visually-hidden"> delete edit reference</span></a>
+            </td>
+            <td class="govuk-table__cell">
+              <a class="govuk-link--no-visited-state" href="#new-edit-reference-form" onclick="cancelEditReference()">Cancel<span class="govuk-visually-hidden"> edit reference</span></a>
+            </td>
+          </tr>`;
+        currentInstructions.innerHTML = display + currentInstructions.innerHTML;
+      }
     }
 
-    const deleteEditReference = (id) => {}
+    const updateEditReference = (id) => {
+      const newEditRequest = {
+        ...editRequest,
+        edit_instructions: editRequest.edit_instructions.map((instruction, index) => {
+          if (index === id) {
+            return {
+              start_of_cut: document.getElementById('start-time-input').value,
+              end_of_cut: document.getElementById('end-time-input').value,
+              reason: document.getElementById('reason-input').value
+            };
+          }
+          return instruction;
+        })
+      };
+
+      submitEditReference(newEditRequest);
+      selectedIndex = undefined;
+    }
+
+    const deleteEditReference = (id) => {
+      editRequest.edit_instructions.splice(id, 1);
+      submitEditReference(editRequest);
+      selectedIndex = undefined;
+    }
 
     const submitEditRequest = () => {}
   </script>
