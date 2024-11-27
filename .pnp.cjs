@@ -43,10 +43,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/body-parser", "npm:1.19.5"],\
             ["@types/compression", "npm:1.7.5"],\
             ["@types/config", "npm:3.3.5"],\
-            ["@types/cookie-parser", "npm:1.4.7"],\
+            ["@types/cookie-parser", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.4.8"],\
             ["@types/es6-promisify", "npm:6.0.4"],\
             ["@types/express", "npm:5.0.0"],\
-            ["@types/express-session", "npm:1.18.0"],\
+            ["@types/express-session", "npm:1.18.1"],\
             ["@types/glob", "npm:8.1.0"],\
             ["@types/jest", "npm:29.5.14"],\
             ["@types/lodash", "npm:4.17.13"],\
@@ -7333,11 +7333,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/cookie-parser", [\
-        ["npm:1.4.7", {\
-          "packageLocation": "./.yarn/cache/@types-cookie-parser-npm-1.4.7-b74a485836-7b87c59420.zip/node_modules/@types/cookie-parser/",\
+        ["npm:1.4.8", {\
+          "packageLocation": "./.yarn/cache/@types-cookie-parser-npm-1.4.8-fa95028070-b26ace5560.zip/node_modules/@types/cookie-parser/",\
           "packageDependencies": [\
-            ["@types/cookie-parser", "npm:1.4.7"],\
+            ["@types/cookie-parser", "npm:1.4.8"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.4.8", {\
+          "packageLocation": "./.yarn/__virtual__/@types-cookie-parser-virtual-8a714d6c96/0/cache/@types-cookie-parser-npm-1.4.8-fa95028070-b26ace5560.zip/node_modules/@types/cookie-parser/",\
+          "packageDependencies": [\
+            ["@types/cookie-parser", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.4.8"],\
             ["@types/express", "npm:5.0.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/express"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -7432,6 +7442,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-express-session-npm-1.18.0-49a4a823b1-f624bc956d.zip/node_modules/@types/express-session/",\
           "packageDependencies": [\
             ["@types/express-session", "npm:1.18.0"],\
+            ["@types/express", "npm:5.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:1.18.1", {\
+          "packageLocation": "./.yarn/cache/@types-express-session-npm-1.18.1-c0ef3ebe94-380ddcbbc6.zip/node_modules/@types/express-session/",\
+          "packageDependencies": [\
+            ["@types/express-session", "npm:1.18.1"],\
             ["@types/express", "npm:5.0.0"]\
           ],\
           "linkType": "HARD"\
@@ -11025,7 +11043,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/__virtual__/connect-redis-virtual-be6c993974/0/cache/connect-redis-npm-7.1.1-e1ca4e05df-ac91ee818d.zip/node_modules/connect-redis/",\
           "packageDependencies": [\
             ["connect-redis", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.1"],\
-            ["@types/express-session", "npm:1.18.0"],\
+            ["@types/express-session", "npm:1.18.1"],\
             ["express-session", "npm:1.18.1"]\
           ],\
           "packagePeers": [\
@@ -19684,10 +19702,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/body-parser", "npm:1.19.5"],\
             ["@types/compression", "npm:1.7.5"],\
             ["@types/config", "npm:3.3.5"],\
-            ["@types/cookie-parser", "npm:1.4.7"],\
+            ["@types/cookie-parser", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.4.8"],\
             ["@types/es6-promisify", "npm:6.0.4"],\
             ["@types/express", "npm:5.0.0"],\
-            ["@types/express-session", "npm:1.18.0"],\
+            ["@types/express-session", "npm:1.18.1"],\
             ["@types/glob", "npm:8.1.0"],\
             ["@types/jest", "npm:29.5.14"],\
             ["@types/lodash", "npm:4.17.13"],\
