@@ -107,6 +107,9 @@ export interface EditRequest {
   rejection_reason?: string;
   approved_by?: string;
   approved_at?: string;
+  created_by: string;
+  created_at: string;
+  modified_at: string;
 }
 
 export interface EditInstruction {

@@ -47,7 +47,7 @@
   <div style="text-align: right;">
     <button type="button" class="govuk-button" data-module="govuk-button" onclick="newEditReference()">Add Edit Reference</button>
   </div>
-  <form for="edit" id="new-edit-reference-form">
+  <form id="new-edit-reference-form" action="/edit-request/{{ recording.id }}/view">
   <table class="govuk-table">
     <thead class="govuk-table__head">
     <tr class="govuk-table__row">
@@ -105,7 +105,7 @@
   </table>
 
   <div style="text-align: right;">
-    <button type="submit" class="govuk-button" data-module="govuk-button" onclick="submitEditRequest()">Submit</button>
+    <input type="submit" class="govuk-button" data-module="govuk-button" value="Submit"/>
   </div>
   </form>
 
@@ -432,7 +432,5 @@
       submitEditReference(editRequest);
       selectedIndex = undefined;
     }
-
-    const submitEditRequest = () => {}
   </script>
 {% endblock %}

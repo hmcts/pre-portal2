@@ -49,7 +49,6 @@
           {% if enableAutomatedEditing == true %}
           <th scope="col" class="govuk-table__header">Edit Status</th>
           <th scope="col" class="govuk-table__header">Action</th>
-          <th scope="col" class="govuk-table__header"></th>
           {% else %}
           <th scope="col" class="govuk-table__header">Action</th>
           {% endif %}
@@ -132,17 +131,29 @@
                   {% endif %}
                 </td>
                 <td class="govuk-table__cell">
-                  {% if recording.version == 1 %}
-                    <a class="govuk-link" href="/edit-request/{{ recording.id }}">Edit</a>
-                  {% endif %}
+                  <div style="display: inline-flex; justify-content: end; width: 100%">
+                    {% if recording.version == 1 %}
+                      {% if recording.edit_status == "SUBMITTED" %}
+                        <a class="govuk-link" style="margin-right: 0.5rem;" href="/edit-request/{{ recording.id }}/view">View</a>
+                      {% else %}
+                        <a class="govuk-link" style="margin-right: 0.5rem;" href="/edit-request/{{ recording.id }}">Edit</a>
+                      {% endif %}
+                    {% endif %}
+                    <a class="govuk-link" href="/watch/{{ recording.id }}">
+                      Play
+                      <span class="sr-only" hidden>video case ref {{ recording.case_reference}}</span>
+                    </a>
+                  </div>
                 </td>
               {% endif %}
-              <td class="govuk-table__cell">
-                <a class="govuk-link" href="/watch/{{ recording.id }}">
-                Play
-                <span class="sr-only" hidden>video case ref {{ recording.case_reference}}</span>
-                </a>
-              </td>
+              {% if enableAutomatedEditing == false %}
+                <td class="govuk-table__cell">
+                  <a class="govuk-link" href="/watch/{{ recording.id }}">
+                    Play
+                    <span class="sr-only" hidden>video case ref {{ recording.case_reference}}</span>
+                  </a>
+                </td>
+              {% endif %}
             </tr>
           {% endfor %}
           </tbody>
@@ -154,5 +165,4 @@
         {{ govukPagination(paginationLinks) }}
       </div>
     {% endif %}
-
 {% endblock %}

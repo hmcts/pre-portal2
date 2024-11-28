@@ -3,6 +3,7 @@ import config from 'config';
 import { mockUser } from '../test-helper';
 import { set } from 'lodash';
 import {
+  mockedEditRequest,
   mockGetCurrentEditRequest,
   mockGetRecording,
   mockGetRecordingPlaybackData,
@@ -111,6 +112,23 @@ describe('edit-request route', () => {
       await request(app)
         .get('/edit-request/12345678-1234-1234-1234-1234567890ab/playback')
         .expect(res => expect(res.status).toBe(500));
+    });
+
+    test('should redirect to /edit-request/:id/view when getRecording and getCurrentEditRequest succeed', async () => {
+      mockGetRecording();
+      mockGetCurrentEditRequest([
+        {
+          ...mockedEditRequest,
+          status: 'SUBMITTED',
+          created_at: new Date().toISOString(),
+          created_by: 'Test User',
+          modified_at: new Date().toISOString(),
+        },
+      ]);
+      await request(app)
+        .get('/edit-request/12345678-1234-1234-1234-1234567890ab')
+        .expect(res => expect(res.status).toBe(302))
+        .expect(res => expect(res.header.location).toBe('/edit-request/12345678-1234-1234-1234-1234567890ab/view'));
     });
 
     test('should return 200 when getRecording and getRecordingPlaybackData succeed', async () => {

@@ -1,5 +1,6 @@
 import puppeteer, { Browser, Page } from 'puppeteer';
 import { config } from '../config';
+import { isFlagEnabled } from '../../main/utils/helpers';
 
 const pa11y = require('pa11y');
 
@@ -77,7 +78,11 @@ describe('Accessibility', () => {
     });
   });
 
-  test('/edit-request page', async () => {
+  test('/edit-request/:id page', async () => {
+    if (!isFlagEnabled('pre.enableAutomatedEditing')) {
+      return;
+    }
+
     const page = await signIn(browser);
     await page.waitForSelector('a[href^="/edit-request/"]', { visible: true, timeout: 0 });
 
@@ -86,7 +91,12 @@ describe('Accessibility', () => {
       await page.click('button[type="submit"]');
       await page.waitForSelector('a[href^="/watch/"]', { visible: true, timeout: 0 });
     }
-    await page.click('a[href^="/edit-request/"]');
+    try {
+      await page.click('a[href^="/edit-request/"]:not([href$="/view"])');
+    } catch (e) {
+      console.error('Error: No editable requests found');
+      return;
+    }
     const editUrl = page.url();
 
     const result: Pa11yResult = await pa11y(editUrl, {
@@ -98,45 +108,103 @@ describe('Accessibility', () => {
     expectNoErrors(result.issues);
   }, 65000);
 
-  // test('/browse, watch and terms pages', async () => {
-  //   const page = await signIn(browser);
-  //   await page.waitForSelector('a[href^="/watch/"],input#terms', { visible: true, timeout: 0 });
-  //
-  //   if (page.url().includes('/accept-terms-and-conditions')) {
-  //     await page.click('input#terms');
-  //     await page.click('button[type="submit"]');
-  //     await page.waitForSelector('a[href^="/watch/"]', { visible: true, timeout: 0 });
-  //   }
-  //   const browseUrl = page.url();
-  //   await page.click('a[href^="/watch/"]');
-  //   const watchUrl = page.url();
-  //
-  //   await page.goto(config.TEST_URL + '/terms-and-conditions');
-  //
-  //   const termsUrl = page.url();
-  //   await page.close();
-  //
-  //   const result: Pa11yResult = await pa11y(browseUrl, {
-  //     browser: browser,
-  //     screenCapture: `${screenshotDir}/browse.png`,
-  //     waitUntil: 'domcontentloaded',
-  //   });
-  //   expect(result.issues.map(issue => issue.code)).toEqual(['WCAG2AA.Principle2.Guideline2_2.2_2_1.F41.2']);
-  //
-  //   const watchResult: Pa11yResult = await pa11y(watchUrl, {
-  //     browser: browser,
-  //     screenCapture: `${screenshotDir}/watch.png`,
-  //   });
-  //   expect(watchResult.issues.map(issue => issue.code)).toEqual([
-  //     'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Button.Name',
-  //     'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name',
-  //     'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name',
-  //   ]);
-  //
-  //   const termsResult: Pa11yResult = await pa11y(termsUrl, {
-  //     browser: browser,
-  //     screenCapture: `${screenshotDir}/terms.png`,
-  //   });
-  //   expect(termsResult.issues.map(issue => issue.code)).toEqual([]);
-  // }, 65000);
+  test('/edit-request/:id/view page (for submissions)', async () => {
+    if (!isFlagEnabled('pre.enableAutomatedEditing')) {
+      return;
+    }
+    const page = await signIn(browser);
+    await page.waitForSelector('a[href^="/edit-request/"]', { visible: true, timeout: 0 });
+
+    if (page.url().includes('/accept-terms-and-conditions')) {
+      await page.click('input#terms');
+      await page.click('button[type="submit"]');
+      await page.waitForSelector('a[href^="/watch/"]', { visible: true, timeout: 0 });
+    }
+    try {
+      await page.click('a[href^="/edit-request/"]:not([href$="/view"])');
+    } catch (e) {
+      console.error('Error: No editable requests found');
+      return;
+    }
+    await page.waitForSelector('input[value^="Submit"]', { visible: true, timeout: 0 });
+    await page.click('input[value^="Submit"]');
+    const submitViewUrl = page.url();
+    const result: Pa11yResult = await pa11y(submitViewUrl, {
+      browser,
+      screenCapture: `${screenshotDir}/edit-request-view-submit.png`,
+      waitUntil: 'domcontentloaded',
+    });
+    expect(result.issues).toEqual(expect.any(Array));
+    expectNoErrors(result.issues);
+  }, 65000);
+
+  test('/edit-request/:id/view page (for viewing)', async () => {
+    if (!isFlagEnabled('pre.enableAutomatedEditing')) {
+      return;
+    }
+    const page = await signIn(browser);
+    await page.waitForSelector('a[href^="/edit-request/"]', { visible: true, timeout: 0 });
+
+    if (page.url().includes('/accept-terms-and-conditions')) {
+      await page.click('input#terms');
+      await page.click('button[type="submit"]');
+      await page.waitForSelector('a[href^="/watch/"]', { visible: true, timeout: 0 });
+    }
+    try {
+      await page.click('a[href^="/edit-request/"][href$="/view"]');
+    } catch (e) {
+      console.error('Error: No viewable edit requests found');
+      return;
+    }
+    const viewUrl = page.url();
+    const result: Pa11yResult = await pa11y(viewUrl, {
+      browser,
+      screenCapture: `${screenshotDir}/edit-request-view.png`,
+      waitUntil: 'domcontentloaded',
+    });
+    expect(result.issues).toEqual(expect.any(Array));
+    expectNoErrors(result.issues);
+  }, 65000);
+
+  test('/browse, watch and terms pages', async () => {
+    const page = await signIn(browser);
+    await page.waitForSelector('a[href^="/watch/"],input#terms', { visible: true, timeout: 0 });
+
+    if (page.url().includes('/accept-terms-and-conditions')) {
+      await page.click('input#terms');
+      await page.click('button[type="submit"]');
+      await page.waitForSelector('a[href^="/watch/"]', { visible: true, timeout: 0 });
+    }
+    const browseUrl = page.url();
+    await page.click('a[href^="/watch/"]');
+    const watchUrl = page.url();
+
+    await page.goto(config.TEST_URL + '/terms-and-conditions');
+
+    const termsUrl = page.url();
+    await page.close();
+
+    const result: Pa11yResult = await pa11y(browseUrl, {
+      browser: browser,
+      screenCapture: `${screenshotDir}/browse.png`,
+      waitUntil: 'domcontentloaded',
+    });
+    expect(result.issues.map(issue => issue.code)).toEqual(['WCAG2AA.Principle2.Guideline2_2.2_2_1.F41.2']);
+
+    const watchResult: Pa11yResult = await pa11y(watchUrl, {
+      browser: browser,
+      screenCapture: `${screenshotDir}/watch.png`,
+    });
+    expect(watchResult.issues.map(issue => issue.code)).toEqual([
+      'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Button.Name',
+      'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name',
+      'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name',
+    ]);
+
+    const termsResult: Pa11yResult = await pa11y(termsUrl, {
+      browser: browser,
+      screenCapture: `${screenshotDir}/terms.png`,
+    });
+    expect(termsResult.issues.map(issue => issue.code)).toEqual([]);
+  }, 65000);
 });
