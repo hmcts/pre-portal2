@@ -16,6 +16,15 @@ export class PreClient {
     await axios.get('/health');
   }
 
+  public async getAudit(request: PutAuditRequest): Promise<PutAuditRequest> {
+    try {
+      return (await axios.get('/audit/' + request.id)) as PutAuditRequest;
+    } catch (e) {
+      this.logger.error(e.message);
+      throw e;
+    }
+  }
+
   public async putAudit(xUserId: string, request: PutAuditRequest): Promise<AxiosResponse> {
     try {
       return await axios.put('/audit/' + request.id, request, {
