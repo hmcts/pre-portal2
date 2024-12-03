@@ -132,6 +132,7 @@ export default function (app: Application): void {
       user: SessionUser.getLoggedInUserProfile(req).user,
       enableCaseStateColumn: config.get('pre.enableCaseStateColumn') === 'true',
       isSuperUser: isSuperUser,
+      removeWitnessLastName: config.get('pre.removeWitnessLastName') === 'true',
     });
   });
 }

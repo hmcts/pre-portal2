@@ -79,7 +79,7 @@
       actions: [
       {
         classes: 'cookie-banner-hide-button',
-        text: 'Hide this message'
+        text: 'Hide cookie message'
       }
     ]
     },
@@ -91,7 +91,7 @@
       actions: [
       {
         classes: 'cookie-banner-hide-button',
-        text: 'Hide this message'
+        text: 'Hide cookie message'
       }
     ]
     }
@@ -128,4 +128,7 @@
       ]
     }
   }) }}
+  {% if dynatrace_jstag !== "" %}
+    <script type="text/javascript" src="{{ dynatrace_jstag }}" crossorigin="anonymous"></script>
+  {% endif %}
 {% endblock %}
