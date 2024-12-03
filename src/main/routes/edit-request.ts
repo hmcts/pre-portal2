@@ -196,7 +196,7 @@ export default (app: Application): void => {
           approved_at: undefined,
           approved_by: undefined,
           rejection_reason: undefined,
-        }
+        };
       }
 
       await client.putEditRequest(userPortalId, request);

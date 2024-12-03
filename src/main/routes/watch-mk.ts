@@ -7,17 +7,20 @@ import { Application } from 'express';
 import { requiresAuth } from 'express-openid-connect';
 import { v4 as uuid } from 'uuid';
 import { isFlagEnabled, secondsToTimeString, timeStringToSeconds, validateId } from '../utils/helpers';
-import {
-  AppliedEditInstruction,
-  PutEditInstruction,
-  RecordingAppliedEdits,
-} from '../services/pre-api/types';
+import { AppliedEditInstruction, PutEditInstruction, RecordingAppliedEdits } from '../services/pre-api/types';
 
-const parseAppliedEdits = async (edits: string, client: PreClient, xUserId: string): Promise<{
-  appliedEdits: AppliedEditInstruction[];
-  approvedBy: string;
-  approvedAt: string;
-} | undefined> => {
+const parseAppliedEdits = async (
+  edits: string,
+  client: PreClient,
+  xUserId: string
+): Promise<
+  | {
+      appliedEdits: AppliedEditInstruction[];
+      approvedBy: string;
+      approvedAt: string;
+    }
+  | undefined
+> => {
   if (!edits || edits == '') {
     return;
   }
@@ -36,7 +39,6 @@ const parseAppliedEdits = async (edits: string, client: PreClient, xUserId: stri
         reason: instruction.reason,
       }) as unknown as AppliedEditInstruction
   );
-
 
   let timeDifference = 0;
   for (const edit of appliedEdits) {
@@ -98,7 +100,7 @@ export default function (app: Application): void {
 
       const recordingPlaybackDataUrl = `/watch-mk/${req.params.id}/playback`;
       const mediaKindPlayerKey = config.get('pre.mediaKindPlayerKey');
-      const enableAutomatedEditing = isFlagEnabled('pre.enableAutomatedEditing')
+      const enableAutomatedEditing = isFlagEnabled('pre.enableAutomatedEditing');
 
       res.render('watch-mk', {
         recording,

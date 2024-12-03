@@ -127,5 +127,5 @@ export interface AppliedEditInstruction {
   startOfCut: string;
   endOfCut: string;
   reason: number;
-  runtimeReference?: string
+  runtimeReference?: string;
 }

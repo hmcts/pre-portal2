@@ -20,7 +20,7 @@ export default function (app: Application): void {
       return;
     }
     if (isFlagEnabled('pre.enableAutomatedEditing')) {
-      res.redirect("/watch-mk/" + req.params.id);
+      res.redirect('/watch-mk/' + req.params.id);
       return;
     }
 
