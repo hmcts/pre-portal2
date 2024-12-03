@@ -8,19 +8,25 @@ export const validateId = (id: string): boolean => {
   return /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(id);
 };
 
-export const calculateTimeRemoved = (start: string, end: string): string => {
-  const [h1, m1, s1] = start.split(':').map(Number);
-  const [h2, m2, s2] = end.split(':').map(Number);
+export const timeStringToSeconds = (timeString: string) => {
+  const [h, m, s] = timeString.split(':').map(Number);
+  return h * 3600 + m * 60 + s;
+};
 
-  const startTotalSeconds = h1 * 3600 + m1 * 60 + s1;
-  const endTotalSeconds = h2 * 3600 + m2 * 60 + s2;
+export const secondsToTimeString = (totalSeconds: number): string => {
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+}
+
+export const calculateTimeRemoved = (start: string, end: string): string => {
+  const startTotalSeconds = timeStringToSeconds(start);
+  const endTotalSeconds = timeStringToSeconds(end);
 
   const diffInSeconds = Math.abs(startTotalSeconds - endTotalSeconds);
-
-  const hours = Math.floor(diffInSeconds / 3600);
-  const minutes = Math.floor((diffInSeconds % 3600) / 60);
-  const seconds = diffInSeconds % 60;
-  return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+  return secondsToTimeString(diffInSeconds);
 };
 
 export const getCurrentEditRequest = async (
@@ -63,3 +69,7 @@ export const getCurrentEditRequest = async (
 export const isFlagEnabled = (flag: string): boolean => {
   return config.get(flag)?.toString().toLowerCase() === 'true';
 };
+
+export const isStatusEditable = (status: string): boolean => {
+  return ['DRAFT', 'REJECTED', 'COMPLETE'].includes(status);
+}

@@ -1,6 +1,6 @@
 import { PreClient } from '../services/pre-api/pre-client';
 import { SessionUser } from '../services/session-user/session-user';
-import { validateId } from '../utils/helpers';
+import { isFlagEnabled, validateId } from '../utils/helpers';
 
 import { Logger } from '@hmcts/nodejs-logging';
 import config from 'config';
@@ -17,6 +17,10 @@ export default function (app: Application): void {
     if (!validateId(req.params.id)) {
       res.status(404);
       res.render('not-found');
+      return;
+    }
+    if (isFlagEnabled('pre.enableAutomatedEditing')) {
+      res.redirect("/watch-mk/" + req.params.id);
       return;
     }
 

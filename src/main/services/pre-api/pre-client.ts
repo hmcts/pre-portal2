@@ -7,6 +7,7 @@ import {
   EditRequest,
   Pagination,
   PutAuditRequest,
+  PutEditRequest,
   Recording,
   RecordingPlaybackData,
   SearchRecordingsRequest,
@@ -169,7 +170,7 @@ export class PreClient {
     }
   }
 
-  public async putEditRequest(xUserId: string, request: EditRequest): Promise<void> {
+  public async putEditRequest(xUserId: string, request: PutEditRequest): Promise<void> {
     try {
       await axios.put(`/edits/${request.id}`, request, {
         headers: {
@@ -178,6 +179,25 @@ export class PreClient {
       });
     } catch (e) {
       this.logger.error(e.message);
+      throw e;
+    }
+  }
+
+  public async getEditRequest(xUserId: string, id: string): Promise<EditRequest | null> {
+    try {
+      const response = await axios.get(`/edits/${id}`, {
+        headers: {
+          'X-User-Id': xUserId,
+        },
+      });
+
+      return response.data as EditRequest;
+    } catch (e) {
+      // handle 403 and 404 the same so we don't expose the existence of recordings
+      if (e.response?.status === 404 || e.response?.status === 403) {
+        return null;
+      }
+
       throw e;
     }
   }

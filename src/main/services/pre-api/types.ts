@@ -115,3 +115,17 @@ export interface EditRequest {
 export interface EditInstruction {
   requestedInstructions: PutEditInstruction[];
 }
+
+export interface RecordingAppliedEdits {
+  editRequestId: string;
+  editInstructions: EditInstruction;
+}
+
+export interface AppliedEditInstruction {
+  start: number;
+  end: number;
+  startOfCut: string;
+  endOfCut: string;
+  reason: number;
+  runtimeReference?: string
+}

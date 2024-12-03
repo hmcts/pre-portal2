@@ -1,7 +1,7 @@
 import { PutEditInstruction, PutEditRequest } from '../services/pre-api/types';
 import { PreClient } from '../services/pre-api/pre-client';
 import { SessionUser } from '../services/session-user/session-user';
-import { validateId, getCurrentEditRequest, isFlagEnabled } from '../utils/helpers';
+import { validateId, getCurrentEditRequest, isFlagEnabled, isStatusEditable } from '../utils/helpers';
 
 import { Application } from 'express';
 import { requiresAuth } from 'express-openid-connect';
@@ -95,7 +95,7 @@ export default (app: Application): void => {
         return;
       }
 
-      if (editRequest.status === 'SUBMITTED') {
+      if (!isStatusEditable(editRequest.status)) {
         res.redirect(`/edit-request/${req.params.id}/view`);
         return;
       }
@@ -177,8 +177,9 @@ export default (app: Application): void => {
         res.render('not-found');
         return;
       }
+      let request = req.body as PutEditRequest;
 
-      const errors = validateRequest(req.body, recording.duration);
+      const errors = validateRequest(request, recording.duration);
 
       if (errors) {
         res.status(400);
@@ -186,7 +187,19 @@ export default (app: Application): void => {
         return;
       }
 
-      await client.putEditRequest(userPortalId, req.body);
+      if (req.body.status in ['REJECTED', 'COMPLETE']) {
+        request = {
+          ...request,
+          id: uuid(),
+          status: 'DRAFT',
+          jointly_agreed: undefined,
+          approved_at: undefined,
+          approved_by: undefined,
+          rejection_reason: undefined,
+        }
+      }
+
+      await client.putEditRequest(userPortalId, request);
       res.json(await getCurrentEditRequest(client, userPortalId, req.params.id));
     } catch (e) {
       console.log(e);

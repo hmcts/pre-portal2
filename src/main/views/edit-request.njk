@@ -353,6 +353,7 @@
 
     const selectRow = (id, isUpdate) => {
       selectedIndex = id;
+      refreshTable(editRequest);
       const row = document.getElementById('new-edit-reference-row');
       const currentInstructions = document.getElementById('current-instructions');
       if (isUpdate) {
