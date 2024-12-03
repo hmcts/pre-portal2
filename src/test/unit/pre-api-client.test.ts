@@ -287,6 +287,42 @@ describe('PreClient', () => {
     //expect(getRes?.status).toBe(201);
     expect(getRes?.audit_details?.recordingId).toBe(mockRecordingId);
   });
+
+  test('getAudit error from created putAudit', async () => {
+    const errorReq = {
+      id: '1abc',
+      functional_area: 'Video Player',
+      category: 'Recording',
+      activity: 'Play',
+      source: 'PORTAL',
+      audit_details: {
+        recordingId: '123',
+      },
+    };
+    const req = {
+      id: '12345678-1234-1234-1234-1234567890ab',
+      functional_area: 'Video Player',
+      category: 'Recording',
+      activity: 'Play',
+      source: 'PORTAL',
+      audit_details: {
+        recordingId: mockRecordingId,
+      },
+    } as PutAuditRequest;
+    // @ts-ignore
+    const res = await preClient.putAudit(mockXUserId, req);
+    expect(res).toBeTruthy();
+    expect(res?.status).toBe(201);
+
+    let error: { message: any } | undefined;
+    try {
+      await expect(await preClient.getAudit(errorReq)).rejects.toThrow('Invalid URL: /audit/1abc');
+    } catch (e) {
+      error = e;
+    }
+    expect(error).toBeTruthy();
+    expect(error?.message).toEqual('Invalid URL: /audit/1abc');
+  });
   test('putAudit created', async () => {
     const req = {
       id: '12345678-1234-1234-1234-1234567890ab',
