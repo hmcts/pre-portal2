@@ -15081,7 +15081,7 @@ __metadata:
     react-native: ^0.76.0
     redis: ^4.6.13
     require-directory: 2.1.1
-    sass: 1.81.0
+    sass: 1.81.1
     sass-loader: 16.0.3
     serve-favicon: 2.5.0
     session-file-store: ^1.5.0
@@ -16260,9 +16260,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.81.0":
-  version: 1.81.0
-  resolution: "sass@npm:1.81.0"
+"sass@npm:1.81.1":
+  version: 1.81.1
+  resolution: "sass@npm:1.81.1"
   dependencies:
     "@parcel/watcher": ^2.4.1
     chokidar: ^4.0.0
@@ -16273,7 +16273,7 @@ __metadata:
       optional: true
   bin:
     sass: sass.js
-  checksum: 93db5b342c3b0449af2b08123ed4c0793643bd3a30f78e4e0686a1aa991ad640e0d9bc8da09aa5d7ff313bbd317b3be9c827cca60fb33b07d9f4b14b001eccfe
+  checksum: 50e356450ab2d156bf2c9eb5bb59666bfb54074f449f88f64a0ef3b19e70da2ea42ce7e58a70b3a4e9e20f9c519bd17b9900621a1bbe6fbdec287080d55f5f3b
   languageName: node
   linkType: hard
 
