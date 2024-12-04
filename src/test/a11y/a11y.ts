@@ -195,11 +195,8 @@ describe('Accessibility', () => {
       browser: browser,
       screenCapture: `${screenshotDir}/watch.png`,
     });
-    expect(watchResult.issues.map(issue => issue.code)).toEqual([
-      'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Button.Name',
-      'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name',
-      'WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Div.Name',
-    ]);
+
+    expect(watchResult.issues.map(issue => issue.code)).toEqual([]);
 
     const termsResult: Pa11yResult = await pa11y(termsUrl, {
       browser: browser,

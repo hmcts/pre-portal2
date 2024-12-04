@@ -226,45 +226,6 @@ export class PreClient {
     }
   }
 
-  public async getRecordingPlaybackData(xUserId: string, id: string): Promise<RecordingPlaybackData | null> {
-    const url = config.get('ams.flowUrl') as string;
-    const key = config.get('ams.flowKey') as string;
-    const axiosClient = axios.create(); // TODO: move AMS playback logic to API and use instead of flow above
-
-    try {
-      const response = await axiosClient.post(
-        url,
-        {
-          RecordingId: id,
-          AccountID: xUserId,
-        },
-        {
-          headers: {
-            'X-Flow-Key': key,
-          },
-        }
-      );
-
-      return {
-        src: response.data['manifestpath'],
-        type: 'application/vnd.ms-sstr+xml',
-        protectionInfo: [
-          {
-            type: 'AES',
-            authenticationToken: `Bearer ${response.data['aestoken']}`,
-          },
-        ],
-      } as RecordingPlaybackData;
-    } catch (e) {
-      if (e.response?.status === 404) {
-        return null;
-      }
-
-      this.logger.error(e.message);
-      throw e;
-    }
-  }
-
   public async getRecordingPlaybackDataMk(xUserId: string, id: string): Promise<Recording | null> {
     try {
       const response = await axios.get(`/media-service/vod?recordingId=${id}`, {

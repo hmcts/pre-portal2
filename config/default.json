@@ -11,18 +11,11 @@
       "secondary": ""
     },
     "portalUrl": "https://localhost:4551",
-    "enableMkWatchPage": false,
-    "useMkOnWatchPage": false,
-    "enableAutomatedEditing": false,
     "mediaKindPlayerKey": "",
     "tsAndCsRedirectEnabled": false,
-    "enableCaseStateColumn": false
-  },
-  "ams": {
-    "azureMediaServices": "",
-    "azureMediaServicesKeyDelivery": "",
-    "flowKey": "",
-    "flowUrl": ""
+    "enableCaseStateColumn": false,
+    "removeWitnessLastName": false,
+    "enableAutomatedEditing": false
   },
   "session": {
     "redis": {
