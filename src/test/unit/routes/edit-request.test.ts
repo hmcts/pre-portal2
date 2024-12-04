@@ -103,17 +103,6 @@ describe('edit-request route', () => {
         .expect(res => expect(res.status).toBe(500));
     });
 
-    test('should return 500 when getRecordingPlaybackData fails', async () => {
-      jest
-        .spyOn(PreClient.prototype, 'getRecordingPlaybackDataMk')
-        .mockImplementation(async (xUserId: string, id: string) => {
-          throw new Error('Error');
-        });
-      await request(app)
-        .get('/edit-request/12345678-1234-1234-1234-1234567890ab/playback')
-        .expect(res => expect(res.status).toBe(500));
-    });
-
     test('should redirect to /edit-request/:id/view when getRecording and getCurrentEditRequest succeed', async () => {
       mockGetRecording();
       mockGetCurrentEditRequest([
@@ -130,20 +119,6 @@ describe('edit-request route', () => {
         .expect(res => expect(res.status).toBe(302))
         .expect(res => expect(res.header.location).toBe('/edit-request/12345678-1234-1234-1234-1234567890ab/view'));
     });
-
-    test('should return 200 when getRecording and getRecordingPlaybackData succeed', async () => {
-      mockGetRecording();
-      mockGetRecordingPlaybackData();
-      mockPutAudit();
-      mockGetCurrentEditRequest();
-      await request(app)
-        .get('/edit-request/12345678-1234-1234-1234-1234567890ab')
-        .expect(res => expect(res.status).toBe(200));
-      await request(app)
-        .get('/edit-request/12345678-1234-1234-1234-1234567890ab/playback')
-        .expect(res => expect(res.status).toBe(200));
-    });
-  });
 
   describe('on POST', () => {
     const app = require('express')();

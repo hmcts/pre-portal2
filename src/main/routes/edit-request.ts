@@ -118,7 +118,7 @@ export default (app: Application): void => {
         },
       });
 
-      const recordingPlaybackDataUrl = `/edit-request/${req.params.id}/playback`;
+      const recordingPlaybackDataUrl = `/watch/${req.params.id}/playback`;
       const editRequestPostUrl = `/edit-request/${req.params.id}`;
       const mediaKindPlayerKey = config.get('pre.mediaKindPlayerKey');
       res.render('edit-request', {
@@ -130,32 +130,6 @@ export default (app: Application): void => {
       });
     } catch (e) {
       next(e);
-    }
-  });
-
-  app.get('/edit-request/:id/playback', requiresAuth(), async (req, res) => {
-    if (!validateId(req.params.id)) {
-      res.status(404);
-      res.json({ message: 'Not found' });
-      return;
-    }
-
-    try {
-      const client = new PreClient();
-      const userPortalId = await SessionUser.getLoggedInUserPortalId(req);
-
-      const recordingPlaybackData = await client.getRecordingPlaybackDataMk(userPortalId, req.params.id);
-
-      if (recordingPlaybackData === null) {
-        res.status(404);
-        res.json({ message: 'Not found' });
-        return;
-      }
-
-      res.json(recordingPlaybackData);
-    } catch (e) {
-      res.status(500);
-      res.json({ message: e.message });
     }
   });
 
