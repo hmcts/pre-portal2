@@ -125,7 +125,7 @@
     "nodemon": "3.1.7",
     "pa11y": "8.0.0",
     "playwright": "1.49",
-    "prettier": "3.4.1",
+    "prettier": "3.4.2",
     "react": "^18.3.1",
     "react-native": "^0.76.0",
     "sass": "1.81.1",
@@ -153,5 +153,5 @@
     "**/*": "prettier --write --ignore-unknown",
     "**/*.{js,ts}": "eslint --cache --fix"
   },
-  "packageManager": "yarn@3.8.6"
+  "packageManager": "yarn@3.8.7"
 }
