@@ -43,8 +43,8 @@ export class PropertiesVolume {
       this.setSecret('secrets.pre-hmctskv.pre-portal-sso', 'b2c.appClientSecret');
       this.setSecret('secrets.pre-hmctskv.b2c-test-login-email', 'b2c.testLogin.email');
       this.setSecret('secrets.pre-hmctskv.b2c-test-login-password', 'b2c.testLogin.password');
-      this.setSecret('secrets.pre-hmctskv.b2c-test-super-user-login', 'b2c.testSuperUserLogin.email');
-      this.setSecret('secrets.pre-hmctskv.b2c-test-super-user-login', 'b2c.testSuperUserLogin.password');
+      this.setSecret('secrets.pre-hmctskv.b2c-test-super-user-login-email', 'b2c.testSuperUserLogin.email');
+      this.setSecret('secrets.pre-hmctskv.b2c-test-super-user-login-password', 'b2c.testSuperUserLogin.password');
       this.setSecret('secrets.pre-hmctskv.media-kind-player-key', 'pre.mediaKindPlayerKey');
     } else {
       this.logger.info('Loading properties from .env file');
