@@ -7,7 +7,6 @@ import {
   mockGetCurrentEditRequest,
   mockGetRecording,
   mockGetRecordingPlaybackData,
-  mockPutAudit,
   reset,
 } from '../../mock-api';
 import { describe } from '@jest/globals';
@@ -119,6 +118,7 @@ describe('edit-request route', () => {
         .expect(res => expect(res.status).toBe(302))
         .expect(res => expect(res.header.location).toBe('/edit-request/12345678-1234-1234-1234-1234567890ab/view'));
     });
+  });
 
   describe('on POST', () => {
     const app = require('express')();
