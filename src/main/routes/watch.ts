@@ -1,12 +1,58 @@
 import { PreClient } from '../services/pre-api/pre-client';
 import { SessionUser } from '../services/session-user/session-user';
-import { isFlagEnabled, validateId } from '../utils/helpers';
+import { isFlagEnabled, secondsToTimeString, timeStringToSeconds, validateId } from '../utils/helpers';
 
 import { Logger } from '@hmcts/nodejs-logging';
 import config from 'config';
 import { Application } from 'express';
 import { requiresAuth } from 'express-openid-connect';
 import { v4 as uuid } from 'uuid';
+import { AppliedEditInstruction, PutEditInstruction, RecordingAppliedEdits } from '../services/pre-api/types';
+
+const parseAppliedEdits = async (
+  edits: string,
+  client: PreClient,
+  xUserId: string
+): Promise<
+  | {
+      appliedEdits: AppliedEditInstruction[];
+      approvedBy: string;
+      approvedAt: string;
+    }
+  | undefined
+> => {
+  if (!edits || edits == '') {
+    return;
+  }
+  const editInstructions = JSON.parse(edits) as RecordingAppliedEdits;
+  if (!editInstructions.editInstructions || !editInstructions.editRequestId) {
+    return;
+  }
+
+  const appliedEdits = editInstructions.editInstructions.requestedInstructions.map(
+    (instruction: PutEditInstruction) =>
+      ({
+        startOfCut: instruction.start_of_cut,
+        start: timeStringToSeconds(instruction.start_of_cut),
+        endOfCut: instruction.end_of_cut,
+        end: timeStringToSeconds(instruction.end_of_cut),
+        reason: instruction.reason,
+      }) as unknown as AppliedEditInstruction
+  );
+
+  let timeDifference = 0;
+  for (const edit of appliedEdits) {
+    edit.runtimeReference = secondsToTimeString(edit.start - timeDifference);
+    timeDifference += edit.end - edit.start;
+  }
+
+  const editRequest = await client.getEditRequest(xUserId, editInstructions.editRequestId);
+  return {
+    appliedEdits,
+    approvedBy: editRequest?.approved_by || '',
+    approvedAt: editRequest?.approved_at ? new Date(editRequest.approved_at).toLocaleDateString() : '',
+  };
+};
 
 export default function (app: Application): void {
   const logger = Logger.getLogger('watch');
@@ -15,10 +61,6 @@ export default function (app: Application): void {
     if (!validateId(req.params.id)) {
       res.status(404);
       res.render('not-found');
-      return;
-    }
-    if (isFlagEnabled('pre.enableAutomatedEditing')) {
-      res.redirect('/watch-mk/' + req.params.id);
       return;
     }
 
@@ -54,11 +96,17 @@ export default function (app: Application): void {
 
       const recordingPlaybackDataUrl = `/watch/${req.params.id}/playback`;
       const mediaKindPlayerKey = config.get('pre.mediaKindPlayerKey');
+      const enableAutomatedEditing = isFlagEnabled('pre.enableAutomatedEditing');
+
       res.render('watch', {
         recording,
         recordingPlaybackDataUrl,
         mediaKindPlayerKey,
         removeWitnessLastName: config.get('pre.removeWitnessLastName') === 'true',
+        appliedEdits: enableAutomatedEditing
+          ? await parseAppliedEdits(recording.edit_instructions, client, userPortalId)
+          : undefined,
+        enableAutomatedEditing,
       });
     } catch (e) {
       next(e);

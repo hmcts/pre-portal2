@@ -3,15 +3,7 @@ import { TermsNotAcceptedError } from '../../types/errors';
 import { Terms } from '../../types/terms';
 import { UserProfile } from '../../types/user-profile';
 
-import {
-  EditRequest,
-  Pagination,
-  PutAuditRequest,
-  PutEditRequest,
-  Recording,
-  RecordingPlaybackData,
-  SearchRecordingsRequest,
-} from './types';
+import { EditRequest, Pagination, PutAuditRequest, PutEditRequest, Recording, SearchRecordingsRequest } from './types';
 
 import { Logger } from '@hmcts/nodejs-logging';
 import axios, { AxiosResponse } from 'axios';
