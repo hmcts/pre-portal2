@@ -284,7 +284,7 @@ describe('PreClient', () => {
     const getRes = await preClient.getAudit(req);
     console.log(getRes);
     expect(getRes).toBeTruthy();
-    //expect(getRes?.status).toBe(201);
+    expect(getRes?.status).toBe(201);
     expect(getRes?.audit_details?.recordingId).toBe(mockRecordingId);
   });
 
