@@ -126,8 +126,8 @@ describe('Accessibility', () => {
       console.error('Error: No editable requests found');
       return;
     }
-    await page.waitForSelector('input[value^="Submit"]', { visible: true, timeout: 0 });
-    await page.click('input[value^="Submit"]');
+    await page.waitForSelector('button[id^="submit-button"]', { visible: true, timeout: 0 });
+    await page.click('button[id^="submit-button"]');
     const submitViewUrl = page.url();
     const result: Pa11yResult = await pa11y(submitViewUrl, {
       browser,

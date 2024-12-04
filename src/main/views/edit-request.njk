@@ -47,7 +47,7 @@
   <div style="text-align: right;">
     <button type="button" class="govuk-button" data-module="govuk-button" onclick="newEditReference()">Add Edit Reference</button>
   </div>
-  <form id="new-edit-reference-form" action="/edit-request/{{ recording.id }}/view">
+  <form id="new-edit-reference-form">
   <table class="govuk-table">
     <thead class="govuk-table__head">
     <tr class="govuk-table__row">
@@ -103,11 +103,11 @@
         {% endfor %}
     </tbody>
   </table>
+  </form>
 
   <div style="text-align: right;">
-    <input type="submit" class="govuk-button" data-module="govuk-button" value="Submit"/>
+    <button id="submit-button" class="govuk-button" data-module="govuk-button" onclick="onSubmit()" data-testid="">Submit</button>
   </div>
-  </form>
 
   <style>
     tr.delete-message-block {
@@ -196,7 +196,7 @@
   </script>
   <script type="text/javascript" crossorigin="anonymous" data-testid="edit-reference">
     let editRequest = JSON.parse("{{ editRequest | dump  }}".replace(/&quot;/g, '"'));
-    let errors = { 'start-time': 'Start Time cannot be blank' };
+    let errors = {};
     let selectedIndex;
 
     const newEditReference = () => {
@@ -243,10 +243,19 @@
         const endTimeInput = document.getElementById('end-time-input');
         endTimeInput.classList.remove('govuk-input--error');
       }
-    }
+    };
+
+    const onSubmit = () => {
+      window.location.href = "/edit-request/{{ recording.id }}/view";
+    };
 
     const submitEditReference = (newEditRequest) => {
       const form = document.getElementById('new-edit-reference-form');
+      const formData = new FormData(form);
+      const startTime = formData.get('startTime');
+      const endTime = formData.get('endTime');
+      const reason = formData.get('reason');
+
       const row = document.getElementById('new-edit-reference-row');
 
       errors = {};
@@ -264,9 +273,9 @@
               edit_instructions: [
                 ...editRequest.edit_instructions,
                 {
-                  start_of_cut: document.getElementById('start-time-input').value,
-                  end_of_cut: document.getElementById('end-time-input').value,
-                  reason: document.getElementById('reason-input').value
+                  start_of_cut: startTime,
+                  end_of_cut: endTime,
+                  reason,
                 }
               ]
             }),
@@ -290,7 +299,7 @@
         row.hidden = true;
         form.reset();
       });
-    }
+    };
 
     const refreshTable = (content) => {
       editRequest = content;
@@ -339,7 +348,7 @@
             </td>
           </tr>`;
         }).join('');
-    }
+    };
 
     const cancelEditReference = () => {
       const row = document.getElementById('new-edit-reference-row');
@@ -349,7 +358,7 @@
       errors = {};
       selectedIndex = undefined;
       refreshTable(editRequest);
-    }
+    };
 
     const selectRow = (id, isUpdate) => {
       selectedIndex = id;
@@ -407,7 +416,7 @@
           </tr>`;
         currentInstructions.innerHTML = display + currentInstructions.innerHTML;
       }
-    }
+    };
 
     const updateEditReference = (id) => {
       const newEditRequest = {
@@ -426,12 +435,12 @@
 
       submitEditReference(newEditRequest);
       selectedIndex = undefined;
-    }
+    };
 
     const deleteEditReference = (id) => {
       editRequest.edit_instructions.splice(id, 1);
       submitEditReference(editRequest);
       selectedIndex = undefined;
-    }
+    };
   </script>
 {% endblock %}
