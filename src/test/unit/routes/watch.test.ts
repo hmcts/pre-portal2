@@ -119,31 +119,25 @@ describe('parseAppliedEdits', () => {
     const mockClient = PreClient.prototype;
     const mockEditInstructions: RecordingAppliedEdits = {
       editInstructions: {
-        requestedInstructions: [
-          { start_of_cut: '00:00:10', end_of_cut: '00:00:20', reason: 'Test reason' },
-        ],
+        requestedInstructions: [{ start_of_cut: '00:00:10', end_of_cut: '00:00:20', reason: 'Test reason' }],
       },
       editRequestId: '12345678-1234-1234-1234-1234567890ab',
     };
 
-    jest
-      .spyOn(PreClient.prototype, 'getEditRequest')
-      .mockImplementation(async (xUserId: string, id: string) => {
-        return  {
-          id: '12345678-1234-1234-1234-1234567890ab',
-          status: 'COMPLETE',
-          edit_instructions: {
-            requestedInstructions: [
-              { start_of_cut: '00:00:10', end_of_cut: '00:00:20', reason: 'Test reason' },
-            ],
-          },
-          approved_by: 'approver',
-          approved_at: '2023-01-01T00:00:00Z',
-          created_by: 'creator',
-          created_at: '2023-01-01T00:00:00Z',
-          modified_at: '2023-01-01T00:00:00Z',
-        };
-      });
+    jest.spyOn(PreClient.prototype, 'getEditRequest').mockImplementation(async (xUserId: string, id: string) => {
+      return {
+        id: '12345678-1234-1234-1234-1234567890ab',
+        status: 'COMPLETE',
+        edit_instructions: {
+          requestedInstructions: [{ start_of_cut: '00:00:10', end_of_cut: '00:00:20', reason: 'Test reason' }],
+        },
+        approved_by: 'approver',
+        approved_at: '2023-01-01T00:00:00Z',
+        created_by: 'creator',
+        created_at: '2023-01-01T00:00:00Z',
+        modified_at: '2023-01-01T00:00:00Z',
+      };
+    });
 
     const result = await parseAppliedEdits(JSON.stringify(mockEditInstructions), mockClient, 'user-id');
 
