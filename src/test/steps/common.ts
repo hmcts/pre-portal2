@@ -44,6 +44,14 @@ Then('I sign in with valid credentials as a super user', () => {
   I.fillField('Email Address', config.b2c.testSuperUserLogin.email as string);
   I.fillField('Password', config.b2c.testSuperUserLogin.password as string);
   I.click('Sign in');
+
+  I.grabCurrentUrl().then(url => {
+    if (url.includes('/authorize')) {
+      I.fillField('Email Address', config.b2c.testSuperUserLogin.email as string);
+      I.fillField('Password', config.b2c.testSuperUserLogin.password as string);
+      I.click('Sign in');
+    }
+  });
 });
 
 Then('I accept the terms and conditions if I need to', async () => {
