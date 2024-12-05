@@ -14,8 +14,6 @@ nodejs:
         - pre-portal-sso
         - b2c-test-login-email
         - b2c-test-login-password
-        - b2c-test-super-user-login-email
-        - b2c-test-super-user-login-password
         - media-kind-player-key
         - b2c-test-super-user-email
         - b2c-test-super-user-password
