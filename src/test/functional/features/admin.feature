@@ -7,7 +7,8 @@ Feature: View Admin Page
       Then I accept the terms and conditions if I need to
       Then I am on the '/browse' page
       Then I see the link 'Admin'
-      Given I go to '/admin'
+      Then I click the link 'Admin'
+      Then I am on the '/admin' page
       Then the page should include 'Admin'
 
     Scenario: The admin page should not display for non Super Users
