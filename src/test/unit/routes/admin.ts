@@ -44,13 +44,13 @@ describe('Admin Page Access', () => {
     expect(response.text).toContain('Admin');
   });
 
-  test('should display "Page Not Found" for non-admin user', async () => {
+  test('should display "Page Not Found" for non-super user', async () => {
     if (mockeduser.app_access?.[0]?.role) {
       mockeduser.app_access[0].role.name = UserLevel.ADMIN;
     }
 
     const response = await request(app).get('/admin');
-    expect(response.status).toEqual(200);
+    expect(response.status).toEqual(404);
     expect(response.text).toContain('Page Not Found');
   });
 });
