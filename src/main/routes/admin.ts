@@ -10,6 +10,7 @@ export default function (app: Application): void {
     if (userRole === UserLevel.SUPER_USER) {
       res.render('admin');
     } else {
+      res.status(404);
       res.render('not-found');
     }
   });
