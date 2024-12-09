@@ -82,36 +82,36 @@ Then('I sign in with the wrong password', () => {
   });
 });
 
-  When('I click on play on a browse page', () => {
-    I.click('Play');
-    I.see('Please note playback is preferred on non-mobile devices. If possible, please use a preferred device');
-  });
+When('I click on play on a browse page', () => {
+  I.click('Play');
+  I.see('Please note playback is preferred on non-mobile devices. If possible, please use a preferred device');
+});
 
-  When('I play the recording', () => {
-    I.wait(5); //needed as it takes time to load recording on page.
-    I.waitForElement('//*[@aria-label=\'Play/Pause\']')
-    I.click('Play/Pause');
-  });
+When('I play the recording', () => {
+  I.wait(5); //needed as it takes time to load recording on page.
+  I.waitForElement("//*[@aria-label='Play/Pause']");
+  I.click('Play/Pause');
+});
 
-  Then('recording is played', async () => {
-    I.wait(15); //waiting for mediakind to generate streaming locator.
-    const videoSelector = '.bmpui-ui-playbacktimelabel'
-    try {
-      I.waitForElement(videoSelector, 5); // Fail the test if the element does not appear
-      I.say('Playback time label is visible.');
-    } catch (error) {
-      throw new Error('Playback time label does not exist or is not visible.');
-    }
-    const initialTime = await I.grabTextFrom('.bmpui-ui-playbacktimelabel:nth-of-type(1)');
-    I.wait(5)
-    I.click('Play/Pause');
-    const currentTime = await I.grabTextFrom('.bmpui-ui-playbacktimelabel:nth-of-type(2)');
-    if (!currentTime.match(/^\d{2}:\d{2}$/)) {
-      throw new Error(`Invalid playback time format: ${currentTime}`);
-    }
+Then('recording is played', async () => {
+  I.wait(15); //waiting for mediakind to generate streaming locator.
+  const videoSelector = '.bmpui-ui-playbacktimelabel';
+  try {
+    I.waitForElement(videoSelector, 5); // Fail the test if the element does not appear
+    I.say('Playback time label is visible.');
+  } catch (error) {
+    throw new Error('Playback time label does not exist or is not visible.');
+  }
+  const initialTime = await I.grabTextFrom('.bmpui-ui-playbacktimelabel:nth-of-type(1)');
+  I.wait(5);
+  I.click('Play/Pause');
+  const currentTime = await I.grabTextFrom('.bmpui-ui-playbacktimelabel:nth-of-type(2)');
+  if (!currentTime.match(/^\d{2}:\d{2}$/)) {
+    throw new Error(`Invalid playback time format: ${currentTime}`);
+  }
 
-    if (currentTime <= initialTime) {
-      throw new Error('Video is not playing');
-    }
-    I.say('Video is playing successfully!');
-  });
+  if (currentTime <= initialTime) {
+    throw new Error('Video is not playing');
+  }
+  I.say('Video is playing successfully!');
+});
