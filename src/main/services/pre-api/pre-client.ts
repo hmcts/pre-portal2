@@ -12,8 +12,8 @@ import config from 'config';
 export class PreClient {
   logger = Logger.getLogger('pre-client');
 
-  public async healthCheck(): Promise<void> {
-    await axios.get('/health');
+  public async healthCheck(): Promise<AxiosResponse> {
+    return await axios.get('/health');
   }
 
   public async putAudit(xUserId: string, request: PutAuditRequest): Promise<AxiosResponse> {
