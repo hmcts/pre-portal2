@@ -6,8 +6,7 @@ import { requiresAuth } from 'express-openid-connect';
 
 export default function (app: Application): void {
   app.get('/admin', requiresAuth(), async (req, res) => {
-    const userRole = SessionUser.getLoggedInUserProfile(req).app_access[0]?.role.name;
-    if (userRole === UserLevel.SUPER_USER) {
+    if (SessionUser.getLoggedInUserProfile(req).app_access.filter((role) => role.role.name === UserLevel.SUPER_USER).length > 0) {
       res.render('admin');
     } else {
       res.status(404);
