@@ -47,8 +47,7 @@ export default function (app: Application): void {
     // Rolling window of 5 pages centered on the current page
     // The current page is 5 then 2 pages before and 2 pages after does not include the first+1 or last-1 pages so add in ellipsis
 
-    const userRole = SessionUser.getLoggedInUserProfile(req).app_access[0]?.role.name;
-    const isSuperUser = userRole === UserLevel.SUPER_USER;
+    const isSuperUser = SessionUser.getLoggedInUserProfile(req).app_access.filter((role) => role.role.name === UserLevel.SUPER_USER).length > 0;
 
     const updatedRecordings = recordings.map(recording => ({
       ...recording,
