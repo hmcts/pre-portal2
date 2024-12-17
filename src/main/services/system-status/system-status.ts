@@ -89,7 +89,7 @@ export class SystemStatus {
 
   private getRedisStatus() {
     if (this.app.locals.redisClient) {
-      this.app.locals.redisClient
+      return this.app.locals.redisClient
         .ping()
         .then(() => {
           return 'UP' as HealthStatus;
