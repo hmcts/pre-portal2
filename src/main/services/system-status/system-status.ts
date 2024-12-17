@@ -26,6 +26,16 @@ export class SystemStatus {
     status.portal.components.redis = this.getRedisStatus();
     status.portal.components.b2c = await this.getB2CStatus();
 
+    Object.values(status).forEach(service => {
+      const serviceStatuses = Object.values(service.components);
+
+      if (serviceStatuses.every(s => s === 'UP')) {
+        service.status = 'OPERATIONAL';
+      } else if (serviceStatuses.some(s => s === 'UP')) {
+        service.status = 'DEGRADED';
+      }
+    });
+
     return status;
   }
 

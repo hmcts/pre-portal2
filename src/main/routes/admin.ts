@@ -11,16 +11,6 @@ export default function (app: Application): void {
 
     const status = await systemStatus.getStatus();
 
-    Object.values(status).forEach(service => {
-      const serviceStatuses = Object.values(service.components);
-
-      if (serviceStatuses.every(s => s === 'UP')) {
-        service.status = 'OPERATIONAL';
-      } else if (serviceStatuses.some(s => s === 'UP')) {
-        service.status = 'DEGRADED';
-      }
-    });
-
     res.render('admin/status', {
       status,
     });
