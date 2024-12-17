@@ -13,8 +13,8 @@
     {% for service, serviceStatus in status %}
       <div class="govuk-grid-column-one-half">
         <div class="govuk-panel govuk-panel--confirmation" style="background:
-          {% if serviceStatus.status == 'Operational' %}#00703c !important;
-          {% elif serviceStatus.status == 'Degraded' %}#f47738 !important;
+          {% if serviceStatus.status == 'OPERATIONAL' %}#00703c !important;
+          {% elif serviceStatus.status == 'DEGRADED' %}#f47738 !important;
           {% else %}#d4351c !important;
           {% endif %}">
           <h2 class="govuk-panel__title">

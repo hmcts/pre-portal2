@@ -6,11 +6,15 @@ import healthcheck from '@hmcts/nodejs-healthcheck';
 import { Application } from 'express';
 
 export default function (app: Application): void {
+  healthcheck.addTo(app, healthConfig(app));
+}
+
+export function healthConfig(app: Application) {
   const redis = app.locals.redisClient
     ? healthcheck.raw(() => app.locals.redisClient.ping().then(healthcheck.up).catch(healthcheck.down))
     : null;
 
-  healthcheck.addTo(app, {
+  return {
     checks: {
       // currently no API health check is possible for B2C
       ...(redis ? { redis } : {}),
@@ -32,5 +36,5 @@ export default function (app: Application): void {
       host: os.hostname(),
       uptime: process.uptime(),
     },
-  });
+  };
 }
