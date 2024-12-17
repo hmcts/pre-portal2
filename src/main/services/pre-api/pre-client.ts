@@ -111,8 +111,6 @@ export class PreClient {
     xUserId: string,
     request: SearchRecordingsRequest
   ): Promise<{ recordings: Recording[]; pagination: Pagination }> {
-    this.logger.debug('Getting recordings with request: ' + JSON.stringify(request, null, 2));
-
     try {
       const response = await axios.get('/recordings', {
         headers: {
