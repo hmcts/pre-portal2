@@ -8,12 +8,13 @@ import { Pagination, PutAuditRequest, Recording, SearchRecordingsRequest } from 
 import { Logger } from '@hmcts/nodejs-logging';
 import axios, { AxiosResponse } from 'axios';
 import config from 'config';
+import { HealthResponse } from '../../types/health';
 
 export class PreClient {
   logger = Logger.getLogger('pre-client');
 
-  public async healthCheck(): Promise<AxiosResponse> {
-    return await axios.get('/health');
+  public healthCheck() {
+    return axios.get<HealthResponse>('/health');
   }
 
   public async putAudit(xUserId: string, request: PutAuditRequest): Promise<AxiosResponse> {
@@ -111,6 +112,8 @@ export class PreClient {
     xUserId: string,
     request: SearchRecordingsRequest
   ): Promise<{ recordings: Recording[]; pagination: Pagination }> {
+    this.logger.debug('Getting recordings with request: ' + JSON.stringify(request));
+
     try {
       const response = await axios.get('/recordings', {
         headers: {

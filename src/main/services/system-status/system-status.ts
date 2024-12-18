@@ -17,7 +17,7 @@ export class SystemStatus {
   }
 
   async getStatus() {
-    const health = (await this.client.healthCheck()).data as HealthResponse;
+    const health = (await this.client.healthCheck()).data;
     const status = this.getDefaultStatuses();
     status.api.components = await this.getApiComponentStatus(health);
     status.mediaKind.connections = this.getMediaKindConnectionStatuses(health);
