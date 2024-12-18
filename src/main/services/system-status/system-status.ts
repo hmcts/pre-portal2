@@ -60,11 +60,11 @@ export class SystemStatus {
   }
 
   private async getCVPStatus() {
-    return this.commonThirdPartyStatusCheck('https://status-kinly.pexip.com/api/v2/status.json');
+    return this.commonThirdPartyStatusCheck(config.get('health.cvp'));
   }
 
   private getGovNotifyStatus() {
-    return this.commonThirdPartyStatusCheck('https://status.notifications.service.gov.uk/api/v2/status.json');
+    return this.commonThirdPartyStatusCheck(config.get('health.notify'));
   }
 
   private async commonThirdPartyStatusCheck(url: string): Promise<HealthStatus> {
