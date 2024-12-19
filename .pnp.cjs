@@ -66,7 +66,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["axios", "npm:1.7.9"],\
             ["axios-debug-log", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.0.0"],\
             ["body-parser", "npm:1.20.3"],\
-            ["chokidar", "npm:4.0.2"],\
+            ["chokidar", "npm:4.0.3"],\
             ["codeceptjs", "npm:3.6.10"],\
             ["compression", "npm:1.7.5"],\
             ["config", "npm:3.3.12"],\
@@ -10250,10 +10250,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:4.0.2", {\
-          "packageLocation": "./.yarn/cache/chokidar-npm-4.0.2-e68742458f-ba7c43d249.zip/node_modules/chokidar/",\
+        ["npm:4.0.3", {\
+          "packageLocation": "./.yarn/cache/chokidar-npm-4.0.3-962354fbb4-a8765e452b.zip/node_modules/chokidar/",\
           "packageDependencies": [\
-            ["chokidar", "npm:4.0.2"],\
+            ["chokidar", "npm:4.0.3"],\
             ["readdirp", "npm:4.0.2"]\
           ],\
           "linkType": "HARD"\
@@ -18117,7 +18117,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/chokidar", null],\
             ["a-sync-waterfall", "npm:1.0.1"],\
             ["asap", "npm:2.0.6"],\
-            ["chokidar", "npm:4.0.2"],\
+            ["chokidar", "npm:4.0.3"],\
             ["commander", "npm:5.1.0"]\
           ],\
           "packagePeers": [\
@@ -19178,7 +19178,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["axios", "npm:1.7.9"],\
             ["axios-debug-log", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.0.0"],\
             ["body-parser", "npm:1.20.3"],\
-            ["chokidar", "npm:4.0.2"],\
+            ["chokidar", "npm:4.0.3"],\
             ["codeceptjs", "npm:3.6.10"],\
             ["compression", "npm:1.7.5"],\
             ["config", "npm:3.3.12"],\
