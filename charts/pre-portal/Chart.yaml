@@ -7,4 +7,4 @@ version: 0.0.23
 dependencies:
   - name: nodejs
     version: 3.1.1
-    repository: 'https://github.com/hmcts/chart-node'
+    repository: 'https://github.com/hmcts/chart-nodejs'
