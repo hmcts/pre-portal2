@@ -22,7 +22,7 @@ export class Helmet {
 
     // include default helmet functions
     const scriptSrc = [self, googleAnalyticsDomain, "'unsafe-inline'", dynatraceDomain];
-    const scriptSrcAttr = [self, "'unsafe-inline'"];
+    const scriptSrcAttr = [self, "'unsafe-inline'", dynatraceDomain];
 
     if (this.developmentMode) {
       // Uncaught EvalError: Refused to evaluate a string as JavaScript because 'unsafe-eval'
