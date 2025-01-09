@@ -3,7 +3,7 @@ import { TermsNotAcceptedError } from '../../types/errors';
 import { Terms } from '../../types/terms';
 import { UserProfile } from '../../types/user-profile';
 
-import { Pagination, PutAuditRequest, Recording, SearchRecordingsRequest } from './types';
+import { Audit, Pagination, PutAuditRequest, Recording, SearchRecordingsRequest } from './types';
 
 import { Logger } from '@hmcts/nodejs-logging';
 import axios, { AxiosResponse } from 'axios';
@@ -19,6 +19,19 @@ export class PreClient {
   public async putAudit(xUserId: string, request: PutAuditRequest): Promise<AxiosResponse> {
     try {
       return await axios.put('/audit/' + request.id, request, {
+        headers: {
+          'X-User-Id': xUserId,
+        },
+      });
+    } catch (e) {
+      this.logger.error(e.message);
+      throw e;
+    }
+  }
+
+  public async getAuditLogs(xUserId: string): Promise<{ auditLogs: Audit[]; pagination: Pagination }> {
+    try {
+      return await axios.get('/audit', {
         headers: {
           'X-User-Id': xUserId,
         },
