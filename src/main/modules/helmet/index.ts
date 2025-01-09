@@ -14,7 +14,7 @@ export class Helmet {
   }
 
   public enableFor(app: express.Express): void {
-    const dynatraceDomain = '*.dynatrace.com';
+    const dynatraceDomain = 'https://*.dynatrace.com';
     const mkPlayer = 'https://mkplayer.azureedge.net';
     const bitmovinLicensing = 'https://licensing.bitmovin.com';
     const mkStreaming = '*.uksouth.streaming.mediakind.com';
@@ -22,7 +22,7 @@ export class Helmet {
 
     // include default helmet functions
     const scriptSrc = [self, googleAnalyticsDomain, "'unsafe-inline'", dynatraceDomain];
-    const scriptSrcAttr = [self, "'unsafe-inline'"];
+    const scriptSrcAttr = [self, "'unsafe-inline'", dynatraceDomain];
 
     if (this.developmentMode) {
       // Uncaught EvalError: Refused to evaluate a string as JavaScript because 'unsafe-eval'
@@ -39,7 +39,7 @@ export class Helmet {
             connectSrc: [self, dynatraceDomain, mkPlayer, bitmovinLicensing, mkStreaming, mkLicense, 'data:'],
             defaultSrc: ["'none'"],
             fontSrc: [self, 'data:'],
-            imgSrc: [self, googleAnalyticsDomain, 'data:'],
+            imgSrc: [self, googleAnalyticsDomain, dynatraceDomain, 'data:'],
             manifestSrc: [self],
             mediaSrc: [self, 'blob:', 'data:', mkLicense, mkStreaming],
             objectSrc: [self],
