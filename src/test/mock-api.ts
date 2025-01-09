@@ -7,6 +7,7 @@ import {
 } from '../main/services/pre-api/types';
 import { PreClient } from '../main/services/pre-api/pre-client';
 import { AxiosResponse } from 'axios';
+import { Terms } from '../main/types/terms';
 
 export const mockRecordings: Recording[] = [
   {
@@ -144,13 +145,26 @@ export const mockPutAudit = () => {
   });
 };
 
-export function mockGetRecordingPlaybackData(data?: RecordingPlaybackData | null) {
+export function mockGetLatestTermsAndConditions(data?: Terms | null) {
   if (data !== undefined) {
     jest
-      .spyOn(PreClient.prototype, 'getRecordingPlaybackData')
+      .spyOn(PreClient.prototype, 'getLatestTermsAndConditions')
       .mockImplementation(async (xUserId: string, id: string) => {
         return Promise.resolve(data);
       });
+  }
+}
+
+export function mockAcceptTermsAndConditions() {
+  jest
+    .spyOn(PreClient.prototype, 'acceptTermsAndConditions')
+    .mockImplementation(async (xUserId: string, termsId: string) => {
+      return Promise.resolve();
+    });
+}
+
+export function mockGetRecordingPlaybackData(data?: RecordingPlaybackData | null) {
+  if (data !== undefined) {
     jest
       .spyOn(PreClient.prototype, 'getRecordingPlaybackDataMk')
       .mockImplementation(async (xUserId: string, id: string) => {
@@ -159,15 +173,6 @@ export function mockGetRecordingPlaybackData(data?: RecordingPlaybackData | null
     return;
   }
 
-  jest
-    .spyOn(PreClient.prototype, 'getRecordingPlaybackData')
-    .mockImplementation(async (xUserId: string, id: string) => {
-      return Promise.resolve({
-        src: 'src',
-        type: 'type',
-        protectionInfo: [],
-      } as RecordingPlaybackData);
-    });
   jest
     .spyOn(PreClient.prototype, 'getRecordingPlaybackDataMk')
     .mockImplementation(async (xUserId: string, id: string) => {
@@ -182,5 +187,5 @@ export function mockGetRecordingPlaybackData(data?: RecordingPlaybackData | null
 export function reset() {
   jest.spyOn(PreClient.prototype, 'getRecording').mockRestore();
   jest.spyOn(PreClient.prototype, 'getRecordings').mockRestore();
-  jest.spyOn(PreClient.prototype, 'getRecordingPlaybackData').mockRestore();
+  jest.spyOn(PreClient.prototype, 'getRecordingPlaybackDataMk').mockRestore();
 }

@@ -27,7 +27,7 @@ describe('Watch page failure', () => {
         .get('/watch/12345678-1234-1234-1234-1234567890ff')
         .expect(res => expect(res.status).toBe(404));
     });
-    test('should return 404 when getRecordingPlaybackData returns null', async () => {
+    test('should return 404 when getRecordingPlaybackDataMk returns null', async () => {
       mockGetRecordingPlaybackData(null);
       await request(app)
         .get('/watch/12345678-1234-1234-1234-1234567890ff/playback')
@@ -40,7 +40,7 @@ describe('Watch page failure', () => {
         .get('/watch/something')
         .expect(res => expect(res.status).toBe(404));
     });
-    test('should return 404 when getRecordingPlaybackData id is invalid', async () => {
+    test('should return 404 when getRecordingPlaybackDataMk id is invalid', async () => {
       mockGetRecordingPlaybackData(null);
       await request(app)
         .get('/watch/something/playback')
@@ -55,9 +55,9 @@ describe('Watch page failure', () => {
         .get('/watch/12345678-1234-1234-1234-1234567890ab')
         .expect(res => expect(res.status).toBe(500));
     });
-    test('should return 500 when getRecordingPlaybackData fails', async () => {
+    test('should return 500 when getRecordingPlaybackDataMk fails', async () => {
       jest
-        .spyOn(PreClient.prototype, 'getRecordingPlaybackData')
+        .spyOn(PreClient.prototype, 'getRecordingPlaybackDataMk')
         .mockImplementation(async (xUserId: string, id: string) => {
           throw new Error('Error');
         });
@@ -81,7 +81,7 @@ describe('Watch page success', () => {
     const watch = require('../../../main/routes/watch').default;
     watch(app);
 
-    test('should return 200 when getRecording and getRecordingPlaybackData succeed', async () => {
+    test('should return 200 when getRecording and getRecordingPlaybackDataMk succeed', async () => {
       mockGetRecording();
       mockGetRecordingPlaybackData();
       mockPutAudit();
