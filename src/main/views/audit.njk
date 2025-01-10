@@ -87,7 +87,7 @@
                 {{ auditLog.created_at }}
               </td>
               <td class="govuk-table__cell">
-                {{ auditLog.audit_details }}
+                {{ auditLog.audit_details | dump }}
               </td>
             </tr>
           {% endfor %}
