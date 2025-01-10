@@ -30,14 +30,31 @@ export class PreClient {
   }
 
   public async getAuditLogs(xUserId: string): Promise<{ auditLogs: Audit[]; pagination: Pagination }> {
+    this.logger.debug('Getting audit logs');
+
     try {
-      return await axios.get('/audit', {
+      const response = await axios.get('/audit', {
         headers: {
           'X-User-Id': xUserId,
         },
       });
+
+      const pagination = {
+        currentPage: response.data['page']['number'],
+        totalPages: response.data['page']['totalPages'],
+        totalElements: response.data['page']['totalElements'],
+        size: response.data['page']['size'],
+      } as Pagination;
+      const auditLogs =
+        response.data['page']['totalElements'] === 0 ? [] : (response.data['_embedded']['auditDTOList'] as Audit[]);
+
+      return { auditLogs, pagination };
     } catch (e) {
-      this.logger.error(e.message);
+      // log the error
+      // this.logger.info('path', e.response?.request.path);
+      // this.logger.info('res headers', e.response?.headers);
+      // this.logger.info('data', e.response?.data);
+      // rethrow the error for the UI
       throw e;
     }
   }
