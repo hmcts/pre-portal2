@@ -111,7 +111,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["pa11y", "npm:8.0.0"],\
             ["playwright", "npm:1.49.1"],\
             ["prettier", "npm:3.4.2"],\
-            ["puppeteer", "npm:22.15.0"],\
+            ["puppeteer", "npm:24.0.0"],\
             ["react", "npm:19.0.0"],\
             ["react-native", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:0.76.6"],\
             ["redis", "npm:4.7.0"],\
@@ -6255,6 +6255,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["yargs", "npm:17.7.2"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:2.7.0", {\
+          "packageLocation": "./.yarn/cache/@puppeteer-browsers-npm-2.7.0-833adfb124-65b1a67268.zip/node_modules/@puppeteer/browsers/",\
+          "packageDependencies": [\
+            ["@puppeteer/browsers", "npm:2.7.0"],\
+            ["debug", "virtual:6f87eff2f1dfc7363da5b0cbb17c2c347525a1eae4b0c21808f0bd21b40c885f339f38eabc62de6d4460721aa35cfd480922287c7f11e3a1f01aca989082ec26#npm:4.4.0"],\
+            ["extract-zip", "npm:2.0.1"],\
+            ["progress", "npm:2.0.3"],\
+            ["proxy-agent", "npm:6.5.0"],\
+            ["semver", "npm:7.6.3"],\
+            ["tar-fs", "npm:3.0.6"],\
+            ["unbzip2-stream", "npm:1.4.3"],\
+            ["yargs", "npm:17.7.2"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@react-native-community/cli", [\
@@ -8519,6 +8534,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["debug", "virtual:6230e12b1d7dee1735a865cef131ea49c043e7f202fd08b14ceb90686e406b76a07840fc9510f1069465ad9695242b42830fc7fea7b01648a261463b7848122f#npm:4.3.7"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:7.1.3", {\
+          "packageLocation": "./.yarn/cache/agent-base-npm-7.1.3-b2c16e72fb-87bb7ee54f.zip/node_modules/agent-base/",\
+          "packageDependencies": [\
+            ["agent-base", "npm:7.1.3"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["aggregate-error", [\
@@ -10291,12 +10313,41 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["chromium-bidi", [\
+        ["npm:0.11.0", {\
+          "packageLocation": "./.yarn/cache/chromium-bidi-npm-0.11.0-46ae0fed44-b4c41392a7.zip/node_modules/chromium-bidi/",\
+          "packageDependencies": [\
+            ["chromium-bidi", "npm:0.11.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["npm:0.12.0", {\
+          "packageLocation": "./.yarn/cache/chromium-bidi-npm-0.12.0-6de92358fd-352434c820.zip/node_modules/chromium-bidi/",\
+          "packageDependencies": [\
+            ["chromium-bidi", "npm:0.12.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
         ["npm:0.6.3", {\
           "packageLocation": "./.yarn/cache/chromium-bidi-npm-0.6.3-ae4efa3e9c-4c96419e8f.zip/node_modules/chromium-bidi/",\
           "packageDependencies": [\
             ["chromium-bidi", "npm:0.6.3"]\
           ],\
           "linkType": "SOFT"\
+        }],\
+        ["virtual:26d115b5b7665c3c222793d35974e6b022b7393000495a2c0356785285e18abb528e12ec4dcf9194a5e702fc9e56f7a26c7bb5fd5d4974cbee8d849defd90ed0#npm:0.11.0", {\
+          "packageLocation": "./.yarn/__virtual__/chromium-bidi-virtual-13418e4015/0/cache/chromium-bidi-npm-0.11.0-46ae0fed44-b4c41392a7.zip/node_modules/chromium-bidi/",\
+          "packageDependencies": [\
+            ["chromium-bidi", "virtual:26d115b5b7665c3c222793d35974e6b022b7393000495a2c0356785285e18abb528e12ec4dcf9194a5e702fc9e56f7a26c7bb5fd5d4974cbee8d849defd90ed0#npm:0.11.0"],\
+            ["@types/devtools-protocol", null],\
+            ["devtools-protocol", "npm:0.0.1367902"],\
+            ["mitt", "npm:3.0.1"],\
+            ["zod", "npm:3.23.8"]\
+          ],\
+          "packagePeers": [\
+            "@types/devtools-protocol",\
+            "devtools-protocol"\
+          ],\
+          "linkType": "HARD"\
         }],\
         ["virtual:2dabb1e0b8013e2fdaca43a04ff5516e907d269a5b47d4ffc6f2b442eb957d8cb548f1c54645d78ef91af0b871a6b7fcdd66cbf007351b1269163c63d2b058f7#npm:0.6.3", {\
           "packageLocation": "./.yarn/__virtual__/chromium-bidi-virtual-98a5a9b777/0/cache/chromium-bidi-npm-0.6.3-ae4efa3e9c-4c96419e8f.zip/node_modules/chromium-bidi/",\
@@ -10307,6 +10358,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["mitt", "npm:3.0.1"],\
             ["urlpattern-polyfill", "npm:10.0.0"],\
             ["zod", "npm:3.23.8"]\
+          ],\
+          "packagePeers": [\
+            "@types/devtools-protocol",\
+            "devtools-protocol"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:ba049dc6d0c586a9ff417b09269ad2813676c3cabd2166f3c05220be62570e7ce5f0011706eabd457f87b641beabbaebecbdfb67082bec9c519155d218618a0a#npm:0.12.0", {\
+          "packageLocation": "./.yarn/__virtual__/chromium-bidi-virtual-d2e0489b1d/0/cache/chromium-bidi-npm-0.12.0-6de92358fd-352434c820.zip/node_modules/chromium-bidi/",\
+          "packageDependencies": [\
+            ["chromium-bidi", "virtual:ba049dc6d0c586a9ff417b09269ad2813676c3cabd2166f3c05220be62570e7ce5f0011706eabd457f87b641beabbaebecbdfb67082bec9c519155d218618a0a#npm:0.12.0"],\
+            ["@types/devtools-protocol", null],\
+            ["devtools-protocol", "npm:0.0.1367902"],\
+            ["mitt", "npm:3.0.1"],\
+            ["zod", "npm:3.24.1"]\
           ],\
           "packagePeers": [\
             "@types/devtools-protocol",\
@@ -11708,6 +11774,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/devtools-protocol-npm-0.0.1312386-8e7fe8e6c3-c6f68bce32.zip/node_modules/devtools-protocol/",\
           "packageDependencies": [\
             ["devtools-protocol", "npm:0.0.1312386"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:0.0.1367902", {\
+          "packageLocation": "./.yarn/cache/devtools-protocol-npm-0.0.1367902-8b9faf64a7-ef1115f4b2.zip/node_modules/devtools-protocol/",\
+          "packageDependencies": [\
+            ["devtools-protocol", "npm:0.0.1367902"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -14186,6 +14259,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["https-proxy-agent", "npm:7.0.5"],\
             ["agent-base", "npm:7.1.1"],\
+            ["debug", "virtual:6230e12b1d7dee1735a865cef131ea49c043e7f202fd08b14ceb90686e406b76a07840fc9510f1069465ad9695242b42830fc7fea7b01648a261463b7848122f#npm:4.3.7"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:7.0.6", {\
+          "packageLocation": "./.yarn/cache/https-proxy-agent-npm-7.0.6-27a95c2690-b882377a12.zip/node_modules/https-proxy-agent/",\
+          "packageDependencies": [\
+            ["https-proxy-agent", "npm:7.0.6"],\
+            ["agent-base", "npm:7.1.3"],\
             ["debug", "virtual:6230e12b1d7dee1735a865cef131ea49c043e7f202fd08b14ceb90686e406b76a07840fc9510f1069465ad9695242b42830fc7fea7b01648a261463b7848122f#npm:4.3.7"]\
           ],\
           "linkType": "HARD"\
@@ -18576,6 +18658,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["socks-proxy-agent", "npm:8.0.4"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:7.1.0", {\
+          "packageLocation": "./.yarn/cache/pac-proxy-agent-npm-7.1.0-dd32d44479-0ed8ebca23.zip/node_modules/pac-proxy-agent/",\
+          "packageDependencies": [\
+            ["pac-proxy-agent", "npm:7.1.0"],\
+            ["@tootallnate/quickjs-emscripten", "npm:0.23.0"],\
+            ["agent-base", "npm:7.1.3"],\
+            ["debug", "virtual:6230e12b1d7dee1735a865cef131ea49c043e7f202fd08b14ceb90686e406b76a07840fc9510f1069465ad9695242b42830fc7fea7b01648a261463b7848122f#npm:4.3.7"],\
+            ["get-uri", "npm:6.0.3"],\
+            ["http-proxy-agent", "npm:7.0.2"],\
+            ["https-proxy-agent", "npm:7.0.6"],\
+            ["pac-resolver", "npm:7.0.1"],\
+            ["socks-proxy-agent", "npm:8.0.5"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["pac-resolver", [\
@@ -19223,7 +19320,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["pa11y", "npm:8.0.0"],\
             ["playwright", "npm:1.49.1"],\
             ["prettier", "npm:3.4.2"],\
-            ["puppeteer", "npm:22.15.0"],\
+            ["puppeteer", "npm:24.0.0"],\
             ["react", "npm:19.0.0"],\
             ["react-native", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:0.76.6"],\
             ["redis", "npm:4.7.0"],\
@@ -19484,6 +19581,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["socks-proxy-agent", "npm:8.0.4"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:6.5.0", {\
+          "packageLocation": "./.yarn/cache/proxy-agent-npm-6.5.0-5c1adfd6d9-d03ad2d171.zip/node_modules/proxy-agent/",\
+          "packageDependencies": [\
+            ["proxy-agent", "npm:6.5.0"],\
+            ["agent-base", "npm:7.1.3"],\
+            ["debug", "virtual:6230e12b1d7dee1735a865cef131ea49c043e7f202fd08b14ceb90686e406b76a07840fc9510f1069465ad9695242b42830fc7fea7b01648a261463b7848122f#npm:4.3.7"],\
+            ["http-proxy-agent", "npm:7.0.2"],\
+            ["https-proxy-agent", "npm:7.0.6"],\
+            ["lru-cache", "npm:7.18.3"],\
+            ["pac-proxy-agent", "npm:7.1.0"],\
+            ["proxy-from-env", "npm:1.1.0"],\
+            ["socks-proxy-agent", "npm:8.0.5"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["proxy-from-env", [\
@@ -19544,6 +19656,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["puppeteer-core", "npm:22.15.0"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:24.0.0", {\
+          "packageLocation": "./.yarn/unplugged/puppeteer-npm-24.0.0-ba049dc6d0/node_modules/puppeteer/",\
+          "packageDependencies": [\
+            ["puppeteer", "npm:24.0.0"],\
+            ["@puppeteer/browsers", "npm:2.7.0"],\
+            ["chromium-bidi", "virtual:ba049dc6d0c586a9ff417b09269ad2813676c3cabd2166f3c05220be62570e7ce5f0011706eabd457f87b641beabbaebecbdfb67082bec9c519155d218618a0a#npm:0.12.0"],\
+            ["cosmiconfig", "virtual:fa225bdb634e1cbc539c15f52d21e8c24930965df910bda33d9b1290d228e0a64585d7b53da6663575dc8acfbfbe07bcf6d81ab99b1b2b3701c454c9cc8cf6e7#npm:9.0.0"],\
+            ["devtools-protocol", "npm:0.0.1367902"],\
+            ["puppeteer-core", "npm:24.0.0"],\
+            ["typed-query-selector", "npm:2.12.0"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["puppeteer-core", [\
@@ -19555,6 +19680,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["chromium-bidi", "virtual:2dabb1e0b8013e2fdaca43a04ff5516e907d269a5b47d4ffc6f2b442eb957d8cb548f1c54645d78ef91af0b871a6b7fcdd66cbf007351b1269163c63d2b058f7#npm:0.6.3"],\
             ["debug", "virtual:6230e12b1d7dee1735a865cef131ea49c043e7f202fd08b14ceb90686e406b76a07840fc9510f1069465ad9695242b42830fc7fea7b01648a261463b7848122f#npm:4.3.7"],\
             ["devtools-protocol", "npm:0.0.1312386"],\
+            ["ws", "virtual:2dabb1e0b8013e2fdaca43a04ff5516e907d269a5b47d4ffc6f2b442eb957d8cb548f1c54645d78ef91af0b871a6b7fcdd66cbf007351b1269163c63d2b058f7#npm:8.18.0"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:24.0.0", {\
+          "packageLocation": "./.yarn/cache/puppeteer-core-npm-24.0.0-26d115b5b7-318d813bad.zip/node_modules/puppeteer-core/",\
+          "packageDependencies": [\
+            ["puppeteer-core", "npm:24.0.0"],\
+            ["@puppeteer/browsers", "npm:2.7.0"],\
+            ["chromium-bidi", "virtual:26d115b5b7665c3c222793d35974e6b022b7393000495a2c0356785285e18abb528e12ec4dcf9194a5e702fc9e56f7a26c7bb5fd5d4974cbee8d849defd90ed0#npm:0.11.0"],\
+            ["debug", "virtual:6f87eff2f1dfc7363da5b0cbb17c2c347525a1eae4b0c21808f0bd21b40c885f339f38eabc62de6d4460721aa35cfd480922287c7f11e3a1f01aca989082ec26#npm:4.4.0"],\
+            ["devtools-protocol", "npm:0.0.1367902"],\
+            ["typed-query-selector", "npm:2.12.0"],\
             ["ws", "virtual:2dabb1e0b8013e2fdaca43a04ff5516e907d269a5b47d4ffc6f2b442eb957d8cb548f1c54645d78ef91af0b871a6b7fcdd66cbf007351b1269163c63d2b058f7#npm:8.18.0"]\
           ],\
           "linkType": "HARD"\
@@ -20888,6 +21026,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["socks", "npm:2.8.3"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:8.0.5", {\
+          "packageLocation": "./.yarn/cache/socks-proxy-agent-npm-8.0.5-24d77a90dc-b4fbcdb7ad.zip/node_modules/socks-proxy-agent/",\
+          "packageDependencies": [\
+            ["socks-proxy-agent", "npm:8.0.5"],\
+            ["agent-base", "npm:7.1.3"],\
+            ["debug", "virtual:6230e12b1d7dee1735a865cef131ea49c043e7f202fd08b14ceb90686e406b76a07840fc9510f1069465ad9695242b42830fc7fea7b01648a261463b7848122f#npm:4.3.7"],\
+            ["socks", "npm:2.8.3"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["source-map", [\
@@ -22098,6 +22246,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["typed-query-selector", [\
+        ["npm:2.12.0", {\
+          "packageLocation": "./.yarn/cache/typed-query-selector-npm-2.12.0-682535ccea-c4652f2eec.zip/node_modules/typed-query-selector/",\
+          "packageDependencies": [\
+            ["typed-query-selector", "npm:2.12.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["typed-rest-client", [\
         ["npm:2.1.0", {\
           "packageLocation": "./.yarn/cache/typed-rest-client-npm-2.1.0-9d77180df7-0877215291.zip/node_modules/typed-rest-client/",\
@@ -23172,6 +23329,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/zod-npm-3.23.8-11c49c85b5-15949ff821.zip/node_modules/zod/",\
           "packageDependencies": [\
             ["zod", "npm:3.23.8"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:3.24.1", {\
+          "packageLocation": "./.yarn/cache/zod-npm-3.24.1-62ba4e84b3-dcd5334725.zip/node_modules/zod/",\
+          "packageDependencies": [\
+            ["zod", "npm:3.24.1"]\
           ],\
           "linkType": "HARD"\
         }]\
