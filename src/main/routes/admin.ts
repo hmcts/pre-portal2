@@ -6,11 +6,13 @@ import { requiresAuth } from 'express-openid-connect';
 
 export default function (app: Application): void {
   app.get('/admin', requiresAuth(), async (req, res) => {
-    if (
+    const isSuperUser =
       SessionUser.getLoggedInUserProfile(req).app_access.filter(role => role.role.name === UserLevel.SUPER_USER)
-        .length > 0
-    ) {
-      res.render('admin');
+        .length > 0;
+    if (isSuperUser) {
+      res.render('admin', {
+        isSuperUser: isSuperUser,
+      });
     } else {
       res.status(404);
       res.render('not-found');

@@ -20,13 +20,17 @@
     serviceName: "HMCTS Pre-Recorded Evidence Service",
     serviceUrl: "/"
   }) }}
- {% if isSuperUser %}
-     {{ govukServiceNavigation({
-         navigation:
-             [{
-               href: '/admin',
-               text: "Admin"
-             }]
+{% if isSuperUser %}
+   {{ govukServiceNavigation({
+     navigation:
+       [{
+         href: '/browse',
+         text: "Home"
+       },
+       {
+         href: '/admin',
+         text: "Admin"
+       }]
   }) }}
 {% endif %}
 {% endblock %}
