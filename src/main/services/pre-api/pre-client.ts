@@ -3,7 +3,7 @@ import { TermsNotAcceptedError } from '../../types/errors';
 import { Terms } from '../../types/terms';
 import { UserProfile } from '../../types/user-profile';
 
-import { Pagination, PutAuditRequest, Recording, SearchRecordingsRequest } from './types';
+import { Audit, Pagination, PutAuditRequest, Recording, SearchRecordingsRequest } from './types';
 
 import { Logger } from '@hmcts/nodejs-logging';
 import axios, { AxiosResponse } from 'axios';
@@ -25,6 +25,36 @@ export class PreClient {
       });
     } catch (e) {
       this.logger.error(e.message);
+      throw e;
+    }
+  }
+
+  public async getAuditLogs(xUserId: string): Promise<{ auditLogs: Audit[]; pagination: Pagination }> {
+    this.logger.debug('Getting audit logs');
+
+    try {
+      const response = await axios.get('/audit', {
+        headers: {
+          'X-User-Id': xUserId,
+        },
+      });
+
+      const pagination = {
+        currentPage: response.data['page']['number'],
+        totalPages: response.data['page']['totalPages'],
+        totalElements: response.data['page']['totalElements'],
+        size: response.data['page']['size'],
+      } as Pagination;
+      const auditLogs =
+        response.data['page']['totalElements'] === 0 ? [] : (response.data['_embedded']['auditDTOList'] as Audit[]);
+
+      return { auditLogs, pagination };
+    } catch (e) {
+      // log the error
+      // this.logger.info('path', e.response?.request.path);
+      // this.logger.info('res headers', e.response?.headers);
+      // this.logger.info('data', e.response?.data);
+      // rethrow the error for the UI
       throw e;
     }
   }
