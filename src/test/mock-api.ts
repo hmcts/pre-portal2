@@ -1,8 +1,10 @@
 import {
+  Audit,
   Pagination,
   PutAuditRequest,
   Recording,
   RecordingPlaybackData,
+  SearchAuditLogsRequest,
   SearchRecordingsRequest,
 } from '../main/services/pre-api/types';
 import { PreClient } from '../main/services/pre-api/pre-client';
@@ -133,6 +135,31 @@ export function mockGetRecordings(recordings?: Recording[], page: number = 0) {
     .spyOn(PreClient.prototype, 'getRecordings')
     .mockImplementation(async (xUserId: string, req: SearchRecordingsRequest) => {
       return Promise.resolve({ recordings: mockRecordings, pagination: mockPagination });
+    });
+}
+
+export function mockGetAuditLogs(auditLogs?: Audit[], page: number = 0) {
+  if (auditLogs !== undefined) {
+    const pagination = {
+      currentPage: page,
+      totalPages: Math.ceil(auditLogs.length / 10),
+      totalElements: auditLogs.length,
+      size: 10,
+    } as Pagination;
+    const auditLogsSubset = auditLogs.slice(page * 10, (page + 1) * 10);
+
+    jest
+      .spyOn(PreClient.prototype, 'getAuditLogs')
+      .mockImplementation(async (xUserId: string, request: SearchAuditLogsRequest) => {
+        return Promise.resolve({ auditLogs: auditLogsSubset, pagination });
+      });
+    return;
+  }
+
+  jest
+    .spyOn(PreClient.prototype, 'getAuditLogs')
+    .mockImplementation(async (xUserId: string, req: SearchRecordingsRequest) => {
+      return Promise.resolve({ auditLogs: mockRecordings, pagination: mockPagination });
     });
 }
 

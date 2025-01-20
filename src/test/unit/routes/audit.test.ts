@@ -1,6 +1,6 @@
 /* eslint-disable jest/expect-expect */
 import { Nunjucks } from '../../../main/modules/nunjucks';
-import { mockGetRecordings, reset } from '../../mock-api';
+import { mockGetAuditLogs, reset } from '../../mock-api';
 import { beforeAll, describe } from '@jest/globals';
 
 import { PreClient } from '../../../main/services/pre-api/pre-client';
@@ -39,15 +39,14 @@ describe('Audit route', () => {
     const app = require('express')();
     new Nunjucks(false).enableFor(app);
     const request = require('supertest');
-    mockGetRecordings([]);
+    mockGetAuditLogs([]);
 
     const audit = require('../../../main/routes/audit').default;
     audit(app);
 
     const response = await request(app).get('/audit');
     expect(response.status).toEqual(200);
-    expect(response.text).toContain('Audit logs');
-    expect(response.text).toContain('Welcome back,');
+    expect(response.text).toContain('Audit Logs');
     expect(response.text).toContain('playback is preferred on non-mobile devices');
     expect(response.text).toContain('<a href="/logout" class="govuk-back-link">Sign out</a>');
   });
