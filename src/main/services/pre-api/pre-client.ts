@@ -3,7 +3,14 @@ import { TermsNotAcceptedError } from '../../types/errors';
 import { Terms } from '../../types/terms';
 import { UserProfile } from '../../types/user-profile';
 
-import { Audit, Pagination, PutAuditRequest, Recording, SearchRecordingsRequest } from './types';
+import {
+  Audit,
+  Pagination,
+  PutAuditRequest,
+  Recording,
+  SearchAuditLogsRequest,
+  SearchRecordingsRequest,
+} from './types';
 
 import { Logger } from '@hmcts/nodejs-logging';
 import axios, { AxiosResponse } from 'axios';
@@ -29,7 +36,10 @@ export class PreClient {
     }
   }
 
-  public async getAuditLogs(xUserId: string): Promise<{ auditLogs: Audit[]; pagination: Pagination }> {
+  public async getAuditLogs(
+    xUserId: string,
+    request: SearchAuditLogsRequest
+  ): Promise<{ auditLogs: Audit[]; pagination: Pagination }> {
     this.logger.debug('Getting audit logs');
 
     try {
@@ -37,6 +47,7 @@ export class PreClient {
         headers: {
           'X-User-Id': xUserId,
         },
+        params: request,
       });
 
       const pagination = {

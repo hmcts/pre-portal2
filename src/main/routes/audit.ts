@@ -1,3 +1,4 @@
+import { SearchAuditLogsRequest } from 'services/pre-api/types';
 import { PreClient } from '../services/pre-api/pre-client';
 import { SessionUser } from '../services/session-user/session-user';
 
@@ -9,7 +10,15 @@ export default function (app: Application): void {
     const client = new PreClient();
 
     try {
-      const { auditLogs, pagination } = await client.getAuditLogs(await SessionUser.getLoggedInUserPortalId(req));
+      const request: SearchAuditLogsRequest = {
+        page: req.query.page as unknown as number,
+        size: 10,
+      };
+
+      const { auditLogs, pagination } = await client.getAuditLogs(
+        await SessionUser.getLoggedInUserPortalId(req),
+        request
+      );
 
       const paginationLinks = {
         previous: {},

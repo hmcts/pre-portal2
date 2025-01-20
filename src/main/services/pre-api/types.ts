@@ -1,3 +1,8 @@
+export interface SearchAuditLogsRequest {
+  page?: number;
+  size?: number;
+}
+
 export interface SearchRecordingsRequest {
   captureSessionId?: string;
   parentRecordingId?: string;
