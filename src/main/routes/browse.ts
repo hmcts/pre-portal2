@@ -46,10 +46,7 @@ export default function (app: Application): void {
       return;
     }
 
-    const { recordings, pagination } = await client.getRecordings(
-      userPortalId,
-      request
-    );
+    const { recordings, pagination } = await client.getRecordings(userPortalId, request);
 
     // Example 9 pages: <Previous 0 ... 2 3 |4| 5 6 ... 8 Next>
     // Page starts at 0
