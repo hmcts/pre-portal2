@@ -37,8 +37,17 @@ export default function (app: Application): void {
       size: 10,
     };
 
+    let userPortalId: string;
+    try {
+      userPortalId = await SessionUser.getLoggedInUserPortalId(req);
+    } catch (e) {
+      res.status(404);
+      res.render('not-found');
+      return;
+    }
+
     const { recordings, pagination } = await client.getRecordings(
-      await SessionUser.getLoggedInUserPortalId(req),
+      userPortalId,
       request
     );
 

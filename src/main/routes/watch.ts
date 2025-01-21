@@ -21,12 +21,20 @@ export default function (app: Application): void {
       return;
     }
 
+    let userPortalId: string;
     try {
-      const userPortalId = await SessionUser.getLoggedInUserPortalId(req);
+      userPortalId = await SessionUser.getLoggedInUserPortalId(req);
+    } catch (e) {
+      res.status(404);
+      res.render('not-found');
+      return;
+    }
+
+    try {
       const userProfile = SessionUser.getLoggedInUserProfile(req);
 
       const client = new PreClient();
-      const recording = await client.getRecording(await SessionUser.getLoggedInUserPortalId(req), req.params.id);
+      const recording = await client.getRecording(userPortalId, req.params.id);
 
       if (recording === null) {
         res.status(404);
@@ -71,10 +79,17 @@ export default function (app: Application): void {
       return;
     }
 
+    let userPortalId: string;
+    try {
+      userPortalId = await SessionUser.getLoggedInUserPortalId(req);
+    } catch (e) {
+      res.status(404);
+      res.render('not-found');
+      return;
+    }
+
     try {
       const client = new PreClient();
-      const userPortalId = await SessionUser.getLoggedInUserPortalId(req);
-
       const recordingPlaybackData = await client.getRecordingPlaybackDataMk(userPortalId, req.params.id);
 
       if (recordingPlaybackData === null) {
