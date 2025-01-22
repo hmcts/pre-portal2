@@ -325,6 +325,15 @@ describe('PreClient', () => {
     expect(pagination).toBeTruthy();
   });
 
+  test('network error', async () => {
+    try {
+      await preClient.getRecordings(otherXUserId, { caseReference: 'uhoh' } as SearchAuditLogsRequest);
+      expect(true).toBe(false); // shouldn't get here...
+    } catch (e) {
+      expect(e).toBe('Network Error');
+    }
+  });
+
   test('getRecordingPlaybackDataMk success', async () => {
     var result = await preClient.getRecordingPlaybackDataMk('456', '123');
     expect(result).toBeTruthy();

@@ -62,9 +62,9 @@ export class PreClient {
       return { auditLogs, pagination };
     } catch (e) {
       // log the error
-      // this.logger.info('path', e.response?.request.path);
-      // this.logger.info('res headers', e.response?.headers);
-      // this.logger.info('data', e.response?.data);
+      this.logger.info('path', e.response?.request.path);
+      this.logger.info('res headers', e.response?.headers);
+      this.logger.info('data', e.response?.data);
       // rethrow the error for the UI
       throw e;
     }
