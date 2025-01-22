@@ -27,7 +27,7 @@ describe('Watch page failure', () => {
         .get('/watch/12345678-1234-1234-1234-1234567890ff')
         .expect(res => {
           expect(res.status).toBe(404);
-          expect(res.text).toContain('Page is no longer available')
+          expect(res.text).toContain('Page is no longer available');
         });
     });
 
@@ -37,7 +37,7 @@ describe('Watch page failure', () => {
         .get('/watch/12345678-1234-1234-1234-1234567890ff/playback')
         .expect(res => {
           expect(res.status).toBe(404);
-          expect(res.text).toContain('Not found')
+          expect(res.text).toContain('Not found');
         });
     });
 
@@ -47,7 +47,7 @@ describe('Watch page failure', () => {
         .get('/watch/something')
         .expect(res => {
           expect(res.status).toBe(404);
-          expect(res.text).toContain('Page not found')
+          expect(res.text).toContain('Page not found');
         });
     });
     test('should return 404 when getRecordingPlaybackDataMk id is invalid', async () => {
@@ -56,7 +56,7 @@ describe('Watch page failure', () => {
         .get('/watch/something/playback')
         .expect(res => {
           expect(res.status).toBe(404);
-          expect(res.text).toContain('Not found')
+          expect(res.text).toContain('Not found');
         });
     });
 
