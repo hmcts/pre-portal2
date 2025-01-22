@@ -93,16 +93,17 @@ export default function (app: Application): void {
         paginationLinks,
         title,
       });
-    } catch (error) {
+    } catch (err) {
       const isSuperUser =
         SessionUser.getLoggedInUserProfile(req).app_access.filter(role => role.role.name === UserLevel.SUPER_USER)
           .length > 0;
-      if (!isSuperUser) {
-        res.status(404);
-        res.render('not-found');
+      if (isSuperUser) {
+        res.status(500);
+        res.render('error', { status: err.status, message: err.message });
         return;
       } else {
-        res.status(500);
+        res.status(404);
+        res.render('not-found');
         return;
       }
     }
