@@ -119,6 +119,18 @@ export const mockedPaginatedRecordings = {
   },
 };
 
+export const mockedPaginatedAuditLogs = {
+  _embedded: {
+    auditDTOList: mockAuditLogs,
+  },
+  page: {
+    size: 20,
+    totalElements: 2,
+    totalPages: 1,
+    number: 0,
+  },
+};
+
 export const mockXUserId = 'a114f40e-bdba-432d-b53f-37169ee5bf99';
 
 export function mock() {
