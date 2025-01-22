@@ -2,9 +2,10 @@ import { Application } from 'express';
 import { isSuperUser } from '../../helpers/helpers';
 import { SessionUser } from '../../services/session-user/session-user';
 import { PreClient } from '../../services/pre-api/pre-client';
+import { requiresAuth } from 'express-openid-connect';
 
 export default (app: Application): void => {
-  app.get('/admin/users/:id', async (req, res) => {
+  app.get('/admin/users/:id', requiresAuth(), async (req, res) => {
     if (!isSuperUser(req)) {
       res.status(404);
       res.render('not-found');

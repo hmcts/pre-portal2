@@ -3,9 +3,10 @@ import { getAllPaginatedCourts, getPaginatedPageTitle, getPaginationLinks, isSup
 import { PreClient } from '../../services/pre-api/pre-client';
 import { SessionUser } from '../../services/session-user/session-user';
 import { Pagination, SearchUsersRequest, User } from '../../services/pre-api/types';
+import { requiresAuth } from 'express-openid-connect';
 
 export default (app: Application): void => {
-  app.get('/admin/users', async (req, res) => {
+  app.get('/admin/users', requiresAuth(), async (req, res) => {
     if (!isSuperUser(req)) {
       res.status(404);
       res.render('not-found');
