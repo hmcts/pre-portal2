@@ -25,26 +25,39 @@ describe('Watch page failure', () => {
       mockGetRecording(null);
       await request(app)
         .get('/watch/12345678-1234-1234-1234-1234567890ff')
-        .expect(res => expect(res.status).toBe(404));
+        .expect(res => {
+          expect(res.status).toBe(404);
+          expect(res.text).toContain('Page is no longer available')
+        });
     });
+
     test('should return 404 when getRecordingPlaybackDataMk returns null', async () => {
       mockGetRecordingPlaybackData(null);
       await request(app)
         .get('/watch/12345678-1234-1234-1234-1234567890ff/playback')
-        .expect(res => expect(res.status).toBe(404));
+        .expect(res => {
+          expect(res.status).toBe(404);
+          expect(res.text).toContain('Not found')
+        });
     });
 
     test('should return 404 when getRecording id is invalid', async () => {
       mockGetRecording(null);
       await request(app)
         .get('/watch/something')
-        .expect(res => expect(res.status).toBe(404));
+        .expect(res => {
+          expect(res.status).toBe(404);
+          expect(res.text).toContain('Page not found')
+        });
     });
     test('should return 404 when getRecordingPlaybackDataMk id is invalid', async () => {
       mockGetRecordingPlaybackData(null);
       await request(app)
         .get('/watch/something/playback')
-        .expect(res => expect(res.status).toBe(404));
+        .expect(res => {
+          expect(res.status).toBe(404);
+          expect(res.text).toContain('Not found')
+        });
     });
 
     test('should return 500 when getRecording fails', async () => {

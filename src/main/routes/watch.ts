@@ -30,7 +30,7 @@ export default function (app: Application): void {
 
       if (recording === null) {
         res.status(404);
-        res.render('not-found');
+        res.render('not-available');
         return;
       }
       logger.info(`Recording ${recording.id} accessed by User ${userProfile.user.email}`);
