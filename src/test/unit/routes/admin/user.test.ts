@@ -46,27 +46,34 @@ describe('Admin View User Page Access', () => {
     const response = await request(app).get('/admin/users/someid');
 
     expect(response.status).toEqual(200);
-    expect(response.text).toContain("User: Example User")
+    expect(response.text).toContain('User: Example User');
 
     const text = response.text.replace(/\s+/g, ' ').trim();
     expect(text).toContain('data-testid=\"user-summary\"');
-    expect(text)
-      .toContain('<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-first-name\"> Example </dd>');
-    expect(text)
-      .toContain('<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-last-name\"> User </dd>');
-    expect(text)
-      .toContain('<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-email\"> example@example.com </dd>');
-    expect(text)
-      .toContain('<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-phone\"> 0123456789 </dd>');
-    expect(text)
-      .toContain('<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-org\"> Example Organisation </dd>');
-    expect(text)
-      .toContain('<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-app-access\"> Yes </dd>');
-    expect(text)
-      .toContain('<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-portal-access\"> Yes </dd>');
+    expect(text).toContain(
+      '<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-first-name\"> Example </dd>'
+    );
+    expect(text).toContain(
+      '<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-last-name\"> User </dd>'
+    );
+    expect(text).toContain(
+      '<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-email\"> example@example.com </dd>'
+    );
+    expect(text).toContain(
+      '<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-phone\"> 0123456789 </dd>'
+    );
+    expect(text).toContain(
+      '<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-org\"> Example Organisation </dd>'
+    );
+    expect(text).toContain(
+      '<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-app-access\"> Yes </dd>'
+    );
+    expect(text).toContain(
+      '<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-portal-access\"> Yes </dd>'
+    );
 
-    expect(text).toContain("Application access details");
-    expect(text).toContain("Portal access details");
+    expect(text).toContain('Application access details');
+    expect(text).toContain('Portal access details');
   });
 
   test('should display view user page for super user when viewed user has no app access', async () => {
@@ -76,33 +83,40 @@ describe('Admin View User Page Access', () => {
 
     mockGetUser({
       ...mockUsers[0],
-      app_access: []
+      app_access: [],
     });
 
     const response = await request(app).get('/admin/users/someid');
 
     expect(response.status).toEqual(200);
-    expect(response.text).toContain("User: Example User")
+    expect(response.text).toContain('User: Example User');
 
     const text = response.text.replace(/\s+/g, ' ').trim();
     expect(text).toContain('data-testid=\"user-summary\"');
-    expect(text)
-      .toContain('<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-first-name\"> Example </dd>');
-    expect(text)
-      .toContain('<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-last-name\"> User </dd>');
-    expect(text)
-      .toContain('<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-email\"> example@example.com </dd>');
-    expect(text)
-      .toContain('<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-phone\"> 0123456789 </dd>');
-    expect(text)
-      .toContain('<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-org\"> Example Organisation </dd>');
-    expect(text)
-      .toContain('<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-app-access\"> No </dd>');
-    expect(text)
-      .toContain('<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-portal-access\"> Yes </dd>');
+    expect(text).toContain(
+      '<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-first-name\"> Example </dd>'
+    );
+    expect(text).toContain(
+      '<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-last-name\"> User </dd>'
+    );
+    expect(text).toContain(
+      '<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-email\"> example@example.com </dd>'
+    );
+    expect(text).toContain(
+      '<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-phone\"> 0123456789 </dd>'
+    );
+    expect(text).toContain(
+      '<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-org\"> Example Organisation </dd>'
+    );
+    expect(text).toContain(
+      '<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-app-access\"> No </dd>'
+    );
+    expect(text).toContain(
+      '<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-portal-access\"> Yes </dd>'
+    );
 
-    expect(text).not.toContain("Application access details");
-    expect(text).toContain("Portal access details");
+    expect(text).not.toContain('Application access details');
+    expect(text).toContain('Portal access details');
   });
 
   test('should display view user page for super user when viewed user has no portal access', async () => {
@@ -112,33 +126,40 @@ describe('Admin View User Page Access', () => {
 
     mockGetUser({
       ...mockUsers[0],
-      portal_access: []
+      portal_access: [],
     });
 
     const response = await request(app).get('/admin/users/someid');
 
     expect(response.status).toEqual(200);
-    expect(response.text).toContain("User: Example User")
+    expect(response.text).toContain('User: Example User');
 
     const text = response.text.replace(/\s+/g, ' ').trim();
     expect(text).toContain('data-testid=\"user-summary\"');
-    expect(text)
-      .toContain('<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-first-name\"> Example </dd>');
-    expect(text)
-      .toContain('<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-last-name\"> User </dd>');
-    expect(text)
-      .toContain('<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-email\"> example@example.com </dd>');
-    expect(text)
-      .toContain('<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-phone\"> 0123456789 </dd>');
-    expect(text)
-      .toContain('<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-org\"> Example Organisation </dd>');
-    expect(text)
-      .toContain('<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-app-access\"> Yes </dd>');
-    expect(text)
-      .toContain('<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-portal-access\"> No </dd>');
+    expect(text).toContain(
+      '<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-first-name\"> Example </dd>'
+    );
+    expect(text).toContain(
+      '<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-last-name\"> User </dd>'
+    );
+    expect(text).toContain(
+      '<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-email\"> example@example.com </dd>'
+    );
+    expect(text).toContain(
+      '<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-phone\"> 0123456789 </dd>'
+    );
+    expect(text).toContain(
+      '<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-org\"> Example Organisation </dd>'
+    );
+    expect(text).toContain(
+      '<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-app-access\"> Yes </dd>'
+    );
+    expect(text).toContain(
+      '<dd class=\"govuk-summary-list__value\" data-testid=\"summary-value-portal-access\"> No </dd>'
+    );
 
-    expect(text).toContain("Application access details");
-    expect(text).not.toContain("Portal access details");
+    expect(text).toContain('Application access details');
+    expect(text).not.toContain('Portal access details');
   });
 
   test('should display "Page Not Found" for non-super user', async () => {

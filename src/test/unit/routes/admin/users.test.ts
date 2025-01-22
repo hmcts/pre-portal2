@@ -50,7 +50,6 @@ describe('Admin Search Users Page Access', () => {
     expect(response.status).toEqual(200);
     expect(response.text).toContain('Pre-Recorded Evidence: Users');
     expect(response.text).not.toContain('No records found.');
-
   });
 
   test('should display search users page for super user when no users in the system', async () => {

@@ -116,11 +116,11 @@ export const mockCourts: Court[] = [
 export const mockUsers: User[] = [
   {
     id: '12345678-1234-1234-1234-1234567890ab',
-    first_name: "Example",
-    last_name: "User",
-    email: "example@example.com",
-    phone: "0123456789",
-    organisation: "Example Organisation",
+    first_name: 'Example',
+    last_name: 'User',
+    email: 'example@example.com',
+    phone: '0123456789',
+    organisation: 'Example Organisation',
     terms_accepted: {},
     app_access: [
       {
@@ -155,7 +155,7 @@ export const mockUsers: User[] = [
         last_access: '01/01/2025',
         deleted_at: null,
         status: 'ACTIVE',
-      } as PortalAccess
+      } as PortalAccess,
     ],
   } as User,
 ];
@@ -218,28 +218,22 @@ export function mockGetUsers(users?: User[], page: number = 0) {
     return;
   }
 
-  jest
-    .spyOn(PreClient.prototype, 'getUsers')
-    .mockImplementation(async (xUserId: string, req: SearchUsersRequest) => {
-      return Promise.resolve({ users: mockUsers, pagination: mockPagination });
-    });
+  jest.spyOn(PreClient.prototype, 'getUsers').mockImplementation(async (xUserId: string, req: SearchUsersRequest) => {
+    return Promise.resolve({ users: mockUsers, pagination: mockPagination });
+  });
 }
 
 export function mockGetUser(user?: User, page: number = 0) {
   if (user !== undefined) {
-    jest
-      .spyOn(PreClient.prototype, 'getUser')
-      .mockImplementation(async (xUserId: string, id: string) => {
-        return Promise.resolve(user);
-      });
+    jest.spyOn(PreClient.prototype, 'getUser').mockImplementation(async (xUserId: string, id: string) => {
+      return Promise.resolve(user);
+    });
     return;
   }
 
-  jest
-    .spyOn(PreClient.prototype, 'getUser')
-    .mockImplementation(async (xUserId: string, id: string) => {
-      return Promise.resolve(mockUsers[0]);
-    });
+  jest.spyOn(PreClient.prototype, 'getUser').mockImplementation(async (xUserId: string, id: string) => {
+    return Promise.resolve(mockUsers[0]);
+  });
 }
 
 export function mockGetCourts(courts?: Court[], page: number = 0) {
@@ -260,11 +254,9 @@ export function mockGetCourts(courts?: Court[], page: number = 0) {
     return;
   }
 
-  jest
-    .spyOn(PreClient.prototype, 'getCourts')
-    .mockImplementation(async (xUserId: string, req: PaginatedRequest) => {
-      return Promise.resolve({ courts: mockCourts, pagination: mockPagination });
-    });
+  jest.spyOn(PreClient.prototype, 'getCourts').mockImplementation(async (xUserId: string, req: PaginatedRequest) => {
+    return Promise.resolve({ courts: mockCourts, pagination: mockPagination });
+  });
 }
 
 export function mockGetRoles(roles?: Role[]) {
@@ -277,11 +269,9 @@ export function mockGetRoles(roles?: Role[]) {
     return;
   }
 
-  jest
-    .spyOn(PreClient.prototype, 'getRoles')
-    .mockImplementation(async (xUserId: string, req: PaginatedRequest) => {
-      return Promise.resolve(mockRoles);
-    });
+  jest.spyOn(PreClient.prototype, 'getRoles').mockImplementation(async (xUserId: string, req: PaginatedRequest) => {
+    return Promise.resolve(mockRoles);
+  });
 }
 
 export function mockGetRecordings(recordings?: Recording[], page: number = 0) {
