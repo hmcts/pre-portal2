@@ -73,6 +73,10 @@ describe('Audit route', () => {
       throw new Error('error');
     });
 
+    if (mockeduser.app_access?.[0]?.role) {
+      mockeduser.app_access[0].role.name = UserLevel.SUPER_USER;
+    }
+
     const app = require('express')();
     new Nunjucks(false).enableFor(app);
     const request = require('supertest');
