@@ -23,7 +23,9 @@ export default function (app: Application): void {
         };
 
         const { auditLogs, pagination } = await client.getAuditLogs(
-          await SessionUser.getLoggedInUserPortalId(req),
+          await SessionUser.getLoggedInUserProfile(req).app_access.filter(
+            role => role.role.name === UserLevel.SUPER_USER
+          )?.[0].id,
           request
         );
 
