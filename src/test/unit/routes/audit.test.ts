@@ -6,6 +6,7 @@ import { beforeAll, describe } from '@jest/globals';
 import { PreClient } from '../../../main/services/pre-api/pre-client';
 import { UserProfile } from '../../../main/types/user-profile';
 import { mockeduser } from '../test-helper';
+import { UserLevel } from '../../../main/types/user-level';
 
 jest.mock('express-openid-connect', () => {
   return {
@@ -51,7 +52,23 @@ describe('Audit route', () => {
     expect(response.text).toContain('<a href="/logout" class="govuk-back-link">Sign out</a>');
   });
 
-  test('should return 500', async () => {
+  test('should display "Page Not Found" for non-super user', async () => {
+    const app = require('express')();
+    new Nunjucks(false).enableFor(app);
+    const request = require('supertest');
+    const audit = require('../../../main/routes/audit').default;
+    audit(app);
+
+    if (mockeduser.app_access?.[0]?.role) {
+      mockeduser.app_access[0].role.name = UserLevel.ADMIN;
+    }
+
+    const response = await request(app).get('/audit');
+    expect(response.status).toEqual(404);
+    expect(response.text).toContain('Page Not Found');
+  });
+
+  test('should return 500 for super user', async () => {
     jest.spyOn(PreClient.prototype, 'getAuditLogs').mockImplementation(() => {
       throw new Error('error');
     });
