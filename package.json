@@ -127,7 +127,7 @@
     "playwright": "1.49",
     "prettier": "3.4.2",
     "react": "^19.0.0",
-    "react-native": "^0.76.0",
+    "react-native": "^0.77.0",
     "sass": "1.83.4",
     "sass-loader": "16.0.4",
     "style-loader": "4.0.0",
