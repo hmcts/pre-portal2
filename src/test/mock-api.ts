@@ -174,6 +174,30 @@ export const mockedPaginatedRecordings = {
   },
   page: {
     size: 20,
+    totalElements: 1,
+    totalPages: 1,
+    number: 0,
+  },
+};
+
+export const mockedPaginatedUsers = {
+  _embedded: {
+    userDTOList: mockUsers,
+  },
+  page: {
+    size: 20,
+    totalElements: 2,
+    totalPages: 1,
+    number: 0,
+  },
+};
+
+export const mockedPaginatedCourts = {
+  _embedded: {
+    courtDTOList: mockCourts,
+  },
+  page: {
+    size: 20,
     totalElements: 2,
     totalPages: 1,
     number: 0,
