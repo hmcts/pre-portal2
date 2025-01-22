@@ -4,6 +4,7 @@ import { SessionUser } from '../services/session-user/session-user';
 
 import { Application } from 'express';
 import { requiresAuth } from 'express-openid-connect';
+import { UserLevel } from '../types/user-level';
 
 export default function (app: Application): void {
   app.get('/audit', requiresAuth(), async (req, res) => {
@@ -93,10 +94,17 @@ export default function (app: Application): void {
         title,
       });
     } catch (error) {
-      // if user is not superuser
-      res.status(404);
-      res.render('not-found');
-      return;
+      const isSuperUser =
+        SessionUser.getLoggedInUserProfile(req).app_access.filter(role => role.role.name === UserLevel.SUPER_USER)
+          .length > 0;
+      if (!isSuperUser) {
+        res.status(404);
+        res.render('not-found');
+        return;
+      } else {
+        res.status(500);
+        return;
+      }
     }
   });
 }
