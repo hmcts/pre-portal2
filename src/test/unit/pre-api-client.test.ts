@@ -327,7 +327,7 @@ describe('PreClient', () => {
 
   test('network error', async () => {
     try {
-      await preClient.getRecordings(otherXUserId, { caseReference: 'uhoh' } as SearchAuditLogsRequest);
+      await preClient.getAuditLogs(otherXUserId, { caseReference: 'uhoh' } as SearchAuditLogsRequest);
       expect(true).toBe(false); // shouldn't get here...
     } catch (e) {
       expect(e).toBe('Network Error');
