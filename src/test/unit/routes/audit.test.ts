@@ -1,6 +1,6 @@
 /* eslint-disable jest/expect-expect */
 import { Nunjucks } from '../../../main/modules/nunjucks';
-import { mockGetAuditLogs, mockRecordings, reset } from '../../mock-api';
+import { mockGetAuditLogs, mockAuditLogs, reset } from '../../mock-api';
 import { beforeAll, describe } from '@jest/globals';
 
 import { PreClient } from '../../../main/services/pre-api/pre-client';
@@ -71,7 +71,7 @@ describe('Audit route', () => {
     const app = require('express')();
     new Nunjucks(false).enableFor(app);
     const request = require('supertest');
-    const auditLogs = Array(12).fill(mockRecordings[0]).flat();
+    const auditLogs = Array(12).fill(mockAuditLogs[0]).flat();
 
     mockGetAuditLogs(auditLogs, 1);
 
@@ -88,7 +88,7 @@ describe('Audit route', () => {
     const app = require('express')();
     new Nunjucks(false).enableFor(app);
     const request = require('supertest');
-    const auditLogs = Array(12).fill(mockRecordings[0]).flat();
+    const auditLogs = Array(12).fill(mockAuditLogs[0]).flat();
 
     mockGetAuditLogs(auditLogs, 0);
 
@@ -105,7 +105,7 @@ describe('Audit route', () => {
     const app = require('express')();
     new Nunjucks(false).enableFor(app);
     const request = require('supertest');
-    const auditLogs = Array(50).fill(mockRecordings[0]).flat();
+    const auditLogs = Array(50).fill(mockAuditLogs[0]).flat();
 
     mockGetAuditLogs(auditLogs, 4);
 
@@ -122,7 +122,7 @@ describe('Audit route', () => {
     const app = require('express')();
     new Nunjucks(false).enableFor(app);
     const request = require('supertest');
-    const auditLogs = Array(50).fill(mockRecordings[0]).flat();
+    const auditLogs = Array(50).fill(mockAuditLogs[0]).flat();
 
     mockGetAuditLogs(auditLogs, 0);
 
@@ -139,7 +139,7 @@ describe('Audit route', () => {
     const app = require('express')();
     new Nunjucks(false).enableFor(app);
     const request = require('supertest');
-    const auditLogs = Array(90).fill(mockRecordings[0]).flat();
+    const auditLogs = Array(90).fill(mockAuditLogs[0]).flat();
 
     mockGetAuditLogs(auditLogs, 4);
 
@@ -163,7 +163,7 @@ describe('Audit route', () => {
     const app = require('express')();
     new Nunjucks(false).enableFor(app);
     const request = require('supertest');
-    const auditLogs = Array(40).fill(mockRecordings[0]).flat();
+    const auditLogs = Array(40).fill(mockAuditLogs[0]).flat();
 
     mockGetAuditLogs(auditLogs, 1);
 
@@ -184,7 +184,7 @@ describe('Audit route', () => {
     const app = require('express')();
     new Nunjucks(false).enableFor(app);
     const request = require('supertest');
-    const auditLogs = Array(100).fill(mockRecordings[0]).flat();
+    const auditLogs = Array(100).fill(mockAuditLogs[0]).flat();
 
     mockGetAuditLogs(auditLogs, 4);
 

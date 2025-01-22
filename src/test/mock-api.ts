@@ -11,6 +11,33 @@ import { PreClient } from '../main/services/pre-api/pre-client';
 import { AxiosResponse } from 'axios';
 import { Terms } from '../main/types/terms';
 
+export const mockAuditLogs: Audit[] = [
+  {
+    id: '12345678-1234-1234-1234-1234567890ab',
+    functional_area: 'Video Player',
+    category: 'Recording',
+    activity: 'Play',
+    source: 'PORTAL',
+    audit_details: {
+      recordingId: '12345678-1234-1234-1234-1234567890ab',
+    },
+    created_by: '12345678-1234-1234-1234-1234567890ab',
+    created_at: '2021-09-01T12:00:00Z',
+  } as Audit,
+  {
+    id: '12345678-1234-1234-1234-1234567890ac',
+    functional_area: 'Video Player',
+    category: 'Recording',
+    activity: 'Play',
+    source: 'PORTAL',
+    audit_details: {
+      recordingId: '12345678-1234-1234-1234-1234567890ac',
+    },
+    created_by: '12345678-1234-1234-1234-1234567890ab',
+    created_at: '2021-09-01T12:00:00Z',
+  } as Audit,
+];
+
 export const mockRecordings: Recording[] = [
   {
     id: '12345678-1234-1234-1234-1234567890ab',
