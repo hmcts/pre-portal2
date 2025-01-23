@@ -68,7 +68,7 @@ describe('Audit route', () => {
     expect(response.text).toContain('Page Not Found');
   });
 
-  test('should return 500 for super user', async () => {
+  test('should display "Page Not Found" for super user', async () => {
     jest.spyOn(PreClient.prototype, 'getAuditLogs').mockImplementation(() => {
       throw new Error('error');
     });
@@ -85,7 +85,7 @@ describe('Audit route', () => {
     audit(app);
 
     const response = await request(app).get('/audit');
-    expect(response.status).toEqual(500);
+    expect(response.status).toEqual(404);
   });
 
   test('pagination should have a previous link', async () => {

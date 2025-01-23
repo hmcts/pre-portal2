@@ -5,7 +5,7 @@ import { SessionUser } from '../services/session-user/session-user';
 import { Application } from 'express';
 import { requiresAuth } from 'express-openid-connect';
 import { UserLevel } from '../types/user-level';
-import { ForbiddenError } from '../types/errors';
+import { NotFoundError } from '../types/errors';
 
 export default function (app: Application): void {
   app.get('/audit', requiresAuth(), async (req, res) => {
@@ -37,18 +37,12 @@ export default function (app: Application): void {
           title,
         });
       } else {
-        throw new ForbiddenError();
+        throw new NotFoundError();
       }
     } catch (err) {
-      if (isSuperUser) {
-        res.status(500);
-        res.render('error', { status: err.status, message: err.message });
-        return;
-      } else {
-        res.status(404);
-        res.render('not-found');
-        return;
-      }
+      res.status(404);
+      res.render('not-found');
+      return;
     }
   });
 }
