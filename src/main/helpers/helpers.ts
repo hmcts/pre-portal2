@@ -2,6 +2,7 @@ import { UserLevel } from '../types/user-level';
 import { SessionUser } from '../services/session-user/session-user';
 import { Court, PaginatedRequest, Pagination, SearchUsersRequest } from '../services/pre-api/types';
 import { PreClient } from '../services/pre-api/pre-client';
+import config from 'config';
 
 export const isSuperUser = (req: Express.Request) => {
   return (
