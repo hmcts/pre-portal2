@@ -98,16 +98,13 @@ export function mock() {
   mockGetRecordingPlaybackData();
 }
 
-export function mockGetRecording(recording?: Recording | null) {
-  if (recording !== undefined) {
-    jest.spyOn(PreClient.prototype, 'getRecording').mockImplementation(async (xUserId: string, id: string) => {
-      return Promise.resolve(recording);
-    });
-    return;
-  }
-
+export function mockGetRecording(recording?: Recording | null, statusCode?: 403 | 404) {
   jest.spyOn(PreClient.prototype, 'getRecording').mockImplementation(async (xUserId: string, id: string) => {
-    return Promise.resolve(mockRecordings.find(r => r.id === id) || null);
+    if (recording !== undefined) {
+      return Promise.resolve(recording);
+    }
+
+    return Promise.resolve(statusCode ?? (mockRecordings.find(r => r.id === id) || null));
   });
 }
 

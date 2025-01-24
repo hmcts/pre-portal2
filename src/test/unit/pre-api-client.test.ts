@@ -173,11 +173,12 @@ describe('PreClient', () => {
 
   test('get recording missing', async () => {
     const recording = await preClient.getRecording(mockXUserId, mockRecordingMissingId);
-    expect(recording).toBeNull();
+    expect(recording).toBe(404);
   });
-  test('get recording no permissions', async () => {
+
+  test('get recording no permissions or closed', async () => {
     const recording = await preClient.getRecording(mockXUserId, mockRecordingNoPermsId);
-    expect(recording).toBeNull();
+    expect(recording).toBe(403);
   });
 
   test('get recording', async () => {

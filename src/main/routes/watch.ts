@@ -28,11 +28,19 @@ export default function (app: Application): void {
       const client = new PreClient();
       const recording = await client.getRecording(await SessionUser.getLoggedInUserPortalId(req), req.params.id);
 
-      if (recording === null) {
+      if (recording === 404) {
+        res.status(404);
+        res.render('not-found');
+        return;
+      }
+
+      // Handles when case has been closed a different 404 page should be shown
+      if (recording === 403) {
         res.status(404);
         res.render('not-available');
         return;
       }
+      
       logger.info(`Recording ${recording.id} accessed by User ${userProfile.user.email}`);
 
       await client.putAudit(userPortalId, {

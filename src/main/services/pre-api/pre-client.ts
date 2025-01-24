@@ -143,7 +143,7 @@ export class PreClient {
     }
   }
 
-  public async getRecording(xUserId: string, id: string): Promise<Recording | null> {
+  public async getRecording(xUserId: string, id: string): Promise<Recording | any> {
     try {
       const response = await axios.get(`/recordings/${id}`, {
         headers: {
@@ -153,9 +153,9 @@ export class PreClient {
 
       return response.data as Recording;
     } catch (e) {
-      // handle 403 and 404 the same so we don't expose the existence of recordings
+      // if its a 403 or 404 return status as number for controller logic
       if (e.response?.status === 404 || e.response?.status === 403) {
-        return null;
+        return e.response?.status;
       }
 
       throw e;
