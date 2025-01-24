@@ -68,9 +68,7 @@ describe('Watch page failure', () => {
     });
 
     test('should return 404 run getting user id fails', async () => {
-      jest
-        .spyOn(SessionUser, 'getLoggedInUserPortalId')
-        .mockImplementation(async (req: Express.Request) => {
+      jest.spyOn(SessionUser, 'getLoggedInUserPortalId').mockImplementation(async (req: Express.Request) => {
         throw new Error('Error');
       });
       await request(app)

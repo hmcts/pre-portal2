@@ -204,9 +204,7 @@ describe('Browse route', () => {
     new Nunjucks(false).enableFor(app);
     const request = require('supertest');
 
-    jest
-      .spyOn(SessionUser, 'getLoggedInUserPortalId')
-      .mockImplementation(async (req: Express.Request) => {
+    jest.spyOn(SessionUser, 'getLoggedInUserPortalId').mockImplementation(async (req: Express.Request) => {
       throw new Error('Error');
     });
     await request(app)
