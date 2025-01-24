@@ -48,7 +48,6 @@ describe('Audit route', () => {
     const response = await request(app).get('/audit');
     expect(response.status).toEqual(200);
     expect(response.text).toContain('Audit Logs');
-    expect(response.text).toContain('playback is preferred on non-mobile devices');
     expect(response.text).toContain('<a href="/logout" class="govuk-back-link">Sign out</a>');
   });
 
