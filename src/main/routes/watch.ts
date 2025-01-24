@@ -40,7 +40,7 @@ export default function (app: Application): void {
         res.render('not-available');
         return;
       }
-      
+
       logger.info(`Recording ${recording.id} accessed by User ${userProfile.user.email}`);
 
       await client.putAudit(userPortalId, {
