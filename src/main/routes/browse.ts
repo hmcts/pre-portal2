@@ -37,10 +37,16 @@ export default function (app: Application): void {
       size: 10,
     };
 
-    const { recordings, pagination } = await client.getRecordings(
-      await SessionUser.getLoggedInUserPortalId(req),
-      request
-    );
+    let userPortalId: string;
+    try {
+      userPortalId = await SessionUser.getLoggedInUserPortalId(req);
+    } catch (e) {
+      res.status(404);
+      res.render('not-found');
+      return;
+    }
+
+    const { recordings, pagination } = await client.getRecordings(userPortalId, request);
 
     // Example 9 pages: <Previous 0 ... 2 3 |4| 5 6 ... 8 Next>
     // Page starts at 0
