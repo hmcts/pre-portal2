@@ -27,6 +27,7 @@ export default function (app: Application): void {
     } catch (e) {
       res.status(404);
       res.render('not-found');
+      next(e);
       return;
     }
 

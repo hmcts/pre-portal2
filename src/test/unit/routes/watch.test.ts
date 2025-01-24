@@ -5,6 +5,7 @@ import { beforeAll, describe } from '@jest/globals';
 
 import { PreClient } from '../../../main/services/pre-api/pre-client';
 import { mockUser } from '../test-helper';
+import { SessionUser } from '../../../main/services/session-user/session-user';
 
 mockUser();
 
@@ -64,6 +65,21 @@ describe('Watch page failure', () => {
       await request(app)
         .get('/watch/12345678-1234-1234-1234-1234567890ab/playback')
         .expect(res => expect(res.status).toBe(500));
+    });
+
+    test('should return 404 run getting user id fails', async () => {
+      jest
+        .spyOn(SessionUser, 'getLoggedInUserPortalId')
+        .mockImplementation(async (req: Express.Request) => {
+        throw new Error('Error');
+      });
+      await request(app)
+        .get('/watch/12345678-1234-1234-1234-1234567890ab')
+        .expect(res => expect(res.status).toBe(404));
+
+      await request(app)
+        .get('/watch/12345678-1234-1234-1234-1234567890ab/playback')
+        .expect(res => expect(res.status).toBe(404));
     });
   });
 });
