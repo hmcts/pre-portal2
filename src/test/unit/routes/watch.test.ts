@@ -21,30 +21,53 @@ describe('Watch page failure', () => {
     const watch = require('../../../main/routes/watch').default;
     watch(app);
 
-    test('should return 404 when getRecording returns null', async () => {
-      mockGetRecording(null);
+    test('should return not found page when getRecording returns 404', async () => {
+      mockGetRecording(undefined, 404);
       await request(app)
         .get('/watch/12345678-1234-1234-1234-1234567890ff')
-        .expect(res => expect(res.status).toBe(404));
+        .expect(res => {
+          expect(res.status).toBe(404);
+          expect(res.text).toContain('Page not found');
+        });
     });
+
+    test('should return not available page when getRecording returns 403', async () => {
+      mockGetRecording(undefined, 403);
+      await request(app)
+        .get('/watch/12345678-1234-1234-1234-1234567890ff')
+        .expect(res => {
+          expect(res.status).toBe(404);
+          expect(res.text).toContain('Page is no longer available');
+        });
+    });
+
     test('should return 404 when getRecordingPlaybackDataMk returns null', async () => {
       mockGetRecordingPlaybackData(null);
       await request(app)
         .get('/watch/12345678-1234-1234-1234-1234567890ff/playback')
-        .expect(res => expect(res.status).toBe(404));
+        .expect(res => {
+          expect(res.status).toBe(404);
+          expect(res.text).toContain('Not found');
+        });
     });
 
     test('should return 404 when getRecording id is invalid', async () => {
       mockGetRecording(null);
       await request(app)
         .get('/watch/something')
-        .expect(res => expect(res.status).toBe(404));
+        .expect(res => {
+          expect(res.status).toBe(404);
+          expect(res.text).toContain('Page not found');
+        });
     });
     test('should return 404 when getRecordingPlaybackDataMk id is invalid', async () => {
       mockGetRecordingPlaybackData(null);
       await request(app)
         .get('/watch/something/playback')
-        .expect(res => expect(res.status).toBe(404));
+        .expect(res => {
+          expect(res.status).toBe(404);
+          expect(res.text).toContain('Not found');
+        });
     });
 
     test('should return 500 when getRecording fails', async () => {
