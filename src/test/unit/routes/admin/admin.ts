@@ -2,6 +2,10 @@ import { Nunjucks } from '../../../../main/modules/nunjucks';
 import { beforeAll, describe, test, jest } from '@jest/globals';
 import { mockeduser } from '../../test-helper';
 import { UserLevel } from '../../../../main/types/user-level';
+import { set } from 'lodash';
+import config from 'config';
+
+set(config, 'pre.enableAdminApp', 'true');
 
 jest.mock('express-openid-connect', () => {
   return {

@@ -7,6 +7,7 @@ import {
   PaginatedRequest,
   Pagination,
   PutAuditRequest,
+  PutUserRequest,
   Recording,
   SearchRecordingsRequest,
   SearchUsersRequest,
@@ -93,6 +94,19 @@ export class PreClient {
       this.logger.info('res headers', e.response?.headers);
       this.logger.info('data', e.response?.data);
       // rethrow the error for the UI
+      throw e;
+    }
+  }
+
+  public async putUser(xUserId: string, request: PutUserRequest): Promise<void> {
+    try {
+      await axios.put(`/users/${request.id}`, request, {
+        headers: {
+          'X-User-Id': xUserId,
+        },
+      });
+    } catch (e) {
+      this.logger.error(e.message);
       throw e;
     }
   }

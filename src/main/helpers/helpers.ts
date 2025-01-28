@@ -1,8 +1,16 @@
 import { UserLevel } from '../types/user-level';
 import { SessionUser } from '../services/session-user/session-user';
-import { Court, PaginatedRequest, Pagination, SearchUsersRequest } from '../services/pre-api/types';
+import {
+  Court,
+  PaginatedRequest,
+  Pagination, PutAppAccessRequest, PutPortalAccessRequest,
+  PutUserRequest,
+  SearchUsersRequest,
+  User,
+} from '../services/pre-api/types';
 import { PreClient } from '../services/pre-api/pre-client';
 import config from 'config';
+import { AppAccess } from '../types/user-profile';
 
 export const isSuperUser = (req: Express.Request) => {
   return (
@@ -111,4 +119,46 @@ export const getPaginationLinks = (pagination: Pagination, path: string, current
     });
   }
   return paginationLinks;
+};
+
+export const validateId = (id: string): boolean => {
+  return /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(id);
+};
+
+export const convertAppAccessResponseToRequest = (appAccess: AppAccess, userId: string): PutAppAccessRequest => {
+  return {
+    id: appAccess.id,
+    user_id: userId,
+    court_id: appAccess.court.id,
+    role_id: appAccess.role.id,
+    default_court: appAccess.default_court,
+    active: appAccess.active,
+    last_access: appAccess.last_access,
+  } as PutAppAccessRequest;
+};
+
+export const convertUserResponseToUserRequest = (user: User): PutUserRequest => {
+  return {
+    id: user.id,
+    first_name: user.first_name,
+    last_name: user.last_name,
+    email: user.email,
+    phone: user.phone,
+    organisation: user.organisation,
+    app_access: user.app_access.map(access => convertAppAccessResponseToRequest(access, user.id)),
+    portal_access: user.portal_access.map(access => {
+        return {
+          id: access.id,
+          user_id: user.id,
+          invited_at: access.invited_at,
+          last_access: access.last_access,
+          registered_at: access.registered_at,
+          status: access.status,
+        } as PutPortalAccessRequest;
+      }),
+  };
+};
+
+export const isFlagEnabled = (flag: string): boolean => {
+  return config.get(flag)?.toString().toLowerCase() === 'true';
 };

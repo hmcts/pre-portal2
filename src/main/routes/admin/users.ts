@@ -1,11 +1,22 @@
 import { Application } from 'express';
-import { getAllPaginatedCourts, getPaginatedPageTitle, getPaginationLinks, isSuperUser } from '../../helpers/helpers';
+import {
+  getAllPaginatedCourts,
+  getPaginatedPageTitle,
+  getPaginationLinks,
+  isFlagEnabled,
+  isSuperUser,
+} from '../../helpers/helpers';
 import { PreClient } from '../../services/pre-api/pre-client';
 import { SessionUser } from '../../services/session-user/session-user';
 import { Pagination, SearchUsersRequest, User } from '../../services/pre-api/types';
+import { requiresAuth } from 'express-openid-connect';
 
 export default (app: Application): void => {
-  app.get('/admin/users', async (req, res) => {
+  if (!isFlagEnabled('pre.enableAdminApp')) {
+    return;
+  }
+
+  app.get('/admin/users', requiresAuth(), async (req, res) => {
     if (!isSuperUser(req)) {
       res.status(404);
       res.render('not-found');

@@ -1,4 +1,5 @@
 import { AppAccess, PortalAccess } from '../../types/user-profile';
+import { AccessStatus } from '../../types/access-status';
 
 export interface PaginatedRequest {
   page?: number;
@@ -116,4 +117,34 @@ export interface User {
   created_at: string;
   modified_at: string;
   deleted_at?: string;
+}
+
+export interface PutAppAccessRequest {
+  id: string;
+  user_id: string;
+  court_id: string;
+  role_id: string;
+  default_court: boolean;
+  active: boolean;
+  last_access: string;
+}
+
+export interface PutPortalAccessRequest {
+  id: string;
+  user_id: string;
+  invited_at: string;
+  last_access: string | null;
+  registered_at: string | null;
+  status: AccessStatus;
+}
+
+export interface PutUserRequest {
+  id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+  phone?: string;
+  organisation?: string;
+  app_access: PutAppAccessRequest[];
+  portal_access: PutPortalAccessRequest[];
 }
