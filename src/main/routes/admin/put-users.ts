@@ -25,7 +25,7 @@ const Roles = {
   'Level 2': 2,
   'Level 3': 3,
   'Level 4': 4,
-}
+};
 
 export const validateRequest = (request: PutUserRequest, roles: Role[]): Record<string, string> => {
   let errors = {};
@@ -67,7 +67,7 @@ export const validateRequest = (request: PutUserRequest, roles: Role[]): Record<
     if (request.app_access.filter(access => access.default_court).length !== 1) {
       errors['app_access_default_court'] = 'Must have one default (primary) court';
     } else {
-      if(!errors['app_access_role_id']) {
+      if (!errors['app_access_role_id']) {
         const primaryRoleId = request.app_access.filter(access => access.default_court)[0].role_id;
         const primaryRole = Roles[roles.filter(role => role.id === primaryRoleId)[0].name];
         request.app_access.forEach(access => {
@@ -80,7 +80,8 @@ export const validateRequest = (request: PutUserRequest, roles: Role[]): Record<
           const otherRole = Roles[roles.filter(role => role.id === access.role_id)[0].name];
           if (otherRole === undefined || otherRole < primaryRole) {
             errors['app_access_default_court_role'] = 'Primary court must have the highest role level';
-          }});
+          }
+        });
       }
     }
   }

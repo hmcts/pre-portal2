@@ -304,4 +304,3 @@ describe('isFlagEnabled', () => {
     expect(isFlagEnabled('someFlag')).toBe(false);
   });
 });
-

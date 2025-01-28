@@ -3,7 +3,9 @@ import { SessionUser } from '../services/session-user/session-user';
 import {
   Court,
   PaginatedRequest,
-  Pagination, PutAppAccessRequest, PutPortalAccessRequest,
+  Pagination,
+  PutAppAccessRequest,
+  PutPortalAccessRequest,
   PutUserRequest,
   SearchUsersRequest,
   User,
@@ -147,15 +149,15 @@ export const convertUserResponseToUserRequest = (user: User): PutUserRequest => 
     organisation: user.organisation,
     app_access: user.app_access.map(access => convertAppAccessResponseToRequest(access, user.id)),
     portal_access: user.portal_access.map(access => {
-        return {
-          id: access.id,
-          user_id: user.id,
-          invited_at: access.invited_at,
-          last_access: access.last_access,
-          registered_at: access.registered_at,
-          status: access.status,
-        } as PutPortalAccessRequest;
-      }),
+      return {
+        id: access.id,
+        user_id: user.id,
+        invited_at: access.invited_at,
+        last_access: access.last_access,
+        registered_at: access.registered_at,
+        status: access.status,
+      } as PutPortalAccessRequest;
+    }),
   };
 };
 

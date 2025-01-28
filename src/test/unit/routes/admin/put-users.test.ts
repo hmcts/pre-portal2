@@ -64,7 +64,6 @@ describe('validateRequest', () => {
     expect(errors2).toHaveProperty('last_name', 'Enter last name');
   });
 
-
   test('should return an error if email has wrong domain', () => {
     const invalidRequest1 = { ...validRequest, email: '' };
     const errors1 = validateRequest(invalidRequest1, roles);
@@ -281,12 +280,13 @@ describe('Submit Add/Update user request', () => {
     mockGetUser();
     mockPutUser(false);
 
-    const response = await request(app).post('/admin/users/submit')
+    const response = await request(app)
+      .post('/admin/users/submit')
       .set('Content-Type', 'application/json')
       .send(JSON.stringify(validRequest));
 
     expect(response.status).toEqual(302);
-    expect(response.headers.location).toEqual("/admin/users/12345678-1234-1234-1234-1234567890ab");
+    expect(response.headers.location).toEqual('/admin/users/12345678-1234-1234-1234-1234567890ab');
   });
 
   test('should successfully redirect on valid submission for new user', async () => {
@@ -303,7 +303,7 @@ describe('Submit Add/Update user request', () => {
       .send(JSON.stringify({ ...validRequest, id: '' }));
 
     expect(response.status).toEqual(302);
-    expect(response.headers.location).toContain("/admin/users/");
+    expect(response.headers.location).toContain('/admin/users/');
   });
 
   test('should display "Page Not Found" for non-super user', async () => {
