@@ -21,7 +21,7 @@ Feature: View Admin Page
       Then the page should include 'Welcome back,'
       Then I do not see the link 'Admin'
       Given I go to '/admin'
-      Then the page should include 'Page Not Found'
+      Then the page should include 'Page is not available'
 
 
 
