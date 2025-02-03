@@ -16,7 +16,6 @@ export default function (app: Application): void {
 
   app.get('/watch/:id', requiresAuth(), async (req, res, next) => {
     if (!validateId(req.params.id)) {
-      console.log('hereQ?: ');
       res.status(404);
       res.render('not-found');
       return;
