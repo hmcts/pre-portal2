@@ -51,7 +51,7 @@ describe('Audit route', () => {
     expect(response.text).toContain('<a href="/logout" class="govuk-back-link">Sign out</a>');
   });
 
-  test('should display "Page Not Found" for non-super user', async () => {
+  test('should display "Page is not available" for non-super user', async () => {
     const app = require('express')();
     new Nunjucks(false).enableFor(app);
     const request = require('supertest');
@@ -64,10 +64,10 @@ describe('Audit route', () => {
 
     const response = await request(app).get('/audit');
     expect(response.status).toEqual(404);
-    expect(response.text).toContain('Page Not Found');
+    expect(response.text).toContain('Page is not available');
   });
 
-  test('should display "Page Not Found" for super user', async () => {
+  test('should display "Page is not available" for super user', async () => {
     jest.spyOn(PreClient.prototype, 'getAuditLogs').mockImplementation(() => {
       throw new Error('error');
     });
