@@ -77,3 +77,27 @@ export function mockUser() {
     };
   });
 }
+
+export function mockNoUser() {
+  jest.mock('express-openid-connect', () => {
+    return {
+      requiresAuth: jest.fn().mockImplementation(() => {
+        return (req: any, res: any, next: any) => {
+          next();
+        };
+      }),
+    };
+  });
+  jest.mock('../../main/services/session-user/session-user', () => {
+    return {
+      SessionUser: {
+        getLoggedInUserPortalId: jest.fn().mockImplementation((req: Express.Request) => {
+          throw new Error('No User');
+        }),
+        getLoggedInUserProfile: jest.fn().mockImplementation((req: Express.Request) => {
+          throw new Error('No User');
+        }),
+      },
+    };
+  });
+}
