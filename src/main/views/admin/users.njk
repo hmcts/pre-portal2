@@ -21,18 +21,21 @@
       <div class="govuk-form-group">
         <div style="display: flex">
           <div style="width: 50%; padding:0.5rem;">
-            <label class="govuk-label" for="name">Filter by name</label>
-            <input class="govuk-input" id="name" name="name" type="text" placeholder="Name" value="{{ params.name }}"/>
+            <label class="govuk-label" for="firstName">Filter by first name</label>
+            <input class="govuk-input" id="firstName" name="firstName" type="text" placeholder="First name" value="{{ params.firstName }}"/>
+
+            <label class="govuk-label" for="lastName" style="margin-top: 0.5rem">Filter by last name</label>
+            <input class="govuk-input" id="lastName" name="lastName" type="text" placeholder="Last name" value="{{ params.lastName }}"/>
 
             <label class="govuk-label" for="email" style="margin-top: 0.5rem">Filter by email address</label>
             <input class="govuk-input" id="email" name="email" type="text" placeholder="Email address" value="{{ params.email }}"/>
-
-            <label class="govuk-label" for="organisation" style="margin-top: 0.5rem">Filter by organisation</label>
-            <input class="govuk-input" id="organisation" name="organisation" type="text" placeholder="Organisation" value="{{ params.organisation }}"/>
           </div>
 
           <div style="width: 50%; padding:0.5rem;">
-            <label class="govuk-label" for="courtId">Filter by court</label>
+            <label class="govuk-label" for="organisation">Filter by organisation</label>
+            <input class="govuk-input" id="organisation" name="organisation" type="text" placeholder="Organisation" value="{{ params.organisation }}"/>
+
+            <label class="govuk-label" for="courtId" style="margin-top: 0.5rem">Filter by court</label>
             <select class="govuk-select" id="courtId" name="courtId" style="width: 100%;">
               <option
                 {% if params.courtId == "" or params.courtId is none %}selected{% endif %}

@@ -27,7 +27,8 @@ export default (app: Application): void => {
     const roles = await client.getRoles(userPortalId);
 
     const request: SearchUsersRequest = {
-      name: req.query.name as string,
+      firstName: req.query.firstName as string,
+      lastName: req.query.lastName as string,
       email: req.query.email as string,
       organisation: req.query.organisation as string,
       roleId: req.query.roleId as string,
