@@ -47,9 +47,14 @@ export default (app: Application): void => {
       return;
     }
 
+    const filteredRole = req.query.roleId
+      ? roles.filter(role => role.id === req.query.roleId)?.[0]
+      : null;
+
     res.render('admin/users', {
       roles,
       params: req.query,
+      isFilteredByPortalAccess: filteredRole?.name === 'Level 3',
       title: getPaginatedPageTitle('Users', users.users, users.pagination),
       paginationLinks: getPaginationLinks(users.pagination, '/admin/users', request),
       users: users.users.map(user => {
