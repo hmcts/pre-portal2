@@ -1,5 +1,5 @@
 #!/usr/bin/env node
- 
+/* eslint-disable */
 "use strict";
 
 function $$SETUP_STATE(hydrateRuntimeState, basePath) {
@@ -98,7 +98,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jquery", "npm:3.7.1"],\
             ["lint-staged", "npm:15.4.3"],\
             ["lodash", "npm:4.17.21"],\
-            ["marked", "npm:15.0.6"],\
+            ["marked", "npm:15.0.7"],\
             ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.9.2"],\
             ["mocha", "npm:11.0.1"],\
             ["mochawesome", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.3"],\
@@ -16799,10 +16799,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["marked", [\
-        ["npm:15.0.6", {\
-          "packageLocation": "./.yarn/cache/marked-npm-15.0.6-c662864d90-5218363ac4.zip/node_modules/marked/",\
+        ["npm:15.0.7", {\
+          "packageLocation": "./.yarn/cache/marked-npm-15.0.7-5b31edd04f-5863eddd39.zip/node_modules/marked/",\
           "packageDependencies": [\
-            ["marked", "npm:15.0.6"]\
+            ["marked", "npm:15.0.7"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -19395,7 +19395,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jquery", "npm:3.7.1"],\
             ["lint-staged", "npm:15.4.3"],\
             ["lodash", "npm:4.17.21"],\
-            ["marked", "npm:15.0.6"],\
+            ["marked", "npm:15.0.7"],\
             ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.9.2"],\
             ["mocha", "npm:11.0.1"],\
             ["mochawesome", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.3"],\
@@ -32981,7 +32981,7 @@ function arg(
 		}
 
 		if (wholeArg.length > 1 && wholeArg[0] === '-') {
-			 
+			/* eslint-disable operator-linebreak */
 			const separatedArguments =
 				wholeArg[1] === '-' || wholeArg.length === 2
 					? [wholeArg]
@@ -32989,7 +32989,7 @@ function arg(
 							.slice(1)
 							.split('')
 							.map((a) => `-${a}`);
-			 
+			/* eslint-enable operator-linebreak */
 
 			for (let j = 0; j < separatedArguments.length; j++) {
 				const arg = separatedArguments[j];
@@ -33032,7 +33032,7 @@ function arg(
 							!(
 								argv[i + 1].match(/^-?\d*(\.(?=\d))?\d*$/) &&
 								(type === Number ||
-									 
+									// eslint-disable-next-line no-undef
 									(typeof BigInt !== 'undefined' && type === BigInt))
 							))
 					) {
