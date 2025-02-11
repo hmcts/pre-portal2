@@ -47,9 +47,7 @@ export default (app: Application): void => {
       return;
     }
 
-    const filteredRole = req.query.roleId
-      ? roles.filter(role => role.id === req.query.roleId)?.[0]
-      : null;
+    const filteredRole = req.query.roleId ? roles.filter(role => role.id === req.query.roleId)?.[0] : null;
 
     res.render('admin/users', {
       roles,

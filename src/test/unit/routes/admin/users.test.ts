@@ -50,10 +50,9 @@ describe('Admin Search Users Page Access', () => {
     expect(response.status).toEqual(200);
     expect(response.text).toContain('Pre-Recorded Evidence: Users');
     expect(response.text).not.toContain('No records found.');
-    expect(response.text).not.toContain("<th scope=\"col\" class=\"govuk-table__header\">Organisation</th>");
-    expect(response.text).toContain("<th scope=\"col\" class=\"govuk-table__header\">Portal Access</th>");
+    expect(response.text).not.toContain('<th scope="col" class="govuk-table__header">Organisation</th>');
+    expect(response.text).toContain('<th scope="col" class="govuk-table__header">Portal Access</th>');
   });
-
 
   test('should display search users page when filtering by portal role', async () => {
     if (mockeduser.app_access?.[0]?.role) {
@@ -69,8 +68,8 @@ describe('Admin Search Users Page Access', () => {
     expect(response.status).toEqual(200);
     expect(response.text).toContain('Pre-Recorded Evidence: Users');
     expect(response.text).not.toContain('No records found.');
-    expect(response.text).toContain("<th scope=\"col\" class=\"govuk-table__header\">Organisation</th>");
-    expect(response.text).not.toContain("<th scope=\"col\" class=\"govuk-table__header\">Portal Access</th>");
+    expect(response.text).toContain('<th scope="col" class="govuk-table__header">Organisation</th>');
+    expect(response.text).not.toContain('<th scope="col" class="govuk-table__header">Portal Access</th>');
   });
 
   test('should display search users page for super user when no users in the system', async () => {
