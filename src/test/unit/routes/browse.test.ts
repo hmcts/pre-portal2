@@ -7,6 +7,7 @@ import { PreClient } from '../../../main/services/pre-api/pre-client';
 import { UserProfile } from '../../../main/types/user-profile';
 import { mockeduser } from '../test-helper';
 import { convertIsoToDate } from '../../../main/routes/browse';
+import { SessionUser } from '../../../main/services/session-user/session-user';
 
 jest.mock('express-openid-connect', () => {
   return {
@@ -196,6 +197,19 @@ describe('Browse route', () => {
     const response = await request(app).get('/browse?page=4');
     expect(response.status).toEqual(200);
     expect(response.text).toContain('Recordings 41 to 50 of 100');
+  });
+
+  test('should return 404 run getting user id fails', async () => {
+    const app = require('express')();
+    new Nunjucks(false).enableFor(app);
+    const request = require('supertest');
+
+    jest.spyOn(SessionUser, 'getLoggedInUserPortalId').mockImplementation(async (req: Express.Request) => {
+      throw new Error('Error');
+    });
+    await request(app)
+      .get('/browse')
+      .expect(res => expect(res.status).toBe(404));
   });
 });
 
