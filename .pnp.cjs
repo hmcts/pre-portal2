@@ -68,7 +68,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["body-parser", "npm:1.20.3"],\
             ["chokidar", "npm:4.0.3"],\
             ["codeceptjs", "npm:3.6.10"],\
-            ["compression", "npm:1.7.5"],\
+            ["compression", "npm:1.8.0"],\
             ["config", "npm:3.3.12"],\
             ["connect-redis", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.1"],\
             ["cookie-parser", "npm:1.4.7"],\
@@ -6604,7 +6604,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@react-native-community/cli-server-api", "npm:12.3.7"],\
             ["@react-native-community/cli-debugger-ui", "npm:12.3.7"],\
             ["@react-native-community/cli-tools", "npm:12.3.7"],\
-            ["compression", "npm:1.7.5"],\
+            ["compression", "npm:1.8.0"],\
             ["connect", "npm:3.7.0"],\
             ["errorhandler", "npm:1.5.1"],\
             ["nocache", "npm:3.0.4"],\
@@ -11022,10 +11022,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["compression", [\
-        ["npm:1.7.5", {\
-          "packageLocation": "./.yarn/cache/compression-npm-1.7.5-346039c027-d624b55624.zip/node_modules/compression/",\
+        ["npm:1.8.0", {\
+          "packageLocation": "./.yarn/cache/compression-npm-1.8.0-5088616544-12ca3e326b.zip/node_modules/compression/",\
           "packageDependencies": [\
-            ["compression", "npm:1.7.5"],\
+            ["compression", "npm:1.8.0"],\
             ["bytes", "npm:3.1.2"],\
             ["compressible", "npm:2.0.18"],\
             ["debug", "virtual:37bf8baeca06414792610f5848734f065f68d217cce7beb4a1d9bd9569043400ad86bff10abd3b2d89dfce2ed86950a2198136a029541a9dc70fc2e5959a3763#npm:2.6.9"],\
@@ -19494,7 +19494,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["body-parser", "npm:1.20.3"],\
             ["chokidar", "npm:4.0.3"],\
             ["codeceptjs", "npm:3.6.10"],\
-            ["compression", "npm:1.7.5"],\
+            ["compression", "npm:1.8.0"],\
             ["config", "npm:3.3.12"],\
             ["connect-redis", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.1"],\
             ["cookie-parser", "npm:1.4.7"],\
