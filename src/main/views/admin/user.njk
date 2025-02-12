@@ -110,7 +110,18 @@
 
   {% if hasAppAccess %}
     <h2 class="govuk-heading-m">Application access details</h2>
-    <p class="govuk-body">Current Terms and Conditions: {% if not user.terms_accepted.APP %}Not {% endif %}Accepted</p>
+    <p class="govuk-body">Current Terms and Conditions:
+      {% if not user.terms_accepted.APP %}
+        <strong class="govuk-tag govuk-tag--grey">
+          Not Accepted
+        </strong>
+      {% endif %}
+      {% if user.terms_accepted.APP %}
+        <strong class="govuk-tag govuk-tag">
+          Accepted
+        </strong>
+      {% endif %}
+    </p>
     <table class="govuk-table">
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
