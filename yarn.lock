@@ -13370,15 +13370,15 @@ __metadata:
   linkType: hard
 
 "mochawesome-merge@npm:^4.3.0":
-  version: 4.3.0
-  resolution: "mochawesome-merge@npm:4.3.0"
+  version: 4.4.1
+  resolution: "mochawesome-merge@npm:4.4.1"
   dependencies:
     fs-extra: ^7.0.1
     glob: ^7.1.6
     yargs: ^15.3.1
   bin:
     mochawesome-merge: bin/mochawesome-merge.js
-  checksum: 796321f8b8b15bc223ced10d3fc38f2a689fd12abc2d5745f5ffabfba54a0bbf8edf16596507f751966b21fdbe9d5b3fdeb5662dcf865771466b54ba6b61e849
+  checksum: b8d1036b5cbde3ee41ede7f1b2408fba907cf04694fddb7b4b3ef74000cc932941627c9789cb5b209006b3dc8ce1221ccd9bd25f047d543ff28b7910cafafb34
   languageName: node
   linkType: hard
 
