@@ -102,7 +102,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.9.2"],\
             ["mocha", "npm:11.1.0"],\
             ["mochawesome", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.3"],\
-            ["mochawesome-merge", "npm:4.3.0"],\
+            ["mochawesome-merge", "npm:4.4.1"],\
             ["mochawesome-report-generator", "npm:6.2.0"],\
             ["nock", "npm:13.5.6"],\
             ["node-mocks-http", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.16.2"],\
@@ -17884,10 +17884,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["mochawesome-merge", [\
-        ["npm:4.3.0", {\
-          "packageLocation": "./.yarn/cache/mochawesome-merge-npm-4.3.0-f920b7a032-796321f8b8.zip/node_modules/mochawesome-merge/",\
+        ["npm:4.4.1", {\
+          "packageLocation": "./.yarn/cache/mochawesome-merge-npm-4.4.1-c82650ae8d-b8d1036b5c.zip/node_modules/mochawesome-merge/",\
           "packageDependencies": [\
-            ["mochawesome-merge", "npm:4.3.0"],\
+            ["mochawesome-merge", "npm:4.4.1"],\
             ["fs-extra", "npm:7.0.1"],\
             ["glob", "npm:7.2.3"],\
             ["yargs", "npm:15.4.1"]\
@@ -19528,7 +19528,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.9.2"],\
             ["mocha", "npm:11.1.0"],\
             ["mochawesome", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.3"],\
-            ["mochawesome-merge", "npm:4.3.0"],\
+            ["mochawesome-merge", "npm:4.4.1"],\
             ["mochawesome-report-generator", "npm:6.2.0"],\
             ["nock", "npm:13.5.6"],\
             ["node-mocks-http", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:1.16.2"],\
