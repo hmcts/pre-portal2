@@ -100,7 +100,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lodash", "npm:4.17.21"],\
             ["marked", "npm:15.0.7"],\
             ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.9.2"],\
-            ["mocha", "npm:11.0.1"],\
+            ["mocha", "npm:11.1.0"],\
             ["mochawesome", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.3"],\
             ["mochawesome-merge", "npm:4.3.0"],\
             ["mochawesome-report-generator", "npm:6.2.0"],\
@@ -17823,10 +17823,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:11.0.1", {\
-          "packageLocation": "./.yarn/cache/mocha-npm-11.0.1-09f08647f8-48ba4ff1c2.zip/node_modules/mocha/",\
+        ["npm:11.1.0", {\
+          "packageLocation": "./.yarn/cache/mocha-npm-11.1.0-7c863baca0-23dfebb98e.zip/node_modules/mocha/",\
           "packageDependencies": [\
-            ["mocha", "npm:11.0.1"],\
+            ["mocha", "npm:11.1.0"],\
             ["ansi-colors", "npm:4.1.3"],\
             ["browser-stdout", "npm:1.3.1"],\
             ["chokidar", "npm:3.6.0"],\
@@ -17844,8 +17844,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["strip-json-comments", "npm:3.1.1"],\
             ["supports-color", "npm:8.1.1"],\
             ["workerpool", "npm:6.5.1"],\
-            ["yargs", "npm:16.2.0"],\
-            ["yargs-parser", "npm:20.2.9"],\
+            ["yargs", "npm:17.7.2"],\
+            ["yargs-parser", "npm:21.1.1"],\
             ["yargs-unparser", "npm:2.0.0"]\
           ],\
           "linkType": "HARD"\
@@ -17871,7 +17871,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lodash.isfunction", "npm:3.0.9"],\
             ["lodash.isobject", "npm:3.0.2"],\
             ["lodash.isstring", "npm:4.0.1"],\
-            ["mocha", "npm:11.0.1"],\
+            ["mocha", "npm:11.1.0"],\
             ["mochawesome-report-generator", "npm:6.2.0"],\
             ["strip-ansi", "npm:6.0.1"],\
             ["uuid", "npm:8.3.2"]\
@@ -19526,7 +19526,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["lodash", "npm:4.17.21"],\
             ["marked", "npm:15.0.7"],\
             ["mini-css-extract-plugin", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:2.9.2"],\
-            ["mocha", "npm:11.0.1"],\
+            ["mocha", "npm:11.1.0"],\
             ["mochawesome", "virtual:16701266ea8f9c4c47e5d4e7d6e5f60f5b90bd85760be31472205688a0f541b309f8b385bcdfaeae586863ad36065412b38f52d324d6841d21abacc4b09d6704#npm:7.1.3"],\
             ["mochawesome-merge", "npm:4.3.0"],\
             ["mochawesome-report-generator", "npm:6.2.0"],\
