@@ -129,7 +129,7 @@
     "react": "^19.0.0",
     "react-native": "^0.77.0",
     "sass": "1.85.0",
-    "sass-loader": "16.0.4",
+    "sass-loader": "16.0.5",
     "style-loader": "4.0.0",
     "ts-jest": "29.2.5",
     "ts-loader": "9.5.2",
