@@ -1,6 +1,6 @@
 Feature: View Admin Page
 @CrossBrowser
-    Scenario: The admin page should display for Super Users
+    Scenario: The admin pages should display for Super Users
       When I go to '/'
       Then the page should include 'Sign in'
       Then I sign in with valid credentials as a super user
@@ -11,8 +11,16 @@ Feature: View Admin Page
       Then I click the link 'Admin'
       Then I am on the '/admin' page
       Then the page should include 'Admin'
+      Then I click the link 'Status'
+      Then I am on the '/admin/status' page
+      Then the page should include 'Govnotify'
+      Then the page should include 'DB'
+      Then I click the link 'MediaKind live events'
+      Then I am on the '/admin/MK-live-events' page
+      Then the page should include 'Description'
+      Then the page should include 'Resource State'
 
-    Scenario: The admin page should not display for non Super Users
+    Scenario: The admin pages should not display for non Super Users
       When I go to '/'
       Then the page should include 'Sign in'
       Then I sign in with valid credentials as the test user
@@ -21,6 +29,10 @@ Feature: View Admin Page
       Then the page should include 'Welcome back,'
       Then I do not see the link 'Admin'
       Given I go to '/admin'
+      Then the page should include 'Page Not Found'
+      Given I go to '/admin/status'
+      Then the page should include 'Page Not Found'
+      Given I go to '/admin/MK-live-events'
       Then the page should include 'Page Not Found'
 
 

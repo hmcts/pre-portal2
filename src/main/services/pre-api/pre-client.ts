@@ -4,6 +4,7 @@ import { Terms } from '../../types/terms';
 import { UserProfile } from '../../types/user-profile';
 
 import { Pagination, PutAuditRequest, Recording, SearchRecordingsRequest } from './types';
+import { LiveEvent } from '../../types/live-event';
 
 import { Logger } from '@hmcts/nodejs-logging';
 import axios, { AxiosResponse } from 'axios';
@@ -200,6 +201,22 @@ export class PreClient {
     });
     if (response.status.toString().substring(0, 1) !== '2') {
       throw new Error('Failed to accept terms and conditions');
+    }
+  }
+
+  public async getLiveEvents(xUserId: string): Promise<LiveEvent[]> {
+    try {
+      const response = await axios.get('/media-service/live-events', {
+        headers: {
+          'X-User-Id': xUserId,
+        },
+      });
+      console.log(response.data);
+      return response.data as LiveEvent[];
+    } catch (e) {
+      console.error('Error fetching live events:', e);
+
+      throw new Error(`Failed to fetch live events: ${e.message || e}`);
     }
   }
 }
