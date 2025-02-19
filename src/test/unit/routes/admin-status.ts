@@ -122,6 +122,6 @@ describe('Admin Status route', () => {
 
     const response = await request(app).get('/admin/status');
     expect(response.status).toEqual(404);
-    expect(response.text).toContain('Page Not Found');
+    expect(response.text).toContain('Page is not available');
   });
 });

@@ -68,6 +68,6 @@ describe('MK Live Events route', () => {
 
     const response = await request(app).get('/admin/MK-live-events');
     expect(response.status).toEqual(404);
-    expect(response.text).toContain('Page Not Found');
+    expect(response.text).toContain('Page is not available');
   });
 });
