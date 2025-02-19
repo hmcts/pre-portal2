@@ -25,19 +25,14 @@ jest.mock('../../../main/services/session-user/session-user', () => {
 describe('Admin Page Access', () => {
   beforeAll(() => {
     jest.resetAllMocks();
+  });
+
+  test('should display admin page for super user', async () => {
     const app = require('express')();
     new Nunjucks(false).enableFor(app);
     const request = require('supertest');
     const adminRoute = require('../../../main/routes/admin/admin').default;
     adminRoute(app);
-  });
-
-  test('should display admin page for super user', async () => {
-    //     const app = require('express')();
-    //     new Nunjucks(false).enableFor(app);
-    //     const request = require('supertest');
-    //     const adminRoute = require('../../../main/routes/admin/admin').default;
-    //     adminRoute(app);
 
     if (mockeduser.app_access?.[0]?.role) {
       mockeduser.app_access[0].role.name = UserLevel.SUPER_USER;
@@ -52,11 +47,11 @@ describe('Admin Page Access', () => {
 
 
   test('should display "Page Not Found" for non-super user', async () => {
-    //     const app = require('express')();
-    //     new Nunjucks(false).enableFor(app);
-    //     const request = require('supertest');
-    //     const adminRoute = require('../../../main/routes/admin/admin').default;
-    //     adminRoute(app);
+    const app = require('express')();
+    new Nunjucks(false).enableFor(app);
+    const request = require('supertest');
+    const adminRoute = require('../../../main/routes/admin/admin').default;
+    adminRoute(app);
 
     if (mockeduser.app_access?.[0]?.role) {
       mockeduser.app_access[0].role.name = UserLevel.ADMIN;
