@@ -45,7 +45,6 @@ describe('Admin Page Access', () => {
     expect(response.text).toContain('Audit');
   });
 
-
   test('should display "Page Not Found" for non-super user', async () => {
     const app = require('express')();
     new Nunjucks(false).enableFor(app);
