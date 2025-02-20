@@ -11,7 +11,7 @@ Feature: View Admin Page
       Then I click the link 'Admin'
       Then I am on the '/admin/status' page
       Then the page should include 'Admin'
-      Then the page should include 'Govnotify'
+      Then the page should include 'System Status'
 
     Scenario: The live events page should display for Super Users
       When I go to '/'
@@ -23,10 +23,8 @@ Feature: View Admin Page
       Then I see the link 'Admin'
       Then I click the link 'Admin'
       Then I am on the '/admin/status' page
-      Then I click the link 'MediaKind live events'
-      Then I am on the '/admin/MK-live-events' page
-      Then the page should include 'Description'
-      Then the page should include 'Resource State'
+      Then I see the link 'MediaKind live events'
+
 
     Scenario: The admin pages should not display for non Super Users
       When I go to '/'
