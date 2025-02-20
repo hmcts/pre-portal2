@@ -24,7 +24,9 @@ Feature: View Admin Page
       Then I click the link 'Admin'
       Then I am on the '/admin/status' page
       Then I see the link 'MediaKind live events'
-
+      Then I click the link 'MediaKind live events'
+      Then I am on the '/admin/MK-live-events' page
+      Then the page should include 'MediaKind Live Events'
 
     Scenario: The admin pages should not display for non Super Users
       When I go to '/'
