@@ -102,11 +102,6 @@ export const mockRoles: Role[] = [
     name: 'Level 4',
     permissions: [],
   } as Role,
-  {
-    id: '12345678-1234-1234-1234-1234567890ad',
-    name: 'Level 3',
-    permissions: [],
-  } as Role,
 ];
 
 export const mockCourts: Court[] = [

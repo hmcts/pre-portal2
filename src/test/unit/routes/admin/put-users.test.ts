@@ -6,10 +6,6 @@ import { mockeduser } from '../../test-helper';
 import { mockGetCourts, mockGetRoles, mockGetUser, mockPutUser, mockUsers, reset } from '../../../mock-api';
 import { Nunjucks } from '../../../../main/modules/nunjucks';
 import { UserLevel } from '../../../../main/types/user-level';
-import { set } from 'lodash';
-import config from 'config';
-
-set(config, 'pre.enableAdminApp', 'true');
 
 const validRequest = {
   id: '12345678-1234-1234-1234-1234567890ab',
@@ -204,14 +200,14 @@ describe('Admin Add New User Page', () => {
     expect(response.text).toContain('Add new user');
   });
 
-  test('should display "Page Not Found" for non-super user', async () => {
+  test('should display "Page is not available" for non-super user', async () => {
     if (mockeduser.app_access?.[0]?.role) {
       mockeduser.app_access[0].role.name = UserLevel.ADMIN;
     }
 
     const response = await request(app).get('/admin/users/new/edit');
     expect(response.status).toEqual(404);
-    expect(response.text).toContain('Page Not Found');
+    expect(response.text).toContain('Page is not available');
   });
 });
 
@@ -244,7 +240,7 @@ describe('Admin Update User Page', () => {
     expect(response.text).toContain('Update user');
   });
 
-  test('should display "Page Not Found" for non-super user', async () => {
+  test('should display "Page is not available" for non-super user', async () => {
     if (mockeduser.app_access?.[0]?.role) {
       mockeduser.app_access[0].role.name = UserLevel.ADMIN;
     }
@@ -253,7 +249,7 @@ describe('Admin Update User Page', () => {
 
     const response = await request(app).get(`/admin/users/${user.id}/edit`);
     expect(response.status).toEqual(404);
-    expect(response.text).toContain('Page Not Found');
+    expect(response.text).toContain('Page is not available');
   });
 });
 
@@ -306,7 +302,7 @@ describe('Submit Add/Update user request', () => {
     expect(response.headers.location).toContain('/admin/users/');
   });
 
-  test('should display "Page Not Found" for non-super user', async () => {
+  test('should display "Page is not available" for non-super user', async () => {
     if (mockeduser.app_access?.[0]?.role) {
       mockeduser.app_access[0].role.name = UserLevel.ADMIN;
     }
@@ -316,6 +312,6 @@ describe('Submit Add/Update user request', () => {
       .set('Content-Type', 'application/json')
       .send(JSON.stringify(validRequest));
     expect(response.status).toEqual(404);
-    expect(response.text).toContain('Page Not Found');
+    expect(response.text).toContain('Page is not available');
   });
 });

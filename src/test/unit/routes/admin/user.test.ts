@@ -3,10 +3,6 @@ import { beforeAll, describe, test, jest } from '@jest/globals';
 import { mockeduser } from '../../test-helper';
 import { UserLevel } from '../../../../main/types/user-level';
 import { mockGetUser, mockUsers, reset } from '../../../mock-api';
-import config from 'config';
-import { set } from 'lodash';
-
-set(config, 'pre.enableAdminApp', 'true');
 
 jest.mock('express-openid-connect', () => {
   return {

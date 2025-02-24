@@ -3,8 +3,6 @@ import {
   convertAppAccessResponseToRequest,
   convertUserResponseToUserRequest,
   getAllPaginatedCourts,
-  isFlagEnabled,
-  isSuperUser,
   validateId,
 } from '../../helpers/helpers';
 import { PreClient } from '../../services/pre-api/pre-client';
@@ -14,6 +12,7 @@ import { PutAppAccessRequest, PutPortalAccessRequest, PutUserRequest } from '../
 import { AccessStatus } from '../../types/access-status';
 import { v4 as uuid } from 'uuid';
 import { Role } from '../../types/user-profile';
+import { RequiresSuperUser } from '../../middleware/admin-middleware';
 
 const REGEX_EMAIL =
   /^[a-zA-Z0-9._%+-]+@(justice\.gov\.uk|hmcts\.net|ejudiciary\.net|cps\.gov\.uk|[a-zA-Z0-9._%+-]+\.cjsm\.net)$/g;
@@ -90,17 +89,7 @@ export const validateRequest = (request: PutUserRequest, roles: Role[]): Record<
 };
 
 export default (app: Application): void => {
-  if (!isFlagEnabled('pre.enableAdminApp')) {
-    return;
-  }
-
-  app.get('/admin/users/new/edit', requiresAuth(), async (req, res) => {
-    if (!isSuperUser(req)) {
-      res.status(404);
-      res.render('not-found');
-      return;
-    }
-
+  app.get('/admin/users/new/edit', requiresAuth(), RequiresSuperUser, async (req, res) => {
     const client = new PreClient();
     let userPortalId: string;
     try {
@@ -112,6 +101,8 @@ export default (app: Application): void => {
     }
 
     res.render('admin/put-users', {
+      pageUrl: req.url,
+      isSuperUser: true,
       isUpdate: false,
       postUrl: '/admin/users/submit',
       hasAppAccess: false,
@@ -121,8 +112,8 @@ export default (app: Application): void => {
     });
   });
 
-  app.get('/admin/users/:id/edit', requiresAuth(), async (req, res) => {
-    if (!validateId(req.params.id) || !isSuperUser(req)) {
+  app.get('/admin/users/:id/edit', requiresAuth(), RequiresSuperUser, async (req, res) => {
+    if (!validateId(req.params.id)) {
       res.status(404);
       res.render('not-found');
       return;
@@ -141,6 +132,8 @@ export default (app: Application): void => {
     res.render('admin/put-users', {
       user,
       isUpdate: true,
+      pageUrl: req.url,
+      isSuperUser: true,
       postUrl: '/admin/users/submit',
       hasAppAccess: user.app_access.length > 0,
       hasPortalAccess: user.portal_access.length > 0,
@@ -149,8 +142,8 @@ export default (app: Application): void => {
     });
   });
 
-  app.post('/admin/users/submit', requiresAuth(), async (req, res) => {
-    if (!(validateId(req.body.id) || req.body.id === '') || !isSuperUser(req)) {
+  app.post('/admin/users/submit', requiresAuth(), RequiresSuperUser, async (req, res) => {
+    if (!(validateId(req.body.id) || req.body.id === '')) {
       res.status(404);
       res.render('not-found');
       return;

@@ -1,6 +1,6 @@
 {% from "govuk/components/pagination/macro.njk" import govukPagination %}
 
-{% extends "template.njk" %}
+{% extends "admin/admin.njk" %}
 
 {% block pageTitle %}
   {% if isUpdate %}
@@ -10,15 +10,7 @@
   {% endif %}
 {% endblock %}
 
-{% block beforeContent %}
-  {{
-  govukBackLink({
-    "href": "javascript:history.back()"
-  })
-  }}
-{% endblock %}
-
-{% block content %}
+{% block mainContent %}
   <script type="text/javascript" crossorigin="anonymous">
     const onAppAccessChange = () => {
       const formData = new FormData(document.getElementById('form'));
@@ -241,11 +233,13 @@
 
   <div id="error-summary"></div>
 
-  {% if isUpdate %}
-    <h1 class="govuk-heading-xl">Update user</h1>
-  {% else %}
-    <h1 class="govuk-heading-xl">Add new user</h1>
-  {% endif %}
+  <div class="gem-c-title govuk-!-margin-top-0 govuk-!-margin-bottom-8">
+    {% if isUpdate %}
+      <h1 class="govuk-heading-xl">Update user</h1>
+    {% else %}
+      <h1 class="govuk-heading-xl">Add new user</h1>
+    {% endif %}
+  </div>
 
   <form id="form" onsubmit="onSubmit(event)">
     <div
@@ -385,10 +379,9 @@
               <td class="govuk-table__cell">
                 <label for="court_id_{{ appAccess.id }}" hidden></label>
                 <select
-                        class="govuk-select"
+                        class="govuk-select app-access-selector"
                         id="court_id_{{ appAccess.id }}"
-                        name="court_id_{{ appAccess.id }}"
-                        style="width: 100%;">
+                        name="court_id_{{ appAccess.id }}">
                   <option
                           {% if appAccess.court.id == "" or appAccess.court.id is none %}selected{% endif %}
                           value="">Select a Court</option>
@@ -402,10 +395,9 @@
               <td class="govuk-table__cell">
                 <label for="role_id_{{ appAccess.id }}" hidden></label>
                 <select
-                        class="govuk-select"
+                        class="govuk-select app-access-selector"
                         id="role_id_{{ appAccess.id }}"
-                        name="role_id_{{ appAccess.id }}"
-                        style="width: 100%;">
+                        name="role_id_{{ appAccess.id }}">
                   <option
                           {% if appAccess.role.id == "" or appAccess.role.id is none %}selected{% endif %}
                           value="">Select a Level</option>
@@ -417,10 +409,9 @@
                 </select>
               <td class="govuk-table__cell">
                 <select
-                        class="govuk-select"
+                        class="govuk-select app-access-selector"
                         id="active_{{ appAccess.id }}"
-                        name="active_{{ appAccess.id }}"
-                        style="width: 100%;">
+                        name="active_{{ appAccess.id }}">
                   <option value="true" {% if appAccess.active %}selected{% endif %}>
                     Active
                   </option>
@@ -432,10 +423,9 @@
               <td class="govuk-table__cell">
                 <label for="default_court_{{ appAccess.id }}" hidden></label>
                 <select
-                        class="govuk-select"
+                        class="govuk-select app-access-selector"
                         id="default_court_{{ appAccess.id }}"
-                        name="default_court_{{ appAccess.id }}"
-                        style="width: 100%;">
+                        name="default_court_{{ appAccess.id }}">
                   <option value="true" {% if appAccess.default_court %}selected{% endif %}>
                     Primary
                   </option>
