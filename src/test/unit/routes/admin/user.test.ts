@@ -166,13 +166,13 @@ describe('Admin View User Page Access', () => {
     expect(text).not.toContain('Portal access details');
   });
 
-  test('should display "Page Not Found" for non-super user', async () => {
+  test('should display "Page is not available" for non-super user', async () => {
     if (mockeduser.app_access?.[0]?.role) {
       mockeduser.app_access[0].role.name = UserLevel.ADMIN;
     }
 
     const response = await request(app).get('/admin/users/someid');
     expect(response.status).toEqual(404);
-    expect(response.text).toContain('Page Not Found');
+    expect(response.text).toContain('Page is not available');
   });
 });

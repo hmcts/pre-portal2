@@ -1,18 +1,14 @@
 {% from "govuk/components/pagination/macro.njk" import govukPagination %}
 
-{% extends "template.njk" %}
+{% extends "admin/admin.njk" %}
 
 {% block pageTitle %}User: {{ user.first_name }} {{ user.last_name }} - PRE Portal{% endblock %}
 
-{% block beforeContent %}
-  {{
-  govukBackLink({
-    "href": "javascript:history.back()"
-  })
-  }}
-{% endblock %}
+{% block mainContent %}
 
-{% block content %}
+<div class="system-container">
+  <div class="gem-c-title govuk-!-margin-top-0 govuk-!-margin-bottom-8">
+
   <h1 class="govuk-heading-xl">User: {{ user.first_name }} {{ user.last_name }}</h1>
   <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
     <h2 class="govuk-heading-m">User details</h2>
@@ -110,8 +106,18 @@
 
   {% if hasAppAccess %}
     <h2 class="govuk-heading-m">Application access details</h2>
-    <p class="govuk-body">This user has {% if not user.terms_accepted.APP %}<span class="govuk-!-font-weight-bold">not</span>{% endif %} accepted the terms and conditions for the app.</p>
-
+    <p class="govuk-body">Current Terms and Conditions:
+      {% if not user.terms_accepted.APP %}
+        <strong class="govuk-tag govuk-tag--grey">
+          Not Accepted
+        </strong>
+      {% endif %}
+      {% if user.terms_accepted.APP %}
+        <strong class="govuk-tag govuk-tag">
+          Accepted
+        </strong>
+      {% endif %}
+    </p>
     <table class="govuk-table">
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
@@ -163,7 +169,6 @@
 
   {% if hasPortalAccess %}
     <h2 class="govuk-heading-m">Portal access details</h2>
-    <p class="govuk-body">This user has {% if not user.terms_accepted.PORTAL %}<span class="govuk-!-font-weight-bold">not</span>{% endif %} accepted the terms and conditions for the portal.</p>
 
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
       <div class="govuk-summary-list__row">
@@ -191,6 +196,26 @@
           {% if user.portal_access[0].status === 'REGISTERED' %}
             <strong class="govuk-tag govuk-tag--yellow">
               Registered
+            </strong>
+          {% endif %}
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key" data-testid="summary-title-portal-terms-status">
+          Current Terms and Conditions
+        </dt>
+        <dd
+          class="govuk-summary-list__value"
+          data-testid="summary-value-portal-terms-status">
+          {% if not user.terms_accepted.PORTAL %}
+            <strong class="govuk-tag govuk-tag--grey">
+              Not Accepted
+            </strong>
+          {% endif %}
+          {% if user.terms_accepted.PORTAL %}
+            <strong class="govuk-tag govuk-tag">
+              Accepted
             </strong>
           {% endif %}
         </dd>
@@ -236,4 +261,6 @@
       </div>
     </dl>
   {% endif %}
+  </div>
+</div>
 {% endblock %}

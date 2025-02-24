@@ -20,6 +20,8 @@ export interface SearchRecordingsRequest extends PaginatedRequest {
 
 export interface SearchUsersRequest extends PaginatedRequest {
   name?: string;
+  firstName?: string;
+  lastName?: string;
   email?: string;
   organisation?: string;
   courtId?: string;

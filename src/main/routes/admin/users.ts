@@ -1,28 +1,13 @@
 import { Application } from 'express';
-import {
-  getAllPaginatedCourts,
-  getPaginatedPageTitle,
-  getPaginationLinks,
-  isFlagEnabled,
-  isSuperUser,
-} from '../../helpers/helpers';
+import { getAllPaginatedCourts, getPaginatedPageTitle, getPaginationLinks } from '../../helpers/helpers';
 import { PreClient } from '../../services/pre-api/pre-client';
 import { SessionUser } from '../../services/session-user/session-user';
 import { Pagination, SearchUsersRequest, User } from '../../services/pre-api/types';
 import { requiresAuth } from 'express-openid-connect';
+import { RequiresSuperUser } from '../../middleware/admin-middleware';
 
 export default (app: Application): void => {
-  if (!isFlagEnabled('pre.enableAdminApp')) {
-    return;
-  }
-
-  app.get('/admin/users', requiresAuth(), async (req, res) => {
-    if (!isSuperUser(req)) {
-      res.status(404);
-      res.render('not-found');
-      return;
-    }
-
+  app.get('/admin/users', requiresAuth(), RequiresSuperUser, async (req, res) => {
     const client = new PreClient();
     let userPortalId: string;
     try {
@@ -37,7 +22,8 @@ export default (app: Application): void => {
     const roles = await client.getRoles(userPortalId);
 
     const request: SearchUsersRequest = {
-      name: req.query.name as string,
+      firstName: req.query.firstName as string,
+      lastName: req.query.lastName as string,
       email: req.query.email as string,
       organisation: req.query.organisation as string,
       roleId: req.query.roleId as string,
@@ -56,9 +42,14 @@ export default (app: Application): void => {
       return;
     }
 
+    const filteredRole = req.query.roleId ? roles.filter(role => role.id === req.query.roleId)?.[0] : null;
+
     res.render('admin/users', {
+      isSuperUser: true,
+      pageUrl: req.url,
       roles,
       params: req.query,
+      isFilteredByPortalAccess: filteredRole?.name === 'Level 3',
       title: getPaginatedPageTitle('Users', users.users, users.pagination),
       paginationLinks: getPaginationLinks(users.pagination, '/admin/users', request),
       users: users.users.map(user => {
