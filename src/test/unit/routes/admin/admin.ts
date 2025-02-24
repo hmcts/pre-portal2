@@ -49,7 +49,7 @@ describe('Admin Page Access', () => {
     const app = require('express')();
     new Nunjucks(false).enableFor(app);
     const request = require('supertest');
-    const adminRoute = require('../../../main/routes/admin/admin').default;
+    const adminRoute = require('../../../../main/routes/admin/admin').default;
     adminRoute(app);
 
     if (mockeduser.app_access?.[0]?.role) {

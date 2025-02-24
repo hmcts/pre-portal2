@@ -20,6 +20,7 @@ export default (app: Application): void => {
     res.render('admin/user', {
       user,
       pageUrl: req.url,
+      isSuperUser: true,
       hasAppAccess: user.app_access.length > 0,
       hasPortalAccess: user.portal_access.length > 0,
     });

@@ -5,9 +5,9 @@
 {% block pageTitle %}{{ title }} - PRE Portal{% endblock %}
 
 {% block mainContent %}
-<div class="system-container">
   <div class="gem-c-title govuk-!-margin-top-0 govuk-!-margin-bottom-8">
-  <h1 class="govuk-heading-xl">Pre-Recorded Evidence: Users</h1>
+    <h1 class="govuk-heading-xl">Pre-Recorded Evidence: Users</h1>
+  </div>
 
   <div id="filters" class="filters-box">
     <h2 class="govuk-heading-l">Filters</h2>
@@ -123,15 +123,4 @@
       {{ govukPagination(paginationLinks) }}
     </div>
   {% endif %}
-  </div>
-</div>
-
-  <style>
-    .filters-box {
-      padding: 1.5rem 1.5rem 1.0rem 1.5rem;
-
-      border: 4px solid black;
-      margin-bottom: 1rem;
-    }
-  </style>
 {% endblock %}
