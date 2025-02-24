@@ -8,7 +8,6 @@ import { RequiresSuperUser } from '../../middleware/admin-middleware';
 
 export default (app: Application): void => {
   app.get('/admin/users', requiresAuth(), RequiresSuperUser, async (req, res) => {
-
     const client = new PreClient();
     let userPortalId: string;
     try {
