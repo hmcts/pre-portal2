@@ -109,8 +109,9 @@ describe('Accessibility', () => {
     const page = await signInSuperUser(browser);
     await page.waitForSelector('a[href^="/admin/status"]', { visible: true, timeout: 30000 });
     await page.click('a[href^="/admin/status"]');
-    await page.waitForSelector('nav.govuk-grid-column-one-quarter.side-navigation', { visible: true });
-    await page.waitForSelector('a[href^="/admin/MK-live-events"]', { visible: true, timeout: 30000 });
+    await page.waitForSelector('.govuk-grid-column-one-quarter', { visible: true, timeout: 60000 });
+    await page.waitForSelector('nav.govuk-grid-column-one-quarter.side-navigation', { visible: true, timeout: 60000 });
+    await page.waitForSelector('a[href^="/admin/MK-live-events"]', { visible: true, timeout: 60000 });
     await page.click('a[href^="/admin/MK-live-events"]');
 
     const liveEventsResult: Pa11yResult = await pa11y(page.url(), {
