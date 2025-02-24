@@ -1,18 +1,14 @@
 {% from "govuk/components/pagination/macro.njk" import govukPagination %}
 
-{% extends "template.njk" %}
+{% extends "admin/admin.njk" %}
 
 {% block pageTitle %}User: {{ user.first_name }} {{ user.last_name }} - PRE Portal{% endblock %}
 
-{% block beforeContent %}
-  {{
-  govukBackLink({
-    "href": "javascript:history.back()"
-  })
-  }}
-{% endblock %}
+{% block mainContent %}
 
-{% block content %}
+<div class="system-container">
+  <div class="gem-c-title govuk-!-margin-top-0 govuk-!-margin-bottom-8">
+
   <h1 class="govuk-heading-xl">User: {{ user.first_name }} {{ user.last_name }}</h1>
   <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
     <h2 class="govuk-heading-m">User details</h2>
@@ -265,4 +261,6 @@
       </div>
     </dl>
   {% endif %}
+  </div>
+</div>
 {% endblock %}

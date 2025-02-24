@@ -1,16 +1,11 @@
 import { Application } from 'express';
-import { isSuperUser } from '../../helpers/helpers';
 import { SessionUser } from '../../services/session-user/session-user';
 import { PreClient } from '../../services/pre-api/pre-client';
 import { requiresAuth } from 'express-openid-connect';
+import { RequiresSuperUser } from '../../middleware/admin-middleware';
 
 export default (app: Application): void => {
-  app.get('/admin/users/:id', requiresAuth(), async (req, res) => {
-    if (!isSuperUser(req)) {
-      res.status(404);
-      res.render('not-found');
-      return;
-    }
+  app.get('/admin/users/:id', requiresAuth(), RequiresSuperUser, async (req, res) => {
 
     const client = new PreClient();
     const userPortalId = await SessionUser.getLoggedInUserPortalId(req);
@@ -24,6 +19,7 @@ export default (app: Application): void => {
 
     res.render('admin/user', {
       user,
+      pageUrl: req.url,
       hasAppAccess: user.app_access.length > 0,
       hasPortalAccess: user.portal_access.length > 0,
     });
