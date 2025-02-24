@@ -12,7 +12,7 @@ cookieManager.on('UserPreferencesSaved', preferences => {
   dataLayer.push({ event: 'Cookie Preferences', cookiePreferences: preferences });
 
   if (dtrum !== undefined) {
-    if (preferences.apm === true) {
+    if (preferences.apm === 'on') {
       dtrum.enable();
       dtrum.enableSessionReplay();
     } else {
