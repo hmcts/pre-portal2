@@ -1,6 +1,15 @@
 import { describe, test } from '@jest/globals';
-import { generateSearchParamsForPage, getPaginatedPageTitle, getPaginationLinks } from '../../../main/helpers/helpers';
-import { PaginatedRequest } from '../../../main/services/pre-api/types';
+import {
+  convertAppAccessResponseToRequest,
+  convertUserResponseToUserRequest,
+  generateSearchParamsForPage,
+  getPaginatedPageTitle,
+  getPaginationLinks,
+  isFlagEnabled,
+} from '../../../main/helpers/helpers';
+import { PaginatedRequest, User } from '../../../main/services/pre-api/types';
+import { AppAccess, PortalAccess } from '../../../main/types/user-profile';
+import config from 'config';
 
 describe('generateSearchParamsForPage', () => {
   test('should generate query string with valid params and page', () => {
@@ -183,5 +192,115 @@ describe('getPaginationLinks', () => {
     expect(result.items).toEqual([{ href: '/users?query=test', number: 1, current: true }]);
     expect(result.previous).toEqual({});
     expect(result.next).toEqual({});
+  });
+});
+
+describe('convertAppAccessResponseToRequest', () => {
+  it('should correctly convert AppAccess to PutAppAccessRequest', () => {
+    const appAccess = {
+      id: 'appAccessId',
+      court: { id: 'courtId' },
+      role: { id: 'roleId' },
+      default_court: true,
+      active: true,
+      last_access: '2025-01-01T12:00:00Z',
+    } as AppAccess;
+
+    const userId = 'userId';
+    const result = convertAppAccessResponseToRequest(appAccess, userId);
+
+    expect(result).toEqual({
+      id: 'appAccessId',
+      user_id: 'userId',
+      court_id: 'courtId',
+      role_id: 'roleId',
+      default_court: true,
+      active: true,
+      last_access: '2025-01-01T12:00:00Z',
+    });
+  });
+});
+
+describe('convertUserResponseToUserRequest', () => {
+  it('should correctly convert User to PutUserRequest', () => {
+    const user = {
+      id: 'userId',
+      first_name: 'John',
+      last_name: 'Doe',
+      email: 'john.doe@example.com',
+      phone: '1234567890',
+      organisation: 'ExampleOrg',
+      app_access: [
+        {
+          id: 'appAccessId',
+          court: { id: 'courtId' },
+          role: { id: 'roleId' },
+          default_court: true,
+          active: true,
+          last_access: '2025-01-01T12:00:00Z',
+        } as AppAccess,
+      ],
+      portal_access: [
+        {
+          id: 'portalAccessId',
+          invited_at: '2025-01-01T10:00:00Z',
+          last_access: '2025-01-01T12:00:00Z',
+          registered_at: '2025-01-01T11:00:00Z',
+          status: 'ACTIVE',
+        } as PortalAccess,
+      ],
+    } as User;
+
+    const result = convertUserResponseToUserRequest(user);
+
+    expect(result).toEqual({
+      id: 'userId',
+      first_name: 'John',
+      last_name: 'Doe',
+      email: 'john.doe@example.com',
+      phone: '1234567890',
+      organisation: 'ExampleOrg',
+      app_access: [
+        {
+          id: 'appAccessId',
+          court_id: 'courtId',
+          role_id: 'roleId',
+          user_id: 'userId',
+          default_court: true,
+          active: true,
+          last_access: '2025-01-01T12:00:00Z',
+        },
+      ],
+      portal_access: [
+        {
+          id: 'portalAccessId',
+          user_id: 'userId',
+          invited_at: '2025-01-01T10:00:00Z',
+          last_access: '2025-01-01T12:00:00Z',
+          registered_at: '2025-01-01T11:00:00Z',
+          status: 'ACTIVE',
+        },
+      ],
+    });
+  });
+});
+
+describe('isFlagEnabled', () => {
+  it('should return true when the flag is enabled', () => {
+    jest.spyOn(config, 'get').mockReturnValue('true');
+
+    expect(isFlagEnabled('someFlag')).toBe(true);
+  });
+
+  it('should return false when the flag is not enabled', () => {
+    jest.spyOn(config, 'get').mockReturnValue('false');
+
+    expect(isFlagEnabled('someFlag')).toBe(false);
+  });
+
+  it('should return false when the flag is undefined', () => {
+    jest.spyOn(config, 'get').mockReturnValue(undefined);
+
+    expect(isFlagEnabled('someFlag')).toBe(false);
   });
 });

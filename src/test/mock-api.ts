@@ -3,6 +3,7 @@ import {
   PaginatedRequest,
   Pagination,
   PutAuditRequest,
+  PutUserRequest,
   Recording,
   RecordingPlaybackData,
   SearchRecordingsRequest,
@@ -78,17 +79,27 @@ export const mockRecordings: Recording[] = [
 export const mockRoles: Role[] = [
   {
     id: '12345678-1234-1234-1234-1234567890ab',
-    name: 'Example Role',
+    name: 'Super User',
     permissions: [],
   } as Role,
   {
     id: '12345678-1234-1234-1234-1234567890ac',
-    name: 'Example Role 2',
+    name: 'Level 1',
     permissions: [],
   } as Role,
   {
     id: '12345678-1234-1234-1234-1234567890ad',
+    name: 'Level 2',
+    permissions: [],
+  } as Role,
+  {
+    id: '12345678-1234-1234-1234-1234567890ae',
     name: 'Level 3',
+    permissions: [],
+  } as Role,
+  {
+    id: '12345678-1234-1234-1234-1234567890af',
+    name: 'Level 4',
     permissions: [],
   } as Role,
 ];
@@ -252,7 +263,7 @@ export function mockGetUsers(users?: User[], page: number = 0) {
   });
 }
 
-export function mockGetUser(user?: User, page: number = 0) {
+export function mockGetUser(user?: User | null) {
   if (user !== undefined) {
     jest.spyOn(PreClient.prototype, 'getUser').mockImplementation(async (xUserId: string, id: string) => {
       return Promise.resolve(user);
@@ -262,6 +273,14 @@ export function mockGetUser(user?: User, page: number = 0) {
 
   jest.spyOn(PreClient.prototype, 'getUser').mockImplementation(async (xUserId: string, id: string) => {
     return Promise.resolve(mockUsers[0]);
+  });
+}
+
+export function mockPutUser(isUpdated: boolean = false) {
+  jest.spyOn(PreClient.prototype, 'putUser').mockImplementation(async (xUserId: string, request: PutUserRequest) => {
+    return Promise.resolve({
+      status: isUpdated ? 204 : 201,
+    } as AxiosResponse);
   });
 }
 

@@ -360,7 +360,7 @@ describe('PreClient', () => {
   test('get roles', async () => {
     const roles = await preClient.getRoles(mockXUserId);
     expect(roles).toBeTruthy();
-    expect(roles.length).toBe(3);
+    expect(roles.length).toBe(5);
   });
   test('get roles no results', async () => {
     const roles = await preClient.getRoles(otherXUserId);

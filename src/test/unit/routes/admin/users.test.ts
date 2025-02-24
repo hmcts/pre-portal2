@@ -63,7 +63,7 @@ describe('Admin Search Users Page Access', () => {
     mockGetRoles();
     mockGetUsers();
 
-    const response = await request(app).get('/admin/users?roleId=12345678-1234-1234-1234-1234567890ad');
+    const response = await request(app).get('/admin/users?roleId=12345678-1234-1234-1234-1234567890ae');
 
     expect(response.status).toEqual(200);
     expect(response.text).toContain('Pre-Recorded Evidence: Users');
