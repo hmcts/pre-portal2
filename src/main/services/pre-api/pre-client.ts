@@ -5,6 +5,8 @@ import { UserProfile } from '../../types/user-profile';
 
 import {
   Audit,
+  Court,
+  PaginatedRequest,
   Pagination,
   PutAuditRequest,
   Recording,
@@ -146,6 +148,40 @@ export class PreClient {
         response.data['page']['totalElements'] === 0 ? [] : (response.data['_embedded']['auditDTOList'] as Audit[]);
 
       return { auditLogs, pagination };
+    } catch (e) {
+      // log the error
+      this.logger.info('path', e.response?.request.path);
+      this.logger.info('res headers', e.response?.headers);
+      this.logger.info('data', e.response?.data);
+      // rethrow the error for the UI
+      throw e;
+    }
+  }
+
+  public async getCourts(
+    xUserId: string,
+    request: PaginatedRequest
+  ): Promise<{ courts: Court[]; pagination: Pagination }> {
+    this.logger.debug('Getting courts with request: ' + JSON.stringify(request));
+
+    try {
+      const response = await axios.get('/courts', {
+        headers: {
+          'X-User-Id': xUserId,
+        },
+        params: request,
+      });
+
+      const pagination = {
+        currentPage: response.data['page']['number'],
+        totalPages: response.data['page']['totalPages'],
+        totalElements: response.data['page']['totalElements'],
+        size: response.data['page']['size'],
+      } as Pagination;
+      const courts =
+        response.data['page']['totalElements'] === 0 ? [] : (response.data['_embedded']['courtDTOList'] as Court[]);
+
+      return { courts, pagination };
     } catch (e) {
       // log the error
       this.logger.info('path', e.response?.request.path);

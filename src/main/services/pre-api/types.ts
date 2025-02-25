@@ -1,6 +1,16 @@
-export interface SearchAuditLogsRequest {
+export interface PaginatedRequest {
   page?: number;
   size?: number;
+}
+
+export interface SearchAuditLogsRequest extends PaginatedRequest {
+  after?: string;
+  before?: string;
+  functionalArea?: string;
+  source?: string;
+  userName?: string;
+  courtId?: string;
+  caseReference?: string;
 }
 
 export interface SearchRecordingsRequest {
@@ -92,7 +102,23 @@ export interface Audit {
   source: string;
   table_name?: string;
   table_record_id?: string;
-  created_by: string;
+  created_by?: {
+    id: string;
+    first_name?: string;
+    last_name?: string;
+    email?: string;
+    phone_number?: string;
+    organisation?: string;
+  };
   created_at: string;
   audit_details: { [key: string]: string };
+}
+
+export interface Court {
+  id: string;
+  name: string;
+  court_type: string;
+  location_code: string;
+  regions: { name: string }[];
+  rooms: { id: string; name: string }[];
 }
