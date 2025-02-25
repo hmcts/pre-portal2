@@ -109,7 +109,7 @@ describe('Accessibility', () => {
     const page = await signInSuperUser(browser);
     await page.waitForSelector('a[href^="/admin/status"]', { visible: true, timeout: 30000 });
     await page.click('a[href^="/admin/status"]');
-    await page.goto(config.TEST_URL + 'admin/MK-live-events');
+    await page.goto(config.TEST_URL + '/admin/MK-live-events');
     const liveEventsUrl = page.url();
     const liveEventsResult: Pa11yResult = await pa11y(liveEventsUrl, {
       browser: browser,
