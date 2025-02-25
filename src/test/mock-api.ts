@@ -1,5 +1,7 @@
 import {
   Audit,
+  Court,
+  PaginatedRequest,
   Pagination,
   PutAuditRequest,
   Recording,
@@ -11,6 +13,31 @@ import { PreClient } from '../main/services/pre-api/pre-client';
 import { AxiosResponse } from 'axios';
 import { Terms } from '../main/types/terms';
 
+export const mockCourts: Court[] = [
+  {
+    id: '12345678-1234-1234-1234-1234567890ab',
+    name: 'Example Court',
+    court_type: 'CROWN',
+    location_code: 'LOC',
+    regions: [
+      {
+        name: 'Region Name',
+      },
+    ],
+  } as Court,
+  {
+    id: '12345678-1234-1234-1234-1234567890ac',
+    name: 'Example Court 2',
+    court_type: 'CROWN',
+    location_code: 'LOC2',
+    regions: [
+      {
+        name: 'Region Name 2',
+      },
+    ],
+  } as Court,
+];
+
 export const mockAuditLogs: Audit[] = [
   {
     id: '12345678-1234-1234-1234-1234567890ab',
@@ -21,7 +48,12 @@ export const mockAuditLogs: Audit[] = [
     audit_details: {
       recordingId: '12345678-1234-1234-1234-1234567890ab',
     },
-    created_by: '12345678-1234-1234-1234-1234567890ab',
+    created_by: {
+      id: '12345678-1234-1234-1234-1234567890ab',
+      first_name: 'Example',
+      last_name: 'Example',
+      email: 'example@example.com',
+    },
     created_at: '2021-09-01T12:00:00Z',
   } as Audit,
   {
@@ -33,7 +65,12 @@ export const mockAuditLogs: Audit[] = [
     audit_details: {
       recordingId: '12345678-1234-1234-1234-1234567890ac',
     },
-    created_by: '12345678-1234-1234-1234-1234567890ab',
+    created_by: {
+      id: '12345678-1234-1234-1234-1234567890ab',
+      first_name: 'Example',
+      last_name: 'Example',
+      email: 'example@example.com',
+    },
     created_at: '2021-09-01T12:00:00Z',
   } as Audit,
 ];
@@ -122,6 +159,18 @@ export const mockedPaginatedRecordings = {
 export const mockedPaginatedAuditLogs = {
   _embedded: {
     auditDTOList: mockAuditLogs,
+  },
+  page: {
+    size: 20,
+    totalElements: 2,
+    totalPages: 1,
+    number: 0,
+  },
+};
+
+export const mockedPaginatedCourts = {
+  _embedded: {
+    courtDTOList: mockCourts,
   },
   page: {
     size: 20,
@@ -250,8 +299,32 @@ export function mockGetRecordingPlaybackData(data?: RecordingPlaybackData | null
     });
 }
 
+export function mockGetCourts(courts?: Court[], page: number = 0) {
+  if (courts !== undefined) {
+    const pagination = {
+      currentPage: page,
+      totalPages: Math.ceil(courts.length / 10),
+      totalElements: courts.length,
+      size: 10,
+    } as Pagination;
+    const courtSubset = courts.slice(page * 10, (page + 1) * 10);
+
+    jest
+      .spyOn(PreClient.prototype, 'getCourts')
+      .mockImplementation(async (xUserId: string, request: PaginatedRequest) => {
+        return Promise.resolve({ courts: courtSubset, pagination });
+      });
+    return;
+  }
+
+  jest.spyOn(PreClient.prototype, 'getCourts').mockImplementation(async (xUserId: string, req: PaginatedRequest) => {
+    return Promise.resolve({ courts: mockCourts, pagination: mockPagination });
+  });
+}
+
 export function reset() {
   jest.spyOn(PreClient.prototype, 'getRecording').mockRestore();
   jest.spyOn(PreClient.prototype, 'getRecordings').mockRestore();
   jest.spyOn(PreClient.prototype, 'getRecordingPlaybackDataMk').mockRestore();
+  jest.spyOn(PreClient.prototype, 'getCourts').mockRestore();
 }

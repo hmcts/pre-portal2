@@ -1,6 +1,6 @@
 /* eslint-disable jest/expect-expect */
 import { Nunjucks } from '../../../main/modules/nunjucks';
-import { mockGetAuditLogs, mockAuditLogs, reset } from '../../mock-api';
+import { mockGetAuditLogs, mockAuditLogs, reset, mockGetCourts } from '../../mock-api';
 import { beforeAll, describe } from '@jest/globals';
 
 import { PreClient } from '../../../main/services/pre-api/pre-client';
@@ -41,11 +41,12 @@ describe('Audit route', () => {
     new Nunjucks(false).enableFor(app);
     const request = require('supertest');
     mockGetAuditLogs([]);
+    mockGetCourts();
 
-    const audit = require('../../../main/routes/audit').default;
+    const audit = require('../../../main/routes/admin/audit').default;
     audit(app);
 
-    const response = await request(app).get('/audit');
+    const response = await request(app).get('/admin/audit');
     expect(response.status).toEqual(200);
     expect(response.text).toContain('Audit Logs');
     expect(response.text).toContain('<a href="/logout" class="govuk-back-link">Sign out</a>');
@@ -55,14 +56,14 @@ describe('Audit route', () => {
     const app = require('express')();
     new Nunjucks(false).enableFor(app);
     const request = require('supertest');
-    const audit = require('../../../main/routes/audit').default;
+    const audit = require('../../../main/routes/admin/audit').default;
     audit(app);
 
     if (mockeduser.app_access?.[0]?.role) {
       mockeduser.app_access[0].role.name = UserLevel.ADMIN;
     }
 
-    const response = await request(app).get('/audit');
+    const response = await request(app).get('/admin/audit');
     expect(response.status).toEqual(404);
     expect(response.text).toContain('Page is not available');
   });
@@ -80,10 +81,10 @@ describe('Audit route', () => {
     new Nunjucks(false).enableFor(app);
     const request = require('supertest');
 
-    const audit = require('../../../main/routes/audit').default;
+    const audit = require('../../../main/routes/admin/audit').default;
     audit(app);
 
-    const response = await request(app).get('/audit');
+    const response = await request(app).get('/admin/audit');
     expect(response.status).toEqual(404);
   });
 
@@ -94,11 +95,12 @@ describe('Audit route', () => {
     const auditLogs = Array(12).fill(mockAuditLogs[0]).flat();
 
     mockGetAuditLogs(auditLogs, 1);
+    mockGetCourts();
 
-    const audit = require('../../../main/routes/audit').default;
+    const audit = require('../../../main/routes/admin/audit').default;
     audit(app);
 
-    const response = await request(app).get('/audit?page=1');
+    const response = await request(app).get('/admin/audit?page=1');
     expect(response.status).toEqual(200);
     const text = response.text.replace(/\s+/g, ' ').trim();
     expect(text).toContain('<span class="govuk-pagination__link-title"> Previous');
@@ -111,11 +113,12 @@ describe('Audit route', () => {
     const auditLogs = Array(12).fill(mockAuditLogs[0]).flat();
 
     mockGetAuditLogs(auditLogs, 0);
+    mockGetCourts();
 
-    const audit = require('../../../main/routes/audit').default;
+    const audit = require('../../../main/routes/admin/audit').default;
     audit(app);
 
-    const response = await request(app).get('/audit?page=0');
+    const response = await request(app).get('/admin/audit?page=0');
     expect(response.status).toEqual(200);
     const text = response.text.replace(/\s+/g, ' ').trim();
     expect(text).toContain('<span class="govuk-pagination__link-title"> Next');
@@ -128,11 +131,12 @@ describe('Audit route', () => {
     const auditLogs = Array(50).fill(mockAuditLogs[0]).flat();
 
     mockGetAuditLogs(auditLogs, 4);
+    mockGetCourts();
 
-    const audit = require('../../../main/routes/audit').default;
+    const audit = require('../../../main/routes/admin/audit').default;
     audit(app);
 
-    const response = await request(app).get('/audit?page=4');
+    const response = await request(app).get('/admin/audit?page=4');
     expect(response.status).toEqual(200);
     const text = response.text.replace(/\s+/g, ' ').trim();
     expect(text).toContain('<li class="govuk-pagination__item govuk-pagination__item--ellipses"> &ctdot; </li>');
@@ -145,11 +149,12 @@ describe('Audit route', () => {
     const auditLogs = Array(50).fill(mockAuditLogs[0]).flat();
 
     mockGetAuditLogs(auditLogs, 0);
+    mockGetCourts();
 
-    const audit = require('../../../main/routes/audit').default;
+    const audit = require('../../../main/routes/admin/audit').default;
     audit(app);
 
-    const response = await request(app).get('/audit?page=0');
+    const response = await request(app).get('/admin/audit?page=0');
     expect(response.status).toEqual(200);
     const text = response.text.replace(/\s+/g, ' ').trim();
     expect(text).toContain('<li class="govuk-pagination__item govuk-pagination__item--ellipses"> &ctdot; </li>');
@@ -162,11 +167,12 @@ describe('Audit route', () => {
     const auditLogs = Array(90).fill(mockAuditLogs[0]).flat();
 
     mockGetAuditLogs(auditLogs, 4);
+    mockGetCourts();
 
-    const audit = require('../../../main/routes/audit').default;
+    const audit = require('../../../main/routes/admin/audit').default;
     audit(app);
 
-    const response = await request(app).get('/audit?page=4');
+    const response = await request(app).get('/admin/audit?page=4');
     const text = response.text.replace(/\s+/g, ' ').trim();
     expect(response.status).toEqual(200);
     expect(text).toContain('> 1 <');
@@ -186,11 +192,12 @@ describe('Audit route', () => {
     const auditLogs = Array(40).fill(mockAuditLogs[0]).flat();
 
     mockGetAuditLogs(auditLogs, 1);
+    mockGetCourts();
 
-    const audit = require('../../../main/routes/audit').default;
+    const audit = require('../../../main/routes/admin/audit').default;
     audit(app);
 
-    const response = await request(app).get('/audit?page=1');
+    const response = await request(app).get('/admin/audit?page=1');
     const text = response.text.replace(/\s+/g, ' ').trim();
     expect(response.status).toEqual(200);
     expect(text).toContain('> 1 <');
@@ -207,12 +214,38 @@ describe('Audit route', () => {
     const auditLogs = Array(100).fill(mockAuditLogs[0]).flat();
 
     mockGetAuditLogs(auditLogs, 4);
+    mockGetCourts();
 
-    const audit = require('../../../main/routes/audit').default;
+    const audit = require('../../../main/routes/admin/audit').default;
     audit(app);
 
-    const response = await request(app).get('/audit?page=4');
+    const response = await request(app).get('/admin/audit?page=4');
     expect(response.status).toEqual(200);
     expect(response.text).toContain('Audit Logs 41 to 50 of 100');
+  });
+
+  test('should contain current filters in the search form', async () => {
+    const app = require('express')();
+    new Nunjucks(false).enableFor(app);
+    const request = require('supertest');
+    const auditLogs = Array(100).fill(mockAuditLogs[0]).flat();
+
+    mockGetAuditLogs(auditLogs, 4);
+    mockGetCourts();
+
+    const audit = require('../../../main/routes/admin/audit').default;
+    audit(app);
+
+    const response = await request(app).get(
+      '/admin/audit?page=0&userName=test&caseReference=123&courtId=12345678-1234-1234-1234-1234567890ab&functionalArea=area&source=AUTO&after=2021-01-01T00%3A00&before=2021-01-02T00%3A00'
+    );
+    expect(response.status).toEqual(200);
+    expect(response.text).toContain('value="test"');
+    expect(response.text).toContain('value="123"');
+    expect(response.text).toContain('value="12345678-1234-1234-1234-1234567890ab"');
+    expect(response.text).toContain('value="area"');
+    expect(response.text).toContain('value="AUTO"');
+    expect(response.text).toContain('value="2021-01-01T00:00"');
+    expect(response.text).toContain('value="2021-01-02T00:00"');
   });
 });

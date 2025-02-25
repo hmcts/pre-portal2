@@ -5,16 +5,20 @@ import { UserProfile } from '../../types/user-profile';
 
 import {
   Audit,
+  Court,
+  PaginatedRequest,
   Pagination,
   PutAuditRequest,
   Recording,
   SearchAuditLogsRequest,
   SearchRecordingsRequest,
 } from './types';
+import { LiveEvent } from '../../types/live-event';
 
 import { Logger } from '@hmcts/nodejs-logging';
 import axios, { AxiosResponse } from 'axios';
 import config from 'config';
+import { HealthResponse } from '../../types/health';
 
 export class PreClient {
   logger = Logger.getLogger('pre-client');
@@ -103,8 +107,8 @@ export class PreClient {
     return { paginationLinks, title };
   }
 
-  public async healthCheck(): Promise<void> {
-    await axios.get('/health');
+  public healthCheck() {
+    return axios.get<HealthResponse>('/health');
   }
 
   public async putAudit(xUserId: string, request: PutAuditRequest): Promise<AxiosResponse> {
@@ -144,6 +148,40 @@ export class PreClient {
         response.data['page']['totalElements'] === 0 ? [] : (response.data['_embedded']['auditDTOList'] as Audit[]);
 
       return { auditLogs, pagination };
+    } catch (e) {
+      // log the error
+      this.logger.info('path', e.response?.request.path);
+      this.logger.info('res headers', e.response?.headers);
+      this.logger.info('data', e.response?.data);
+      // rethrow the error for the UI
+      throw e;
+    }
+  }
+
+  public async getCourts(
+    xUserId: string,
+    request: PaginatedRequest
+  ): Promise<{ courts: Court[]; pagination: Pagination }> {
+    this.logger.debug('Getting courts with request: ' + JSON.stringify(request));
+
+    try {
+      const response = await axios.get('/courts', {
+        headers: {
+          'X-User-Id': xUserId,
+        },
+        params: request,
+      });
+
+      const pagination = {
+        currentPage: response.data['page']['number'],
+        totalPages: response.data['page']['totalPages'],
+        totalElements: response.data['page']['totalElements'],
+        size: response.data['page']['size'],
+      } as Pagination;
+      const courts =
+        response.data['page']['totalElements'] === 0 ? [] : (response.data['_embedded']['courtDTOList'] as Court[]);
+
+      return { courts, pagination };
     } catch (e) {
       // log the error
       this.logger.info('path', e.response?.request.path);
@@ -324,6 +362,22 @@ export class PreClient {
     });
     if (response.status.toString().substring(0, 1) !== '2') {
       throw new Error('Failed to accept terms and conditions');
+    }
+  }
+
+  public async getLiveEvents(xUserId: string): Promise<LiveEvent[]> {
+    try {
+      const response = await axios.get('/media-service/live-events', {
+        headers: {
+          'X-User-Id': xUserId,
+        },
+      });
+      console.log(response.data);
+      return response.data as LiveEvent[];
+    } catch (e) {
+      console.error('Error fetching live events:', e);
+
+      throw new Error(`Failed to fetch live events: ${e.message || e}`);
     }
   }
 }
