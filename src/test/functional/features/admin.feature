@@ -9,6 +9,7 @@ Feature: View Admin Page
       Then the page should include 'Welcome back,'
       Then I see the link 'Admin'
       Then I click the link 'Admin'
+      Then the page URL should be '/admin/status'
       Then I am on the '/admin/status' page
       Then the page should include 'Admin'
       Then the page should include 'System Status'
