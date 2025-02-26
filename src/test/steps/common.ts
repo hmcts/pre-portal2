@@ -10,7 +10,7 @@ Given('I go to {string}', iAmOnPage);
 
 Then('the page URL should be {string}', (url: string) => {
   const expectedUrl = `${config.TEST_URL}${url}`;
-  I.retry({ retries: 3, maxTimeout: 5000 }).waitInUrl(url);
+  I.retry({ retries: 3, maxTimeout: 5000 }).waitInUrl(expectedUrl);
 });
 
 Then('the page should include {string}', (text: string) => {
