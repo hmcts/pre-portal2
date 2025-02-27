@@ -20,15 +20,15 @@
           {% endif %}">
           {% if service in ["cvp", "api"]  %}
           <h2 class="govuk-panel__title">
-            {{ service | upper }}
+            {{ service | string | upper }}
           </h2>
           {% else %}
           <h2 class="govuk-panel__title">
-              {{ service | capitalize }}
+              {{ service | string | capitalize }}
           </h2>
           {% endif %}
           <div class="govuk-panel__body">
-            {{ serviceStatus.status | capitalize }}
+            {{ serviceStatus.status | string | capitalize }}
           </div>
         </div>
       </div>
@@ -45,9 +45,9 @@
           <li class="govuk-tabs__list-item {% if loop.first %}govuk-tabs__list-item--selected{% endif %}" tabindex="0">
             <a class="govuk-tabs__tab" href="#{{ service }}">
                 {% if service in ["cvp", "api"] %}
-                  {{ service | upper }}
+                  {{ service | string | upper }}
                 {% else %}
-                  {{ service | capitalize }}
+                  {{ service |string | capitalize }}
                 {% endif %}
             </a>
           </li>
@@ -63,9 +63,9 @@
                 <div class="govuk-task-list__name-and-hint">
                   <span aria-describedby="{{service}}-{{component}}-status">
                     {% if component in ["db", "Preapi", "b2c"] %}
-                      {{ component | upper }}
+                      {{ component | string | upper }}
                     {% else %}
-                      {{ component | capitalize }}
+                      {{ component | string | capitalize }}
                     {% endif %}
 
                   </span>
@@ -76,7 +76,7 @@
                     {% elif componentStatus == 'Degraded' %}govuk-tag--orange
                     {% else %}govuk-tag--red
                     {% endif %}">
-                    {{ componentStatus | capitalize }}
+                    {{ componentStatus | string | capitalize }}
                   </strong>
                 </div>
               </li>
