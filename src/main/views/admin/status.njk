@@ -18,17 +18,11 @@
           {% elif serviceStatus.status == 'DEGRADED' %}##ed7031 !important;
           {% else %}#d4351c !important;
           {% endif %}">
-          {% if service in ["cvp", "api"]  %}
           <h2 class="govuk-panel__title">
-            {{ service | string | upper }}
+              {{ service | capitalize }}
           </h2>
-          {% else %}
-          <h2 class="govuk-panel__title">
-              {{ service | string | capitalize }}
-          </h2>
-          {% endif %}
           <div class="govuk-panel__body">
-            {{ serviceStatus.status | string | capitalize }}
+            {{ serviceStatus.status | capitalize }}
           </div>
         </div>
       </div>
@@ -44,11 +38,7 @@
         {% for service, serviceStatus in status %}
           <li class="govuk-tabs__list-item {% if loop.first %}govuk-tabs__list-item--selected{% endif %}" tabindex="0">
             <a class="govuk-tabs__tab" href="#{{ service }}">
-                {% if service in ["cvp", "api"] %}
-                  {{ service | string | upper }}
-                {% else %}
-                  {{ service |string | capitalize }}
-                {% endif %}
+                  {{ service | capitalize }}
             </a>
           </li>
         {% endfor %}
@@ -62,12 +52,7 @@
               <li class="govuk-task-list__item govuk-task-list__item--with-link" tabindex="0">
                 <div class="govuk-task-list__name-and-hint">
                   <span aria-describedby="{{service}}-{{component}}-status">
-                    {% if component in ["db", "Preapi", "b2c"] %}
-                      {{ component | string | upper }}
-                    {% else %}
-                      {{ component | string | capitalize }}
-                    {% endif %}
-
+                      {{ component | capitalize }}
                   </span>
                 </div>
                 <div class="govuk-task-list__status" id="{{service}}-{{component}}-status">
@@ -76,7 +61,7 @@
                     {% elif componentStatus == 'Degraded' %}govuk-tag--orange
                     {% else %}govuk-tag--red
                     {% endif %}">
-                    {{ componentStatus | string | capitalize }}
+                    {{ componentStatus | capitalize }}
                   </strong>
                 </div>
               </li>
