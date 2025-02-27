@@ -39,7 +39,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@hmcts/nodejs-logging", "npm:4.0.4"],\
             ["@hmcts/properties-volume", "npm:1.2.0"],\
             ["@jest/globals", "npm:29.7.0"],\
-            ["@mediakind/mkplayer", "npm:1.18.0"],\
+            ["@mediakind/mkplayer", "npm:1.19.0"],\
             ["@types/body-parser", "npm:1.19.5"],\
             ["@types/compression", "npm:1.7.5"],\
             ["@types/config", "npm:3.3.5"],\
@@ -4861,10 +4861,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@mediakind/mkplayer", [\
-        ["npm:1.18.0", {\
-          "packageLocation": "./.yarn/cache/@mediakind-mkplayer-npm-1.18.0-7235a9d5ee-713338f383.zip/node_modules/@mediakind/mkplayer/",\
+        ["npm:1.19.0", {\
+          "packageLocation": "./.yarn/cache/@mediakind-mkplayer-npm-1.19.0-dd1c9f9430-8af8896b4c.zip/node_modules/@mediakind/mkplayer/",\
           "packageDependencies": [\
-            ["@mediakind/mkplayer", "npm:1.18.0"],\
+            ["@mediakind/mkplayer", "npm:1.19.0"],\
             ["bitmovin-player", "npm:8.193.0"],\
             ["bitmovin-player-ui", "npm:3.74.0"]\
           ],\
@@ -19557,7 +19557,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@hmcts/nodejs-logging", "npm:4.0.4"],\
             ["@hmcts/properties-volume", "npm:1.2.0"],\
             ["@jest/globals", "npm:29.7.0"],\
-            ["@mediakind/mkplayer", "npm:1.18.0"],\
+            ["@mediakind/mkplayer", "npm:1.19.0"],\
             ["@types/body-parser", "npm:1.19.5"],\
             ["@types/compression", "npm:1.7.5"],\
             ["@types/config", "npm:3.3.5"],\
