@@ -2801,12 +2801,12 @@ __metadata:
   linkType: hard
 
 "@mediakind/mkplayer@npm:^1.10.1":
-  version: 1.18.0
-  resolution: "@mediakind/mkplayer@npm:1.18.0"
+  version: 1.19.0
+  resolution: "@mediakind/mkplayer@npm:1.19.0"
   dependencies:
     bitmovin-player: 8.193.0
     bitmovin-player-ui: ^3.52.0
-  checksum: 713338f383eda158ca55679a24bd0b355c866a8fafb207da6b3fabc7afd028c7a1a2b8a30b03e062fab58f88a4cb3f4f95f7c98474f742d4424a4e877f402962
+  checksum: 8af8896b4cd459202af778ce62f6e9b949d9d3f56bb3c0aa9e139868f86da50f966e0514d60623c63bd43ad8a42a0817ab41f2aab3a3d82d5b8cd3f9a5879619
   languageName: node
   linkType: hard
 
