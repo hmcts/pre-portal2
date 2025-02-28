@@ -36,7 +36,6 @@ describe('/admin/audit/:id route', () => {
   const audit = require('../../../main/routes/admin/audit').default;
   audit(app);
 
-
   beforeAll(() => {
     reset();
   });
@@ -51,7 +50,9 @@ describe('/admin/audit/:id route', () => {
     expect(response.text).toContain('<a href="/logout" class="govuk-back-link">Sign out</a>');
 
     expect(response.text).toMatch(/<dt\s+class=["']govuk-summary-list__key["']\s*>[\s\n]*Id[\s\n]*<\/dt>/);
-    expect(response.text).toMatch(/<dd\s+class=["']govuk-summary-list__value["']\s*>[\s\n]*12345678-1234-1234-1234-1234567890ab[\s\n]*<\/dd>/);
+    expect(response.text).toMatch(
+      /<dd\s+class=["']govuk-summary-list__value["']\s*>[\s\n]*12345678-1234-1234-1234-1234567890ab[\s\n]*<\/dd>/
+    );
 
     expect(response.text).toMatch(/<dt\s+class=["']govuk-summary-list__key["']\s*>[\s\n]*Source[\s\n]*<\/dt>/);
     expect(response.text).toMatch(/<dd\s+class=["']govuk-summary-list__value["']\s*>[\s\n]*PORTAL[\s\n]*<\/dd>/);
@@ -63,13 +64,17 @@ describe('/admin/audit/:id route', () => {
     expect(response.text).toMatch(/<dd\s+class=["']govuk-summary-list__value["']\s*>[\s\n]*Play[\s\n]*<\/dd>/);
 
     expect(response.text).toMatch(/<dt\s+class=["']govuk-summary-list__key["']\s*>[\s\n]*Created At[\s\n]*<\/dt>/);
-    expect(response.text).toMatch(/<dd\s+class=["']govuk-summary-list__value["']\s*>[\s\n]*2021-09-01T12:00:00Z[\s\n]*<\/dd>/);
+    expect(response.text).toMatch(
+      /<dd\s+class=["']govuk-summary-list__value["']\s*>[\s\n]*2021-09-01T12:00:00Z[\s\n]*<\/dd>/
+    );
 
     expect(response.text).toMatch(/<dt\s+class=["']govuk-summary-list__key["']\s*>[\s\n]*Created By[\s\n]*<\/dt>/);
     expect(response.text).toContain('Example Example (example@example.com)');
 
     expect(response.text).toMatch(/<dt\s+class=["']govuk-summary-list__key["']\s*>[\s\n]*recordingId[\s\n]*<\/dt>/);
-    expect(response.text).toMatch(/<dd\s+class=["']govuk-summary-list__value["']\s*>[\s\n]*12245678-1234-1234-1234-1234567890ab[\s\n]*<\/dd>/);
+    expect(response.text).toMatch(
+      /<dd\s+class=["']govuk-summary-list__value["']\s*>[\s\n]*12245678-1234-1234-1234-1234567890ab[\s\n]*<\/dd>/
+    );
   });
 
   test('should display "Page is not available" for non-super user', async () => {

@@ -11,9 +11,10 @@ export default function (app: Application): void {
 
     try {
       const audit = await client.getAudit(
-        SessionUser.getLoggedInUserProfile(req).app_access
-          .filter(role => role.role.name === UserLevel.SUPER_USER)?.[0].id,
-        req.params.id as string);
+        SessionUser.getLoggedInUserProfile(req).app_access.filter(role => role.role.name === UserLevel.SUPER_USER)?.[0]
+          .id,
+        req.params.id as string
+      );
 
       if (!audit) {
         res.status(404);

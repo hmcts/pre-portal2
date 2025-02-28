@@ -275,11 +275,9 @@ export const mockPutAudit = () => {
 
 export function mockGetLatestTermsAndConditions(data?: Terms) {
   if (data !== undefined) {
-    jest
-      .spyOn(PreClient.prototype, 'getLatestTermsAndConditions')
-      .mockImplementation(async () => {
-        return Promise.resolve(data);
-      });
+    jest.spyOn(PreClient.prototype, 'getLatestTermsAndConditions').mockImplementation(async () => {
+      return Promise.resolve(data);
+    });
   }
 }
 
