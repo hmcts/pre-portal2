@@ -10,7 +10,7 @@
       System Status
     </h1>
    </div>
-{% if status %}
+{% if status and status | length > 0 %}
   <div class="govuk-grid-row">
     {% for service, serviceStatus in status %}
       <div class="govuk-grid-column-one-half">
