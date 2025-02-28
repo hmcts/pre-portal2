@@ -9,7 +9,8 @@
     <h1 class="gem-c-title__text govuk-heading-xl">
       System Status
     </h1>
-
+   </div>
+{% if status %}
   <div class="govuk-grid-row">
     {% for service, serviceStatus in status %}
       <div class="govuk-grid-column-one-half">
@@ -70,7 +71,7 @@
         </div>
       {% endfor %}
     </div>
-  </div>
+    {% endif %}
   </div>
 {% endblock %}
 
