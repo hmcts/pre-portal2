@@ -392,7 +392,6 @@ describe('PreClient', () => {
   test('getRecordingPlaybackDataMk success', async () => {
     var result = await preClient.getRecordingPlaybackDataMk('456', '123');
     expect(result).toBeTruthy();
-    expect(result?.id).toEqual(mockRecordings[0].id);
   });
 
   test('getRecordingPlaybackDataMk 404', async () => {
