@@ -16,14 +16,22 @@
       <div class="govuk-grid-column-one-half">
         <div class="govuk-panel govuk-panel--confirmation" style="background:
           {% if serviceStatus.status == 'OPERATIONAL' %}#00703c !important;
-          {% elif serviceStatus.status == 'DEGRADED' %}##ed7031 !important;
+          {% elif serviceStatus.status == 'DEGRADED' %}#ed7031 !important;
           {% else %}#d4351c !important;
           {% endif %}">
           <h2 class="govuk-panel__title">
+            {% if service is string %}
               {{ service | capitalize }}
+            {% else %}
+              {{ service }}
+            {% endif %}
           </h2>
           <div class="govuk-panel__body">
-            {{ serviceStatus.status | capitalize }}
+            {% if serviceStatus.status is string %}
+              {{ serviceStatus.status | capitalize }}
+            {% else %}
+              {{ serviceStatus.status }}
+            {% endif %}
           </div>
         </div>
       </div>
@@ -39,7 +47,11 @@
         {% for service, serviceStatus in status %}
           <li class="govuk-tabs__list-item {% if loop.first %}govuk-tabs__list-item--selected{% endif %}" tabindex="0">
             <a class="govuk-tabs__tab" href="#{{ service }}">
-                  {{ service | capitalize }}
+              {% if service is string %}
+                {{ service | capitalize }}
+              {% else %}
+                {{ service }}
+              {% endif %}
             </a>
           </li>
         {% endfor %}
@@ -52,8 +64,12 @@
             {% for component, componentStatus in serviceStatus.components %}
               <li class="govuk-task-list__item govuk-task-list__item--with-link" tabindex="0">
                 <div class="govuk-task-list__name-and-hint">
-                  <span aria-describedby="{{service}}-{{component}}-status">
+                  <span aria-describedby="{{ service }}-{{ component }}-status">
+                    {% if component is string %}
                       {{ component | capitalize }}
+                    {% else %}
+                      {{ component }}
+                    {% endif %}
                   </span>
                 </div>
                 <div class="govuk-task-list__status" id="{{service}}-{{component}}-status">
@@ -62,7 +78,11 @@
                     {% elif componentStatus == 'Degraded' %}govuk-tag--orange
                     {% else %}govuk-tag--red
                     {% endif %}">
-                    {{ componentStatus | capitalize }}
+                      {% if componentStatus is string %}
+                        {{ componentStatus | capitalize }}
+                      {% else %}
+                        {{ componentStatus }}
+                      {% endif %}
                   </strong>
                 </div>
               </li>
